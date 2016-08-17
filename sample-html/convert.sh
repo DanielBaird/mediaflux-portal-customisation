@@ -1,4 +1,4 @@
-o 'compiling CSS'
+echo 'compiling CSS'
 
 pushd components > /dev/null
 lessc styles.less > styles.css
