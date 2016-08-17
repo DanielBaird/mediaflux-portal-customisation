@@ -1,12 +1,11 @@
 <head>
 <link rel="stylesheet" type="text/css" href="components/styles.css">
 </head>
-
 <body>
 <div class="mf-body-wrapper">
 @header.html
 @nav-bar.html
-@static-content.html
+@asset-list-content.html
 @footer.html
 </div>
 </body>

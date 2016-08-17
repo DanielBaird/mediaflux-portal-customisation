@@ -6,7 +6,7 @@
 <div class="mf-body-wrapper">
 @header.html
 @nav-bar.html
-@static-content.html
+@collection-list-content.html
 @footer.html
 </div>
 </body>
