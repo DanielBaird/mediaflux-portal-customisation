@@ -1,0 +1,8 @@
+<body>
+<div class="mf-body-wrapper">
+@header.html
+@nav-bar.html
+@static-page.html
+@footer.html
+</div>
+</body>

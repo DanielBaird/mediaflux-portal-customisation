@@ -1,3 +1,9 @@
+*.html.tmp
+to-do.txt
+*~
+
+# ------------- standard github stuff below -----------
+
 # Logs
 logs
 *.log
