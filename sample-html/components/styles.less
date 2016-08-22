@@ -1,6 +1,7 @@
 
 // ## Variables #################################################
 
+@column-max-width: 60rem;
 
 // ## Setting sane defaults #####################################
 
@@ -21,8 +22,6 @@ html {
 
 
 
-
-
 * {
 	margin: 0;
 	padding: 0;
@@ -39,7 +38,7 @@ body {
 
 html {
 	font-size: 1em;
-	font-size: ~"calc(12px + 0.3vw)";
+	font-size: ~"calc(16px + 0.25vw)";
 	will-change: font-size;
 	font-weight: inherit;
 }
@@ -67,7 +66,6 @@ html {
 .mf-header {
 	background-image: linear-gradient(to top, #000, #444);
 	color: #fff;
-	padding: 0 2vw;
 	white-space: nowrap;
 	text-align: center;
 }
@@ -80,8 +78,8 @@ html {
 	background: white;
 	display: inline-block;
 	vertical-align: middle;
-	height: 35px;
-	height: ~"calc(2vw + 20px)";
+	height: 50px;
+	height: ~"calc(50px + 1vw)";
 	max-width: 120px;
 	margin: 0 1vw;
 }
@@ -89,8 +87,8 @@ html {
 .mf-heading {
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 35px;
-	font-size: ~"calc(2vw + 20px)";
+	font-size: 50px;
+	font-size: ~"calc(50px + 1vw)";
 	line-height: 3;
 	font-weight: 200;
 }
@@ -101,7 +99,6 @@ html {
 	background-image: linear-gradient(to top, #ccc, #fff);
 }
 
-@column-max-width: 55rem;
 .mf-navbar-container {
 	max-width: @column-max-width;
 	margin: 0 auto;
@@ -180,8 +177,8 @@ html {
 		padding: 1em 0 0.5rem;
 	}
 
-	ul    { padding:  0.25em  0  0.25em  0;     }
-	ul ul { padding:  0       0  0       1.5em; }
+	ul { padding: 0.25em 0 0.25em 0; }
+	ul ul { padding: 0 0 0 1.5em; }
 	li {
 		padding: 0.1em 0;
 		list-style-position: inside;
@@ -191,22 +188,34 @@ html {
 	li li li { list-style-type: disc; }
 	li li li li { list-style-type: square; }
 
-	// perfect fifth http://type-scale.com/?scale=1.500&font-family=BlinkMacSystemFont
-	h1 { font-size: 5.06rem; font-weight: 100; }
-	h2 { font-size: 3.37rem; font-weight: 200; }
-	h3 { font-size: 2.25rem; font-weight: 400; }
-	h4 { font-size: 1.50rem; font-weight: 600; }
-	h5 { font-size: 1.00rem; font-weight: 800; }
-	h6 { font-size: 1.00rem; font-style: italic; }
+	// perfect fourth: http://type-scale.com/?scale=1.333&font-family=BlinkMacSystemFont
+	// h1 { font-size: 3.157rem; font-weight: 100; }
+	// h2 { font-size: 2.369rem; font-weight: 200; }
+	// h3 { font-size: 1.778rem; font-weight: 400; }
+	// h4 { font-size: 1.333rem; font-weight: 600; }
+	// h5 { font-size: 1.000rem; font-weight: 800; }
+	// h6 { font-size: 1.000rem; font-style: italic; }
 
-	// augmented fourth: http://type-scale.com/?scale=1.414&font-family=BlinkMacSystemFont
-	h1 { font-size: 4.00rem; font-weight: 100; }
-	h2 { font-size: 2.87rem; font-weight: 200; }
-	h3 { font-size: 2.00rem; font-weight: 400; }
-	h4 { font-size: 1.41rem; font-weight: 600; }
-	h5 { font-size: 1.00rem; font-weight: 800; }
-	h6 { font-size: 1.00rem; font-style: italic; }
-
-
+	// use calc to scale the headings proportionally larger if you're on a big screen
+	// Write this up later..
+	h1 { font-size: 3.157rem; font-size: ~"calc(3.157rem + 1.578vw)"; font-weight: 100; }
+	h2 { font-size: 2.369rem; font-size: ~"calc(2.369rem + 1.184vw)"; font-weight: 200; }
+	h3 { font-size: 1.778rem; font-size: ~"calc(1.778rem + 0.888vw)"; font-weight: 400; }
+	h4 { font-size: 1.333rem; font-size: ~"calc(1.333rem + 0.666vw)"; font-weight: 600; }
+	h5 { font-size: 1.000rem; font-size: ~"calc(1.000rem + 0.500vw)"; font-weight: 800; }
+	h6 { font-size: 1.000rem; font-size: ~"calc(1.000rem + 0.500vw)"; font-style: italic; }
 
 }
+
+
+//// collection page --------------------------------------------
+
+.mf-collection-bar {
+	border: 1px solid pink;
+	padding: 1em;
+}
+
+.mf-collection-sidebar {
+
+}
+

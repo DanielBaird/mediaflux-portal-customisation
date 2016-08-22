@@ -18,7 +18,7 @@ body {
 }
 html {
   font-size: 1em;
-  font-size: calc(12px + 0.3vw);
+  font-size: calc(16px + 0.25vw);
   will-change: font-size;
   font-weight: inherit;
 }
@@ -32,7 +32,6 @@ html {
 .mf-header {
   background-image: linear-gradient(to top, #000, #444);
   color: #fff;
-  padding: 0 2vw;
   white-space: nowrap;
   text-align: center;
 }
@@ -43,16 +42,16 @@ html {
   background: white;
   display: inline-block;
   vertical-align: middle;
-  height: 35px;
-  height: calc(2vw + 20px);
+  height: 50px;
+  height: calc(50px + 1vw);
   max-width: 120px;
   margin: 0 1vw;
 }
 .mf-heading {
   display: inline-block;
   vertical-align: middle;
-  font-size: 35px;
-  font-size: calc(2vw + 20px);
+  font-size: 50px;
+  font-size: calc(50px + 1vw);
   line-height: 3;
   font-weight: 200;
 }
@@ -60,7 +59,7 @@ html {
   background-image: linear-gradient(to top, #ccc, #fff);
 }
 .mf-navbar-container {
-  max-width: 55rem;
+  max-width: 60rem;
   margin: 0 auto;
 }
 .mf-nav-list {
@@ -87,7 +86,7 @@ html {
   text-decoration: none;
 }
 .mf-page {
-  max-width: 55rem;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 2rem 0 3rem;
 }
@@ -128,10 +127,10 @@ html {
   padding: 1em 0 0.5rem;
 }
 .mf-static-page-content ul {
-  padding: 0.25em  0  0.25em  0;
+  padding: 0.25em 0 0.25em 0;
 }
 .mf-static-page-content ul ul {
-  padding: 0       0  0       1.5em;
+  padding: 0 0 0 1.5em;
 }
 .mf-static-page-content li {
   padding: 0.1em 0;
@@ -150,50 +149,36 @@ html {
   list-style-type: square;
 }
 .mf-static-page-content h1 {
-  font-size: 5.06rem;
+  font-size: 3.157rem;
+  font-size: calc(3.157rem + 1.578vw);
   font-weight: 100;
 }
 .mf-static-page-content h2 {
-  font-size: 3.37rem;
+  font-size: 2.369rem;
+  font-size: calc(2.369rem + 1.184vw);
   font-weight: 200;
 }
 .mf-static-page-content h3 {
-  font-size: 2.25rem;
+  font-size: 1.778rem;
+  font-size: calc(1.778rem + 0.888vw);
   font-weight: 400;
 }
 .mf-static-page-content h4 {
-  font-size: 1.50rem;
+  font-size: 1.333rem;
+  font-size: calc(1.333rem + 0.666vw);
   font-weight: 600;
 }
 .mf-static-page-content h5 {
-  font-size: 1.00rem;
+  font-size: 1.000rem;
+  font-size: calc(1.000rem + 0.500vw);
   font-weight: 800;
 }
 .mf-static-page-content h6 {
-  font-size: 1.00rem;
+  font-size: 1.000rem;
+  font-size: calc(1.000rem + 0.500vw);
   font-style: italic;
 }
-.mf-static-page-content h1 {
-  font-size: 4.00rem;
-  font-weight: 100;
-}
-.mf-static-page-content h2 {
-  font-size: 2.87rem;
-  font-weight: 200;
-}
-.mf-static-page-content h3 {
-  font-size: 2.00rem;
-  font-weight: 400;
-}
-.mf-static-page-content h4 {
-  font-size: 1.41rem;
-  font-weight: 600;
-}
-.mf-static-page-content h5 {
-  font-size: 1.00rem;
-  font-weight: 800;
-}
-.mf-static-page-content h6 {
-  font-size: 1.00rem;
-  font-style: italic;
+.mf-collection-bar {
+  border: 1px solid pink;
+  padding: 1em;
 }
