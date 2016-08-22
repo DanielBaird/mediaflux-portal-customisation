@@ -30,35 +30,183 @@ html {
 
 body {
 	background: #fff;
+	color: #333;
 	margin: 0;
 	padding: 0;
 }
 
-.mf-body-wrapper {
+
+
+html {
+	font-size: 1em;
+	font-size: ~"calc(12px + 0.3vw)";
+	will-change: font-size;
+	font-weight: inherit;
+}
+* {
+	font-size: inherit;
+	font-weight: inherit;
 }
 
+
+
+html {
+	font-family: -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", "Roboto", "Fira Sans", 
+    "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+
+
+.mf-body-wrapper {
+	// nothing to do here
+}
+
+//// heading ----------------------------------------------------
+
 .mf-header {
-	position: relative;
-	background-image: linear-gradient(to top, green, #fff);
+	background-image: linear-gradient(to top, #000, #444);
+	color: #fff;
+	padding: 0 2vw;
+	white-space: nowrap;
+	text-align: center;
 }
 
 .mf-header-logo {
-	position: absolute;
-	top: 50%;
-	margin-top: -40px;
-	left: 20px;
-	float: left;
-	border: 1px solid pink;
-	height: 80px;
+	box-sizing: content-box;
+	padding: 15px;
+//	background-image: radial-gradient(closest-side, white, rgba(255,255,255, .05) 90%, rgba(255,255,255, 0));
+	border-radius: 2px;
+	background: white;
+	display: inline-block;
+	vertical-align: middle;
+	height: 35px;
+	height: ~"calc(2vw + 20px)";
 	max-width: 120px;
+	margin: 0 1vw;
 }
 
 .mf-heading {
-	margin: 0;
-	padding-left: 150px;
-	font-weight: normal ! important;
-	font-size: 30px;
-	line-height: 200px;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 35px;
+	font-size: ~"calc(2vw + 20px)";
+	line-height: 3;
+	font-weight: 200;
+}
+
+//// navbar -----------------------------------------------------
+
+.mf-navbar {
+	background-image: linear-gradient(to top, #ccc, #fff);
+}
+
+@column-max-width: 55rem;
+.mf-navbar-container {
+	max-width: @column-max-width;
+	margin: 0 auto;
+}
+.mf-nav-list {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #999;
+	border-width: 0 1px;
+}
+.mf-nav-list li {
+	display: block;
+	text-align: center;
+	flex-grow: 1;
+	line-height: 3;
+	transition: 0.5s;
+	&:hover {
+		background-image: linear-gradient(to top, #9cf, #cef);
+	}
+	&.mf-current-nav-item {
+		background: white;
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
 }
 
 
+//// page -------------------------------------------------------
+
+.mf-page {
+	max-width: @column-max-width;
+	margin: 0 auto;
+	padding: 2rem 0 3rem;
+}
+
+//// footer -----------------------------------------------------
+
+.mf-footer {
+	opacity: 0.5;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	line-height: 3;
+	white-space: nowrap;
+	transition: 0.5s;
+	&:hover {
+		opacity: 1;
+	}
+}
+
+//// static page items ------------------------------------------
+
+.mf-static-page-title {
+	font-size: 2rem;
+	padding: 1rem 0;
+}
+
+.mf-static-page-content {
+
+	code, pre {
+		background: #eee;
+	}
+	code {
+		padding: 0.1em 0.33em;
+		border-radius: 0.2em;
+	}
+
+	p {
+		line-height: 1.5;
+		padding: 0.5em 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		padding: 1em 0 0.5rem;
+	}
+
+	ul    { padding:  0.25em  0  0.25em  0;     }
+	ul ul { padding:  0       0  0       1.5em; }
+	li {
+		padding: 0.1em 0;
+		list-style-position: inside;
+	}
+	li { list-style-type: square; }
+	li li { list-style-type: circle; }
+	li li li { list-style-type: disc; }
+	li li li li { list-style-type: square; }
+
+	// perfect fifth http://type-scale.com/?scale=1.500&font-family=BlinkMacSystemFont
+	h1 { font-size: 5.06rem; font-weight: 100; }
+	h2 { font-size: 3.37rem; font-weight: 200; }
+	h3 { font-size: 2.25rem; font-weight: 400; }
+	h4 { font-size: 1.50rem; font-weight: 600; }
+	h5 { font-size: 1.00rem; font-weight: 800; }
+	h6 { font-size: 1.00rem; font-style: italic; }
+
+	// augmented fourth: http://type-scale.com/?scale=1.414&font-family=BlinkMacSystemFont
+	h1 { font-size: 4.00rem; font-weight: 100; }
+	h2 { font-size: 2.87rem; font-weight: 200; }
+	h3 { font-size: 2.00rem; font-weight: 400; }
+	h4 { font-size: 1.41rem; font-weight: 600; }
+	h5 { font-size: 1.00rem; font-weight: 800; }
+	h6 { font-size: 1.00rem; font-style: italic; }
+
+
+
+}

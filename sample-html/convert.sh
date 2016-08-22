@@ -1,6 +1,5 @@
-echo 'compiling CSS'
 
-cd /home/barry/Public/jcu/mediaflux-portal-customisation/sample-html
+echo 'compiling CSS'
 pushd components > /dev/null
 lessc styles.less > styles.css
 lessc styles-alt.less > styles-alt.css
@@ -15,12 +14,13 @@ for SOURCE in *.source; do
 	pushd components > /dev/null
 
 	for i in `seq 1 6`; do
-	echo "  - round $i"
-	for COMPONENT in *.{html,css}; do
-		echo '    - applying component: ' $COMPONENT
-		awk "/^@$COMPONENT/{system(\"cat $COMPONENT\");next}1" ../$SOURCE.html.tmp > tmp
-		mv tmp ../$SOURCE.html.tmp
-	done
+		printf "Round $i: applying components: "
+		for COMPONENT in *.{html,css}; do
+			printf "."
+			awk "/^@$COMPONENT/{system(\"cat $COMPONENT\");next}1" ../$SOURCE.html.tmp > tmp
+			mv tmp ../$SOURCE.html.tmp
+		done
+		echo " done."
 	done
 
 	popd > /dev/null
