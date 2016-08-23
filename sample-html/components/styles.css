@@ -10,6 +10,18 @@ html {
   margin: 0;
   padding: 0;
 }
+html {
+  font-weight: 400;
+  font-size: 16px;
+}
+* {
+  font-weight: inherit;
+  font-size: inherit;
+}
+sub,
+sup {
+  font-size: 0.8em;
+}
 body {
   background: #fff;
   color: #333;
@@ -21,6 +33,7 @@ html {
   font-size: calc(16px + 0.25vw);
   will-change: font-size;
   font-weight: inherit;
+  overflow-x: hidden;
 }
 * {
   font-size: inherit;
@@ -112,6 +125,10 @@ html {
 .mf-static-page-content code {
   padding: 0.1em 0.33em;
   border-radius: 0.2em;
+}
+.mf-static-page-content pre {
+  max-width: 100%;
+  overflow: auto;
 }
 .mf-static-page-content p {
   line-height: 1.5;

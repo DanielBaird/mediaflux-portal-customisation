@@ -46,7 +46,7 @@ html {
 
 html {
 	font-weight: 400;
-	font-size: 1em;
+	font-size: 16px;
 }
 * {
 	font-weight: inherit;
@@ -82,6 +82,7 @@ html {
 	font-size: ~"calc(16px + 0.25vw)";
 	will-change: font-size;
 	font-weight: inherit;
+	overflow-x: hidden;
 }
 * {
 	font-size: inherit;
@@ -206,6 +207,10 @@ html {
 	code {
 		padding: 0.1em 0.33em;
 		border-radius: 0.2em;
+	}
+	pre {
+		max-width: 100%;
+		overflow: auto;
 	}
 
 	p {
