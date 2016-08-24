@@ -1,0 +1,27 @@
+{
+  "name": "mediaflux-portal-config",
+  "version": "0.0.1",
+  "description": "MediaFlux portal styling tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "make-css": "node-sass styles/sass/styles.scss styles/css/styles.css",
+    "make-html": "cd sample-html && ./convert.sh; cd ..",
+    "build": "npm run make-css; npm run make-html",
+    "make": "npm run make-css; npm run make-html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielBaird/mediaflux-portal-customisation.git"
+  },
+  "author": "Daniel Baird",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielBaird/mediaflux-portal-customisation/issues"
+  },
+  "homepage": "https://github.com/DanielBaird/mediaflux-portal-customisation#readme",
+  "dependencies": {
+    "node-sass": "^3.8.0",
+    "normalize.css": "^4.2.0"
+  }
+}

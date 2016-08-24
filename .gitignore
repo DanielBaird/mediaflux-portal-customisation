@@ -1,5 +1,11 @@
+
+# html compilation uses tmp files
 *.html.tmp
+
+# in case you want to keep a local todo
 to-do.txt
+
+# gedit leaves backups that have a trailing tilde
 *~
 
 # ------------- standard github stuff below -----------
