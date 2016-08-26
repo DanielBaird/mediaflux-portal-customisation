@@ -1,0 +1,215 @@
+
+ # Styling a MediaFlux portal
+
+ ...
+
+ ## About this document #######################################
+
+ ...um
+
+
+ ## Variables #################################################
+
+ The maximum width of the main content column is defined here
+ as 60 root ems wide — roughly 80 to 100 letters.
+
+    $column-max-width: 60rem;
+
+ ## Setting sane defaults #####################################
+
+
+ Use `normalize.css` to provide a nice clean starting point.
+
+ In this case, to get Sass to correctly import the Normalize
+ css, `normalize.css` has been renamed to `normalize.scss`.
+
+    @import "normalize.scss";
+
+ Set the font to use the system default fonts where possible.
+ 
+ Give the HTML tag a font size that grows as the width of
+ the viewport grows. This helps the portal to fix nicely on 
+ phone screens.
+
+ Requires <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    html {
+    	font-size: 1em;
+    	font-size: calc(16px + 0.25vw);
+    	will-change: font-size;
+    	overflow-x: hidden;
+    	font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Roboto", "Fira Sans",
+        "Droid Sans", "Helvetica Neue", sans-serif;
+    }
+
+ 
+ Give the body tag a default background colour, and relieve 
+ harsh constrast with a non-black text color.
+
+    body {
+        color: #333;
+        background-color: white;
+    }
+
+    .mf-body-wrapper {
+    	// nothing to do here
+    }
+
+// heading ----------------------------------------------------
+
+    .mf-header {
+    	background-image: linear-gradient(to top, #000, #444);
+    	color: #fff;
+    	white-space: nowrap;
+    	text-align: center;
+    }
+
+    .mf-header-logo {
+    	box-sizing: content-box;
+    	padding: 15px;
+        /* background-image: radial-gradient(closest-side, white, rgba(255,255,255, .05) 90%, rgba(255,255,255, 0)); */
+    	border-radius: 2px;
+    	background: white;
+    	display: inline-block;
+    	vertical-align: middle;
+    	height: 50px;
+    	height: calc(50px + 1vw);
+    	max-width: 120px;
+    	margin: 0 1vw;
+    }
+
+    .mf-heading {
+    	display: inline-block;
+    	vertical-align: middle;
+    	font-size: 50px;
+    	font-size: calc(50px + 1vw);
+    	line-height: 3;
+    	font-weight: 200;
+    }
+
+
+// navbar -----------------------------------------------------
+
+    .mf-navbar {
+    	background-image: linear-gradient(to top, #ccc, #fff);
+    }
+
+    .mf-navbar-container {
+    	max-width: $column-max-width;
+    	margin: 0 auto;
+    }
+    .mf-nav-list {
+    	display: flex;
+    	flex-direction: row;
+    	border: 1px solid #999;
+    	border-width: 0 1px;
+    }
+    .mf-nav-list li {
+    	display: block;
+    	text-align: center;
+    	flex-grow: 1;
+    	line-height: 3;
+    	transition: 0.5s;
+    	&:hover {
+    		background-image: linear-gradient(to top, #9cf, #cef);
+    	}
+    	&.mf-current-nav-item {
+    		background: white;
+    	}
+    	a {
+    		display: block;
+    		text-decoration: none;
+    	}
+    }
+
+
+// page -------------------------------------------------------
+
+    .mf-page {
+    	max-width: $column-max-width;
+    	margin: 0 auto;
+    	padding: 2rem 0 3rem;
+    }
+
+// footer -----------------------------------------------------
+
+    .mf-footer {
+    	opacity: 0.5;
+    	text-align: center;
+    	border-top: 1px solid #ccc;
+    	line-height: 3;
+    	white-space: nowrap;
+    	transition: 0.5s;
+    	&:hover {
+    		opacity: 1;
+    	}
+    }
+
+// static page items ------------------------------------------
+
+    .mf-static-page-title {
+    	font-size: 2rem;
+    	padding: 1rem 0;
+    }
+
+    .mf-static-page-content {
+
+    	code, pre {
+    		background: #eee;
+    	}
+    	code {
+    		padding: 0.1em 0.33em;
+    		border-radius: 0.2em;
+    	}
+    	pre {
+    		max-width: 100%;
+    		overflow: auto;
+    	}
+
+    	p {
+    		line-height: 1.5;
+    		padding: 0.5em 0;
+    	}
+
+    	h1, h2, h3, h4, h5, h6 {
+    		line-height: 1.2;
+    		padding: 1em 0 0.5rem;
+    	}
+
+    	ul { padding: 0.25em 0 0.25em 0; }
+    	ul ul { padding: 0 0 0 1.5em; }
+    	li {
+    		padding: 0.1em 0;
+    		list-style-position: inside;
+    	}
+    	li { list-style-type: square; }
+    	li li { list-style-type: circle; }
+    	li li li { list-style-type: disc; }
+    	li li li li { list-style-type: square; }
+
+ perfect fourth: http://type-scale.com/?scale=1.333&font-family=BlinkMacSystemFont
+
+ Use calc to scale the headings proportionally larger if you're on a big screen
+ Write this up later..
+
+    	h1 { font-size: 3.157rem; font-size: calc(3.157rem + 1.578vw); font-weight: 100; }
+    	h2 { font-size: 2.369rem; font-size: calc(2.369rem + 1.184vw); font-weight: 200; }
+    	h3 { font-size: 1.778rem; font-size: calc(1.778rem + 0.888vw); font-weight: 400; }
+    	h4 { font-size: 1.333rem; font-size: calc(1.333rem + 0.666vw); font-weight: 600; }
+    	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-weight: 800; }
+    	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-style: italic; }
+
+    }
+
+
+// collection page --------------------------------------------
+
+    .mf-collection-bar {
+    	border: 1px solid pink;
+    	padding: 1em;
+    }
+
+    .mf-collection-sidebar {
+
+    }

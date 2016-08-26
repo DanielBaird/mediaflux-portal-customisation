@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo 
-echo "Turn the Less source into CSS and HTML documentation."
+echo "Turn the Sass source into CSS and HTML documentation."
 echo
 echo "Needs a Markdown compiler; assumes commonmark, but edit"
 echo "this script to set an alternative."

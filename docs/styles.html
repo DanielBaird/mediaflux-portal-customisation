@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.4.1/themes/prism.css">
+<style>
+  html {
+    font-family: lato, sans-serif;
+    font-size: 14pt;
+    line-height: 1.5;
+    background: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0 1rem 5rem;
+  }
+
+  h1 {
+    color: #f3f9ff;
+    color; white;
+    background: #357;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+    padding: 1em 0;
+    box-shadow: -49.9rem 0 #357, 49.9rem 0 #357;
+  }
+
+h1, h2 {
+  font-weight: 100;
+  letter-spacing: -0.025em;
+}
+
+  h2, h3, h4, h5, h6 {
+    color: #357;
+    margin: 0 0 0 -0.1em;
+    padding: 1em 0 0.5rem;
+  }
+  h1 { font-size: 2.827rem; opacity: 1.00 }
+  /* not using 3.998rem */
+  h2 { font-size: 3.998rem; opacity: 0.85 }
+  h3 { font-size: 1.999rem; opacity: 0.90 }
+  h4 { font-size: 1.414rem; opacity: 0.95 }
+  h5 { font-size: 1.000rem; opacity: 1.00 }
+  h6 { font-size: 0.707rem; opacity: 1.00 }
+
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+    border-bottom: 2px dotted;
+    text-decoration: inherit;
+  }
+  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    border-bottom: 2px solid;
+  }
+
+  p {
+    margin: 0;
+    padding: 0.33em 0;
+  }
+
+  code {
+    font-size: smaller;
+  }
+
+  p > code {
+    background: #f3f9ff;
+    padding: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  pre {
+    padding: 0.5em;
+    background: #f3f9ff;
+    border-left: 1px solid #eef0ff;
+    box-shadow: -50rem 0 #f3f9ff, 50rem 0 #f3f9ff;
+  }
+
+  pre.small { font-size: 75%; color: rgba(0,0,0, 0.8) }
+
+  /* override some Prism sourcecode highlight styles */
+  pre[class*="language-"] {
+    line-height: 1.2;
+    overflow: visible;
+    background: #f3f9ff;
+  }
+  :not(pre) > code[class*="language-"] {
+    background: #f3f9ff;
+    padding: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  code[class*="language-"] {
+    line-height: 1.2;
+  }
+
+  pre p {
+    padding: 0;
+  }
+
+
+  /* ToC management */
+  #tocHeading { cursor: pointer; }
+  #tocContent { overflow: hidden; font-size: smaller; }
+  .open   #tocHeading:after { content: ' \25be' }
+  .closed #tocHeading:after { content: ' \25b8' }
+  .open   #tocContent { height: auto; }
+  .closed #tocContent { height: 0; }
+
+</style>
+</head>
+<body><div class="wrapper language-scss"><h1>Styling a MediaFlux portal</h1>
+<p>...</p>
+<h2>About this document</h2>
+<p>...um</p>
+<h2>Variables</h2>
+<p>The maximum width of the main content column is defined here
+as 60 root ems wide — roughly 80 to 100 letters.</p>
+<pre><code>$column-max-width: 60rem;
+</code></pre>
+<h2>Setting sane defaults</h2>
+<p>Use <code>normalize.css</code> to provide a nice clean starting point.</p>
+<p>In this case, to get Sass to correctly import the Normalize
+css, <code>normalize.css</code> has been renamed to <code>normalize.scss</code>.</p>
+<pre><code>@import &quot;normalize.scss&quot;;
+</code></pre>
+<p>Set the font to use the system default fonts where possible.</p>
+<p>Give the HTML tag a font size that grows as the width of
+the viewport grows. This helps the portal to fix nicely on
+phone screens.</p>
+<p>Requires <meta name="viewport" content="width=device-width, initial-scale=1"></p>
+<pre><code>html {
+	font-size: 1em;
+	font-size: calc(16px + 0.25vw);
+	will-change: font-size;
+	overflow-x: hidden;
+	font-family: -apple-system, BlinkMacSystemFont,
+    &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Fira Sans&quot;,
+    &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;
+}
+</code></pre>
+<p>Give the body tag a default background colour, and relieve
+harsh constrast with a non-black text color.</p>
+<pre><code>body {
+    color: #333;
+    background-color: white;
+}
+
+.mf-body-wrapper {
+	// nothing to do here
+}
+</code></pre>
+<p>// heading ----------------------------------------------------</p>
+<pre><code>.mf-header {
+	background-image: linear-gradient(to top, #000, #444);
+	color: #fff;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.mf-header-logo {
+	box-sizing: content-box;
+	padding: 15px;
+    /* background-image: radial-gradient(closest-side, white, rgba(255,255,255, .05) 90%, rgba(255,255,255, 0)); */
+	border-radius: 2px;
+	background: white;
+	display: inline-block;
+	vertical-align: middle;
+	height: 50px;
+	height: calc(50px + 1vw);
+	max-width: 120px;
+	margin: 0 1vw;
+}
+
+.mf-heading {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 50px;
+	font-size: calc(50px + 1vw);
+	line-height: 3;
+	font-weight: 200;
+}
+</code></pre>
+<p>// navbar -----------------------------------------------------</p>
+<pre><code>.mf-navbar {
+	background-image: linear-gradient(to top, #ccc, #fff);
+}
+
+.mf-navbar-container {
+	max-width: $column-max-width;
+	margin: 0 auto;
+}
+.mf-nav-list {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #999;
+	border-width: 0 1px;
+}
+.mf-nav-list li {
+	display: block;
+	text-align: center;
+	flex-grow: 1;
+	line-height: 3;
+	transition: 0.5s;
+	&amp;:hover {
+		background-image: linear-gradient(to top, #9cf, #cef);
+	}
+	&amp;.mf-current-nav-item {
+		background: white;
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
+}
+</code></pre>
+<p>// page -------------------------------------------------------</p>
+<pre><code>.mf-page {
+	max-width: $column-max-width;
+	margin: 0 auto;
+	padding: 2rem 0 3rem;
+}
+</code></pre>
+<p>// footer -----------------------------------------------------</p>
+<pre><code>.mf-footer {
+	opacity: 0.5;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	line-height: 3;
+	white-space: nowrap;
+	transition: 0.5s;
+	&amp;:hover {
+		opacity: 1;
+	}
+}
+</code></pre>
+<p>// static page items ------------------------------------------</p>
+<pre><code>.mf-static-page-title {
+	font-size: 2rem;
+	padding: 1rem 0;
+}
+
+.mf-static-page-content {
+
+	code, pre {
+		background: #eee;
+	}
+	code {
+		padding: 0.1em 0.33em;
+		border-radius: 0.2em;
+	}
+	pre {
+		max-width: 100%;
+		overflow: auto;
+	}
+
+	p {
+		line-height: 1.5;
+		padding: 0.5em 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		padding: 1em 0 0.5rem;
+	}
+
+	ul { padding: 0.25em 0 0.25em 0; }
+	ul ul { padding: 0 0 0 1.5em; }
+	li {
+		padding: 0.1em 0;
+		list-style-position: inside;
+	}
+	li { list-style-type: square; }
+	li li { list-style-type: circle; }
+	li li li { list-style-type: disc; }
+	li li li li { list-style-type: square; }
+</code></pre>
+<p>perfect fourth: http://type-scale.com/?scale=1.333&amp;font-family=BlinkMacSystemFont</p>
+<p>Use calc to scale the headings proportionally larger if you're on a big screen
+Write this up later..</p>
+<pre><code>	h1 { font-size: 3.157rem; font-size: calc(3.157rem + 1.578vw); font-weight: 100; }
+	h2 { font-size: 2.369rem; font-size: calc(2.369rem + 1.184vw); font-weight: 200; }
+	h3 { font-size: 1.778rem; font-size: calc(1.778rem + 0.888vw); font-weight: 400; }
+	h4 { font-size: 1.333rem; font-size: calc(1.333rem + 0.666vw); font-weight: 600; }
+	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-weight: 800; }
+	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-style: italic; }
+
+}
+</code></pre>
+<p>// collection page --------------------------------------------</p>
+<pre><code>.mf-collection-bar {
+	border: 1px solid pink;
+	padding: 1em;
+}
+
+.mf-collection-sidebar {
+
+}
+</code></pre>
+</div>
+<!-- source highlighting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-scss.min.js"></script>
+</body>
+</html>

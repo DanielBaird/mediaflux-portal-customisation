@@ -1,31 +1,30 @@
 
-echo 'compiling CSS'
-pushd components > /dev/null
-lessc styles.less > styles.css
-lessc styles-alt.less > styles-alt.css
-popd > /dev/null
-
 for SOURCE in *.source; do
 
-	echo 'processing: ' $SOURCE
+	echo 'Processing' $SOURCE
 
 	cp $SOURCE $SOURCE.html.tmp
 
+	echo   "  - copying"
 	pushd components > /dev/null
 
+	printf "  - applying components: round"
+
 	for i in `seq 1 6`; do
-		printf "Round $i: applying components: "
+		printf " $i."
 		for COMPONENT in *.{html,css}; do
 			printf "."
 			awk "/^@$COMPONENT/{system(\"cat $COMPONENT\");next}1" ../$SOURCE.html.tmp > tmp
 			mv tmp ../$SOURCE.html.tmp
 		done
-		echo " done."
 	done
+	echo
 
 	popd > /dev/null
 
-	cp $SOURCE.html.tmp $SOURCE.html
+	echo   "  - finishing"
+	mv $SOURCE.html.tmp $SOURCE.html
 
+	echo
 done
 

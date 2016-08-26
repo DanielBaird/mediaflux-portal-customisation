@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "make-css": "node-sass styles/sass/styles.scss styles/css/styles.css",
-    "make-html": "cd sample-html && ./convert.sh; cd ..",
-    "build": "npm run make-css; npm run make-html",
-    "make": "npm run make-css; npm run make-html"
+    "build-css": "scripts/build-css.sh",
+    "build-html": "cd sample-html && ./convert.sh; cd ..",
+    "build": "npm run build-css; npm run build-html"
   },
   "repository": {
     "type": "git",
