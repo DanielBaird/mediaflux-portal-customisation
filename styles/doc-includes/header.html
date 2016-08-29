@@ -6,7 +6,8 @@
 <style>
   html {
     font-family: lato, sans-serif;
-    font-size: 14pt;
+    font-size: 14px;
+    font-size: calc(14px + 0.2vw);
     line-height: 1.5;
     background: white;
     padding: 0;
@@ -14,7 +15,7 @@
   }
 
   body {
-    max-width: 50rem;
+    max-width: 40rem;
     margin: 0 auto;
     padding: 0 1rem 5rem;
   }
@@ -26,7 +27,7 @@
     line-height: 1.1;
     margin: 0 0 1rem;
     padding: 1em 0;
-    box-shadow: -49.9rem 0 #357, 49.9rem 0 #357;
+    box-shadow: -39.9rem 0 #357, 39.9rem 0 #357;
   }
 
 h1, h2 {
@@ -37,7 +38,7 @@ h1, h2 {
   h2, h3, h4, h5, h6 {
     color: #357;
     margin: 0 0 0 -0.1em;
-    padding: 1em 0 0.5rem;
+    padding: 1.5em 0 0.5rem;
   }
   h1 { font-size: 2.827rem; opacity: 1.00 }
   /* not using 3.998rem */
@@ -46,6 +47,43 @@ h1, h2 {
   h4 { font-size: 1.414rem; opacity: 0.95 }
   h5 { font-size: 1.000rem; opacity: 1.00 }
   h6 { font-size: 0.707rem; opacity: 1.00 }
+
+	h1 { font-size: 2.369rem; opacity: 1.00; font-weight: 400; }
+  /* not using 3.157rem */
+	h2 { font-size: 2.369rem; opacity: 0.85; font-weight: 200; }
+	h3 { font-size: 1.778rem; opacity: 0.90; font-weight: 400; }
+	h4 { font-size: 1.333rem; opacity: 0.95; font-weight: 600; }
+	h5 { font-size: 1.000rem; opacity: 1.00; font-weight: 800; }
+	h6 { font-size: 1.000rem; opacity: 1.00; font-style: italic; }
+
+  h1 { 
+    text-transform: uppercase;
+    color: #cc2014;
+    text-shadow:
+      01px 1.0px #aab24b,
+      02px 1.5px #aab24b,
+      03px 2.0px #aab24b,
+      04px 2.5px #aab24b,
+      05px 3.0px #aab24b,
+      06px 3.5px #aab24b,
+      07px 4.0px #aab24b,
+      08px 4.5px #aab24b,
+      09px 5.0px #aab24b,
+      10px 5.5px #aab24b,
+      11px 6.0px #aab24b,
+      12px 6.5px #aab24b,
+      13px 7.0px #aab24b,
+      14px 7.5px #aab24b,
+      15px 8.0px #aab24b,
+      16px 8.5px #aab24b,
+      17px 9.0px #aab24b,
+      18px 9.5px #aab24b;
+  }
+  h2 { 
+    border-bottom: 1px solid;
+    padding: 3rem 0 0;
+    margin-bottom: 1rem;
+  }
 
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
@@ -75,7 +113,9 @@ h1, h2 {
     padding: 0.5em;
     background: #f3f9ff;
     border-left: 1px solid #eef0ff;
-    box-shadow: -50rem 0 #f3f9ff, 50rem 0 #f3f9ff;
+    max-width: 100%;
+    overflow-x: auto;
+    /*box-shadow: -50rem 0 #f3f9ff, 50rem 0 #f3f9ff;*/
   }
 
   pre.small { font-size: 75%; color: rgba(0,0,0, 0.8) }

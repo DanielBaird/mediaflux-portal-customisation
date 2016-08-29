@@ -1,62 +1,225 @@
 
  # Styling a MediaFlux portal
 
- ...
 
  ## About this document #######################################
 
- ...um
+ #### Purpose
 
+ This document describes the default web style applied to
+ Mediaflux portals, and serves as a springboard for modifying
+ the styles to produce unique portal experiences.
+
+ Light modification is possible by changing colour and size 
+ settings, and enough instruction is also provided for someone
+ with some web design skills to perform deeper customisations.
+
+ #### Audience
+
+ Generally this document assumes you're familiar with the 
+ basics of CSS and the HTML Document Object Model.  If you 
+ learned HTML and CSS a while ago, an appendix at the end of 
+ this document will give you a quick overview of the more 
+ modern CSS used in this document.
+
+ TODO: add appendix; get someone to look through and highlight
+ anything they aren't too sure on; document in appendix.
+
+ #### Source
+
+ The original source of the text you're reading is a SCSS
+ formatted file.
+ 
+ This document is written in a "literate" style, where the 
+ source document is both live Sass/SCSS source that produces 
+ the CSS, and a Markdown-formatted document describing the
+ code.
+
+ The source document is already valid SCSS, so CSS is produced
+ by running it through the Sass compiler.
+
+ The source is then transformed with a short shell script,
+ which does two things:
+ 
+ * finds lines starting with `//`, and removes those two 
+   initial characters;
+ * indents all other lines by four spaces.
+
+ These two transformations produce a Markdown document which is
+ then converted into a HTML document with a Markdown processor.
 
  ## Variables #################################################
 
+ Much simple customisation of portal sites can be achieved by
+ editing variables in this section.
+
+ #### Colour setting variables
+
+ Default to white background and dark text (not quite black, to
+ avoid harsh contrast).
+
+    $default-background: #fff;
+    $default-color: #333;
+
+ when printing, reset text to black to avoid the blurry 
+ "process" grey many printers use.
+
+    $default-print-background: $default-background;
+    $default-print-color: #000;
+
+
+ #### Page Layout variables
+
  The maximum width of the main content column is defined here
- as 60 root ems wide — roughly 80 to 100 letters.
+ as 60 root ems wide, which is roughly 120-150 letters.
 
     $column-max-width: 60rem;
 
+ The height of the page header and the size of the heading 
+ inside the page header.  If you update these values, make 
+ sure the `$header-height` value is larger than the 
+ `$header-text-size` value.
+
+    $header-height: calc(3rem + 5vw);
+    $header-text-size: calc(1rem + 1vw);
+
+ It's preferable to use a vector format 
+ like SVG for your site logo, but if you're using a pixel 
+ format logo that you prefer doesn't get resized, set the
+ `$resizeable-logo` variable to `false` and specify your logo
+ size in the `$logo-height` and `$logo-width` variables.
+
+ If `$resizeable-logo` is set to `true`, the logo will be 
+ sized according to the header. 
+
+    $resizable-logo: true;
+    $logo-height: 65px;
+    $logo-width: 65px;
+
+ The height of the main navigation bar is set here using `rem`
+ units, which are proportional to the standard text size.
+
+    $navbar-height: 3rem;
+    $navbar-text-size: 1rem;
+
+
+
+
+
  ## Setting sane defaults #####################################
 
+ Web browsers don't agree in how to format many elements of a
+ web page.
+ 
+ Normalize.css is a third party project that provides a set
+ of CSS rules that provides a consistent set of styles for
+ all browsers.
 
- Use `normalize.css` to provide a nice clean starting point.
+ [necolas.github.io/normalize.css/](http://necolas.github.io/normalize.css/)
 
- In this case, to get Sass to correctly import the Normalize
- css, `normalize.css` has been renamed to `normalize.scss`.
+ In this case, to get Sass to import the Normalize.css source
+ as inline css, `normalize.css` should already be renamed to 
+ `normalize.scss` by an earlier step in the build process.
 
     @import "normalize.scss";
 
- Set the font to use the system default fonts where possible.
+ ##### Font family default
  
- Give the HTML tag a font size that grows as the width of
- the viewport grows. This helps the portal to fix nicely on 
- phone screens.
-
- Requires <meta name="viewport" content="width=device-width, initial-scale=1">
+ Use the OS's default font if we can.  OS default fonts are
+ generally quite similar (humanist sans serifs with large 
+ x-height and open counters) so this is unlikely to run into 
+ any significant size differences, but will look familiar and 
+ modern to users.
 
     html {
-    	font-size: 1em;
-    	font-size: calc(16px + 0.25vw);
-    	will-change: font-size;
-    	overflow-x: hidden;
-    	font-family: -apple-system, BlinkMacSystemFont,
-        "Segoe UI", "Roboto", "Fira Sans",
-        "Droid Sans", "Helvetica Neue", sans-serif;
+    	font-family: 
+            -apple-system,       /* default macOS font for Safari/webkit */ 
+            BlinkMacSystemFont,  /* default macOS font for Chrome/blink */
+            "Segoe UI",          /* default Windows font */
+            "Roboto",            /* default Android font */
+            "Fira Sans",         /* default Mozilla font */
+            "Droid Sans",        /* default older Android font */
+            "Helvetica Neue",    /* everyone else */
+            sans-serif;          /* Blackberry users, lol */
     }
 
- 
- Give the body tag a default background colour, and relieve 
- harsh constrast with a non-black text color.
+ ##### Font size default
+
+ Use the CSS calc() feature to give the HTML tag a font size 
+ that grows as the width of the viewport grows. This helps 
+ the portal to display nicely on phone screens.
+
+ Requires `<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">`
+ in the `head` of the page, or the page will zoom oddly on
+ phone-sized screens.
+
+    html {
+    	font-size: 16px; /* for browsers that don't support calc() */
+    	font-size: calc(16px + 0.25vw); /* grow font size with a wider screen */
+    	overflow-x: hidden; /* try to avoid odd widths on narrow screens */
+    }
+
+ This tag sets the default text and background colour for 
+ normal display, and when printing.  Colours are described in 
+ the Variables section.
 
     body {
-        color: #333;
-        background-color: white;
+        color: $default-color;
+        background-color: $default-background;
+    }
+    @media print {
+        body { 
+            color:$default-print-color;
+            background: $default-print-background;
+        }
     }
 
+ ##### Heading size and spacing reset
+
+ Set the font weight and size of all headings to be the same
+ as their containers, and reset all heading margins and
+ padding.
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: inherit;
+        font-size: inherit;
+        margin: 0;
+        padding: 0;
+    }
+
+ ##### Navigation spacing reset
+
+ Navigation sections of a page usually occur in `ul` tags that 
+ are inside `nav` tags.  So here we switch off padding,
+ margin, and bullets for `ul` tags inside `nav` tags.
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+ ##### Body wrapper
+
+ The `mf-body-wrapper` class is used on a `div` that wraps the 
+ entire page content. You might use it to set a page width. In 
+ this styling however it isn't used.
+ 
     .mf-body-wrapper {
-    	// nothing to do here
+    	// ...
     }
 
-// heading ----------------------------------------------------
+ ## Page header ###############################################
+
+ All Mediaflux portal pages start with a `header` tag like
+ this: `<header class="mf-header" role="banner">`. The `role`
+ attribute identifies the tag as containing site-oriented 
+ content rather than page-specific content.
+
+ TODO: describe setting content in config file
+
+ This header is the appropriate place to include any 
+ institution-wide banners, navigation bars etc.
 
     .mf-header {
     	background-image: linear-gradient(to top, #000, #444);
@@ -65,40 +228,65 @@
     	text-align: center;
     }
 
-    .mf-header-logo {
-    	box-sizing: content-box;
-    	padding: 15px;
-        /* background-image: radial-gradient(closest-side, white, rgba(255,255,255, .05) 90%, rgba(255,255,255, 0)); */
-    	border-radius: 2px;
-    	background: white;
-    	display: inline-block;
-    	vertical-align: middle;
-    	height: 50px;
-    	height: calc(50px + 1vw);
-    	max-width: 120px;
-    	margin: 0 1vw;
-    }
+
+ The portal plugin will not automatically generate a heading 
+ or logo, but those items are supplied in the sample portal 
+ configuration, so styling for them are supplied here.
 
     .mf-heading {
+        TODO: color from variable;
     	display: inline-block;
     	vertical-align: middle;
-    	font-size: 50px;
-    	font-size: calc(50px + 1vw);
-    	line-height: 3;
-    	font-weight: 200;
+    	font-size: $header-text-size;
+    	line-height: $header-height;
+    	font-weight: 200; /* very light font weight */
+        letter-spacing: 0.1ch; /* slightly airy letter spacing */
     }
 
 
-// navbar -----------------------------------------------------
+ Check the notes in the *Page layout variables* section for 
+ information about setting the size of the logo.
+
+    .mf-header-logo {
+    	display: inline-block;
+    	vertical-align: middle;
+    	margin: 0 1vw;
+        @if ($resizable-logo) {
+            max-height: $header-text-size;
+            max-width: $header-text-size;
+        } @else {
+            height: $logo-height;
+            width: $logo-width;        
+        }
+    }
+
+
+ ## Page navigation ###########################################
+
+ The main page navigation – between static pages, or 
+ sub-collections of assets – is included in the page as a `nav`
+ element with the class `mf-navbar`.
 
     .mf-navbar {
+        font-size: $navbar-text-size;
+        TODO: set colours according to variable;
     	background-image: linear-gradient(to top, #ccc, #fff);
     }
+
+ Inside the `nav.mf-navbar` is a `div.mf-navbar-container`.
+ This styling uses the `div` to set the display width for the
+ navigation links.
 
     .mf-navbar-container {
     	max-width: $column-max-width;
     	margin: 0 auto;
     }
+
+ Inside the `div.mf-navbar-container` is a `ul.mf-nav-list`.
+ This contains one `li` for each nav link.  This styling uses
+ a flexbox layout to stretch the navlinks across the width of
+ the column. 
+
     .mf-nav-list {
     	display: flex;
     	flex-direction: row;
@@ -109,7 +297,7 @@
     	display: block;
     	text-align: center;
     	flex-grow: 1;
-    	line-height: 3;
+    	line-height: $navbar-height;
     	transition: 0.5s;
     	&:hover {
     		background-image: linear-gradient(to top, #9cf, #cef);
@@ -213,3 +401,19 @@
     .mf-collection-sidebar {
 
     }
+
+
+
+
+ ## Appendix: Sass and CSS refresher ##########################
+
+ TODO
+ 
+ * six-char colours and three-char colour shorthand
+ * rem units
+ * vw and vh units
+ * calc(..)
+ * transition
+ 
+ 
+
