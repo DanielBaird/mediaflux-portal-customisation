@@ -27,9 +27,6 @@
 
  #### Source
 
- The original source of the text you're reading is a SCSS
- formatted file.
- 
  This document is written in a "literate" style, where the 
  source document is both live Sass/SCSS source that produces 
  the CSS, and a Markdown-formatted document describing the
@@ -37,6 +34,21 @@
 
  The source document is already valid SCSS, so CSS is produced
  by running it through the Sass compiler.
+
+     /*
+    The original source of the text you're reading is a SCSS formatted 
+    file.  SCSS is a superset of CSS; it allows all valid CSS, but in 
+    addition allows for a number of variables calculations that are 
+    resolved by the SCSS compiler and turned into valid CSS.
+
+    To alter the CSS, you should edit the SCSS source file and 
+    recompile.  Visit the website:
+    https://github.com/DanielBaird/mediaflux-portal-customisation
+    for more information.
+     */
+
+ (The text above will be included in the output CSS to inform
+ anyone browsing the CSS about the SCSS source.)
 
  The source is then transformed with a short shell script,
  which does two things:
@@ -58,16 +70,14 @@
  Default to white background and dark text (not quite black, to
  avoid harsh contrast).
 
-    $default-background: #fff;
-    $default-color: #333;
-
+    $page-background: #fff;
+    $page-color: #333;
 
  when printing, reset text to black to avoid the blurry 
  "process" grey many printers use.
 
-    $default-print-background: $default-background;
-    $default-print-color: #000;
-
+    $page-print-background: $page-background;
+    $page-print-color: #000;
 
  #### Page Layout variables
 
@@ -103,8 +113,18 @@
     $navbar-height: 3rem;
     $navbar-text-size: 1rem;
 
+ The background of the navbar, and the navbar's text and border
+ colour.
+    $navbar-background: #fcc;
+    $navbar-content-color: #060;
 
+ TODO: navbar highlight colour and selected colour, should use content colour mobved up from below.
 
+ The standard background and text colour for the content.  The
+ currently selected item in the navbar uses this background
+ too, so it looks like a selected "tab".
+    $content-background: #ccf;
+    $content-color: #600;
 
 
  ## Setting sane defaults #####################################
@@ -156,8 +176,8 @@
 
     html {
     	font-size: 16px; /* for browsers that don't support calc() */
-    	font-size: calc(16px + 0.25vw); /* grow font size with a wider screen */
-    	overflow-x: hidden; /* try to avoid odd widths on narrow screens */
+    	font-size: calc(16px + 0.25vw); /* grow font size on wider screen */
+    	overflow-x: hidden; /* avoid odd widths on narrow screens */
     }
 
  This tag sets the default text and background colour for 
@@ -165,13 +185,13 @@
  the Variables section.
 
     body {
-        color: $default-color;
-        background-color: $default-background;
+        color: $page-color;
+        background-color: $page-background;
     }
     @media print {
-        body { 
-            color:$default-print-color;
-            background: $default-print-background;
+        body {
+            color:$page-print-color;
+            background: $page-print-background;
         }
     }
 
@@ -270,8 +290,7 @@
 
     .mf-navbar {
         font-size: $navbar-text-size;
-        TODO: set colours according to variable;
-    	background-image: linear-gradient(to top, #ccc, #fff);
+    	background: $navbar-background;
     }
 
  Inside the `nav.mf-navbar` is a `div.mf-navbar-container`.
@@ -286,16 +305,17 @@
  Inside the `div.mf-navbar-container` is a `ul.mf-nav-list`.
  This contains one `li` for each nav link.  This styling uses
  a flexbox layout to stretch the navlinks across the width of
- the column. 
+ the column.  On a wide display, they'll all have equal widths;
+ on a narrow display, they'll take the space they need.
 
     .mf-nav-list {
     	display: flex;
     	flex-direction: row;
-    	border: 1px solid #999;
+    	border: 1px solid transparentize($navbar-content-color, 0.66);
     	border-width: 0 1px;
     }
     .mf-nav-list li {
-    	display: block;
+    	color: $navbar-content-color;
     	text-align: center;
     	flex-grow: 1;
     	line-height: $navbar-height;
@@ -307,6 +327,7 @@
     		background: white;
     	}
     	a {
+    		color: inherit;
     		display: block;
     		text-decoration: none;
     	}

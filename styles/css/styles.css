@@ -1,3 +1,14 @@
+/*
+The original source of the text you're reading is a SCSS formatted 
+file.  SCSS is a superset of CSS; it allows all valid CSS, but in 
+addition allows for a number of variables calculations that are 
+resolved by the SCSS compiler and turned into valid CSS.
+
+To alter the CSS, you should edit the SCSS source file and 
+recompile.  Visit the website:
+https://github.com/DanielBaird/mediaflux-portal-customisation
+for more information.
+ */
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -376,9 +387,9 @@ html {
   font-size: 16px;
   /* for browsers that don't support calc() */
   font-size: calc(16px + 0.25vw);
-  /* grow font size with a wider screen */
+  /* grow font size on wider screen */
   overflow-x: hidden;
-  /* try to avoid odd widths on narrow screens */ }
+  /* avoid odd widths on narrow screens */ }
 
 body {
   color: #333;
@@ -426,8 +437,7 @@ nav ul {
 
 .mf-navbar {
   font-size: 1rem;
-  TODO: set colours according to variable;
-  background-image: linear-gradient(to top, #ccc, #fff); }
+  background: #fcc; }
 
 .mf-navbar-container {
   max-width: 60rem;
@@ -436,11 +446,11 @@ nav ul {
 .mf-nav-list {
   display: flex;
   flex-direction: row;
-  border: 1px solid #999;
+  border: 1px solid rgba(0, 102, 0, 0.34);
   border-width: 0 1px; }
 
 .mf-nav-list li {
-  display: block;
+  color: #060;
   text-align: center;
   flex-grow: 1;
   line-height: 3rem;
@@ -450,6 +460,7 @@ nav ul {
   .mf-nav-list li.mf-current-nav-item {
     background: white; }
   .mf-nav-list li a {
+    color: inherit;
     display: block;
     text-decoration: none; }
 
