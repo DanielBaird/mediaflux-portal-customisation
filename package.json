@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "scripts/build-css.sh",
+    "watch-css": "nodemon -V --watch styles/sass --ext scss --exec 'npm run build-css'",
     "build-html": "cd sample-html && ./convert.sh; cd ..",
+    "watch-html": "nodemon --watch sample-html --exec 'npm run build-html'",
+    "watch": "npm run watch-css & npm run watch-html",
     "build": "npm run build-css; npm run build-html"
   },
   "repository": {
@@ -22,5 +25,8 @@
   "dependencies": {
     "node-sass": "^3.8.0",
     "normalize.css": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
   }
 }

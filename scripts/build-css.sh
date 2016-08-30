@@ -13,7 +13,8 @@ DOCDEST="docs/styles.html"
 # unfortunately sass can't inline a plain css file, so as a
 # preliminary step we have to copy the normalize.css file to 
 # normalize.scss, so it gets inlined properly.
-cp node_modules/normalize.css/normalize.css styles/sass/normalize.scss
+# the -n means don't overwrite an existing file.
+cp -n node_modules/normalize.css/normalize.css styles/sass/normalize.scss
 
 
 ## actually do sass compilation
