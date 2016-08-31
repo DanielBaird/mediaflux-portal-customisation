@@ -56,29 +56,29 @@ h1, h2 {
 	h5 { font-size: 1.000rem; opacity: 1.00; font-weight: 800; }
 	h6 { font-size: 1.000rem; opacity: 1.00; font-style: italic; }
 
-  h1 { 
+  /*h1 { 
     text-transform: uppercase;
-    color: #f21;
+    color: #fff;
     text-shadow:
       01px 1.0px 2px #357,
-      02px 1.5px #aab24b,
-      03px 2.0px #357,
-      04px 2.5px #357,
-      05px 3.0px #357,
-      06px 3.5px #aab24b,
-      07px 4.0px #357,
-      08px 4.5px #357,
-      09px 5.0px #357,
-      10px 5.5px #aab24b,
-      11px 6.0px #357,
-      12px 6.5px #357,
-      13px 7.0px #357,
-      14px 7.5px #aab24b,
-      15px 8.0px #357,
-      16px 8.5px #357,
-      17px 9.0px #357,
-      18px 9.5px #aab24b;
-  }
+      02px 1.5px 2px #aab24b,
+      03px 2.0px 2px #357,
+      04px 2.5px 2px #357,
+      05px 3.0px 2px #357,
+      06px 3.5px 2px #aab24b,
+      07px 4.0px 2px #357,
+      08px 4.5px 2px #357,
+      09px 5.0px 2px #357,
+      10px 5.5px 2px #aab24b,
+      11px 6.0px 2px #357,
+      12px 6.5px 2px #357,
+      13px 7.0px 2px #357,
+      14px 7.5px 2px #aab24b,
+      15px 8.0px 2px #357,
+      16px 8.5px 2px #357,
+      17px 9.0px 2px #357,
+      18px 9.5px 2px #aab24b;
+  }*/
   h2 { 
     border-bottom: 1px solid;
     padding: 3rem 0 0;
@@ -201,9 +201,9 @@ then converted into a HTML document with a Markdown processor.</p>
 <h2>Variables</h2>
 <p>Much simple customisation of portal sites can be achieved by
 editing variables in this section.</p>
-<h4>Colour setting variables</h4>
-<p>Default to white background and dark text (not quite black, to
-avoid harsh contrast).</p>
+<h4>Overall page level variables</h4>
+<p>Default the general page colours to to white background and
+dark text (not quite black, to avoid harsh contrast).</p>
 <pre><code>$page-background: #fff;
 $page-color: #333;
 </code></pre>
@@ -212,17 +212,29 @@ $page-color: #333;
 <pre><code>$page-print-background: $page-background;
 $page-print-color: #000;
 </code></pre>
-<h4>Page Layout variables</h4>
 <p>The maximum width of the main content column is defined here
 as 60 root ems wide, which is roughly 120-150 letters.</p>
 <pre><code>$column-max-width: 60rem;
 </code></pre>
+<p>The standard background and text colour for the main content
+column.</p>
+<pre><code>$content-background: #fff;
+$content-color: #000;
+</code></pre>
+<p>Choose a shading colour for doing subtle shading within the
+content area (this is used for source code, blockquotes, etc)
+$content-shading: transparentize($content-color, 0.95);</p>
+<h4>Header related variables</h4>
 <p>The height of the page header and the size of the heading
 inside the page header.  If you update these values, make
 sure the <code>$header-height</code> value is larger than the
 <code>$header-text-size</code> value.</p>
 <pre><code>$header-height: calc(3rem + 5vw);
 $header-text-size: calc(1rem + 1vw);
+</code></pre>
+<p>Header colors</p>
+<pre><code>$header-background: linear-gradient(to top, #000, #444);
+$header-content-color: red;
 </code></pre>
 <p>It's preferable to use a vector format
 like SVG for your site logo, but if you're using a pixel
@@ -240,16 +252,34 @@ units, which are proportional to the standard text size.</p>
 <pre><code>$navbar-height: 3rem;
 $navbar-text-size: 1rem;
 </code></pre>
-<p>The background of the navbar, and the navbar's text and border
-colour.
-$navbar-background: #fcc;
-$navbar-content-color: #060;</p>
-<p>TODO: navbar highlight colour and selected colour, should use content colour mobved up from below.</p>
-<p>The standard background and text colour for the content.  The
-currently selected item in the navbar uses this background
-too, so it looks like a selected &quot;tab&quot;.
-$content-background: #ccf;
-$content-color: #600;</p>
+<p>Navbar items have three states: normal, selected (the one
+that matches the current content), and highlighted (for
+when the user's mouse is hovering over it).</p>
+<pre><code>$navbar-background: #fcc;
+$navbar-content-color: #060;
+
+$navbar-highlight-background: $navbar-content-color;
+$navbar-highlight-content-color: $navbar-background;
+
+$navbar-current-background: $content-background;
+$navbar-current-content-color: $content-color;
+</code></pre>
+<p>The size and colour of the page footer.</p>
+<pre><code>$footer-height: 3rem;
+$footer-text-size: 1rem;
+
+$footer-background: $page-background;
+$footer-content-color: $page-color; 
+</code></pre>
+<p>If you set <code>footer-fade</code> to true, the footer will appear
+faded until the user hovers over it with their mouse.  This
+helps to reduce the visual clutter of the footer. Note however
+that mouse hover won't work on touch screens without a mouse,
+so choose colours with readable contrast even when faded to
+half opacity.</p>
+<p>Disable fade by setting this variable to <code>false</code>.</p>
+<pre><code>$footer-fade: true;
+</code></pre>
 <h2>Setting sane defaults</h2>
 <p>Web browsers don't agree in how to format many elements of a
 web page.</p>
@@ -345,8 +375,8 @@ content rather than page-specific content.</p>
 <p>This header is the appropriate place to include any
 institution-wide banners, navigation bars etc.</p>
 <pre><code>.mf-header {
-	background-image: linear-gradient(to top, #000, #444);
-	color: #fff;
+	background: $header-background;
+	color: $header-content-color;
 	white-space: nowrap;
 	text-align: center;
 }
@@ -355,7 +385,7 @@ institution-wide banners, navigation bars etc.</p>
 or logo, but those items are supplied in the sample portal
 configuration, so styling for them are supplied here.</p>
 <pre><code>.mf-heading {
-    TODO: color from variable;
+	color: inherit;
 	display: inline-block;
 	vertical-align: middle;
 	font-size: $header-text-size;
@@ -412,12 +442,14 @@ on a narrow display, they'll take the space they need.</p>
 	text-align: center;
 	flex-grow: 1;
 	line-height: $navbar-height;
-	transition: 0.5s;
+	transition: 0.25s;
 	&amp;:hover {
-		background-image: linear-gradient(to top, #9cf, #cef);
+		background: $navbar-highlight-background;
+		color: $navbar-highlight-content-color;
 	}
 	&amp;.mf-current-nav-item {
-		background: white;
+		background: $navbar-current-background;
+		color: $navbar-current-content-color;
 	}
 	a {
 		color: inherit;
@@ -426,36 +458,105 @@ on a narrow display, they'll take the space they need.</p>
 	}
 }
 </code></pre>
-<p>// page -------------------------------------------------------</p>
+<h2>Page content</h2>
+<p>All portal pages use a wrapper div around the main content
+with a <code>mf-page</code> class, so this set of styling applies to the
+content area on all page types.</p>
 <pre><code>.mf-page {
+	background: $content-background;
+	color: $content-color;
 	max-width: $column-max-width;
 	margin: 0 auto;
-	padding: 2rem 0 3rem;
+	padding: 2rem 1rem 3rem;
 }
 </code></pre>
-<p>// footer -----------------------------------------------------</p>
+<h2>Footer</h2>
+<p>All Mediaflux portal pages end with a <code>footer</code> tag like this:
+<code>&lt;footer class=&quot;mf-footer&quot;&gt;</code>.  The content is supplied from
+the configuration file; this styling assumes that the footer
+content is a single line of text.</p>
 <pre><code>.mf-footer {
-	opacity: 0.5;
+	background: $footer-background;
+	color: $footer-content-color;
+	font-size: $footer-text-size;
+	line-height: $footer-height;
 	text-align: center;
-	border-top: 1px solid #ccc;
-	line-height: 3;
+	border-top: 1px solid $footer-content-color;
 	white-space: nowrap;
-	transition: 0.5s;
-	&amp;:hover {
-		opacity: 1;
-	}
+</code></pre>
+<p>This section allows the footer to fade in and out according
+to mouse hover, if the <code>$footer-fade</code> variable is set to
+<code>true</code>.</p>
+<pre><code>    @if ($footer-fade) {
+		opacity: 0.5;
+		transition: 0.25s;
+		&amp;:hover {
+			opacity: 1;
+		}
+    }
 }
 </code></pre>
-<p>// static page items ------------------------------------------</p>
+<h2>Static page content</h2>
+<p>Static pages are laid out as a heading, rendered as a <code>h1</code> tag
+like this: <code>&lt;h1 class=&quot;mf-static-page-title&quot; id=&quot;mf-page-title&quot;&gt;</code>
+followed by the content in a <code>div</code> tag with a
+<code>mf-static-page-content</code> class.</p>
+<p>The title is styled in a manner similar to a <code>h4</code> tag in the
+content (the position and spacing of the title means its
+significance is clear without having to make it any larger).</p>
+<p>Like the in-content headings, this styling uses the CSS
+<code>calc(...)</code> function to scale along with the size of the
+window.</p>
 <pre><code>.mf-static-page-title {
-	font-size: 2rem;
+	font-size: 1.333rem; 
+	font-size: calc(1.333rem + 0.666vw); 
+	font-weight: 600;
 	padding: 1rem 0;
 }
+</code></pre>
+<p>The content of a static portal page can be any HTML specified
+in the config file, so the rules below apply some generally
+appropriate styles to standard HTML content.</p>
+<pre><code>.mf-static-page-content {
+</code></pre>
+<p>Headings and paragraphs get padding and line spacing.</p>
+<pre><code>	p {
+		line-height: 1.5;
+		padding: 0.5em 0;
+		margin: 0;
+	}
 
-.mf-static-page-content {
-
-	code, pre {
-		background: #eee;
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		padding: 1em 0 0.5rem;
+		margin: 0;
+	}
+</code></pre>
+<p>Heading sizes are calculated here starting with a &quot;Perfect
+Fourths&quot; proportion of 4:3, essentially multiplying each
+size by 1.333 to get the next.</p>
+<p>This web tool is a convenient way to generate scaled sizes:
+<a href="http://type-scale.com/?scale=1.333&amp;font-family=BlinkMacSystemFont">type-scale.com</a></p>
+<p><code>h5</code> and <code>h6</code> headings are both the same size as normal text;
+<code>h5</code>s are bolded, and <code>h6</code>s are italicised.</p>
+<p>The <code>calc(...)</code> function is used here to make the headings
+proportionally larger on large screens.  This means that as
+page size increases, heading size will increase over and
+above the standard font size increase.  The effect of this
+is clean clear headings on a desktop, but still readable
+headings on phone screens.</p>
+<pre><code>	h1 { font-size: 3.157rem; font-size: calc(3.157rem + 1.578vw); font-weight: 100; }
+	h2 { font-size: 2.369rem; font-size: calc(2.369rem + 1.184vw); font-weight: 200; }
+	h3 { font-size: 1.778rem; font-size: calc(1.778rem + 0.888vw); font-weight: 400; }
+	h4 { font-size: 1.333rem; font-size: calc(1.333rem + 0.666vw); font-weight: 600; }
+	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-weight: 800; }
+	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-style: italic; }
+</code></pre>
+<p>Add some background shading to <code>code</code>, <code>pre</code> preformatted
+text, and <code>kbd</code> keyboard input to help distinguish them from
+normal text.</p>
+<pre><code>	code, pre, kbd {
+		background: $content-shading;
 	}
 	code {
 		padding: 0.1em 0.33em;
@@ -464,42 +565,66 @@ on a narrow display, they'll take the space they need.</p>
 	pre {
 		max-width: 100%;
 		overflow: auto;
+		margin: 0;
 	}
-
-	p {
-		line-height: 1.5;
-		padding: 0.5em 0;
+</code></pre>
+<p>Blockquotes are indented, with background shading, a left
+border, and big curly quotes.</p>
+<pre><code>	blockquote {
+		margin: 0.5em 1em;
+		padding: 1em;
+		padding-left: 2em;
+		background: $content-shading;
+		border-left: 0.2em solid transparentize($content-color, 0.66);
 	}
-
-	h1, h2, h3, h4, h5, h6 {
-		line-height: 1.2;
-		padding: 1em 0 0.5rem;
+	blockquote &gt; p:first-child {
+		padding-top: 0;
 	}
-
-	ul { padding: 0.25em 0 0.25em 0; }
-	ul ul { padding: 0 0 0 1.5em; }
+</code></pre>
+<p>For bigger quote marks, make this number higher.  To remove
+the quote marks, you can delete the following section of SCSS.</p>
+<pre><code>	blockquote { position: relative; }
+	$blockquote-quote-size: 4;
+	blockquote:before, blockquote:after {
+		position: absolute;
+		top: 0.1em / $blockquote-quote-size;
+		opacity: 0.1;
+		font-size: 1em * $blockquote-quote-size;
+		font-family: cursive;
+		font-weight: bold;
+		font-style: italic;
+	}
+	blockquote:before {
+		content: '\201c'; /* left 66 quotes */ 
+		left: 0.1em / $blockquote-quote-size;
+	}
+	blockquote:after {
+		opacity: 0.05;
+		content: '\201d'; /* right 99 quotes */
+		right: 0.4em / $blockquote-quote-size;
+	}
+</code></pre>
+<p>Bulletted lists are common in general content.  These rules
+control space between list items for normal lists and lists
+inside other lists.</p>
+<pre><code>	ul, ol { padding: 0.25em 0 0.25em 0; }
+	ul ul, ol ol { padding: 0 0 0 1.5em; }
 	li {
 		padding: 0.1em 0;
 		list-style-position: inside;
 	}
-	li { list-style-type: square; }
+</code></pre>
+<p>Set the progression of bullets to square, circle, disc, square.</p>
+<pre><code>	li { list-style-type: square; }
 	li li { list-style-type: circle; }
 	li li li { list-style-type: disc; }
 	li li li li { list-style-type: square; }
 </code></pre>
-<p>perfect fourth: http://type-scale.com/?scale=1.333&amp;font-family=BlinkMacSystemFont</p>
-<p>Use calc to scale the headings proportionally larger if you're on a big screen
-Write this up later..</p>
-<pre><code>	h1 { font-size: 3.157rem; font-size: calc(3.157rem + 1.578vw); font-weight: 100; }
-	h2 { font-size: 2.369rem; font-size: calc(2.369rem + 1.184vw); font-weight: 200; }
-	h3 { font-size: 1.778rem; font-size: calc(1.778rem + 0.888vw); font-weight: 400; }
-	h4 { font-size: 1.333rem; font-size: calc(1.333rem + 0.666vw); font-weight: 600; }
-	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-weight: 800; }
-	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-style: italic; }
-
-}
+<p>This final closing bracket is the end of the formatting rules
+for static page content.</p>
+<pre><code>}
 </code></pre>
-<p>// collection page --------------------------------------------</p>
+<h2>Collection page content</h2>
 <pre><code>.mf-collection-bar {
 	border: 1px solid pink;
 	padding: 1em;

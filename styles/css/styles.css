@@ -412,13 +412,13 @@ nav ul {
   padding: 0; }
 
 .mf-header {
-  background-image: linear-gradient(to top, #000, #444);
-  color: #fff;
+  background: linear-gradient(to top, #000, #444);
+  color: red;
   white-space: nowrap;
   text-align: center; }
 
 .mf-heading {
-  TODO: color from variable;
+  color: inherit;
   display: inline-block;
   vertical-align: middle;
   font-size: calc(1rem + 1vw);
@@ -454,75 +454,53 @@ nav ul {
   text-align: center;
   flex-grow: 1;
   line-height: 3rem;
-  transition: 0.5s; }
+  transition: 0.25s; }
   .mf-nav-list li:hover {
-    background-image: linear-gradient(to top, #9cf, #cef); }
+    background: #060;
+    color: #fcc; }
   .mf-nav-list li.mf-current-nav-item {
-    background: white; }
+    background: #fff;
+    color: #000; }
   .mf-nav-list li a {
     color: inherit;
     display: block;
     text-decoration: none; }
 
 .mf-page {
+  background: #fff;
+  color: #000;
   max-width: 60rem;
   margin: 0 auto;
-  padding: 2rem 0 3rem; }
+  padding: 2rem 1rem 3rem; }
 
 .mf-footer {
-  opacity: 0.5;
+  background: #fff;
+  color: #333;
+  font-size: 1rem;
+  line-height: 3rem;
   text-align: center;
-  border-top: 1px solid #ccc;
-  line-height: 3;
+  border-top: 1px solid #333;
   white-space: nowrap;
-  transition: 0.5s; }
+  opacity: 0.5;
+  transition: 0.25s; }
   .mf-footer:hover {
     opacity: 1; }
 
 .mf-static-page-title {
-  font-size: 2rem;
+  font-size: 1.333rem;
+  font-size: calc(1.333rem + 0.666vw);
+  font-weight: 600;
   padding: 1rem 0; }
-
-.mf-static-page-content code, .mf-static-page-content pre {
-  background: #eee; }
-
-.mf-static-page-content code {
-  padding: 0.1em 0.33em;
-  border-radius: 0.2em; }
-
-.mf-static-page-content pre {
-  max-width: 100%;
-  overflow: auto; }
 
 .mf-static-page-content p {
   line-height: 1.5;
-  padding: 0.5em 0; }
+  padding: 0.5em 0;
+  margin: 0; }
 
 .mf-static-page-content h1, .mf-static-page-content h2, .mf-static-page-content h3, .mf-static-page-content h4, .mf-static-page-content h5, .mf-static-page-content h6 {
   line-height: 1.2;
-  padding: 1em 0 0.5rem; }
-
-.mf-static-page-content ul {
-  padding: 0.25em 0 0.25em 0; }
-
-.mf-static-page-content ul ul {
-  padding: 0 0 0 1.5em; }
-
-.mf-static-page-content li {
-  padding: 0.1em 0;
-  list-style-position: inside; }
-
-.mf-static-page-content li {
-  list-style-type: square; }
-
-.mf-static-page-content li li {
-  list-style-type: circle; }
-
-.mf-static-page-content li li li {
-  list-style-type: disc; }
-
-.mf-static-page-content li li li li {
-  list-style-type: square; }
+  padding: 1em 0 0.5rem;
+  margin: 0; }
 
 .mf-static-page-content h1 {
   font-size: 3.157rem;
@@ -553,6 +531,73 @@ nav ul {
   font-size: 1.000rem;
   font-size: calc(1.000rem + 0.500vw);
   font-style: italic; }
+
+.mf-static-page-content code, .mf-static-page-content pre, .mf-static-page-content kbd {
+  background: rgba(0, 0, 0, 0.05); }
+
+.mf-static-page-content code {
+  padding: 0.1em 0.33em;
+  border-radius: 0.2em; }
+
+.mf-static-page-content pre {
+  max-width: 100%;
+  overflow: auto;
+  margin: 0; }
+
+.mf-static-page-content blockquote {
+  margin: 0.5em 1em;
+  padding: 1em;
+  padding-left: 2em;
+  background: rgba(0, 0, 0, 0.05);
+  border-left: 0.2em solid rgba(0, 0, 0, 0.34); }
+
+.mf-static-page-content blockquote > p:first-child {
+  padding-top: 0; }
+
+.mf-static-page-content blockquote {
+  position: relative; }
+
+.mf-static-page-content blockquote:before, .mf-static-page-content blockquote:after {
+  position: absolute;
+  top: 0.025em;
+  opacity: 0.1;
+  font-size: 4em;
+  font-family: cursive;
+  font-weight: bold;
+  font-style: italic; }
+
+.mf-static-page-content blockquote:before {
+  content: '\201c';
+  /* left 66 quotes */
+  left: 0.025em; }
+
+.mf-static-page-content blockquote:after {
+  opacity: 0.05;
+  content: '\201d';
+  /* right 99 quotes */
+  right: 0.1em; }
+
+.mf-static-page-content ul, .mf-static-page-content ol {
+  padding: 0.25em 0 0.25em 0; }
+
+.mf-static-page-content ul ul, .mf-static-page-content ol ol {
+  padding: 0 0 0 1.5em; }
+
+.mf-static-page-content li {
+  padding: 0.1em 0;
+  list-style-position: inside; }
+
+.mf-static-page-content li {
+  list-style-type: square; }
+
+.mf-static-page-content li li {
+  list-style-type: circle; }
+
+.mf-static-page-content li li li {
+  list-style-type: disc; }
+
+.mf-static-page-content li li li li {
+  list-style-type: square; }
 
 .mf-collection-bar {
   border: 1px solid pink;
