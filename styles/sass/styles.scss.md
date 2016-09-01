@@ -32,6 +32,10 @@
  the CSS, and a Markdown-formatted document describing the
  code.
 
+ Visit 
+ [styles.scss](https://github.com/DanielBaird/mediaflux-portal-customisation/blob/master/styles/sass/styles.scss)
+ to see the source document.
+
  The source document is already valid SCSS, so CSS is produced
  by running it through the Sass compiler.
 
