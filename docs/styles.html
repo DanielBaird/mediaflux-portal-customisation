@@ -164,8 +164,8 @@ with some web design skills to perform deeper customisations.</p>
 <p>Generally this document assumes you're familiar with the
 basics of CSS and the HTML Document Object Model.  If you
 learned HTML and CSS a while ago, an appendix at the end of
-this document will give you a quick overview of the more
-modern CSS used in this document.</p>
+this document will give you a quick overview of any new or
+obscure CSS techniques used in this document.</p>
 <p>TODO: add appendix; get someone to look through and highlight
 anything they aren't too sure on; document in appendix.</p>
 <h4>Source</h4>
@@ -318,8 +318,8 @@ modern to users.</p>
 that grows as the width of the viewport grows. This helps
 the portal to display nicely on phone screens.</p>
 <p>Requires <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, minimum-scale=1, initial-scale=1&quot;&gt;</code>
-in the <code>head</code> of the page, or the page will zoom oddly on
-phone-sized screens.</p>
+in the <code>head</code> of the page to stop a bit of &quot;helpful&quot; zooming
+browsers on small screen phones do.</p>
 <pre><code>html {
 	font-size: 16px; /* for browsers that don't support calc() */
 	font-size: calc(16px + 0.25vw); /* grow font size on wider screen */
@@ -522,15 +522,18 @@ in the config file, so the rules below apply some generally
 appropriate styles to standard HTML content.</p>
 <pre><code>.mf-static-page-content {
 </code></pre>
-<p>Headings and paragraphs get padding and line spacing.</p>
-<pre><code>	p {
-		line-height: 1.5;
+<h5>Lext sizing and spacing</h5>
+<p>Set a default line height, and give headings and paragraphs
+some padding.  Headings get tighter line spacing.</p>
+<pre><code>	line-height: 1.5;
+
+	p {
 		padding: 0.5em 0;
 		margin: 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		line-height: 1.2;
+		line-height: 1.15;
 		padding: 1em 0 0.5rem;
 		margin: 0;
 	}
@@ -555,9 +558,12 @@ headings on phone screens.</p>
 	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-weight: 800; }
 	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-style: italic; }
 </code></pre>
+<h5>Lonospaced text</h5>
 <p>Add some background shading to <code>code</code>, <code>pre</code> preformatted
 text, and <code>kbd</code> keyboard input to help distinguish them from
 normal text.</p>
+<p>Text inside <code>&lt;pre&gt;</code> tags also get made slightly smaller, with
+tighter line spacing.</p>
 <pre><code>	code, pre, kbd {
 		background: $content-shading;
 	}
@@ -566,28 +572,42 @@ normal text.</p>
 		border-radius: 0.2em;
 	}
 	pre {
+		font-size: 90%;
+		line-height: 1.3;
 		max-width: 100%;
 		overflow: auto;
 		margin: 0;
 	}
 </code></pre>
-<p>Blockquotes are indented, with background shading, a left
-border, and big curly quotes.</p>
+<h5>Block quotes</h5>
+<p>Blockquotes are indented, with a left border, and a big curly
+quote.  The text is slightly smaller and has tighter line
+spacing.</p>
+<p>If you're a developer or grammarian you might feel
+uncomfortable about the lack of closing quotes; I do to, but
+it's cleaner and less cluttered looking without, and there's
+a fairly strong convention for having just an opening quote.</p>
 <pre><code>	blockquote {
-		margin: 0.5em 1em;
-		padding: 1em;
-		padding-left: 2em;
-		background: $content-shading;
-		border-left: 0.2em solid transparentize($content-color, 0.66);
+		font-size: 90%;
+		line-height: 1.3;
+		margin: 0.5em 0;
+		padding: 1em 0 1em 2em;
+		border-left: 0.33em solid $content-shading;
 	}
-	blockquote &gt; p:first-child {
+</code></pre>
+<p>Tiny detail: if you use <code>&lt;p&gt;</code> tags in your blockquote, the
+paragraph padding on top makes the blockquote's top padding
+look too big.  So this line strips padding from the first
+<code>&lt;p&gt;</code> in a blockquote.</p>
+<pre><code>	blockquote &gt; p:first-child {
 		padding-top: 0;
 	}
 </code></pre>
 <p>For bigger quote marks, make this number higher.  To remove
 the quote marks, you can delete the following section of SCSS.</p>
-<pre><code>	blockquote { position: relative; }
-	$blockquote-quote-size: 4;
+<pre><code>	$blockquote-quote-size: 4;
+
+	blockquote { position: relative; }
 	blockquote:before, blockquote:after {
 		position: absolute;
 		top: 0.1em / $blockquote-quote-size;
@@ -601,12 +621,17 @@ the quote marks, you can delete the following section of SCSS.</p>
 		content: '\201c'; /* left 66 quotes */ 
 		left: 0.1em / $blockquote-quote-size;
 	}
-	blockquote:after {
-		opacity: 0.05;
-		content: '\201d'; /* right 99 quotes */
-		right: 0.4em / $blockquote-quote-size;
-	}
 </code></pre>
+<p>This next section, commented out, is how you would add a
+closing quote mark to blockquotes.  Trust me though, it looks
+better without.</p>
+<pre><code>	// blockquote:after {
+	// 	opacity: 0.05;
+	// 	content: '\201d'; /* right 99 quotes */
+	// 	right: 0.4em / $blockquote-quote-size;
+	// }
+</code></pre>
+<h5>Lists</h5>
 <p>Bulletted lists are common in general content.  These rules
 control space between list items for normal lists and lists
 inside other lists.</p>
@@ -639,12 +664,18 @@ for static page content.</p>
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
 <p>TODO</p>
+<h3>SCSS</h3>
+<ul>
+<li>functions: transparentize(),</li>
+</ul>
+<h3>CSS</h3>
 <ul>
 <li>six-char colours and three-char colour shorthand</li>
 <li>rem units</li>
 <li>vw and vh units</li>
-<li>calc(..)</li>
+<li>calc(...)</li>
 <li>transition</li>
+<li>linear-gradient(...)</li>
 </ul>
 </div>
 <!-- source highlighting -->
