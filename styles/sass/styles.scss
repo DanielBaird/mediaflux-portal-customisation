@@ -91,12 +91,23 @@ $column-max-width: 60rem;
 // The standard background and text colour for the main content
 // column.
 //
-$content-background: #fff;
-$content-color: #000;
+$content-background: $page-background;
+$content-color: $page-color;
 
 // Choose a shading colour for doing subtle shading within the
 // content area (this is used for source code, blockquotes, etc) 
 $content-shading: transparentize($content-color, 0.95);
+
+// #### Form controls
+
+// How big should controls like buttons be?  This will be used
+// for the height of text inputs, the minimum width of buttons,
+// etc
+$control-size: 2rem;
+$control-border: none;
+$control-active-background: #6be;
+$control-background: transparentize($control-active-background, 0.75);
+
 
 // #### Header related variables
 
@@ -110,8 +121,8 @@ $header-text-size: calc(1rem + 1vw);
 
 // Header colors
 //
-$header-background: linear-gradient(to top, #000, #444);
-$header-content-color: red;
+$header-background: #555;
+$header-content-color: white;
 
 // It's preferable to use a vector format 
 // like SVG for your site logo, but if you're using a pixel 
@@ -136,14 +147,19 @@ $navbar-text-size: 1rem;
 // that matches the current content), and highlighted (for
 // when the user's mouse is hovering over it).
 //
-$navbar-background: #fcc;
-$navbar-content-color: #060;
+$navbar-background: #000;
+$navbar-content-color: #ccc;
 
 $navbar-highlight-background: $navbar-content-color;
 $navbar-highlight-content-color: $navbar-background;
 
 $navbar-current-background: $content-background;
 $navbar-current-content-color: $content-color;
+
+// The collection bar
+//
+$collection-bar-background: $header-background;
+$collection-bar-content-color: $header-content-color;
 
 // The size and colour of the page footer.
 //
@@ -268,6 +284,41 @@ nav ul {
 	// ...
 }
 
+// ## Buttons and form controls #################################
+
+// Buttons and similar form controls should look similar across
+// the portal.  This section defines the standard look.
+
+// This selector applies to text-type inputs, even the cool ones 
+// like `type="number"`.
+//
+.mf-button, input:not([type=submit]):not([type=file]) {
+	border: $control-border;
+	background: $control-background;
+	height: $control-size;
+	line-height: $control-size;
+	border-radius: 0;
+	font-family: inherit;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	// border-radius: $control-size / 2;
+}
+
+input:not([type=submit]):not([type=file]) {
+	padding: 0 0.5rem;
+}
+
+.mf-button {
+	padding: 0 0.1rem;
+	min-width: $control-size;
+	text-align: center;
+}
+.mf-button:hover {
+	color: rgb(100,149,237);
+	border-color: rgb(100,149,237);
+}
+
 // ## Page header ###############################################
 
 // All Mediaflux portal pages start with a `header` tag like
@@ -380,12 +431,16 @@ nav ul {
 // with a `mf-page` class, so this set of styling applies to the
 // content area on all page types.
 //
+// The side padding given here is mostly hard to notice on wider
+// screens, but on narrow screens it is this padding that keeps
+// content from touching the edges of the screen.
+//
 .mf-page {
 	background: $content-background;
 	color: $content-color;
 	max-width: $column-max-width;
 	margin: 0 auto;
-	padding: 2rem 1rem 3rem;
+	padding: 0 1rem 3rem;
 }
 
 // ## Footer ####################################################
@@ -424,6 +479,12 @@ nav ul {
 // followed by the content in a `div` tag with a 
 // `mf-static-page-content` class.
 //
+// On a static page, the content wrapping div that carries a 
+// `mf-page` class has an additional class of `mf-static-page`.  
+.mf-static-page {
+	padding-top: 2rem;
+}
+
 // The title is styled in a manner similar to a `h4` tag in the 
 // content (the position and spacing of the title means its 
 // significance is clear without having to make it any larger).
@@ -480,14 +541,14 @@ nav ul {
 // is clean clear headings on a desktop, but still readable
 // headings on phone screens.
 //
-	h1 { font-size: 3.157rem; font-size: calc(3.157rem + 1.578vw); font-weight: 100; }
-	h2 { font-size: 2.369rem; font-size: calc(2.369rem + 1.184vw); font-weight: 200; }
-	h3 { font-size: 1.778rem; font-size: calc(1.778rem + 0.888vw); font-weight: 400; }
-	h4 { font-size: 1.333rem; font-size: calc(1.333rem + 0.666vw); font-weight: 600; }
-	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-weight: 800; }
-	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.500vw); font-style: italic; }
+	h1 { font-size: 3.157rem; font-size: calc(3.157rem + 0.711vw); font-weight: 100; }
+	h2 { font-size: 2.369rem; font-size: calc(2.369rem + 0.533vw); font-weight: 200; }
+	h3 { font-size: 1.778rem; font-size: calc(1.778rem + 0.400vw); font-weight: 400; }
+	h4 { font-size: 1.333rem; font-size: calc(1.333rem + 0.300vw); font-weight: 600; }
+	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.000vw); font-weight: 800; }
+	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.000vw); font-style: italic; }
 
-// ##### Lonospaced text
+// ##### Monospaced text
 //
 // Add some background shading to `code`, `pre` preformatted 
 // text, and `kbd` keyboard input to help distinguish them from 
@@ -597,16 +658,59 @@ nav ul {
 
 // ## Collection page content ###################################
 
-.mf-collection-bar {
-	border: 1px solid pink;
-	padding: 1em;
+//
+// On a collection page, the content wrapping div that carries a 
+// `mf-page` class has an additional class of `mf-list-page`.
+//
+// In this styling there is a small gap between the navbar above
+// and the collection bar.
+//
+.mf-list-page {
+	padding-top: 1rem;
 }
+
+// ### Collection bar
+//
+// This page section is a sort of heading area for the list of
+// items being displayed.
+//
+.mf-collection-bar {
+	background: $collection-bar-background;
+	color: $collection-bar-content-color;
+	padding: 1em;
+	display: flex;
+}
+
+// The collection bar has two parts, a title for the current 
+// collection, and a search box.
+// 
+.mf-collection-title {
+	border: 1px solid blue;
+	flex-grow: 1;
+}
+
+.mf-collection-actions {
+	border: 1px solid pink;
+	white-space: nowrap;
+}
+
+
+
 
 .mf-collection-sidebar {
 
 }
 
 
+// ## Sass utilities ############################################
+//
+// These general purpose elements are used in several places,
+// and so are grouped here.
+
+// clearfix: this solves the spilling-out problem.
+@mixin clearfix {
+
+} 
 
 
 // ## Appendix: Sass and CSS refresher ##########################
