@@ -463,7 +463,7 @@ input:not([type=submit]):not([type=file]) {
   background: #000; }
 
 .mf-navbar-container {
-  max-width: 60rem;
+  max-width: 50rem;
   margin: 0 auto; }
 
 .mf-nav-list {
@@ -492,7 +492,7 @@ input:not([type=submit]):not([type=file]) {
 .mf-page {
   background: #fff;
   color: #333;
-  max-width: 60rem;
+  max-width: 50rem;
   margin: 0 auto;
   padding: 0 1rem 3rem; }
 
