@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "scripts/build-css.sh",
+    "build-css": "scripts/build-css.js",
     "watch-css": "nodemon --watch styles/sass --ext scss --exec 'npm run build-css'",
-    "build-html": "cd sample-html && ./convert.sh; cd ..",
+    "build-html": "scripts/build-html.js",
     "watch-html": "nodemon --watch sample-html --exec 'npm run build-html'",
     "watch": "npm run watch-css & npm run watch-html",
     "build": "npm run build-css; npm run build-html"
@@ -23,11 +23,12 @@
   },
   "homepage": "https://github.com/DanielBaird/mediaflux-portal-customisation#readme",
   "dependencies": {
+    "commonmark": "^0.26.0",
     "node-sass": "^3.8.0",
-    "normalize.css": "^4.2.0"
+    "normalize.css": "^4.2.0",
+    "shx": "^0.1.4"
   },
   "devDependencies": {
-    "commonmark": "^0.26.0",
     "nodemon": "^1.10.2"
   }
 }
