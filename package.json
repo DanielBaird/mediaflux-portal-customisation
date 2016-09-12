@@ -27,6 +27,7 @@
     "normalize.css": "^4.2.0"
   },
   "devDependencies": {
+    "commonmark": "^0.26.0",
     "nodemon": "^1.10.2"
   }
 }
