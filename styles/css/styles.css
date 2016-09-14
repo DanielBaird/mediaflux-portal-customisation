@@ -416,7 +416,7 @@ form {
   padding: 0; }
 
 .mf-button, input:not([type=submit]):not([type=file]) {
-  border: none;
+  border: 1px dotted blue;
   background: #fff;
   height: 2rem;
   line-height: 2rem;
@@ -424,13 +424,11 @@ form {
   font-family: inherit;
   cursor: pointer;
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+  padding: 0 0.5rem; }
   .mf-button:focus, input:not([type=submit]):not([type=file]):focus {
     background: #ffa;
     outline: none; }
-
-input:not([type=submit]):not([type=file]) {
-  padding: 0 0.5rem; }
 
 .mf-button {
   padding: 0 0.1rem;
@@ -470,7 +468,7 @@ input:not([type=submit]):not([type=file]) {
   background: #000; }
 
 .mf-navbar-container {
-  max-width: 50rem;
+  max-width: 55rem;
   margin: 0 auto; }
 
 .mf-nav-list {
@@ -499,7 +497,7 @@ input:not([type=submit]):not([type=file]) {
 .mf-page {
   background: #fff;
   color: #333;
-  max-width: 50rem;
+  max-width: 55rem;
   margin: 0 auto;
   padding: 0 1rem 3rem; }
 
@@ -639,3 +637,29 @@ input:not([type=submit]):not([type=file]) {
   background-position: right 0.5rem;
   background-repeat: no-repeat;
   background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>'); }
+
+.mf-collection-sidebar {
+  background: rgba(51, 51, 51, 0.05); }
+
+.mf-facet-selector {
+  border: 1px dotted blue;
+  border-width: 1px 0 0;
+  margin: 1rem 0; }
+
+.mf-facet-title {
+  padding: 0.33em 0.5em; }
+
+.mf-facet {
+  display: block;
+  padding-left: 1em; }
+  .mf-facet:hover {
+    background: #ffa; }
+
+.mf-facet span {
+  padding-left: 0.33em;
+  display: inline-block;
+  vertical-align: middle; }
+
+@media (min-width: 52rem) {
+  .mf-collection-sidebar {
+    width: 13rem; } }

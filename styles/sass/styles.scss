@@ -83,10 +83,22 @@ $page-color: #333;
 $page-print-background: $page-background;
 $page-print-color: #000;
 
-// The maximum width of the main content column is defined here
-// as 50 root ems wide, which is roughly 100-130 letters.
+// The maximum width of the page is defined here as 55 root
+// ems wide, which is roughly 120 letters.
 //
-$column-max-width: 50rem;
+$column-max-width: 55rem;
+
+// On a wide screen, list-of-items type portal pages will show
+// a sidebar column next to the content column. The preferred
+// width of the sidebar is set to 15 root ems.
+$sidebar-width: 13rem;
+
+// On a narrower screen, the sidebar becomes a sort of *top-*bar.
+// The minimum width of the content column is added to the
+// preferred width of the sidebar set earlier to work out when
+// to switch to two-column layout.
+//
+$content-min-width: $sidebar-width * 3;
 
 // The standard background and text colour for the main content
 // column.
@@ -104,7 +116,7 @@ $content-shading: transparentize($content-color, 0.95);
 // for the height of text inputs, the minimum width of buttons,
 // etc
 $control-size: 2rem;
-$control-border: none;
+$control-border: 1px dotted blue;
 $control-active-background: #d0e9ff;
 $control-active-background: #ffa;
 $control-background: $content-background;
@@ -325,16 +337,13 @@ form {
 	cursor: pointer;
 	display: inline-block;
 	vertical-align: middle;
+	padding: 0 0.5rem; // button padding is reset below
 	// border-radius: $control-size / 2;
 
 	&:focus {
 		background: $control-active-background;
 		outline: none;
 	}
-}
-
-input:not([type=submit]):not([type=file]) {
-	padding: 0 0.5rem;
 }
 
 .mf-button {
@@ -707,7 +716,6 @@ input:not([type=submit]):not([type=file]) {
 	background: $collection-bar-background;
 	color: $collection-bar-content-color;
 	padding: 1rem;
-	// display: flex;
 }
 
 // The collection bar has two parts, a title for the current 
@@ -763,12 +771,73 @@ input:not([type=submit]):not([type=file]) {
 	background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>');}
 
 
-.mf-collection-sidebar {
+// ## Sidebar ###################################################
 
+// The sidebar holds controls allowing the user to filter the
+// list of items.  To fit properly on mobile screens, the sidebar
+// gets styled here as if it will sit across the top of the
+// content; later, this styling will use a `@media` query to move
+// the sidebar to the left side when the screen is wide enough. 
+//
+.mf-collection-sidebar {
+	background: $content-shading;
 }
 
+// Each facet in the sidebar is contained within a `fieldset` tag
+// that looks like `<fieldset class="mf-facet-selector">`.
+//
+.mf-facet-selector {
+	border: $control-border;
+	border-width: 1px 0 0;
+	margin: 1rem 0;
+} 
 
+// The name given to the facet uses a `legend` tag like this:
+// `<legend class="mf-facet-title">`.
+//
+.mf-facet-title {
+	padding: 0.33em 0.5em;
+}
 
+// Individual selectable facets within a facet selection fieldset
+// are wrapped in label tags like this: 
+// `<label class="mf-facet mf-facet-checkbox">` ..or if it is a
+// "choose one only" type facet, using `mf-facet-radio` instead
+// of `mf-facet-checkbox`.
+//
+// This styling also gives the facet a highlight using the colour
+// selected for `$control-active-background` when hovered over
+// with a mouse.
+//
+.mf-facet {
+	display: block;
+	padding-left: 1em;
+	&:hover {
+		background: $control-active-background;
+	}
+}
+
+// The span tag contains the labelling text of the facet; here
+// the height and alignment are set to match the checkbox or
+// radio button.
+//
+.mf-facet span { 
+	padding-left: 0.33em;
+	display: inline-block; 
+	vertical-align: middle;
+}
+
+// ### Sidebar, on a wide screen
+
+// The `@media` statement below means that the rules inside it
+// will only apply when the page is at least the specified width.
+//
+@media (min-width: $sidebar-width + $content-min-width) {
+	.mf-collection-sidebar {
+		width: $sidebar-width;
+		// border: 1px solid red;
+	}
+}
 
 // ## Appendix: Sass and CSS refresher ##########################
 //
