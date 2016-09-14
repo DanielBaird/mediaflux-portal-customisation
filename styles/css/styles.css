@@ -411,9 +411,13 @@ nav ul {
   margin: 0;
   padding: 0; }
 
+form {
+  margin: 0;
+  padding: 0; }
+
 .mf-button, input:not([type=submit]):not([type=file]) {
   border: none;
-  background: rgba(102, 187, 238, 0.25);
+  background: #fff;
   height: 2rem;
   line-height: 2rem;
   border-radius: 0;
@@ -421,6 +425,9 @@ nav ul {
   cursor: pointer;
   display: inline-block;
   vertical-align: middle; }
+  .mf-button:focus, input:not([type=submit]):not([type=file]):focus {
+    background: #ffa;
+    outline: none; }
 
 input:not([type=submit]):not([type=file]) {
   padding: 0 0.5rem; }
@@ -604,15 +611,31 @@ input:not([type=submit]):not([type=file]) {
   padding-top: 1rem; }
 
 .mf-collection-bar {
-  background: #555;
-  color: white;
-  padding: 1em;
-  display: flex; }
+  background: #ccc;
+  color: #333;
+  padding: 1rem; }
+  .mf-collection-bar::after {
+    content: "";
+    display: block;
+    clear: both; }
 
 .mf-collection-title {
-  border: 1px solid blue;
-  flex-grow: 1; }
+  line-height: 2rem;
+  float: left;
+  font-size: 1.32rem;
+  font-weight: 800; }
 
 .mf-collection-actions {
-  border: 1px solid pink;
-  white-space: nowrap; }
+  float: right;
+  text-align: right; }
+
+.mf-collection-actions > * {
+  display: inline-block;
+  margin-left: 1rem; }
+
+.mf-action-search input[type="search"] {
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff;
+  background-size: 1.5rem, 1rem;
+  background-position: right 0.5rem;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>'); }

@@ -105,8 +105,9 @@ $content-shading: transparentize($content-color, 0.95);
 // etc
 $control-size: 2rem;
 $control-border: none;
-$control-active-background: #6be;
-$control-background: transparentize($control-active-background, 0.75);
+$control-active-background: #d0e9ff;
+$control-active-background: #ffa;
+$control-background: $content-background;
 
 
 // #### Header related variables
@@ -158,8 +159,8 @@ $navbar-current-content-color: $content-color;
 
 // The collection bar
 //
-$collection-bar-background: $header-background;
-$collection-bar-content-color: $header-content-color;
+$collection-bar-background: #ccc;
+$collection-bar-content-color: $page-color;
 
 // The size and colour of the page footer.
 //
@@ -181,6 +182,21 @@ $footer-content-color: $page-color;
 $footer-fade: true;
 
 
+// ## Sass utilities ############################################
+//
+// These general purpose elements are used in several places,
+// and so are grouped here.
+
+// clearfix: this solves the spilling-out problem.
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+} 
+
+
 // ## Setting sane defaults #####################################
 //
 // Web browsers don't agree in how to format many elements of a
@@ -200,11 +216,11 @@ $footer-fade: true;
 
 // ##### Font family default
 // 
-// Use the OS's default font if we can.  OS default fonts are
-// generally quite similar (humanist sans serifs with large 
-// x-height and open counters) so this is unlikely to run into 
-// any significant size differences, but will look familiar and 
-// modern to users.
+// Use the OS's default font if we can.  As of 2016, OS default 
+// fonts are generally quite similar (humanist sans serifs with 
+// a large x-height and open counters) so this is unlikely to 
+// run into any significant size differences, but will look 
+// familiar and modern to users.
 //
 html {
 	font-family: 
@@ -289,6 +305,13 @@ nav ul {
 // Buttons and similar form controls should look similar across
 // the portal.  This section defines the standard look.
 
+// Reset the margins and padding on forms.
+//
+form {
+	margin: 0;
+	padding: 0;
+}
+
 // This selector applies to text-type inputs, even the cool ones 
 // like `type="number"`.
 //
@@ -303,6 +326,11 @@ nav ul {
 	display: inline-block;
 	vertical-align: middle;
 	// border-radius: $control-size / 2;
+
+	&:focus {
+		background: $control-active-background;
+		outline: none;
+	}
 }
 
 input:not([type=submit]):not([type=file]) {
@@ -675,26 +703,64 @@ input:not([type=submit]):not([type=file]) {
 // items being displayed.
 //
 .mf-collection-bar {
+	@include clearfix;
 	background: $collection-bar-background;
 	color: $collection-bar-content-color;
-	padding: 1em;
-	display: flex;
+	padding: 1rem;
+	// display: flex;
 }
 
 // The collection bar has two parts, a title for the current 
-// collection, and a search box.
+// collection, and some controls.  This style puts the title on
+// the left, the controls on the right, and makes the bar the
+// right height to fit the controls.
 // 
+// The title gets it size from the controls.  This is the most
+// genuine "title" in the sense that it describes the content
+// the user is seeing, so although this styling avoids bold 
+// fonts on big headings, this title is the bold exception that
+// makes it all worth it :)
+//
 .mf-collection-title {
-	border: 1px solid blue;
-	flex-grow: 1;
+	line-height: $control-size;
+	float: left;
+	font-size: $control-size * 0.66;
+	font-weight: 800;
 }
 
+// The collection actions includes a search box and a "make new
+// asset" button.  This styling pushes it all to the right edge,
+// and gives each item a bit of space on the right side.
+//
 .mf-collection-actions {
-	border: 1px solid pink;
-	white-space: nowrap;
+	float: right;
+	text-align: right;
+}
+.mf-collection-actions > * {
+	display: inline-block;
+	margin-left: 1rem;
 }
 
-
+// The search box includes an SVG icon of a magnifying glass.
+// It's included inline here, giving you that giant block of 
+// numbers.
+//
+// The `text-shadow` gives the searched-for text a nice clean
+// edge even when it overlaps the background icon.
+//
+// If you prefer a search box with rounded ends -- a common 
+// convention a few years ago, particularly in Mac software -- 
+// un-comment the line about `border-radius`.
+//
+.mf-action-search input[type="search"] {
+	// border-radius: $control-size / 2;
+	text-shadow: 
+		0 0 2px $control-background,
+		0 0 4px $control-background;
+    background-size: $control-size * 0.75, $control-size * 0.5;
+    background-position: right $control-size / 4;
+    background-repeat: no-repeat;
+	background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>');}
 
 
 .mf-collection-sidebar {
@@ -702,15 +768,6 @@ input:not([type=submit]):not([type=file]) {
 }
 
 
-// ## Sass utilities ############################################
-//
-// These general purpose elements are used in several places,
-// and so are grouped here.
-
-// clearfix: this solves the spilling-out problem.
-@mixin clearfix {
-
-} 
 
 
 // ## Appendix: Sass and CSS refresher ##########################

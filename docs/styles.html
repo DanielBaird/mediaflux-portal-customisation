@@ -233,8 +233,9 @@ for the height of text inputs, the minimum width of buttons,
 etc
 $control-size: 2rem;
 $control-border: none;
-$control-active-background: #6be;
-$control-background: transparentize($control-active-background, 0.75);</p>
+$control-active-background: #d0e9ff;
+$control-active-background: #ffa;
+$control-background: $content-background;</p>
 <h4>Header related variables</h4>
 <p>The height of the page header and the size of the heading
 inside the page header.  If you update these values, make
@@ -276,8 +277,8 @@ $navbar-current-background: $content-background;
 $navbar-current-content-color: $content-color;
 </code></pre>
 <p>The collection bar</p>
-<pre><code>$collection-bar-background: $header-background;
-$collection-bar-content-color: $header-content-color;
+<pre><code>$collection-bar-background: #ccc;
+$collection-bar-content-color: $page-color;
 </code></pre>
 <p>The size and colour of the page footer.</p>
 <pre><code>$footer-height: 3rem;
@@ -295,6 +296,17 @@ half opacity.</p>
 <p>Disable fade by setting this variable to <code>false</code>.</p>
 <pre><code>$footer-fade: true;
 </code></pre>
+<h2>Sass utilities</h2>
+<p>These general purpose elements are used in several places,
+and so are grouped here.</p>
+<p>clearfix: this solves the spilling-out problem.
+@mixin clearfix {
+&amp;::after {
+content: &quot;&quot;;
+display: block;
+clear: both;
+}
+}</p>
 <h2>Setting sane defaults</h2>
 <p>Web browsers don't agree in how to format many elements of a
 web page.</p>
@@ -308,11 +320,11 @@ as inline css, <code>normalize.css</code> should already be renamed to
 <pre><code>@import &quot;normalize.scss&quot;;
 </code></pre>
 <h5>Font family default</h5>
-<p>Use the OS's default font if we can.  OS default fonts are
-generally quite similar (humanist sans serifs with large
-x-height and open counters) so this is unlikely to run into
-any significant size differences, but will look familiar and
-modern to users.</p>
+<p>Use the OS's default font if we can.  As of 2016, OS default
+fonts are generally quite similar (humanist sans serifs with
+a large x-height and open counters) so this is unlikely to
+run into any significant size differences, but will look
+familiar and modern to users.</p>
 <pre><code>html {
 	font-family: 
         -apple-system,       /* default macOS font for Safari/webkit */ 
@@ -384,6 +396,12 @@ this styling however it isn't used.</p>
 <h2>Buttons and form controls</h2>
 <p>Buttons and similar form controls should look similar across
 the portal.  This section defines the standard look.</p>
+<p>Reset the margins and padding on forms.</p>
+<pre><code>form {
+	margin: 0;
+	padding: 0;
+}
+</code></pre>
 <p>This selector applies to text-type inputs, even the cool ones
 like <code>type=&quot;number&quot;</code>.</p>
 <pre><code>.mf-button, input:not([type=submit]):not([type=file]) {
@@ -397,6 +415,11 @@ like <code>type=&quot;number&quot;</code>.</p>
 	display: inline-block;
 	vertical-align: middle;
 	// border-radius: $control-size / 2;
+
+	&amp;:focus {
+		background: $control-active-background;
+		outline: none;
+	}
 }
 
 input:not([type=submit]):not([type=file]) {
@@ -717,37 +740,63 @@ and the collection bar.</p>
 <p>This page section is a sort of heading area for the list of
 items being displayed.</p>
 <pre><code>.mf-collection-bar {
+	@include clearfix;
 	background: $collection-bar-background;
 	color: $collection-bar-content-color;
-	padding: 1em;
-	display: flex;
+	padding: 1rem;
+	// display: flex;
 }
 </code></pre>
 <p>The collection bar has two parts, a title for the current
-collection, and a search box.</p>
+collection, and some controls.  This style puts the title on
+the left, the controls on the right, and makes the bar the
+right height to fit the controls.</p>
+<p>The title gets it size from the controls.  This is the most
+genuine &quot;title&quot; in the sense that it describes the content
+the user is seeing, so although this styling avoids bold
+fonts on big headings, this title is the bold exception that
+makes it all worth it :)</p>
 <pre><code>.mf-collection-title {
-	border: 1px solid blue;
-	flex-grow: 1;
+	line-height: $control-size;
+	float: left;
+	font-size: $control-size * 0.66;
+	font-weight: 800;
 }
-
-.mf-collection-actions {
-	border: 1px solid pink;
-	white-space: nowrap;
+</code></pre>
+<p>The collection actions includes a search box and a &quot;make new
+asset&quot; button.  This styling pushes it all to the right edge,
+and gives each item a bit of space on the right side.</p>
+<pre><code>.mf-collection-actions {
+	float: right;
+	text-align: right;
 }
-
-
+.mf-collection-actions &gt; * {
+	display: inline-block;
+	margin-left: 1rem;
+}
+</code></pre>
+<p>The search box includes an SVG icon of a magnifying glass.
+It's included inline here, giving you that giant block of
+numbers.</p>
+<p>The <code>text-shadow</code> gives the searched-for text a nice clean
+edge even when it overlaps the background icon.</p>
+<p>If you prefer a search box with rounded ends -- a common
+convention a few years ago, particularly in Mac software --
+un-comment the line about <code>border-radius</code>.</p>
+<pre><code>.mf-action-search input[type=&quot;search&quot;] {
+	// border-radius: $control-size / 2;
+	text-shadow: 
+		0 0 2px $control-background,
+		0 0 4px $control-background;
+    background-size: $control-size * 0.75, $control-size * 0.5;
+    background-position: right $control-size / 4;
+    background-repeat: no-repeat;
+	background-image: url('data:image/svg+xml;utf8,&lt;svg height=&quot;10&quot; width=&quot;15&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 375 251&quot; enable-background=&quot;new 0 0 251 251&quot;&gt;&lt;path d=&quot;M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z&quot; fill=&quot;#999&quot; fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;/&gt;&lt;/svg&gt;');}
 
 
 .mf-collection-sidebar {
 
 }
-</code></pre>
-<h2>Sass utilities</h2>
-<p>These general purpose elements are used in several places,
-and so are grouped here.</p>
-<p>clearfix: this solves the spilling-out problem.
-@mixin clearfix {</p>
-<pre><code>} 
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
 <p>TODO</p>
