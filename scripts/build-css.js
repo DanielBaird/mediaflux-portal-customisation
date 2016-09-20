@@ -69,3 +69,5 @@ cat(HTML_FOOTER).toEnd(DOCDEST)
 
 
 
+// TODO: no need to keep this hack, remove it
+cp(CSSDEST, DOCDEST.replace('styles.html','cats.css'))
