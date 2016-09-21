@@ -114,12 +114,29 @@ $content-shading: transparentize($content-color, 0.95);
 
 // How big should controls like buttons be?  This will be used
 // for the height of text inputs, the minimum width of buttons,
-// etc
+// etc.
+//
 $control-size: 2rem;
-$control-border: 1px dotted blue;
-$control-active-background: #d0e9ff;
-$control-active-background: #ffa;
+
+// The colours used for controls include a default background,
+// and an "active" background for activated or hovered controls.
+//
 $control-background: $content-background;
+$control-content-color: $content-color;
+$control-active-background: #ffa;
+$control-active-content-color: $control-content-color;
+
+// The border on form controls helps to distinguish the control
+// as an interaction point.  Brightly coloured controls can
+// usually go without a border.
+//
+// Square corners on buttons etc looks more modern, but a 
+// little rounding helps to identify the button or textbox as
+// something you can interact with.  Set this to your preferred
+// corner radius.
+//
+$control-border: 1px solid #aaa;
+$control-corner-radius: 0.125rem;
 
 
 // #### Header related variables
@@ -169,10 +186,19 @@ $navbar-highlight-content-color: $navbar-background;
 $navbar-current-background: $content-background;
 $navbar-current-content-color: $content-color;
 
-// The collection bar
+// The collection bar has background and text colours.
 //
 $collection-bar-background: #ccc;
 $collection-bar-content-color: $page-color;
+
+// The sidebar includes facet filters; if you set a
+// background for the sidebar, you probably don't want
+// a background for the facets, and vice versa.
+//
+$sidebar-background: transparent;
+$sidebar-content-color: $page-color;
+$sidebar-facet-background: #f8f8f8;
+
 
 // The size and colour of the page footer.
 //
@@ -324,12 +350,13 @@ form {
 	padding: 0;
 }
 
-// This selector applies to text-type inputs, even the cool ones 
-// like `type="number"`.
+// This `input:not(...)` selector applies to text-type inputs,
+// even the cool ones like `type="number"`.
 //
 .mf-button, input:not([type=submit]):not([type=file]) {
 	border: $control-border;
 	background: $control-background;
+	color: $control-content-color;
 	height: $control-size;
 	line-height: $control-size;
 	border-radius: 0;
@@ -338,10 +365,12 @@ form {
 	display: inline-block;
 	vertical-align: middle;
 	padding: 0 0.5rem; // button padding is reset below
-	// border-radius: $control-size / 2;
+	border-radius: $control-corner-radius;
+	transition: background-color 0.25s;
 
-	&:focus {
+	&:focus, &:hover {
 		background: $control-active-background;
+		color: $control-active-content-color;
 		outline: none;
 	}
 }
@@ -351,10 +380,13 @@ form {
 	min-width: $control-size;
 	text-align: center;
 }
-.mf-button:hover {
-	color: rgb(100,149,237);
-	border-color: rgb(100,149,237);
-}
+
+// TODO: sort this colouring out
+//
+// .mf-button:hover {
+// 	color: rgb(100,149,237);
+// 	border-color: rgb(100,149,237);
+// }
 
 // ## Page header ###############################################
 
@@ -445,7 +477,7 @@ form {
 	text-align: center;
 	flex-grow: 1;
 	line-height: $navbar-height;
-	transition: 0.25s;
+	transition: background-color 0.25s;
 	&:hover {
 		background: $navbar-highlight-background;
 		color: $navbar-highlight-content-color;
@@ -699,11 +731,11 @@ form {
 // On a collection page, the content wrapping div that carries a 
 // `mf-page` class has an additional class of `mf-list-page`.
 //
-// In this styling there is a small gap between the navbar above
+// In this styling there is a gap between the navbar above
 // and the collection bar.
 //
 .mf-list-page {
-	padding-top: 1rem;
+	padding-top: 2rem;
 }
 
 // ### Collection bar
@@ -768,7 +800,8 @@ form {
     background-size: $control-size * 0.75, $control-size * 0.5;
     background-position: right $control-size / 4;
     background-repeat: no-repeat;
-	background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>');}
+	background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>');
+}
 
 
 // ## Sidebar ###################################################
@@ -779,23 +812,29 @@ form {
 // content; later, this styling will use a `@media` query to move
 // the sidebar to the left side when the screen is wide enough. 
 //
+// The style rules immediately below are simply setting the 
+// colours.
+//
 .mf-collection-sidebar {
-	background: $content-shading;
+	background: $sidebar-background;
+	color: $sidebar-content-color;
 }
 
 // Each facet in the sidebar is contained within a `fieldset` tag
 // that looks like `<fieldset class="mf-facet-selector">`.
 //
 .mf-facet-selector {
-	border: $control-border;
-	border-width: 1px 0 0;
-	margin: 1rem 0;
+	background: $sidebar-facet-background;
+	border: none;
+	border-top: $control-border;
+	margin: 2rem 0;
 } 
 
 // The name given to the facet uses a `legend` tag like this:
 // `<legend class="mf-facet-title">`.
 //
 .mf-facet-title {
+	border-radius: 2px;
 	padding: 0.33em 0.5em;
 }
 
@@ -809,11 +848,17 @@ form {
 // selected for `$control-active-background` when hovered over
 // with a mouse.
 //
+// A final visual enhancement is using `transition`s to fade the
+// background highlight out.
+//
 .mf-facet {
 	display: block;
 	padding-left: 1em;
+	transition: background-color 0.25s;
+
 	&:hover {
 		background: $control-active-background;
+		transition: background-color 0s;
 	}
 }
 
@@ -832,10 +877,118 @@ form {
 // The `@media` statement below means that the rules inside it
 // will only apply when the page is at least the specified width.
 //
+// Here, the sidebar width is set to the configured width (rather
+// than using the full width of the screen), and the sidebar is
+// aligned to the left.
+//
 @media (min-width: $sidebar-width + $content-min-width) {
 	.mf-collection-sidebar {
 		width: $sidebar-width;
-		// border: 1px solid red;
+		float: left;
+	}
+}
+
+// ## Page navigation ###########################################
+
+// Page navigation buttons are constructed as a `ul` tag inside
+// a `nav`.  Each page button is a `li` inside the `ul`.
+
+.mf-collection-paging {
+	padding: 2rem 0;
+}
+
+.mf-collection-paging ul {
+	text-align: right;
+}
+
+.mf-collection-paging li {
+	display: inline-block;
+	margin: 0 0 0 0.5rem;
+}
+
+// Some of the page navigation buttons get their text replaced
+// with icons.  This styling uses Unicode characters.
+//
+// All the icon buttons are made square and their text content
+// hidden.  Then `:before` content is added with the appropriate
+// unicode character.
+
+.mf-collection-paging .mf-up-button,
+.mf-collection-paging .mf-refresh-page-button,
+.mf-collection-paging .mf-prev-page-button,
+.mf-collection-paging .mf-next-page-button
+{
+	width: $control-size;
+	position: relative;
+	overflow: hidden;
+	color: rgba(0,0,0, 0);
+	&:before {
+		color: $control-content-color;
+		content: '\25ef'; /* 25ef: ◯ LARGE CIRCLE */
+		position: absolute;
+		top: 0; bottom: 0; left: 0; right: 0;
+		// background: inherit;
+	}
+}
+
+.mf-collection-paging {
+	.mf-up-button:before           { content: '\21a5' /* 21a5: ↥ UPWARDS ARROW FROM BAR */ }
+	.mf-refresh-page-button:before { content: '\21bb' /* 21bb: ↻ CLOCKWISE OPEN CIRCLE ARROW */ }
+	.mf-prev-page-button:before    { content: '\2190' /* 2190: ← LEFTWARDS ARROW */ }
+	.mf-next-page-button:before    { content: '\2192' /* 2192: → RIGHTWARDS ARROW */ }
+}
+
+// ### Page navigation, on a wide screen
+
+// The `@media` statement below means that the rules inside it
+// will only apply when the page is at least the specified width.
+//
+// Here the page navigation buttons are given a large left margin
+// (to allow the sidebar to fit into that space).
+//
+@media (min-width: $sidebar-width + $content-min-width) {
+	.mf-collection-paging {
+		margin-left: $sidebar-width;
+		padding-left: 1rem;
+	}
+}
+
+// ## Listing results ###########################################
+
+// There are two types of results; a list of assets, or a list of
+// collections.  They share a wrapping div 
+// (`<div class="mf-reesult-list">`), but the nested `ul`s differ
+// (`<ul class="mf-asset-list">` vs 
+// `<ul class="mf-collection-list">`).
+
+
+.mf-result-list {
+	padding: 0;
+	background: $content-shading;
+}
+
+.mf-result-list ul {
+	padding: 0;
+	margin: 0;
+}
+
+.mf-result-list li {
+	display: block;
+}
+
+// ### Listing results, on a wide screen
+
+// The `@media` statement below means that the rules inside it
+// will only apply when the page is at least the specified width.
+//
+// Here the result list is given a large left margin (to allow
+// the sidebar to fit into that space).  This section is similar
+// to the wide-screen formatting for the page navigation.
+//
+@media (min-width: $sidebar-width + $content-min-width) {
+	.mf-result-list {
+		margin-left: $sidebar-width;
+		padding-left: 1rem;
 	}
 }
 

@@ -1,0 +1,33 @@
+<li class="mf-listed-result">
+	<article>
+			{{ zero or one AssetThumbnail }}
+
+			<h2 class="mf-result-title">
+				{{ name of result }}
+			</h2>
+			<div class="mf-result-description">
+				{{ description of result }}
+			</div>
+			<div class="mf-listed-asset-body">
+				{{ zero or one AssetInfoBlock }}
+
+				<div class="mf-result-metadata-list-wrapper">
+					<ul class="mf-result-metadata-list">
+						<li>
+							<section>
+								<h3 class="mf-metadata-field">
+									{{ metadata name }}
+								</h3>
+								<div class="mf-metadata-value">
+									{{ metadata value }}
+								</div>
+							</section>
+						</li>
+
+						{{ ..one li for each metadata property.. }}
+					</ul>
+			        </div>
+			</div>
+	</article>
+</li>
+

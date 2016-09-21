@@ -8,7 +8,7 @@
     "build-css": "scripts/build-css.js",
     "watch-css": "nodemon --watch styles/sass --ext scss --exec 'npm run build-css'",
     "build-html": "scripts/build-html.js",
-    "watch-html": "nodemon --watch sample-html/ --exec 'npm run build-html'",
+    "watch-html": "nodemon --watch sample-html --exec 'npm run build-html'",
     "watch": "npm run watch-css & npm run watch-html",
     "build": "npm run build-css; npm run build-html"
   },

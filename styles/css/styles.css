@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 The original source of the text you're reading is a SCSS formatted 
 file.  SCSS is a superset of CSS; it allows all valid CSS, but in 
@@ -416,8 +417,9 @@ form {
   padding: 0; }
 
 .mf-button, input:not([type=submit]):not([type=file]) {
-  border: 1px dotted blue;
+  border: 1px solid #aaa;
   background: #fff;
+  color: #333;
   height: 2rem;
   line-height: 2rem;
   border-radius: 0;
@@ -425,19 +427,18 @@ form {
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
-  padding: 0 0.5rem; }
-  .mf-button:focus, input:not([type=submit]):not([type=file]):focus {
+  padding: 0 0.5rem;
+  border-radius: 0.125rem;
+  transition: background-color 0.25s; }
+  .mf-button:focus, .mf-button:hover, input:not([type=submit]):not([type=file]):focus, input:not([type=submit]):not([type=file]):hover {
     background: #ffa;
+    color: #333;
     outline: none; }
 
 .mf-button {
   padding: 0 0.1rem;
   min-width: 2rem;
   text-align: center; }
-
-.mf-button:hover {
-  color: cornflowerblue;
-  border-color: cornflowerblue; }
 
 .mf-header {
   background: #555;
@@ -482,7 +483,7 @@ form {
   text-align: center;
   flex-grow: 1;
   line-height: 3rem;
-  transition: 0.25s; }
+  transition: background-color 0.25s; }
   .mf-nav-list li:hover {
     background: #ccc;
     color: #000; }
@@ -606,7 +607,7 @@ form {
     list-style-type: square; }
 
 .mf-list-page {
-  padding-top: 1rem; }
+  padding-top: 2rem; }
 
 .mf-collection-bar {
   background: #ccc;
@@ -639,21 +640,26 @@ form {
   background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>'); }
 
 .mf-collection-sidebar {
-  background: rgba(51, 51, 51, 0.05); }
+  background: transparent;
+  color: #333; }
 
 .mf-facet-selector {
-  border: 1px dotted blue;
-  border-width: 1px 0 0;
-  margin: 1rem 0; }
+  background: #f8f8f8;
+  border: none;
+  border-top: 1px solid #aaa;
+  margin: 2rem 0; }
 
 .mf-facet-title {
+  border-radius: 2px;
   padding: 0.33em 0.5em; }
 
 .mf-facet {
   display: block;
-  padding-left: 1em; }
+  padding-left: 1em;
+  transition: background-color 0.25s; }
   .mf-facet:hover {
-    background: #ffa; }
+    background: #ffa;
+    transition: background-color 0s; }
 
 .mf-facet span {
   padding-left: 0.33em;
@@ -662,4 +668,69 @@ form {
 
 @media (min-width: 52rem) {
   .mf-collection-sidebar {
-    width: 13rem; } }
+    width: 13rem;
+    float: left; } }
+
+.mf-collection-paging {
+  padding: 2rem 0; }
+
+.mf-collection-paging ul {
+  text-align: right; }
+
+.mf-collection-paging li {
+  display: inline-block;
+  margin: 0 0 0 0.5rem; }
+
+.mf-collection-paging .mf-up-button,
+.mf-collection-paging .mf-refresh-page-button,
+.mf-collection-paging .mf-prev-page-button,
+.mf-collection-paging .mf-next-page-button {
+  width: 2rem;
+  position: relative;
+  overflow: hidden;
+  color: transparent; }
+  .mf-collection-paging .mf-up-button:before,
+  .mf-collection-paging .mf-refresh-page-button:before,
+  .mf-collection-paging .mf-prev-page-button:before,
+  .mf-collection-paging .mf-next-page-button:before {
+    color: #333;
+    content: '\25ef';
+    /* 25ef: ◯ LARGE CIRCLE */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+
+.mf-collection-paging .mf-up-button:before {
+  content: "↥"; }
+
+.mf-collection-paging .mf-refresh-page-button:before {
+  content: "↻"; }
+
+.mf-collection-paging .mf-prev-page-button:before {
+  content: "←"; }
+
+.mf-collection-paging .mf-next-page-button:before {
+  content: "→"; }
+
+@media (min-width: 52rem) {
+  .mf-collection-paging {
+    margin-left: 13rem;
+    padding-left: 1rem; } }
+
+.mf-result-list {
+  padding: 0;
+  background: rgba(51, 51, 51, 0.05); }
+
+.mf-result-list ul {
+  padding: 0;
+  margin: 0; }
+
+.mf-result-list li {
+  display: block; }
+
+@media (min-width: 52rem) {
+  .mf-result-list {
+    margin-left: 13rem;
+    padding-left: 1rem; } }

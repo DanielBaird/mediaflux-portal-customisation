@@ -1,6 +1,6 @@
 <head>
 <link rel="stylesheet" type="text/css" href="../styles/css/styles.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
 </head>
 <body>
 <div class="mf-body-wrapper">
@@ -83,22 +83,134 @@
 
 
 
-<nav class="mf-collection-paging" aria-label="Paging">
-    <ul>
+<nav class="mf-collection-paging" aria-label="paging">
+	<ul>
         <li><a class="mf-button mf-up-button">up</a></li>
-        <li><a class="mf-button mf-refresh-page-button">refresh</a></li>
-        <li><a class="mf-button mf-page-button mf-current-page-button">1</a></li>
-        <li><a class="mf-button mf-page-button">1</a></li>
-        <li><a class="mf-button mf-next-page-button">next</a></li>
-    </ul>
+		<li><a class="mf-button mf-refresh-page-button">refresh</a></li>
+        <li><a class="mf-button mf-prev-page-button">prev</a></li>
+		<li><a class="mf-button mf-page-button mf-current-page-button">1</a></li>
+		<li><a class="mf-button mf-page-button">2</a></li>
+		<li><a class="mf-button mf-next-page-button">next</a></li>
+	</ul>
 </nav>
-
 
 <div class="mf-result-list">
     <ul class="mf-asset-list">
-        {{ zero or more ListedResults }}
+
+
+<li class="mf-listed-result">
+	<article>
+			{{ zero or one AssetThumbnail }}
+
+			<h2 class="mf-result-title">
+				{{ name of result }}
+			</h2>
+			<div class="mf-result-description">
+				{{ description of result }}
+			</div>
+			<div class="mf-listed-asset-body">
+				{{ zero or one AssetInfoBlock }}
+
+				<div class="mf-result-metadata-list-wrapper">
+					<ul class="mf-result-metadata-list">
+						<li>
+							<section>
+								<h3 class="mf-metadata-field">
+									{{ metadata name }}
+								</h3>
+								<div class="mf-metadata-value">
+									{{ metadata value }}
+								</div>
+							</section>
+						</li>
+
+						{{ ..one li for each metadata property.. }}
+					</ul>
+			        </div>
+			</div>
+	</article>
+</li>
+
+
+
+
+<li class="mf-listed-result">
+	<article>
+			{{ zero or one AssetThumbnail }}
+
+			<h2 class="mf-result-title">
+				{{ name of result }}
+			</h2>
+			<div class="mf-result-description">
+				{{ description of result }}
+			</div>
+			<div class="mf-listed-asset-body">
+				{{ zero or one AssetInfoBlock }}
+
+				<div class="mf-result-metadata-list-wrapper">
+					<ul class="mf-result-metadata-list">
+						<li>
+							<section>
+								<h3 class="mf-metadata-field">
+									{{ metadata name }}
+								</h3>
+								<div class="mf-metadata-value">
+									{{ metadata value }}
+								</div>
+							</section>
+						</li>
+
+						{{ ..one li for each metadata property.. }}
+					</ul>
+			        </div>
+			</div>
+	</article>
+</li>
+
+
+
+
+<li class="mf-listed-result">
+	<article>
+			{{ zero or one AssetThumbnail }}
+
+			<h2 class="mf-result-title">
+				{{ name of result }}
+			</h2>
+			<div class="mf-result-description">
+				{{ description of result }}
+			</div>
+			<div class="mf-listed-asset-body">
+				{{ zero or one AssetInfoBlock }}
+
+				<div class="mf-result-metadata-list-wrapper">
+					<ul class="mf-result-metadata-list">
+						<li>
+							<section>
+								<h3 class="mf-metadata-field">
+									{{ metadata name }}
+								</h3>
+								<div class="mf-metadata-value">
+									{{ metadata value }}
+								</div>
+							</section>
+						</li>
+
+						{{ ..one li for each metadata property.. }}
+					</ul>
+			        </div>
+			</div>
+	</article>
+</li>
+
+
+
     </ul>
 </div>
+
+
+
+
 
 
 

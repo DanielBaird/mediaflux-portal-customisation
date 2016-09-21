@@ -240,12 +240,26 @@ $content-shading: transparentize($content-color, 0.95);</p>
 <h4>Form controls</h4>
 <p>How big should controls like buttons be?  This will be used
 for the height of text inputs, the minimum width of buttons,
-etc
-$control-size: 2rem;
-$control-border: 1px dotted blue;
-$control-active-background: #d0e9ff;
+etc.</p>
+<pre><code>$control-size: 2rem;
+</code></pre>
+<p>The colours used for controls include a default background,
+and an &quot;active&quot; background for activated or hovered controls.</p>
+<pre><code>$control-background: $content-background;
+$control-content-color: $content-color;
 $control-active-background: #ffa;
-$control-background: $content-background;</p>
+$control-active-content-color: $control-content-color;
+</code></pre>
+<p>The border on form controls helps to distinguish the control
+as an interaction point.  Brightly coloured controls can
+usually go without a border.</p>
+<p>Square corners on buttons etc looks more modern, but a
+little rounding helps to identify the button or textbox as
+something you can interact with.  Set this to your preferred
+corner radius.</p>
+<pre><code>$control-border: 1px solid #aaa;
+$control-corner-radius: 0.125rem;
+</code></pre>
 <h4>Header related variables</h4>
 <p>The height of the page header and the size of the heading
 inside the page header.  If you update these values, make
@@ -286,9 +300,16 @@ $navbar-highlight-content-color: $navbar-background;
 $navbar-current-background: $content-background;
 $navbar-current-content-color: $content-color;
 </code></pre>
-<p>The collection bar</p>
+<p>The collection bar has background and text colours.</p>
 <pre><code>$collection-bar-background: #ccc;
 $collection-bar-content-color: $page-color;
+</code></pre>
+<p>The sidebar includes facet filters; if you set a
+background for the sidebar, you probably don't want
+a background for the facets, and vice versa.</p>
+<pre><code>$sidebar-background: transparent;
+$sidebar-content-color: $page-color;
+$sidebar-facet-background: #f8f8f8;
 </code></pre>
 <p>The size and colour of the page footer.</p>
 <pre><code>$footer-height: 3rem;
@@ -412,11 +433,12 @@ the portal.  This section defines the standard look.</p>
 	padding: 0;
 }
 </code></pre>
-<p>This selector applies to text-type inputs, even the cool ones
-like <code>type=&quot;number&quot;</code>.</p>
+<p>This <code>input:not(...)</code> selector applies to text-type inputs,
+even the cool ones like <code>type=&quot;number&quot;</code>.</p>
 <pre><code>.mf-button, input:not([type=submit]):not([type=file]) {
 	border: $control-border;
 	background: $control-background;
+	color: $control-content-color;
 	height: $control-size;
 	line-height: $control-size;
 	border-radius: 0;
@@ -425,10 +447,12 @@ like <code>type=&quot;number&quot;</code>.</p>
 	display: inline-block;
 	vertical-align: middle;
 	padding: 0 0.5rem; // button padding is reset below
-	// border-radius: $control-size / 2;
+	border-radius: $control-corner-radius;
+	transition: background-color 0.25s;
 
-	&amp;:focus {
+	&amp;:focus, &amp;:hover {
 		background: $control-active-background;
+		color: $control-active-content-color;
 		outline: none;
 	}
 }
@@ -438,11 +462,12 @@ like <code>type=&quot;number&quot;</code>.</p>
 	min-width: $control-size;
 	text-align: center;
 }
-.mf-button:hover {
-	color: rgb(100,149,237);
-	border-color: rgb(100,149,237);
-}
 </code></pre>
+<p>TODO: sort this colouring out</p>
+<p>.mf-button:hover {
+color: rgb(100,149,237);
+border-color: rgb(100,149,237);
+}</p>
 <h2>Page header</h2>
 <p>All Mediaflux portal pages start with a <code>header</code> tag like
 this: <code>&lt;header class=&quot;mf-header&quot; role=&quot;banner&quot;&gt;</code>. The <code>role</code>
@@ -519,7 +544,7 @@ on a narrow display, they'll take the space they need.</p>
 	text-align: center;
 	flex-grow: 1;
 	line-height: $navbar-height;
-	transition: 0.25s;
+	transition: background-color 0.25s;
 	&amp;:hover {
 		background: $navbar-highlight-background;
 		color: $navbar-highlight-content-color;
@@ -737,10 +762,10 @@ for static page content.</p>
 <h2>Collection page content</h2>
 <p>On a collection page, the content wrapping div that carries a
 <code>mf-page</code> class has an additional class of <code>mf-list-page</code>.</p>
-<p>In this styling there is a small gap between the navbar above
+<p>In this styling there is a gap between the navbar above
 and the collection bar.</p>
 <pre><code>.mf-list-page {
-	padding-top: 1rem;
+	padding-top: 2rem;
 }
 </code></pre>
 <h3>Collection bar</h3>
@@ -797,7 +822,8 @@ un-comment the line about <code>border-radius</code>.</p>
     background-size: $control-size * 0.75, $control-size * 0.5;
     background-position: right $control-size / 4;
     background-repeat: no-repeat;
-	background-image: url('data:image/svg+xml;utf8,&lt;svg height=&quot;10&quot; width=&quot;15&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 375 251&quot; enable-background=&quot;new 0 0 251 251&quot;&gt;&lt;path d=&quot;M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z&quot; fill=&quot;#999&quot; fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;/&gt;&lt;/svg&gt;');}
+	background-image: url('data:image/svg+xml;utf8,&lt;svg height=&quot;10&quot; width=&quot;15&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 375 251&quot; enable-background=&quot;new 0 0 251 251&quot;&gt;&lt;path d=&quot;M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z&quot; fill=&quot;#999&quot; fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;/&gt;&lt;/svg&gt;');
+}
 </code></pre>
 <h2>Sidebar</h2>
 <p>The sidebar holds controls allowing the user to filter the
@@ -805,21 +831,26 @@ list of items.  To fit properly on mobile screens, the sidebar
 gets styled here as if it will sit across the top of the
 content; later, this styling will use a <code>@media</code> query to move
 the sidebar to the left side when the screen is wide enough.</p>
+<p>The style rules immediately below are simply setting the
+colours.</p>
 <pre><code>.mf-collection-sidebar {
-	background: $content-shading;
+	background: $sidebar-background;
+	color: $sidebar-content-color;
 }
 </code></pre>
 <p>Each facet in the sidebar is contained within a <code>fieldset</code> tag
 that looks like <code>&lt;fieldset class=&quot;mf-facet-selector&quot;&gt;</code>.</p>
 <pre><code>.mf-facet-selector {
-	border: $control-border;
-	border-width: 1px 0 0;
-	margin: 1rem 0;
+	background: $sidebar-facet-background;
+	border: none;
+	border-top: $control-border;
+	margin: 2rem 0;
 } 
 </code></pre>
 <p>The name given to the facet uses a <code>legend</code> tag like this:
 <code>&lt;legend class=&quot;mf-facet-title&quot;&gt;</code>.</p>
 <pre><code>.mf-facet-title {
+	border-radius: 2px;
 	padding: 0.33em 0.5em;
 }
 </code></pre>
@@ -831,11 +862,16 @@ of <code>mf-facet-checkbox</code>.</p>
 <p>This styling also gives the facet a highlight using the colour
 selected for <code>$control-active-background</code> when hovered over
 with a mouse.</p>
+<p>A final visual enhancement is using <code>transition</code>s to fade the
+background highlight out.</p>
 <pre><code>.mf-facet {
 	display: block;
 	padding-left: 1em;
+	transition: background-color 0.25s;
+
 	&amp;:hover {
 		background: $control-active-background;
+		transition: background-color 0s;
 	}
 }
 </code></pre>
@@ -851,10 +887,104 @@ radio button.</p>
 <h3>Sidebar, on a wide screen</h3>
 <p>The <code>@media</code> statement below means that the rules inside it
 will only apply when the page is at least the specified width.</p>
+<p>Here, the sidebar width is set to the configured width (rather
+than using the full width of the screen), and the sidebar is
+aligned to the left.</p>
 <pre><code>@media (min-width: $sidebar-width + $content-min-width) {
 	.mf-collection-sidebar {
 		width: $sidebar-width;
-		// border: 1px solid red;
+		float: left;
+	}
+}
+</code></pre>
+<h2>Page navigation</h2>
+<p>Page navigation buttons are constructed as a <code>ul</code> tag inside
+a <code>nav</code>.  Each page button is a <code>li</code> inside the <code>ul</code>.</p>
+<pre><code>.mf-collection-paging {
+	padding: 2rem 0;
+}
+
+.mf-collection-paging ul {
+	text-align: right;
+}
+
+.mf-collection-paging li {
+	display: inline-block;
+	margin: 0 0 0 0.5rem;
+}
+</code></pre>
+<p>Some of the page navigation buttons get their text replaced
+with icons.  This styling uses Unicode characters.</p>
+<p>All the icon buttons are made square and their text content
+hidden.  Then <code>:before</code> content is added with the appropriate
+unicode character.</p>
+<pre><code>.mf-collection-paging .mf-up-button,
+.mf-collection-paging .mf-refresh-page-button,
+.mf-collection-paging .mf-prev-page-button,
+.mf-collection-paging .mf-next-page-button
+{
+	width: $control-size;
+	position: relative;
+	overflow: hidden;
+	color: rgba(0,0,0, 0);
+	&amp;:before {
+		color: $control-content-color;
+		content: '\25ef'; /* 25ef: ◯ LARGE CIRCLE */
+		position: absolute;
+		top: 0; bottom: 0; left: 0; right: 0;
+		// background: inherit;
+	}
+}
+
+.mf-collection-paging {
+	.mf-up-button:before           { content: '\21a5' /* 21a5: ↥ UPWARDS ARROW FROM BAR */ }
+	.mf-refresh-page-button:before { content: '\21bb' /* 21bb: ↻ CLOCKWISE OPEN CIRCLE ARROW */ }
+	.mf-prev-page-button:before    { content: '\2190' /* 2190: ← LEFTWARDS ARROW */ }
+	.mf-next-page-button:before    { content: '\2192' /* 2192: → RIGHTWARDS ARROW */ }
+}
+</code></pre>
+<h3>Page navigation, on a wide screen</h3>
+<p>The <code>@media</code> statement below means that the rules inside it
+will only apply when the page is at least the specified width.</p>
+<p>Here the page navigation buttons are given a large left margin
+(to allow the sidebar to fit into that space).</p>
+<pre><code>@media (min-width: $sidebar-width + $content-min-width) {
+	.mf-collection-paging {
+		margin-left: $sidebar-width;
+		padding-left: 1rem;
+	}
+}
+</code></pre>
+<h2>Listing results</h2>
+<p>There are two types of results; a list of assets, or a list of
+collections.  They share a wrapping div
+(<code>&lt;div class=&quot;mf-reesult-list&quot;&gt;</code>), but the nested <code>ul</code>s differ
+(<code>&lt;ul class=&quot;mf-asset-list&quot;&gt;</code> vs
+<code>&lt;ul class=&quot;mf-collection-list&quot;&gt;</code>).</p>
+<pre><code>.mf-result-list {
+	padding: 0;
+	background: $content-shading;
+}
+
+.mf-result-list ul {
+	padding: 0;
+	margin: 0;
+}
+
+.mf-result-list li {
+	display: block;
+}
+</code></pre>
+<h3>Listing results, on a wide screen</h3>
+<p>The <code>@media</code> statement below means that the rules inside it
+will only apply when the page is at least the specified width.</p>
+<p>Here the result list is given a large left margin (to allow
+the sidebar to fit into that space).  This section is similar
+to the wide-screen formatting for the page navigation.</p>
+<pre><code>@media (min-width: $sidebar-width + $content-min-width) {
+	.mf-result-list {
+		margin-left: $sidebar-width;
+		padding-left: 1rem;
 	}
 }
 </code></pre>
