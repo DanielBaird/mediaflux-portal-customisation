@@ -179,12 +179,12 @@ to see the source document.</p>
 <p>The source document is already valid SCSS, so CSS is produced
 by running it through the Sass compiler.</p>
 <pre><code> /*
-The original source of the text you're reading is a SCSS formatted 
-file.  SCSS is a superset of CSS; it allows all valid CSS, but in 
-addition allows for a number of variables calculations that are 
+The original source of the text you're reading is a SCSS formatted
+file.  SCSS is a superset of CSS; it allows all valid CSS, but in
+addition allows for a number of variables calculations that are
 resolved by the SCSS compiler and turned into valid CSS.
 
-To alter the CSS, you should edit the SCSS source file and 
+To alter the CSS, you should edit the SCSS source file and
 recompile.  Visit the website:
 https://github.com/DanielBaird/mediaflux-portal-customisation
 for more information.
@@ -333,7 +333,7 @@ $sidebar-facet-background: #f8f8f8;
 $footer-text-size: 1rem;
 
 $footer-background: $page-background;
-$footer-content-color: $page-color; 
+$footer-content-color: $page-color;
 </code></pre>
 <p>If you set <code>footer-fade</code> to true, the footer will appear
 faded until the user hovers over it with their mouse.  This
@@ -374,8 +374,8 @@ a large x-height and open counters) so this is unlikely to
 run into any significant size differences, but will look
 familiar and modern to users.</p>
 <pre><code>html {
-	font-family: 
-        -apple-system,       /* default macOS font for Safari/webkit */ 
+	font-family:
+        -apple-system,       /* default macOS font for Safari/webkit */
         BlinkMacSystemFont,  /* default macOS font for Chrome/blink */
         &quot;Segoe UI&quot;,          /* default Windows font */
         &quot;Roboto&quot;,            /* default Android font */
@@ -524,7 +524,7 @@ information about setting the size of the logo.</p>
         max-width: $header-text-size;
     } @else {
         height: $logo-height;
-        width: $logo-width;        
+        width: $logo-width;
     }
 }
 </code></pre>
@@ -624,7 +624,7 @@ like this: <code>&lt;h1 class=&quot;mf-static-page-title&quot; id=&quot;mf-page-
 followed by the content in a <code>div</code> tag with a
 <code>mf-static-page-content</code> class.</p>
 <p>On a static page, the content wrapping div that carries a
-<code>mf-page</code> class has an additional class of <code>mf-static-page</code>.<br />
+<code>mf-page</code> class has an additional class of <code>mf-static-page</code>.
 .mf-static-page {
 padding-top: 2rem;
 }</p>
@@ -635,8 +635,8 @@ significance is clear without having to make it any larger).</p>
 <code>calc(...)</code> function to scale along with the size of the
 window.</p>
 <pre><code>.mf-static-page-title {
-	font-size: 1.333rem; 
-	font-size: calc(1.333rem + 0.666vw); 
+	font-size: 1.333rem;
+	font-size: calc(1.333rem + 0.666vw);
 	font-weight: 600;
 	padding: 1rem 0;
 }
@@ -742,7 +742,7 @@ the quote marks, you can delete the following section of SCSS.</p>
 		font-style: italic;
 	}
 	blockquote:before {
-		content: '\201c'; /* left 66 quotes */ 
+		content: '\201c'; /* left 66 quotes */
 		left: 0.1em / $blockquote-quote-size;
 	}
 </code></pre>
@@ -833,7 +833,7 @@ convention a few years ago, particularly in Mac software --
 un-comment the line about <code>border-radius</code>.</p>
 <pre><code>.mf-action-search input[type=&quot;search&quot;] {
 	// border-radius: $control-size / 2;
-	text-shadow: 
+	text-shadow:
 		0 0 2px $control-background,
 		0 0 4px $control-background;
     background-size: $control-size * 0.75, $control-size * 0.5;
@@ -862,7 +862,7 @@ that looks like <code>&lt;fieldset class=&quot;mf-facet-selector&quot;&gt;</code
 	border: none;
 	border-top: $control-border;
 	margin: 2rem 0;
-} 
+}
 </code></pre>
 <p>The name given to the facet uses a <code>legend</code> tag like this:
 <code>&lt;legend class=&quot;mf-facet-title&quot;&gt;</code>.</p>
@@ -895,9 +895,9 @@ background highlight out.</p>
 <p>The span tag contains the labelling text of the facet; here
 the height and alignment are set to match the checkbox or
 radio button.</p>
-<pre><code>.mf-facet span { 
+<pre><code>.mf-facet span {
 	padding-left: 0.33em;
-	display: inline-block; 
+	display: inline-block;
 	vertical-align: middle;
 }
 </code></pre>

@@ -10,15 +10,15 @@
 // Mediaflux portals, and serves as a springboard for modifying
 // the styles to produce unique portal experiences.
 //
-// Light modification is possible by changing colour and size 
+// Light modification is possible by changing colour and size
 // settings, and enough instruction is also provided for someone
 // with some web design skills to perform deeper customisations.
 //
 // #### Audience
 //
-// Generally this document assumes you're familiar with the 
-// basics of CSS and the HTML Document Object Model.  If you 
-// learned HTML and CSS a while ago, an appendix at the end of 
+// Generally this document assumes you're familiar with the
+// basics of CSS and the HTML Document Object Model.  If you
+// learned HTML and CSS a while ago, an appendix at the end of
 // this document will give you a quick overview of any new or
 // obscure CSS techniques used in this document.
 //
@@ -27,12 +27,12 @@
 //
 // #### Source
 //
-// This document is written in a "literate" style, where the 
-// source document is both live Sass/SCSS source that produces 
+// This document is written in a "literate" style, where the
+// source document is both live Sass/SCSS source that produces
 // the CSS, and a Markdown-formatted document describing the
 // code.
 //
-// Visit 
+// Visit
 // [styles.scss](https://github.com/DanielBaird/mediaflux-portal-customisation/blob/master/styles/sass/styles.scss)
 // to see the source document.
 //
@@ -40,12 +40,12 @@
 // by running it through the Sass compiler.
 
  /*
-The original source of the text you're reading is a SCSS formatted 
-file.  SCSS is a superset of CSS; it allows all valid CSS, but in 
-addition allows for a number of variables calculations that are 
+The original source of the text you're reading is a SCSS formatted
+file.  SCSS is a superset of CSS; it allows all valid CSS, but in
+addition allows for a number of variables calculations that are
 resolved by the SCSS compiler and turned into valid CSS.
 
-To alter the CSS, you should edit the SCSS source file and 
+To alter the CSS, you should edit the SCSS source file and
 recompile.  Visit the website:
 https://github.com/DanielBaird/mediaflux-portal-customisation
 for more information.
@@ -56,8 +56,8 @@ for more information.
 //
 // The source is then transformed with a short shell script,
 // which does two things:
-// 
-// * finds lines starting with `//`, and removes those two 
+//
+// * finds lines starting with `//`, and removes those two
 //   initial characters;
 // * indents all other lines by four spaces.
 //
@@ -71,13 +71,13 @@ for more information.
 
 // #### Overall page level variables
 
-// Default the general page colours to to white background and 
+// Default the general page colours to to white background and
 // dark text (not quite black, to avoid harsh contrast).
 //
 $page-background: #fff;
 $page-color: #333;
 
-// when printing, reset text to black to avoid the blurry 
+// when printing, reset text to black to avoid the blurry
 // "process" grey many printers use.
 //
 $page-print-background: $page-background;
@@ -129,7 +129,7 @@ $content-background: $page-background;
 $content-color: $page-color;
 
 // Choose a shading colour for doing subtle shading within the
-// content area (this is used for source code, blockquotes, etc) 
+// content area (this is used for source code, blockquotes, etc)
 $content-shading: transparentize($content-color, 0.95);
 
 // #### Form controls
@@ -152,7 +152,7 @@ $control-active-content-color: $control-content-color;
 // as an interaction point.  Brightly coloured controls can
 // usually go without a border.
 //
-// Square corners on buttons etc looks more modern, but a 
+// Square corners on buttons etc looks more modern, but a
 // little rounding helps to identify the button or textbox as
 // something you can interact with.  Set this to your preferred
 // corner radius.
@@ -163,9 +163,9 @@ $control-corner-radius: 0.125rem;
 
 // #### Header related variables
 
-// The height of the page header and the size of the heading 
-// inside the page header.  If you update these values, make 
-// sure the `$header-height` value is larger than the 
+// The height of the page header and the size of the heading
+// inside the page header.  If you update these values, make
+// sure the `$header-height` value is larger than the
 // `$header-text-size` value.
 //
 $header-height: calc(3rem + 5vw);
@@ -176,14 +176,14 @@ $header-text-size: calc(1rem + 1vw);
 $header-background: #555;
 $header-content-color: white;
 
-// It's preferable to use a vector format 
-// like SVG for your site logo, but if you're using a pixel 
+// It's preferable to use a vector format
+// like SVG for your site logo, but if you're using a pixel
 // format logo that you prefer doesn't get resized, set the
 // `$resizeable-logo` variable to `false` and specify your logo
 // size in the `$logo-height` and `$logo-width` variables.
 //
-// If `$resizeable-logo` is set to `true`, the logo will be 
-// sized according to the header. 
+// If `$resizeable-logo` is set to `true`, the logo will be
+// sized according to the header.
 //
 $resizable-logo: true;
 $logo-height: 65px;
@@ -195,7 +195,7 @@ $logo-width: 65px;
 $navbar-height: 3rem;
 $navbar-text-size: 1rem;
 
-// Navbar items have three states: normal, selected (the one 
+// Navbar items have three states: normal, selected (the one
 // that matches the current content), and highlighted (for
 // when the user's mouse is hovering over it).
 //
@@ -228,9 +228,9 @@ $footer-height: 3rem;
 $footer-text-size: 1rem;
 
 $footer-background: $page-background;
-$footer-content-color: $page-color; 
+$footer-content-color: $page-color;
 
-// If you set `footer-fade` to true, the footer will appear 
+// If you set `footer-fade` to true, the footer will appear
 // faded until the user hovers over it with their mouse.  This
 // helps to reduce the visual clutter of the footer. Note however
 // that mouse hover won't work on touch screens without a mouse,
@@ -254,14 +254,14 @@ $footer-fade: true;
 		display: block;
 		clear: both;
 	}
-} 
+}
 
 
 // ## Setting sane defaults #####################################
 //
 // Web browsers don't agree in how to format many elements of a
 // web page.
-// 
+//
 // Normalize.css is a third party project that provides a set
 // of CSS rules that provides a consistent set of styles for
 // all browsers.
@@ -269,22 +269,22 @@ $footer-fade: true;
 // [necolas.github.io/normalize.css/](http://necolas.github.io/normalize.css/)
 //
 // In this case, to get Sass to import the Normalize.css source
-// as inline css, `normalize.css` should already be renamed to 
+// as inline css, `normalize.css` should already be renamed to
 // `normalize.scss` by an earlier step in the build process.
 //
 @import "normalize.scss";
 
 // ##### Font family default
-// 
-// Use the OS's default font if we can.  As of 2016, OS default 
-// fonts are generally quite similar (humanist sans serifs with 
-// a large x-height and open counters) so this is unlikely to 
-// run into any significant size differences, but will look 
+//
+// Use the OS's default font if we can.  As of 2016, OS default
+// fonts are generally quite similar (humanist sans serifs with
+// a large x-height and open counters) so this is unlikely to
+// run into any significant size differences, but will look
 // familiar and modern to users.
 //
 html {
-	font-family: 
-        -apple-system,       /* default macOS font for Safari/webkit */ 
+	font-family:
+        -apple-system,       /* default macOS font for Safari/webkit */
         BlinkMacSystemFont,  /* default macOS font for Chrome/blink */
         "Segoe UI",          /* default Windows font */
         "Roboto",            /* default Android font */
@@ -296,8 +296,8 @@ html {
 
 // ##### Font size default
 //
-// Use the CSS calc() feature to give the HTML tag a font size 
-// that grows as the width of the viewport grows. This helps 
+// Use the CSS calc() feature to give the HTML tag a font size
+// that grows as the width of the viewport grows. This helps
 // the portal to display nicely on phone screens.
 //
 // Requires `<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">`
@@ -310,8 +310,8 @@ html {
 	overflow-x: hidden; /* avoid odd widths on narrow screens */
 }
 
-// This tag sets the default text and background colour for 
-// normal display, and when printing.  Colours are described in 
+// This tag sets the default text and background colour for
+// normal display, and when printing.  Colours are described in
 // the Variables section.
 //
 body {
@@ -340,7 +340,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // ##### Navigation spacing reset
 //
-// Navigation sections of a page usually occur in `ul` tags that 
+// Navigation sections of a page usually occur in `ul` tags that
 // are inside `nav` tags.  So here we switch off padding,
 // margin, and bullets for `ul` tags inside `nav` tags.
 //
@@ -352,10 +352,10 @@ nav ul {
 
 // ##### Body wrapper
 //
-// The `mf-body-wrapper` class is used on a `div` that wraps the 
-// entire page content. You might use it to set a page width. In 
+// The `mf-body-wrapper` class is used on a `div` that wraps the
+// entire page content. You might use it to set a page width. In
 // this styling however it isn't used.
-// 
+//
 .mf-body-wrapper {
 	// ...
 }
@@ -414,12 +414,12 @@ form {
 
 // All Mediaflux portal pages start with a `header` tag like
 // this: `<header class="mf-header" role="banner">`. The `role`
-// attribute identifies the tag as containing site-oriented 
+// attribute identifies the tag as containing site-oriented
 // content rather than page-specific content.
 //
 // TODO: describe setting content in config file
 //
-// This header is the appropriate place to include any 
+// This header is the appropriate place to include any
 // institution-wide banners, navigation bars etc.
 //
 .mf-header {
@@ -430,8 +430,8 @@ form {
 }
 
 //
-// The portal plugin will not automatically generate a heading 
-// or logo, but those items are supplied in the sample portal 
+// The portal plugin will not automatically generate a heading
+// or logo, but those items are supplied in the sample portal
 // configuration, so styling for them are supplied here.
 //
 .mf-heading {
@@ -445,7 +445,7 @@ form {
 }
 
 //
-// Check the notes in the *Page layout variables* section for 
+// Check the notes in the *Page layout variables* section for
 // information about setting the size of the logo.
 //
 .mf-header-logo {
@@ -457,14 +457,14 @@ form {
         max-width: $header-text-size;
     } @else {
         height: $logo-height;
-        width: $logo-width;        
+        width: $logo-width;
     }
 }
 
 
 // ## Page navigation ###########################################
 
-// The main page navigation – between static pages, or 
+// The main page navigation – between static pages, or
 // sub-collections of assets – is included in the page as a `nav`
 // element with the class `mf-navbar`.
 //
@@ -518,7 +518,7 @@ form {
 
 // ## Page content ##############################################
 
-// All portal pages use a wrapper div around the main content 
+// All portal pages use a wrapper div around the main content
 // with a `mf-page` class, so this set of styling applies to the
 // content area on all page types.
 //
@@ -551,7 +551,7 @@ form {
 	white-space: nowrap;
 
 // This section allows the footer to fade in and out according
-// to mouse hover, if the `$footer-fade` variable is set to 
+// to mouse hover, if the `$footer-fade` variable is set to
 // `true`.
 //
     @if ($footer-fade) {
@@ -567,41 +567,41 @@ form {
 //
 // Static pages are laid out as a heading, rendered as a `h1` tag
 // like this: `<h1 class="mf-static-page-title" id="mf-page-title">`
-// followed by the content in a `div` tag with a 
+// followed by the content in a `div` tag with a
 // `mf-static-page-content` class.
 //
-// On a static page, the content wrapping div that carries a 
-// `mf-page` class has an additional class of `mf-static-page`.  
+// On a static page, the content wrapping div that carries a
+// `mf-page` class has an additional class of `mf-static-page`.
 .mf-static-page {
 	padding-top: 2rem;
 }
 
-// The title is styled in a manner similar to a `h4` tag in the 
-// content (the position and spacing of the title means its 
+// The title is styled in a manner similar to a `h4` tag in the
+// content (the position and spacing of the title means its
 // significance is clear without having to make it any larger).
-// 
-// Like the in-content headings, this styling uses the CSS 
-// `calc(...)` function to scale along with the size of the 
+//
+// Like the in-content headings, this styling uses the CSS
+// `calc(...)` function to scale along with the size of the
 // window.
 //
 .mf-static-page-title {
-	font-size: 1.333rem; 
-	font-size: calc(1.333rem + 0.666vw); 
+	font-size: 1.333rem;
+	font-size: calc(1.333rem + 0.666vw);
 	font-weight: 600;
 	padding: 1rem 0;
 }
 
 // The content of a static portal page can be any HTML specified
-// in the config file, so the rules below apply some generally 
-// appropriate styles to standard HTML content. 
+// in the config file, so the rules below apply some generally
+// appropriate styles to standard HTML content.
 
 .mf-static-page-content {
 
 // ##### Lext sizing and spacing
 //
-// Set a default line height, and give headings and paragraphs 
+// Set a default line height, and give headings and paragraphs
 // some padding.  Headings get tighter line spacing.
-// 
+//
 	line-height: 1.5;
 
 	p {
@@ -615,8 +615,8 @@ form {
 		margin: 0;
 	}
 
-// Heading sizes are calculated here starting with a "Perfect 
-// Fourths" proportion of 4:3, essentially multiplying each 
+// Heading sizes are calculated here starting with a "Perfect
+// Fourths" proportion of 4:3, essentially multiplying each
 // size by 1.333 to get the next.
 //
 // This web tool is a convenient way to generate scaled sizes:
@@ -624,10 +624,10 @@ form {
 //
 // `h5` and `h6` headings are both the same size as normal text;
 // `h5`s are bolded, and `h6`s are italicised.
-// 
+//
 // The `calc(...)` function is used here to make the headings
 // proportionally larger on large screens.  This means that as
-// page size increases, heading size will increase over and 
+// page size increases, heading size will increase over and
 // above the standard font size increase.  The effect of this
 // is clean clear headings on a desktop, but still readable
 // headings on phone screens.
@@ -641,10 +641,10 @@ form {
 
 // ##### Monospaced text
 //
-// Add some background shading to `code`, `pre` preformatted 
-// text, and `kbd` keyboard input to help distinguish them from 
+// Add some background shading to `code`, `pre` preformatted
+// text, and `kbd` keyboard input to help distinguish them from
 // normal text.
-// 
+//
 // Text inside `<pre>` tags also get made slightly smaller, with
 // tighter line spacing.
 //
@@ -665,13 +665,13 @@ form {
 
 // ##### Block quotes
 //
-// Blockquotes are indented, with a left border, and a big curly 
-// quote.  The text is slightly smaller and has tighter line 
+// Blockquotes are indented, with a left border, and a big curly
+// quote.  The text is slightly smaller and has tighter line
 // spacing.
 //
-// If you're a developer or grammarian you might feel 
-// uncomfortable about the lack of closing quotes; I do to, but 
-// it's cleaner and less cluttered looking without, and there's 
+// If you're a developer or grammarian you might feel
+// uncomfortable about the lack of closing quotes; I do to, but
+// it's cleaner and less cluttered looking without, and there's
 // a fairly strong convention for having just an opening quote.
 //
 	blockquote {
@@ -707,7 +707,7 @@ form {
 		font-style: italic;
 	}
 	blockquote:before {
-		content: '\201c'; /* left 66 quotes */ 
+		content: '\201c'; /* left 66 quotes */
 		left: 0.1em / $blockquote-quote-size;
 	}
 
@@ -750,7 +750,7 @@ form {
 // ## Collection page content ###################################
 
 //
-// On a collection page, the content wrapping div that carries a 
+// On a collection page, the content wrapping div that carries a
 // `mf-page` class has an additional class of `mf-list-page`.
 //
 // In this styling there is a gap between the navbar above
@@ -772,14 +772,14 @@ form {
 	padding: 1rem;
 }
 
-// The collection bar has two parts, a title for the current 
+// The collection bar has two parts, a title for the current
 // collection, and some controls.  This style puts the title on
 // the left, the controls on the right, and makes the bar the
 // right height to fit the controls.
-// 
+//
 // The title gets it size from the controls.  This is the most
 // genuine "title" in the sense that it describes the content
-// the user is seeing, so although this styling avoids bold 
+// the user is seeing, so although this styling avoids bold
 // fonts on big headings, this title is the bold exception that
 // makes it all worth it :)
 //
@@ -804,19 +804,19 @@ form {
 }
 
 // The search box includes an SVG icon of a magnifying glass.
-// It's included inline here, giving you that giant block of 
+// It's included inline here, giving you that giant block of
 // numbers.
 //
 // The `text-shadow` gives the searched-for text a nice clean
 // edge even when it overlaps the background icon.
 //
-// If you prefer a search box with rounded ends -- a common 
-// convention a few years ago, particularly in Mac software -- 
+// If you prefer a search box with rounded ends -- a common
+// convention a few years ago, particularly in Mac software --
 // un-comment the line about `border-radius`.
 //
 .mf-action-search input[type="search"] {
 	// border-radius: $control-size / 2;
-	text-shadow: 
+	text-shadow:
 		0 0 2px $control-background,
 		0 0 4px $control-background;
     background-size: $control-size * 0.75, $control-size * 0.5;
@@ -832,9 +832,9 @@ form {
 // list of items.  To fit properly on mobile screens, the sidebar
 // gets styled here as if it will sit across the top of the
 // content; later, this styling will use a `@media` query to move
-// the sidebar to the left side when the screen is wide enough. 
+// the sidebar to the left side when the screen is wide enough.
 //
-// The style rules immediately below are simply setting the 
+// The style rules immediately below are simply setting the
 // colours.
 //
 .mf-collection-sidebar {
@@ -850,7 +850,7 @@ form {
 	border: none;
 	border-top: $control-border;
 	margin: 2rem 0;
-} 
+}
 
 // The name given to the facet uses a `legend` tag like this:
 // `<legend class="mf-facet-title">`.
@@ -861,7 +861,7 @@ form {
 }
 
 // Individual selectable facets within a facet selection fieldset
-// are wrapped in label tags like this: 
+// are wrapped in label tags like this:
 // `<label class="mf-facet mf-facet-checkbox">` ..or if it is a
 // "choose one only" type facet, using `mf-facet-radio` instead
 // of `mf-facet-checkbox`.
@@ -888,9 +888,9 @@ form {
 // the height and alignment are set to match the checkbox or
 // radio button.
 //
-.mf-facet span { 
+.mf-facet span {
 	padding-left: 0.33em;
-	display: inline-block; 
+	display: inline-block;
 	vertical-align: middle;
 }
 
@@ -983,9 +983,9 @@ form {
 // ## Listing results ###########################################
 
 // There are two types of results; a list of assets, or a list of
-// collections.  They share a wrapping div 
+// collections.  They share a wrapping div
 // (`<div class="mf-reesult-list">`), but the nested `ul`s differ
-// (`<ul class="mf-asset-list">` vs 
+// (`<ul class="mf-asset-list">` vs
 // `<ul class="mf-collection-list">`).
 
 
@@ -1022,10 +1022,10 @@ form {
 // ## Appendix: Sass and CSS refresher ##########################
 //
 // TODO
-// 
+//
 // ### SCSS
-// 
-// * functions: transparentize(), 
+//
+// * functions: transparentize(),
 //
 // ### CSS
 //
@@ -1035,5 +1035,5 @@ form {
 // * calc(...)
 // * transition
 // * linear-gradient(...)
-// 
+//
 
