@@ -86,11 +86,20 @@ $page-print-color: #000;
 // The maximum width of the page is defined here as 55 root
 // ems wide, which is roughly 120 letters.
 //
+// The sum of `$sidebar-width`, `$content-min-width`, and
+// `$content-spacing` should be strictly less than the value
+// you give `$column-max-width`.
+//
 $column-max-width: 55rem;
 
 // On a wide screen, list-of-items type portal pages will show
 // a sidebar column next to the content column. The preferred
 // width of the sidebar is set to 15 root ems.
+//
+// The sum of `$sidebar-width`, `$content-min-width`, and
+// `$content-spacing` should be strictly less than the value
+// you give `$column-max-width`.
+//
 $sidebar-width: 13rem;
 
 // On a narrower screen, the sidebar becomes a sort of *top-*bar.
@@ -98,7 +107,20 @@ $sidebar-width: 13rem;
 // preferred width of the sidebar set earlier to work out when
 // to switch to two-column layout.
 //
-$content-min-width: $sidebar-width * 3;
+// The sum of `$sidebar-width`, `$content-min-width`, and
+// `$content-spacing` should be strictly less than the value
+// you give `$column-max-width`.
+//
+$content-min-width: $sidebar-width * 2.5;
+
+// Whitespace between major elements of the page.  Pixels are
+// free, so don't be too stingy with this.
+//
+// The sum of `$sidebar-width`, `$content-min-width`, and
+// `$content-spacing` should be strictly less than the value
+// you give `$column-max-width`.
+//
+$content-spacing: 3rem;
 
 // The standard background and text colour for the main content
 // column.
@@ -912,7 +934,10 @@ form {
 // All the icon buttons are made square and their text content
 // hidden.  Then `:before` content is added with the appropriate
 // unicode character.
-
+//
+// This first block does all the common formatting for the icon
+// buttons.
+//
 .mf-collection-paging .mf-up-button,
 .mf-collection-paging .mf-refresh-page-button,
 .mf-collection-paging .mf-prev-page-button,
@@ -931,6 +956,8 @@ form {
 	}
 }
 
+// This block adds the custom icons to each button.
+//
 .mf-collection-paging {
 	.mf-up-button:before           { content: '\21a5' /* 21a5: ↥ UPWARDS ARROW FROM BAR */ }
 	.mf-refresh-page-button:before { content: '\21bb' /* 21bb: ↻ CLOCKWISE OPEN CIRCLE ARROW */ }

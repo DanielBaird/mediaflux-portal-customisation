@@ -666,7 +666,7 @@ form {
   display: inline-block;
   vertical-align: middle; }
 
-@media (min-width: 52rem) {
+@media (min-width: 45.5rem) {
   .mf-collection-sidebar {
     width: 13rem;
     float: left; } }
@@ -714,7 +714,7 @@ form {
 .mf-collection-paging .mf-next-page-button:before {
   content: "→"; }
 
-@media (min-width: 52rem) {
+@media (min-width: 45.5rem) {
   .mf-collection-paging {
     margin-left: 13rem;
     padding-left: 1rem; } }
@@ -730,7 +730,7 @@ form {
 .mf-result-list li {
   display: block; }
 
-@media (min-width: 52rem) {
+@media (min-width: 45.5rem) {
   .mf-result-list {
     margin-left: 13rem;
     padding-left: 1rem; } }

@@ -217,17 +217,34 @@ $page-print-color: #000;
 </code></pre>
 <p>The maximum width of the page is defined here as 55 root
 ems wide, which is roughly 120 letters.</p>
+<p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
+<code>$content-spacing</code> should be strictly less than the value
+you give <code>$column-max-width</code>.</p>
 <pre><code>$column-max-width: 55rem;
 </code></pre>
 <p>On a wide screen, list-of-items type portal pages will show
 a sidebar column next to the content column. The preferred
-width of the sidebar is set to 15 root ems.
-$sidebar-width: 13rem;</p>
+width of the sidebar is set to 15 root ems.</p>
+<p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
+<code>$content-spacing</code> should be strictly less than the value
+you give <code>$column-max-width</code>.</p>
+<pre><code>$sidebar-width: 13rem;
+</code></pre>
 <p>On a narrower screen, the sidebar becomes a sort of *top-*bar.
 The minimum width of the content column is added to the
 preferred width of the sidebar set earlier to work out when
 to switch to two-column layout.</p>
-<pre><code>$content-min-width: $sidebar-width * 3;
+<p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
+<code>$content-spacing</code> should be strictly less than the value
+you give <code>$column-max-width</code>.</p>
+<pre><code>$content-min-width: $sidebar-width * 2.5;
+</code></pre>
+<p>Whitespace between major elements of the page.  Pixels are
+free, so don't be too stingy with this.</p>
+<p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
+<code>$content-spacing</code> should be strictly less than the value
+you give <code>$column-max-width</code>.</p>
+<pre><code>$content-spacing: 3rem;
 </code></pre>
 <p>The standard background and text colour for the main content
 column.</p>
@@ -918,6 +935,8 @@ with icons.  This styling uses Unicode characters.</p>
 <p>All the icon buttons are made square and their text content
 hidden.  Then <code>:before</code> content is added with the appropriate
 unicode character.</p>
+<p>This first block does all the common formatting for the icon
+buttons.</p>
 <pre><code>.mf-collection-paging .mf-up-button,
 .mf-collection-paging .mf-refresh-page-button,
 .mf-collection-paging .mf-prev-page-button,
@@ -935,8 +954,9 @@ unicode character.</p>
 		// background: inherit;
 	}
 }
-
-.mf-collection-paging {
+</code></pre>
+<p>This block adds the custom icons to each button.</p>
+<pre><code>.mf-collection-paging {
 	.mf-up-button:before           { content: '\21a5' /* 21a5: ↥ UPWARDS ARROW FROM BAR */ }
 	.mf-refresh-page-button:before { content: '\21bb' /* 21bb: ↻ CLOCKWISE OPEN CIRCLE ARROW */ }
 	.mf-prev-page-button:before    { content: '\2190' /* 2190: ← LEFTWARDS ARROW */ }
