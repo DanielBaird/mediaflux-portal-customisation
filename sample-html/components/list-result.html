@@ -1,32 +1,37 @@
 <li class="mf-listed-result">
 	<article>
-			{{ zero or one AssetThumbnail }}
+
+@asset-thumbnail.html
 
 			<h2 class="mf-result-title">
 				{{ name of result }}
 			</h2>
 			<div class="mf-result-description">
-				{{ description of result }}
+				{{ description of result.. description of result.. description of result.. description of result.. description of result.. description of result.. description of result.. description of result }}
 			</div>
 			<div class="mf-listed-asset-body">
-				{{ zero or one AssetInfoBlock }}
+
+@asset-infoblock.html
 
 				<div class="mf-result-metadata-list-wrapper">
 					<ul class="mf-result-metadata-list">
-						<li>
-							<section>
-								<h3 class="mf-metadata-field">
-									{{ metadata name }}
-								</h3>
-								<div class="mf-metadata-value">
-									{{ metadata value }}
-								</div>
-							</section>
-						</li>
+						<li><section>
+							<h3 class="mf-metadata-field">Hair</h3>
+							<div class="mf-metadata-value">long</div>
+						</section></li>
 
-						{{ ..one li for each metadata property.. }}
+						<li><section>
+							<h3 class="mf-metadata-field">Origin</h3>
+							<div class="mf-metadata-value">Africa</div>
+						</section></li>
+
+						<li><section>
+							<h3 class="mf-metadata-field">Hair</h3>
+							<div class="mf-metadata-value">long</div>
+						</section></li>
 					</ul>
-			        </div>
+		        </div>
+
 			</div>
 	</article>
 </li>

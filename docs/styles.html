@@ -981,18 +981,43 @@ collections.  They share a wrapping div
 (<code>&lt;div class=&quot;mf-reesult-list&quot;&gt;</code>), but the nested <code>ul</code>s differ
 (<code>&lt;ul class=&quot;mf-asset-list&quot;&gt;</code> vs
 <code>&lt;ul class=&quot;mf-collection-list&quot;&gt;</code>).</p>
+<p>This styling block applies to both lists, and removes the
+default spacing.</p>
 <pre><code>.mf-result-list {
 	padding: 0;
-	background: $content-shading;
 }
 
 .mf-result-list ul {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
+}
+</code></pre>
+<h3>A single result</h3>
+<p>This addresses the content of the single result in the list.</p>
+<pre><code>.mf-listed-result {
+	display: block;
+    // border: 1px solid red;
+    background: $content-shading;
+    margin: 1rem 0;
+    padding: 1rem;
 }
 
-.mf-result-list li {
-	display: block;
+.mf-result-thumbnail-wrapper {
+    float: left;
+    margin: 0 1rem 1rem 0;
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    overflow: hidden;
+    border: 1px solid blue;
+}
+.mf-result-thumbnail-wrapper img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 6rem;
+    min-height: 6rem;
+    transform: translate(-50%, -50%);
 }
 </code></pre>
 <h3>Listing results, on a wide screen</h3>
