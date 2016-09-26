@@ -222,6 +222,25 @@ $sidebar-content-color: $page-color;
 $sidebar-facet-background: #f8f8f8;
 
 
+// #### Thumbnails
+//
+// Each asset's thumbnail image will be displayed at this
+// size.
+//
+$thumbnail-size: 9rem;
+
+// Set this `thumbnail-fit` variable to how you want your
+// thumbnail images to fit their display space.
+// 
+// * `all`: shrink the thumbnail to fit entirely
+// * `vertical`: stretch the thumbnail to fit vertically,
+//  cropping the left and right when necessary
+// * `horizontal`: stretch the thumbnail to fit horizontally,
+//  cropping the top and bottom when necessary
+//
+$thumbnail-fit: all;
+
+
 // The size and colour of the page footer.
 //
 $footer-height: 3rem;
@@ -1005,19 +1024,23 @@ form {
 // This addresses the content of the single result in the list.
 //
 .mf-listed-result {
+	@include clearfix;
 	display: block;
-    // border: 1px solid red;
     background: $content-shading;
     margin: 1rem 0;
     padding: 1rem;
 }
 
+// the thumbnail image is contained in a 
+// `<div class="mf-result-thumbnail-wrapper">`, which is used
+// here to set the size of the thumbnail.
+
 .mf-result-thumbnail-wrapper {
-    float: left;
-    margin: 0 1rem 1rem 0;
+    float: right;
+    margin: 0 0 1rem 1rem;
     position: relative;
-    width: 8rem;
-    height: 8rem;
+    width: $thumbnail-size;
+    height: $thumbnail-size;
     overflow: hidden;
     border: 1px solid blue;
 }
@@ -1025,9 +1048,16 @@ form {
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 6rem;
-    min-height: 6rem;
     transform: translate(-50%, -50%);
+
+	@if ($thumbnail-fit == vertical) {
+		height: $thumbnail-size;
+	} @else if ($thumbnail-fit == horizontal) {
+		width: $thumbnail-size;
+	} @else {
+		max-width: $thumbnail-size;
+		max-height: $thumbnail-size;
+	} 
 }
 
 

@@ -328,6 +328,27 @@ a background for the facets, and vice versa.</p>
 $sidebar-content-color: $page-color;
 $sidebar-facet-background: #f8f8f8;
 </code></pre>
+<h4>Thumbnails</h4>
+<p>Each asset's thumbnail image will be displayed at this
+size.</p>
+<pre><code>$thumbnail-size: 9rem;
+</code></pre>
+<p>Set this <code>thumbnail-fit</code> variable to how you want your
+thumbnail images to fit their display space.</p>
+<ul>
+<li>
+<p><code>all</code>: shrink the thumbnail to fit entirely</p>
+</li>
+<li>
+<p><code>vertical</code>: stretch the thumbnail to fit vertically,
+cropping the left and right when necessary</p>
+</li>
+<li>
+<p><code>horizontal</code>: stretch the thumbnail to fit horizontally,
+cropping the top and bottom when necessary</p>
+<p>$thumbnail-fit: all;</p>
+</li>
+</ul>
 <p>The size and colour of the page footer.</p>
 <pre><code>$footer-height: 3rem;
 $footer-text-size: 1rem;
@@ -995,19 +1016,22 @@ default spacing.</p>
 <h3>A single result</h3>
 <p>This addresses the content of the single result in the list.</p>
 <pre><code>.mf-listed-result {
+	@include clearfix;
 	display: block;
-    // border: 1px solid red;
     background: $content-shading;
     margin: 1rem 0;
     padding: 1rem;
 }
-
-.mf-result-thumbnail-wrapper {
-    float: left;
-    margin: 0 1rem 1rem 0;
+</code></pre>
+<p>the thumbnail image is contained in a
+<code>&lt;div class=&quot;mf-result-thumbnail-wrapper&quot;&gt;</code>, which is used
+here to set the size of the thumbnail.</p>
+<pre><code>.mf-result-thumbnail-wrapper {
+    float: right;
+    margin: 0 0 1rem 1rem;
     position: relative;
-    width: 8rem;
-    height: 8rem;
+    width: $thumbnail-size;
+    height: $thumbnail-size;
     overflow: hidden;
     border: 1px solid blue;
 }
@@ -1015,9 +1039,16 @@ default spacing.</p>
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 6rem;
-    min-height: 6rem;
     transform: translate(-50%, -50%);
+
+	@if ($thumbnail-fit == vertical) {
+		height: $thumbnail-size;
+	} @else if ($thumbnail-fit == horizontal) {
+		width: $thumbnail-size;
+	} @else {
+		max-width: $thumbnail-size;
+		max-height: $thumbnail-size;
+	} 
 }
 </code></pre>
 <h3>Listing results, on a wide screen</h3>
