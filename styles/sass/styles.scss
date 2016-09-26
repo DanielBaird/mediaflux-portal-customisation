@@ -189,6 +189,9 @@ $resizable-logo: true;
 $logo-height: 65px;
 $logo-width: 65px;
 
+
+// #### Navbar (the bit across the top, under the header)
+//
 // The height of the main navigation bar is set here using `rem`
 // units, which are proportional to the standard text size.
 //
@@ -208,11 +211,14 @@ $navbar-highlight-content-color: $navbar-background;
 $navbar-current-background: $content-background;
 $navbar-current-content-color: $content-color;
 
+// #### Collection bar (between the content and the navbar)
 // The collection bar has background and text colours.
 //
 $collection-bar-background: #ccc;
 $collection-bar-content-color: $page-color;
 
+// #### Sidebar (facet filters, on the left of the content)
+//
 // The sidebar includes facet filters; if you set a
 // background for the sidebar, you probably don't want
 // a background for the facets, and vice versa.
@@ -221,8 +227,9 @@ $sidebar-background: transparent;
 $sidebar-content-color: $page-color;
 $sidebar-facet-background: #f8f8f8;
 
-
-// #### Thumbnails
+// #### Content related items
+//
+// ###### Thumbnails
 //
 // Each asset's thumbnail image will be displayed at this
 // size.
@@ -232,14 +239,19 @@ $thumbnail-size: 9rem;
 // Set this `thumbnail-fit` variable to how you want your
 // thumbnail images to fit their display space.
 // 
-// * `all`: shrink the thumbnail to fit entirely
-// * `vertical`: stretch the thumbnail to fit vertically,
-//  cropping the left and right when necessary
-// * `horizontal`: stretch the thumbnail to fit horizontally,
-//  cropping the top and bottom when necessary
+// * `all`: the thumbnail should fit entirely (possibly
+//  leaving some empty space in the thumbnail box)
+// * `vertical`: stretch the thumbnail vertically to fill the 
+//  box, perhaps trimming off the extra that spills over the 
+//  left and right edges
+// * `horizontal`: stretch the thumbnail horizontally to fill
+//  the box, perhaps trimming off the extra that spills over
+//  the top and bottom edges
 //
-$thumbnail-fit: all;
+$thumbnail-fit: horizontal;
 
+
+// #### Footer
 
 // The size and colour of the page footer.
 //
@@ -267,6 +279,7 @@ $footer-fade: true;
 // and so are grouped here.
 
 // clearfix: this solves the spilling-out problem.
+//
 @mixin clearfix {
 	&::after {
 		content: "";

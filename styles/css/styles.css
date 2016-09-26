@@ -750,8 +750,7 @@ form {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 9rem;
-  max-height: 9rem; }
+  width: 9rem; }
 
 @media (min-width: 45.5rem) {
   .mf-result-list {
