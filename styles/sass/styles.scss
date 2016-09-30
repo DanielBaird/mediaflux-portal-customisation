@@ -230,7 +230,7 @@ $sidebar-facet-background: #f8f8f8;
 // #### Content related items
 
 // ##### Result cards
-// 
+//
 // The details of each result in a result list are shown within
 // a visual container. Here the background colour and border
 // properties of that container are set.
@@ -246,11 +246,11 @@ $result-border-width: 0;
 $result-corner-radius: 0;
 
 // To produce a physical "card" effect for result items, you can
-// choose to have a 
-// [drop shadow](https://en.wikipedia.org/wiki/Drop_shadow) 
+// choose to have a
+// [drop shadow](https://en.wikipedia.org/wiki/Drop_shadow)
 // effect applied by setting `$result-dropshadow` to the desired
 // shadow colour (try `$result-border-color`).
-// 
+//
 // Switch off the drop shadow by setting `$result-dropshadow to
 // the special value `none`.
 
@@ -262,7 +262,7 @@ $result-dropshadow: none;
 // Each asset's thumbnail image will be displayed at this
 // size. Use a larger size, e.g. `9rem`, if the thumbnails are
 // important distinguishers for the assets in your collections;
-// use a smaller size, e.g. `5rem` or `3rem`, if thumbnails are 
+// use a smaller size, e.g. `5rem` or `3rem`, if thumbnails are
 // less help in distinguishing assets from each other.
 //
 // If your thumbnails need pixel-perfect resolution, set this
@@ -282,19 +282,19 @@ $thumbnail-border-width: 0.5rem;
 // Set this `thumbnail-fit` variable to how you want your
 // thumbnail images to fit their display space.
 //
-// Mediaflux will create square thumbnails by default so in 
+// Mediaflux will create square thumbnails by default so in
 // most cases you can leave this set to `none`.
-// 
-// * `none`: don't trim any of the thumbnail, shrinking it as 
-// necessary so the entire thumbnail image fits into the box 
+//
+// * `none`: don't trim any of the thumbnail, shrinking it as
+// necessary so the entire thumbnail image fits into the box
 // (possibly leaving some empty space in the thumbnail box)
-// * `horizontal`: zoom the thumbnail to exactly fit the 
-// width, leaving the top and bottom of the thumbnail to have 
-// some blank space (if it's a wide thumbnail) or spill over the 
+// * `horizontal`: zoom the thumbnail to exactly fit the
+// width, leaving the top and bottom of the thumbnail to have
+// some blank space (if it's a wide thumbnail) or spill over the
 // edges and be clipped (if it's a tall thumbnail)
-// * `vertical`: zoom the thumbnail to exactly fit the 
-// height, leaving the sides of the thumbnail to have some blank 
-// space (if it's a tall thumbnail) or spill over the edges and 
+// * `vertical`: zoom the thumbnail to exactly fit the
+// height, leaving the sides of the thumbnail to have some blank
+// space (if it's a tall thumbnail) or spill over the edges and
 // be clipped (if it's a wide thumbnail)
 //
 $thumbnail-fit: none;
@@ -1101,7 +1101,7 @@ form {
 	}
 }
 
-// the thumbnail image is contained in a 
+// the thumbnail image is contained in a
 // `<div class="mf-result-thumbnail-wrapper">`, which is used
 // here to set the size of the thumbnail.
 //
@@ -1132,7 +1132,7 @@ form {
 	} @else {
 		max-width: $thumbnail-size;
 		max-height: $thumbnail-size;
-	} 
+	}
 }
 
 // The name, or title, of the result gets the same sizing as a
@@ -1142,7 +1142,7 @@ form {
 //
 .mf-result-title {
 	font-size: 1.333rem;
-	font-size: calc(1.333rem + 0.300vw); 
+	font-size: calc(1.333rem + 0.300vw);
 	font-weight: 600;
 
 	margin-bottom: 1rem;
