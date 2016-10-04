@@ -1175,20 +1175,20 @@ section of styling.</p>
     margin: 0;
     display: table-row;
 }
-.mf-metadata-field, .mf-metadata-value {
-    display: table-cell;
-}
-.mf-metadata-field {
-    font-weight: 600;
-    max-width: 30%;
-    padding: 0.25rem;
-    text-align: right;
-    xbackground: pink;
-}
-.mf-metadata-value {
-    padding-left: 0.5rem;
-}
 </code></pre>
+<p>/* .mf-metadata-field { <em>/
+.mf-result-metadata-list li &gt; h3 {
+display: table-cell;
+font-weight: 600;
+max-width: 30%;
+padding: 0.25rem;
+text-align: right;
+}
+/</em> .mf-metadata-value { */
+.mf-result-metadata-list li &gt; div {
+display: table-cell;
+padding-left: 0.5rem;
+}</p>
 <h3>Listing results, on a wide screen</h3>
 <p>The <code>@media</code> statement below means that the rules inside it
 will only apply when the page is at least the specified width.</p>

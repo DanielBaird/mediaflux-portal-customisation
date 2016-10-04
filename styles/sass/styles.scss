@@ -1197,17 +1197,17 @@ form {
     margin: 0;
     display: table-row;
 }
-.mf-metadata-field, .mf-metadata-value {
-    display: table-cell;
-}
-.mf-metadata-field {
+/* .mf-metadata-field { */
+.mf-result-metadata-list li > h3 {
+	display: table-cell;
     font-weight: 600;
     max-width: 30%;
     padding: 0.25rem;
     text-align: right;
-    xbackground: pink;
 }
-.mf-metadata-value {
+/* .mf-metadata-value { */
+.mf-result-metadata-list li > div {
+	display: table-cell;
     padding-left: 0.5rem;
 }
 
