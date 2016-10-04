@@ -459,7 +459,8 @@ familiar and modern to users.</p>
 <p>Use the CSS calc() feature to give the HTML tag a font size
 that grows as the width of the viewport grows. This helps
 the portal to display nicely on phone screens.</p>
-<p>Requires <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, minimum-scale=1, initial-scale=1&quot;&gt;</code>
+<p>Requires
+<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, minimum-scale=1, initial-scale=1&quot;&gt;</code>
 in the <code>head</code> of the page to stop a bit of &quot;helpful&quot; zooming
 browsers on small screen phones do.</p>
 <pre><code>html {
@@ -912,6 +913,35 @@ un-comment the line about <code>border-radius</code>.</p>
 	background-image: url('data:image/svg+xml;utf8,&lt;svg height=&quot;10&quot; width=&quot;15&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 375 251&quot; enable-background=&quot;new 0 0 251 251&quot;&gt;&lt;path d=&quot;M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z&quot; fill=&quot;#999&quot; fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot;/&gt;&lt;/svg&gt;');
 }
 </code></pre>
+<p>The 'new asset' button by default simply shows the word &quot;new&quot;.
+The following styling replaces that text with a symbol.
+If you prefer the 'new asset' button to show the text instead
+of the symbol, remove the following section.</p>
+<p>Good options for a new button include:</p>
+<ul>
+<li>
+<p><code>274a</code>: ❊ eight teardrop-spoked propeller asterisk</p>
+</li>
+<li>
+<p><code>2600</code>: ☀ black sun with rays</p>
+</li>
+<li>
+<p><code>263c</code>: ☼ white sun with rays</p>
+<p>.mf-new-item-button {
+width: $control-size;
+position: relative;
+overflow: hidden;
+color: rgba(0,0,0, 0);
+&amp;:hover { color: rgba(0,0,0, 0); }
+&amp;:before {
+color: $control-content-color;
+content: '\263c'; /* 263c: ☼ WHITE SUN WITH RAYS */
+position: absolute;
+top: 0; bottom: 0; left: 0; right: 0;
+}
+}</p>
+</li>
+</ul>
 <h2>Sidebar</h2>
 <p>The sidebar holds controls allowing the user to filter the
 list of items.  To fit properly on mobile screens, the sidebar
@@ -1125,10 +1155,38 @@ titles to be a different colour, add a <code>color</code> rule to this
 section of styling.</p>
 <pre><code>.mf-result-title {
 	font-size: 1.333rem;
-	font-size: calc(1.333rem + 0.300vw); 
+	font-size: calc(1.333rem + 0.300vw);
 	font-weight: 600;
 
 	margin-bottom: 0.66rem;
+}
+
+
+.mf-result-metadata-list-wrapper {
+    border: 1px solid blue;
+    display: table;
+    width: 100%;
+}
+.mf-result-metadata-list li {
+    padding: 0.1rem 0;
+    margin: 0;
+}
+.mf-result-metadata-list li section {
+    width: 100%;
+    display: table-row;
+}
+.mf-metadata-field, .mf-metadata-value {
+    display: table-cell;
+}
+.mf-metadata-field {
+    font-weight: 600;
+    max-width: 30%;
+    padding-right: 0.5rem;
+    text-align: right;
+    background: pink;
+}
+.mf-metadata-value {
+    padding-left: 0.5rem;
 }
 </code></pre>
 <h3>Listing results, on a wide screen</h3>
