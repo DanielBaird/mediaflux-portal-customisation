@@ -1081,7 +1081,7 @@ will only apply when the page is at least the specified width.</p>
 <h2>Listing results</h2>
 <p>There are two types of results; a list of assets, or a list of
 collections.  They share a wrapping div
-(<code>&lt;div class=&quot;mf-reesult-list&quot;&gt;</code>), but the nested <code>ul</code>s differ
+(<code>&lt;div class=&quot;mf-result-list&quot;&gt;</code>), but the nested <code>ul</code>s differ
 (<code>&lt;ul class=&quot;mf-asset-list&quot;&gt;</code> vs
 <code>&lt;ul class=&quot;mf-collection-list&quot;&gt;</code>).</p>
 <p>This styling block applies to both lists, and removes the
@@ -1090,7 +1090,7 @@ default spacing.</p>
 	padding: 0;
 }
 
-.mf-result-list ul {
+.mf-result-list &gt; ul {
     padding: 0;
     margin: 0;
 }
@@ -1167,9 +1167,22 @@ section of styling.</p>
 
 	margin: 0.333rem 0 0.666rem;
 }
-
-.mf-result-metadata-list-wrapper {
+</code></pre>
+<p>The metadata fields applicable to a result are included in
+a <code>&lt;ul class=&quot;.mf-result-metadata-list&quot;&gt;</code> list, one <code>li</code> tag
+per field.  Inside the <code>li</code> is a
+<code>&lt;h3 class=&quot;.mf-metadata-field&quot;&gt;</code> with the name of the field,
+and a `<div class=".mf-metadata-value"> containing the value.</p>
+<p>The styling applied here uses a tabular display, with the
+field names in a left column, and the values in the right
+column.</p>
+<p>The field name column is constrained to take at most 30% of
+the available width; if your metadata fields have unusually
+long names, you can remove or adjust the <code>max-width: 30%</code>
+rule from the <code>.mf-metadata-field</code> styling block.</p>
+<pre><code>.mf-result-metadata-list {
     display: table;
+	padding: 0;
 	margin-top: 1rem;
 }
 .mf-result-metadata-list li {
@@ -1177,22 +1190,28 @@ section of styling.</p>
     margin: 0;
     display: table-row;
 }
-</code></pre>
-<p>/* the h3 should have a .mf-metadata-field class, but doesn't <em>/
-/</em> .mf-metadata-field { <em>/
-.mf-result-metadata-list li &gt; h3 {
-display: table-cell;
-font-weight: 600;
-max-width: 30%;
-padding: 0.25rem;
-text-align: right;
+.mf-metadata-field {
+	display: table-cell;
+    font-weight: 600;
+	// font-size: 90%;
+	// opacity: 0.8;
+	// font-variant: small-caps;
+    // font-weight: 800;
+    max-width: 30%;
+    padding: 0.25rem;
+    text-align: right;
 }
-/</em> the div should have a .mf-metadata-value class, but doesn't <em>/
-/</em> .mf-metadata-value { */
-.mf-result-metadata-list li &gt; div {
-display: table-cell;
-padding-left: 0.5rem;
-}</p>
+.mf-metadata-value {
+	display: table-cell;
+    padding-left: 0.5rem;
+}
+</code></pre>
+<p>Download button</p>
+<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+up to here
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
 <h3>Listing results, on a wide screen</h3>
 <p>The <code>@media</code> statement below means that the rules inside it
 will only apply when the page is at least the specified width.</p>

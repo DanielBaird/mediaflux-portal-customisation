@@ -742,7 +742,7 @@ form {
 .mf-result-list {
   padding: 0; }
 
-.mf-result-list ul {
+.mf-result-list > ul {
   padding: 0;
   margin: 0; }
 
@@ -787,8 +787,9 @@ form {
   font-weight: 600;
   margin: 0.333rem 0 0.666rem; }
 
-.mf-result-metadata-list-wrapper {
+.mf-result-metadata-list {
   display: table;
+  padding: 0;
   margin-top: 1rem; }
 
 .mf-result-metadata-list li {
@@ -796,18 +797,14 @@ form {
   margin: 0;
   display: table-row; }
 
-/* the h3 should have a .mf-metadata-field class, but doesn't */
-/* .mf-metadata-field { */
-.mf-result-metadata-list li > h3 {
+.mf-metadata-field {
   display: table-cell;
   font-weight: 600;
   max-width: 30%;
   padding: 0.25rem;
   text-align: right; }
 
-/* the div should have a .mf-metadata-value class, but doesn't */
-/* .mf-metadata-value { */
-.mf-result-metadata-list li > div {
+.mf-metadata-value {
   display: table-cell;
   padding-left: 0.5rem; }
 

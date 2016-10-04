@@ -1095,7 +1095,7 @@ form {
 
 // There are two types of results; a list of assets, or a list of
 // collections.  They share a wrapping div
-// (`<div class="mf-reesult-list">`), but the nested `ul`s differ
+// (`<div class="mf-result-list">`), but the nested `ul`s differ
 // (`<ul class="mf-asset-list">` vs
 // `<ul class="mf-collection-list">`).
 //
@@ -1106,7 +1106,7 @@ form {
 	padding: 0;
 }
 
-.mf-result-list ul {
+.mf-result-list > ul {
     padding: 0;
     margin: 0;
 }
@@ -1190,8 +1190,24 @@ form {
 	margin: 0.333rem 0 0.666rem;
 }
 
-.mf-result-metadata-list-wrapper {
+// The metadata fields applicable to a result are included in
+// a `<ul class=".mf-result-metadata-list">` list, one `li` tag
+// per field.  Inside the `li` is a 
+// `<h3 class=".mf-metadata-field">` with the name of the field, 
+// and a `<div class=".mf-metadata-value"> containing the value.
+//
+// The styling applied here uses a tabular display, with the
+// field names in a left column, and the values in the right
+// column.
+//
+// The field name column is constrained to take at most 30% of 
+// the available width; if your metadata fields have unusually
+// long names, you can remove or adjust the `max-width: 30%` 
+// rule from the `.mf-metadata-field` styling block.
+//
+.mf-result-metadata-list {
     display: table;
+	padding: 0;
 	margin-top: 1rem;
 }
 .mf-result-metadata-list li {
@@ -1199,22 +1215,33 @@ form {
     margin: 0;
     display: table-row;
 }
-
-/* the h3 should have a .mf-metadata-field class, but doesn't */
-/* .mf-metadata-field { */
-.mf-result-metadata-list li > h3 {
+.mf-metadata-field {
 	display: table-cell;
     font-weight: 600;
+	// font-size: 90%;
+	// opacity: 0.8;
+	// font-variant: small-caps;
+    // font-weight: 800;
     max-width: 30%;
     padding: 0.25rem;
     text-align: right;
 }
-/* the div should have a .mf-metadata-value class, but doesn't */
-/* .mf-metadata-value { */
-.mf-result-metadata-list li > div {
+.mf-metadata-value {
 	display: table-cell;
     padding-left: 0.5rem;
 }
+
+// Download button
+//
+//
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// up to here
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//
+//
+
 
 // ### Listing results, on a wide screen
 
