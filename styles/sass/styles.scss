@@ -239,7 +239,8 @@ $result-background: #eee;
 
 // Set `$result-border-width` to `0` to have no border.  Try
 // `1px` for a thin edge.  Set `$result-corner-radius` if your
-// result cards should have rounded corners.
+// result cards should have rounded corners (try `3px` for a 
+// subtle rounding, or `0.5rem` for a playing card type corner).
 
 $result-border-color: #ccc;
 $result-border-width: 0;
@@ -255,7 +256,7 @@ $result-corner-radius: 0;
 // the special value `none`.
 
 $result-dropshadow: $result-border-color;
-$result-dropshadow: none;
+$result-dropshadow: #ccc;
 
 // ###### Thumbnails
 //
@@ -927,7 +928,7 @@ form {
     &:hover { color: rgba(0,0,0, 0); }
     &:before {
         color: $control-content-color;
-        content: '\263c'; /* 263c: ☼ WHITE SUN WITH RAYS */
+        content: '\274a'; /* 274a: ❊ eight teardrop-spoked propeller asterisk */
         position: absolute;
         top: 0; bottom: 0; left: 0; right: 0;
     }
@@ -1127,6 +1128,10 @@ form {
 		box-shadow: 0 0.33rem 1rem -0.25rem $result-dropshadow;
 	}
 }
+.mf-listed-result:first-child {
+	// removes the top margin for the first result
+	margin-top: 0;
+}
 
 // The thumbnail image is contained in a 
 // `<div class="mf-result-thumbnail-wrapper">`, which is used
@@ -1138,7 +1143,7 @@ form {
 //
 .mf-result-thumbnail-wrapper {
     float: right;
-    margin: 0 0 1rem 1rem;
+    margin: 0 0 1rem 0.5rem;
     position: relative;
     width: $thumbnail-size;
     height: $thumbnail-size;
@@ -1180,21 +1185,16 @@ form {
 	font-size: calc(1.333rem + 0.300vw);
 	font-weight: 600;
 
-	margin-bottom: 0.66rem;
+	margin: 0.333rem 0 0.666rem;
 }
 
-
 .mf-result-metadata-list-wrapper {
-    border: 1px solid blue;
     display: table;
     width: 100%;
 }
 .mf-result-metadata-list li {
     padding: 0.1rem 0;
     margin: 0;
-}
-.mf-result-metadata-list li section {
-    width: 100%;
     display: table-row;
 }
 .mf-metadata-field, .mf-metadata-value {
@@ -1203,9 +1203,9 @@ form {
 .mf-metadata-field {
     font-weight: 600;
     max-width: 30%;
-    padding-right: 0.5rem;
+    padding: 0.25rem;
     text-align: right;
-    background: pink;
+    xbackground: pink;
 }
 .mf-metadata-value {
     padding-left: 0.5rem;

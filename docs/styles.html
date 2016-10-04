@@ -340,7 +340,8 @@ properties of that container are set.</p>
 </code></pre>
 <p>Set <code>$result-border-width</code> to <code>0</code> to have no border.  Try
 <code>1px</code> for a thin edge.  Set <code>$result-corner-radius</code> if your
-result cards should have rounded corners.</p>
+result cards should have rounded corners (try <code>3px</code> for a
+subtle rounding, or <code>0.5rem</code> for a playing card type corner).</p>
 <pre><code>$result-border-color: #ccc;
 $result-border-width: 0;
 $result-corner-radius: 0;
@@ -352,7 +353,7 @@ effect applied by setting <code>$result-dropshadow</code> to the desired
 shadow colour (try <code>$result-border-color</code>).</p>
 <p>Switch off the drop shadow by setting <code>$result-dropshadow to the special value</code>none`.</p>
 <pre><code>$result-dropshadow: $result-border-color;
-$result-dropshadow: none;
+$result-dropshadow: #ccc;
 </code></pre>
 <h6>Thumbnails</h6>
 <p>Each asset's thumbnail image will be displayed at this
@@ -935,7 +936,7 @@ color: rgba(0,0,0, 0);
 &amp;:hover { color: rgba(0,0,0, 0); }
 &amp;:before {
 color: $control-content-color;
-content: '\263c'; /* 263c: ☼ WHITE SUN WITH RAYS */
+content: '\274a'; /* 274a: ❊ eight teardrop-spoked propeller asterisk */
 position: absolute;
 top: 0; bottom: 0; left: 0; right: 0;
 }
@@ -1109,6 +1110,10 @@ default spacing.</p>
 		box-shadow: 0 0.33rem 1rem -0.25rem $result-dropshadow;
 	}
 }
+.mf-listed-result:first-child {
+	// removes the top margin for the first result
+	margin-top: 0;
+}
 </code></pre>
 <p>The thumbnail image is contained in a
 <code>&lt;div class=&quot;mf-result-thumbnail-wrapper&quot;&gt;</code>, which is used
@@ -1118,7 +1123,7 @@ gradient background for cases where the thumbnail doesn't fill
 the space.</p>
 <pre><code>.mf-result-thumbnail-wrapper {
     float: right;
-    margin: 0 0 1rem 1rem;
+    margin: 0 0 1rem 0.5rem;
     position: relative;
     width: $thumbnail-size;
     height: $thumbnail-size;
@@ -1158,21 +1163,16 @@ section of styling.</p>
 	font-size: calc(1.333rem + 0.300vw);
 	font-weight: 600;
 
-	margin-bottom: 0.66rem;
+	margin: 0.333rem 0 0.666rem;
 }
 
-
 .mf-result-metadata-list-wrapper {
-    border: 1px solid blue;
     display: table;
     width: 100%;
 }
 .mf-result-metadata-list li {
     padding: 0.1rem 0;
     margin: 0;
-}
-.mf-result-metadata-list li section {
-    width: 100%;
     display: table-row;
 }
 .mf-metadata-field, .mf-metadata-value {
@@ -1181,9 +1181,9 @@ section of styling.</p>
 .mf-metadata-field {
     font-weight: 600;
     max-width: 30%;
-    padding-right: 0.5rem;
+    padding: 0.25rem;
     text-align: right;
-    background: pink;
+    xbackground: pink;
 }
 .mf-metadata-value {
     padding-left: 0.5rem;

@@ -649,8 +649,8 @@ form {
     color: transparent; }
   .mf-new-item-button:before {
     color: #333;
-    content: '\263c';
-    /* 263c: ☼ WHITE SUN WITH RAYS */
+    content: '\274a';
+    /* 274a: ❊ eight teardrop-spoked propeller asterisk */
     position: absolute;
     top: 0;
     bottom: 0;
@@ -752,15 +752,19 @@ form {
   border: 1px solid transparent;
   border-width: 0;
   border-color: #ccc;
-  border-radius: 0; }
+  border-radius: 0;
+  box-shadow: 0 0.33rem 1rem -0.25rem #ccc; }
   .mf-listed-result::after {
     content: "";
     display: block;
     clear: both; }
 
+.mf-listed-result:first-child {
+  margin-top: 0; }
+
 .mf-result-thumbnail-wrapper {
   float: right;
-  margin: 0 0 1rem 1rem;
+  margin: 0 0 1rem 0.5rem;
   position: relative;
   width: 150px;
   height: 150px;
@@ -780,19 +784,15 @@ form {
   font-size: 1.333rem;
   font-size: calc(1.333rem + 0.300vw);
   font-weight: 600;
-  margin-bottom: 0.66rem; }
+  margin: 0.333rem 0 0.666rem; }
 
 .mf-result-metadata-list-wrapper {
-  border: 1px solid blue;
   display: table;
   width: 100%; }
 
 .mf-result-metadata-list li {
   padding: 0.1rem 0;
-  margin: 0; }
-
-.mf-result-metadata-list li section {
-  width: 100%;
+  margin: 0;
   display: table-row; }
 
 .mf-metadata-field, .mf-metadata-value {
@@ -801,9 +801,9 @@ form {
 .mf-metadata-field {
   font-weight: 600;
   max-width: 30%;
-  padding-right: 0.5rem;
+  padding: 0.25rem;
   text-align: right;
-  background: pink; }
+  xbackground: pink; }
 
 .mf-metadata-value {
   padding-left: 0.5rem; }
