@@ -267,12 +267,14 @@ $result-dropshadow: none;
 //
 // If your thumbnails need pixel-perfect resolution, set this
 // to match the thumbnail size declared in your configuration XML
-// by default, `150px`).
+// by default, `150px`).  To support high-resolution "retina"
+// displays, set your XML to double this number (e.g. use `300`
+// as the size in your portal XML, and `150px` as the size here).
 //
 // TODO: confirm default pixel size
 //
-$thumbnail-size: 3rem;
-$thumbnail-size: 100px;
+/* $thumbnail-size: 7rem; */
+$thumbnail-size: 150px;
 
 // Thumbnails also receive a border.
 
@@ -297,7 +299,7 @@ $thumbnail-border-width: 0.5rem;
 // space (if it's a tall thumbnail) or spill over the edges and 
 // be clipped (if it's a wide thumbnail)
 //
-$thumbnail-fit: none;
+$thumbnail-fit: vertical;
 
 
 // #### Footer
@@ -1101,9 +1103,13 @@ form {
 	}
 }
 
-// the thumbnail image is contained in a 
+// The thumbnail image is contained in a 
 // `<div class="mf-result-thumbnail-wrapper">`, which is used
 // here to set the size of the thumbnail.
+//
+// Other style rules given here supply the border and a subtle
+// gradient background for cases where the thumbnail doesn't fill
+// the space.
 //
 .mf-result-thumbnail-wrapper {
     float: right;
@@ -1115,10 +1121,14 @@ form {
     border: solid $thumbnail-border-width $thumbnail-border-color;
 	background-color: $result-background;
 	background-image: radial-gradient(
-		transparentize($thumbnail-border-color, 0.66),
-		transparentize($thumbnail-border-color, 1)
+		transparentize($thumbnail-border-color, 0.8),
+		transparentize($thumbnail-border-color, 0.2)
 	);
 }
+
+// These style rules centre the thumbnail and apply the effect
+// of the `$thumbnail-fit` variable set earlier.
+//
 .mf-result-thumbnail-wrapper img {
     position: absolute;
     top: 50%;
@@ -1132,7 +1142,7 @@ form {
 	} @else {
 		max-width: $thumbnail-size;
 		max-height: $thumbnail-size;
-	} 
+	}
 }
 
 // The name, or title, of the result gets the same sizing as a
@@ -1145,7 +1155,7 @@ form {
 	font-size: calc(1.333rem + 0.300vw); 
 	font-weight: 600;
 
-	margin-bottom: 1rem;
+	margin-bottom: 0.66rem;
 }
 
 

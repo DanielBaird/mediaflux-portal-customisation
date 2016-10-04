@@ -362,11 +362,12 @@ use a smaller size, e.g. <code>5rem</code> or <code>3rem</code>, if thumbnails a
 less help in distinguishing assets from each other.</p>
 <p>If your thumbnails need pixel-perfect resolution, set this
 to match the thumbnail size declared in your configuration XML
-by default, <code>150px</code>).</p>
+by default, <code>150px</code>).  To support high-resolution &quot;retina&quot;
+displays, set your XML to double this number (e.g. use <code>300</code>
+as the size in your portal XML, and <code>150px</code> as the size here).</p>
 <p>TODO: confirm default pixel size</p>
-<pre><code>$thumbnail-size: 3rem;
-$thumbnail-size: 100px;
-</code></pre>
+<p>/* $thumbnail-size: 7rem; */
+$thumbnail-size: 150px;</p>
 <p>Thumbnails also receive a border.</p>
 <pre><code>$thumbnail-border-color: $content-background;
 $thumbnail-border-width: 0.5rem;
@@ -392,7 +393,7 @@ edges and be clipped (if it's a tall thumbnail)</p>
 height, leaving the sides of the thumbnail to have some blank
 space (if it's a tall thumbnail) or spill over the edges and
 be clipped (if it's a wide thumbnail)</p>
-<p>$thumbnail-fit: none;</p>
+<p>$thumbnail-fit: vertical;</p>
 </li>
 </ul>
 <h4>Footer</h4>
@@ -1079,9 +1080,12 @@ default spacing.</p>
 	}
 }
 </code></pre>
-<p>the thumbnail image is contained in a
+<p>The thumbnail image is contained in a
 <code>&lt;div class=&quot;mf-result-thumbnail-wrapper&quot;&gt;</code>, which is used
 here to set the size of the thumbnail.</p>
+<p>Other style rules given here supply the border and a subtle
+gradient background for cases where the thumbnail doesn't fill
+the space.</p>
 <pre><code>.mf-result-thumbnail-wrapper {
     float: right;
     margin: 0 0 1rem 1rem;
@@ -1092,11 +1096,14 @@ here to set the size of the thumbnail.</p>
     border: solid $thumbnail-border-width $thumbnail-border-color;
 	background-color: $result-background;
 	background-image: radial-gradient(
-		transparentize($thumbnail-border-color, 0.66),
-		transparentize($thumbnail-border-color, 1)
+		transparentize($thumbnail-border-color, 0.8),
+		transparentize($thumbnail-border-color, 0.2)
 	);
 }
-.mf-result-thumbnail-wrapper img {
+</code></pre>
+<p>These style rules centre the thumbnail and apply the effect
+of the <code>$thumbnail-fit</code> variable set earlier.</p>
+<pre><code>.mf-result-thumbnail-wrapper img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1109,7 +1116,7 @@ here to set the size of the thumbnail.</p>
 	} @else {
 		max-width: $thumbnail-size;
 		max-height: $thumbnail-size;
-	} 
+	}
 }
 </code></pre>
 <p>The name, or title, of the result gets the same sizing as a
@@ -1121,7 +1128,7 @@ section of styling.</p>
 	font-size: calc(1.333rem + 0.300vw); 
 	font-weight: 600;
 
-	margin-bottom: 1rem;
+	margin-bottom: 0.66rem;
 }
 </code></pre>
 <h3>Listing results, on a wide screen</h3>

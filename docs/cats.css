@@ -10,6 +10,7 @@ recompile.  Visit the website:
 https://github.com/DanielBaird/mediaflux-portal-customisation
 for more information.
  */
+/* $thumbnail-size: 7rem; */
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -744,26 +745,25 @@ form {
   float: right;
   margin: 0 0 1rem 1rem;
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   overflow: hidden;
   border: solid 0.5rem #fff;
   background-color: #eee;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0)); }
+  background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8)); }
 
 .mf-result-thumbnail-wrapper img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 100px;
-  max-height: 100px; }
+  height: 150px; }
 
 .mf-result-title {
   font-size: 1.333rem;
   font-size: calc(1.333rem + 0.300vw);
   font-weight: 600;
-  margin-bottom: 1rem; }
+  margin-bottom: 0.66rem; }
 
 @media (min-width: 45.5rem) {
   .mf-result-list {
