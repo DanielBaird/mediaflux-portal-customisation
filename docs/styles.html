@@ -353,7 +353,7 @@ effect applied by setting <code>$result-dropshadow</code> to the desired
 shadow colour (try <code>$result-border-color</code>).</p>
 <p>Switch off the drop shadow by setting <code>$result-dropshadow to the special value</code>none`.</p>
 <pre><code>$result-dropshadow: $result-border-color;
-$result-dropshadow: #ccc;
+$result-dropshadow: none;
 </code></pre>
 <h6>Thumbnails</h6>
 <p>Each asset's thumbnail image will be displayed at this
@@ -625,11 +625,13 @@ on a narrow display, they'll take the space they need.</p>
 <pre><code>.mf-nav-list {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	border: 1px solid transparentize($navbar-content-color, 0.66);
 	border-width: 0 1px;
 }
 .mf-nav-list li {
 	color: $navbar-content-color;
+	padding: 0 0.25em;
 	text-align: center;
 	flex-grow: 1;
 	line-height: $navbar-height;
@@ -1168,7 +1170,7 @@ section of styling.</p>
 
 .mf-result-metadata-list-wrapper {
     display: table;
-    width: 100%;
+	margin-top: 1rem;
 }
 .mf-result-metadata-list li {
     padding: 0.1rem 0;
@@ -1176,7 +1178,8 @@ section of styling.</p>
     display: table-row;
 }
 </code></pre>
-<p>/* .mf-metadata-field { <em>/
+<p>/* the h3 should have a .mf-metadata-field class, but doesn't <em>/
+/</em> .mf-metadata-field { <em>/
 .mf-result-metadata-list li &gt; h3 {
 display: table-cell;
 font-weight: 600;
@@ -1184,6 +1187,7 @@ max-width: 30%;
 padding: 0.25rem;
 text-align: right;
 }
+/</em> the div should have a .mf-metadata-value class, but doesn't <em>/
 /</em> .mf-metadata-value { */
 .mf-result-metadata-list li &gt; div {
 display: table-cell;

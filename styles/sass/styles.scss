@@ -256,7 +256,7 @@ $result-corner-radius: 0;
 // the special value `none`.
 
 $result-dropshadow: $result-border-color;
-$result-dropshadow: #ccc;
+$result-dropshadow: none;
 
 // ###### Thumbnails
 //
@@ -576,11 +576,13 @@ form {
 .mf-nav-list {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	border: 1px solid transparentize($navbar-content-color, 0.66);
 	border-width: 0 1px;
 }
 .mf-nav-list li {
 	color: $navbar-content-color;
+	padding: 0 0.25em;
 	text-align: center;
 	flex-grow: 1;
 	line-height: $navbar-height;
@@ -1190,13 +1192,15 @@ form {
 
 .mf-result-metadata-list-wrapper {
     display: table;
-    width: 100%;
+	margin-top: 1rem;
 }
 .mf-result-metadata-list li {
     padding: 0.1rem 0;
     margin: 0;
     display: table-row;
 }
+
+/* the h3 should have a .mf-metadata-field class, but doesn't */
 /* .mf-metadata-field { */
 .mf-result-metadata-list li > h3 {
 	display: table-cell;
@@ -1205,6 +1209,7 @@ form {
     padding: 0.25rem;
     text-align: right;
 }
+/* the div should have a .mf-metadata-value class, but doesn't */
 /* .mf-metadata-value { */
 .mf-result-metadata-list li > div {
 	display: table-cell;
