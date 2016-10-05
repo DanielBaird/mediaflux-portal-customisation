@@ -7,10 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "scripts/build-css.js",
     "watch-css": "nodemon --watch styles/sass --ext scss --exec 'npm run build-css'",
+    "build-docs": "scripts/build-docs.js",
+    "watch-docs": "nodemon --watch doc-source --exec 'npm run build-docs'",
     "build-html": "scripts/build-html.js",
     "watch-html": "nodemon --watch sample-html --exec 'npm run build-html'",
-    "watch": "npm run watch-css & npm run watch-html",
-    "build": "npm run build-css; npm run build-html"
+    "watch": "npm run watch-css & npm run watch-docs & npm run watch-html",
+    "build": "npm run build-css && npm run build-docs && npm run build-html"
   },
   "repository": {
     "type": "git",
