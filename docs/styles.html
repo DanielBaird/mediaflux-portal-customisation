@@ -215,20 +215,20 @@ $page-color: #333;
 <pre><code>$page-print-background: $page-background;
 $page-print-color: #000;
 </code></pre>
-<p>The maximum width of the page is defined here as 55 root
+<p>The maximum width of the page is defined here as 57 root
 ems wide, which is roughly 120 letters.</p>
 <p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
 <code>$content-spacing</code> should be strictly less than the value
 you give <code>$column-max-width</code>.</p>
-<pre><code>$column-max-width: 55rem;
+<pre><code>$column-max-width: 57rem;
 </code></pre>
 <p>On a wide screen, list-of-items type portal pages will show
 a sidebar column next to the content column. The preferred
-width of the sidebar is set to 15 root ems.</p>
+width of the sidebar is set to 14 root ems.</p>
 <p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
 <code>$content-spacing</code> should be strictly less than the value
 you give <code>$column-max-width</code>.</p>
-<pre><code>$sidebar-width: 13rem;
+<pre><code>$sidebar-width: 14rem;
 </code></pre>
 <p>On a narrower screen, the sidebar becomes a sort of *top-*bar.
 The minimum width of the content column is added to the
@@ -244,6 +244,7 @@ free, so don't be too stingy with this.</p>
 <p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
 <code>$content-spacing</code> should be strictly less than the value
 you give <code>$column-max-width</code>.</p>
+<p>TODO: Check this is being applied</p>
 <pre><code>$content-spacing: 3rem;
 </code></pre>
 <p>The standard background and text colour for the main content
@@ -466,7 +467,7 @@ in the <code>head</code> of the page to stop a bit of &quot;helpful&quot; zoomin
 browsers on small screen phones do.</p>
 <pre><code>html {
 	font-size: 16px; /* for browsers that don't support calc() */
-	font-size: calc(16px + 0.25vw); /* grow font size on wider screen */
+	font-size: calc(14px + 0.35vw); /* grow font size on wider screen */
 	overflow-x: hidden; /* avoid odd widths on narrow screens */
 }
 </code></pre>
@@ -736,11 +737,11 @@ some padding.  Headings get tighter line spacing.</p>
 		margin: 0;
 	}
 </code></pre>
-<p>Heading sizes are calculated here starting with a &quot;Perfect
-Fourths&quot; proportion of 4:3, essentially multiplying each
-size by 1.333 to get the next.</p>
+<p>Heading sizes are calculated here starting with a &quot;Major
+Third&quot; proportion of 5:4, essentially multiplying each
+size by 1.25 to get the next.</p>
 <p>This web tool is a convenient way to generate scaled sizes:
-<a href="http://type-scale.com/?scale=1.333&amp;font-family=BlinkMacSystemFont">type-scale.com</a></p>
+<a href="http://type-scale.com/?scale=1.250&amp;font-family=BlinkMacSystemFont">type-scale.com</a></p>
 <p><code>h5</code> and <code>h6</code> headings are both the same size as normal text;
 <code>h5</code>s are bolded, and <code>h6</code>s are italicised.</p>
 <p>The <code>calc(...)</code> function is used here to make the headings
@@ -749,10 +750,12 @@ page size increases, heading size will increase over and
 above the standard font size increase.  The effect of this
 is clean clear headings on a desktop, but still readable
 headings on phone screens.</p>
-<pre><code>	h1 { font-size: 3.157rem; font-size: calc(3.157rem + 0.711vw); font-weight: 100; }
-	h2 { font-size: 2.369rem; font-size: calc(2.369rem + 0.533vw); font-weight: 200; }
-	h3 { font-size: 1.778rem; font-size: calc(1.778rem + 0.400vw); font-weight: 400; }
-	h4 { font-size: 1.333rem; font-size: calc(1.333rem + 0.300vw); font-weight: 600; }
+<p>Here the additional heading size is a doubling proportion
+of the page width (2:1).</p>
+<pre><code>	h1 { font-size: 2.441rem; font-size: calc(2.441rem + 1.600vw); font-weight: 100; }
+	h2 { font-size: 1.953rem; font-size: calc(1.953rem + 0.800vw); font-weight: 200; }
+	h3 { font-size: 1.563rem; font-size: calc(1.563rem + 0.400vw); font-weight: 400; }
+	h4 { font-size: 1.250rem; font-size: calc(1.250rem + 0.200vw); font-weight: 600; }
 	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.000vw); font-weight: 800; }
 	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.000vw); font-style: italic; }
 </code></pre>
@@ -1098,7 +1101,7 @@ default spacing.</p>
 <h3>A single result</h3>
 <p>This addresses the content of the single result in the list.</p>
 <pre><code>.mf-listed-result {
-	@include clearfix;
+@include clearfix;
 	display: block;
     background: $result-background;
     margin: 1rem 0;
@@ -1161,8 +1164,8 @@ of the <code>$thumbnail-fit</code> variable set earlier.</p>
 titles to be a different colour, add a <code>color</code> rule to this
 section of styling.</p>
 <pre><code>.mf-result-title {
-	font-size: 1.333rem;
-	font-size: calc(1.333rem + 0.300vw);
+	font-size: 1.250rem;
+	font-size: calc(1.250rem + 0.200vw);
 	font-weight: 600;
 
 	margin: 0.333rem 0 0.666rem;
@@ -1206,12 +1209,11 @@ rule from the <code>.mf-metadata-field</code> styling block.</p>
     padding-left: 0.5rem;
 }
 </code></pre>
-<p>Download button</p>
-<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-up to here
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+<p>The Download button, if present, is the final tag in the
+result item's <code>li</code>.
+.mf-download-button {
+margin: 0 auto;
+}</p>
 <h3>Listing results, on a wide screen</h3>
 <p>The <code>@media</code> statement below means that the rules inside it
 will only apply when the page is at least the specified width.</p>

@@ -83,24 +83,24 @@ $page-color: #333;
 $page-print-background: $page-background;
 $page-print-color: #000;
 
-// The maximum width of the page is defined here as 55 root
+// The maximum width of the page is defined here as 57 root
 // ems wide, which is roughly 120 letters.
 //
 // The sum of `$sidebar-width`, `$content-min-width`, and
 // `$content-spacing` should be strictly less than the value
 // you give `$column-max-width`.
 //
-$column-max-width: 55rem;
+$column-max-width: 57rem;
 
 // On a wide screen, list-of-items type portal pages will show
 // a sidebar column next to the content column. The preferred
-// width of the sidebar is set to 15 root ems.
+// width of the sidebar is set to 14 root ems.
 //
 // The sum of `$sidebar-width`, `$content-min-width`, and
 // `$content-spacing` should be strictly less than the value
 // you give `$column-max-width`.
 //
-$sidebar-width: 13rem;
+$sidebar-width: 14rem;
 
 // On a narrower screen, the sidebar becomes a sort of *top-*bar.
 // The minimum width of the content column is added to the
@@ -119,6 +119,8 @@ $content-min-width: $sidebar-width * 2.5;
 // The sum of `$sidebar-width`, `$content-min-width`, and
 // `$content-spacing` should be strictly less than the value
 // you give `$column-max-width`.
+//
+// TODO: Check this is being applied
 //
 $content-spacing: 3rem;
 
@@ -391,7 +393,7 @@ html {
 //
 html {
 	font-size: 16px; /* for browsers that don't support calc() */
-	font-size: calc(16px + 0.25vw); /* grow font size on wider screen */
+	font-size: calc(14px + 0.35vw); /* grow font size on wider screen */
 	overflow-x: hidden; /* avoid odd widths on narrow screens */
 }
 
@@ -702,12 +704,12 @@ form {
 		margin: 0;
 	}
 
-// Heading sizes are calculated here starting with a "Perfect
-// Fourths" proportion of 4:3, essentially multiplying each
-// size by 1.333 to get the next.
+// Heading sizes are calculated here starting with a "Major 
+// Third" proportion of 5:4, essentially multiplying each
+// size by 1.25 to get the next.
 //
 // This web tool is a convenient way to generate scaled sizes:
-// [type-scale.com](http://type-scale.com/?scale=1.333&font-family=BlinkMacSystemFont)
+// [type-scale.com](http://type-scale.com/?scale=1.250&font-family=BlinkMacSystemFont)
 //
 // `h5` and `h6` headings are both the same size as normal text;
 // `h5`s are bolded, and `h6`s are italicised.
@@ -718,11 +720,14 @@ form {
 // above the standard font size increase.  The effect of this
 // is clean clear headings on a desktop, but still readable
 // headings on phone screens.
+// 
+// Here the additional heading size is a doubling proportion 
+// of the page width (2:1).
 //
-	h1 { font-size: 3.157rem; font-size: calc(3.157rem + 0.711vw); font-weight: 100; }
-	h2 { font-size: 2.369rem; font-size: calc(2.369rem + 0.533vw); font-weight: 200; }
-	h3 { font-size: 1.778rem; font-size: calc(1.778rem + 0.400vw); font-weight: 400; }
-	h4 { font-size: 1.333rem; font-size: calc(1.333rem + 0.300vw); font-weight: 600; }
+	h1 { font-size: 2.441rem; font-size: calc(2.441rem + 1.600vw); font-weight: 100; }
+	h2 { font-size: 1.953rem; font-size: calc(1.953rem + 0.800vw); font-weight: 200; }
+	h3 { font-size: 1.563rem; font-size: calc(1.563rem + 0.400vw); font-weight: 400; }
+	h4 { font-size: 1.250rem; font-size: calc(1.250rem + 0.200vw); font-weight: 600; }
 	h5 { font-size: 1.000rem; font-size: calc(1.000rem + 0.000vw); font-weight: 800; }
 	h6 { font-size: 1.000rem; font-size: calc(1.000rem + 0.000vw); font-style: italic; }
 
@@ -1116,7 +1121,7 @@ form {
 // This addresses the content of the single result in the list.
 //
 .mf-listed-result {
-	@include clearfix;
+//	@include clearfix;
 	display: block;
     background: $result-background;
     margin: 1rem 0;
@@ -1183,8 +1188,8 @@ form {
 // section of styling.
 //
 .mf-result-title {
-	font-size: 1.333rem;
-	font-size: calc(1.333rem + 0.300vw);
+	font-size: 1.250rem;
+	font-size: calc(1.250rem + 0.200vw);
 	font-weight: 600;
 
 	margin: 0.333rem 0 0.666rem;
@@ -1231,16 +1236,11 @@ form {
     padding-left: 0.5rem;
 }
 
-// Download button
-//
-//
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// up to here
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//
-//
+// The Download button, if present, is the final tag in the
+// result item's `li`.
+.mf-download-button {
+	margin: 0 auto;
+}
 
 
 // ### Listing results, on a wide screen
