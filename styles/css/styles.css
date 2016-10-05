@@ -808,7 +808,8 @@ form {
   display: block;
   padding-left: 1em;
   padding-right: 1em;
-  width: 100%; }
+  width: 100%;
+  margin-top: 0.66rem; }
 
 .mf-download-button:before {
   /* 21e9: ⇩ downwards white arrow */
