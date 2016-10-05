@@ -1212,7 +1212,21 @@ rule from the <code>.mf-metadata-field</code> styling block.</p>
 <p>The Download button, if present, is the final tag in the
 result item's <code>li</code>.
 .mf-download-button {
-margin: 0 auto;
+display: block;
+padding-left: 1em;
+padding-right: 1em;
+width: 100%;
+// margin: 0 auto;
+}
+.mf-download-button:before {
+/* 21e9: ⇩ downwards white arrow <em>/
+/</em> 2b07: ⬇ downwards black arrow <em>/
+/</em> 21a7: ↧ downwards arrow from bar <em>/
+/</em> 2193: ↓ downwards arrow <em>/
+/</em> 2913: ⤓ downwards arrow to bar <em>/
+/</em> 21d3: ⇓ downwards double arrow */
+content: '\2b07';
+margin-right: 0.5em;
 }</p>
 <h3>Listing results, on a wide screen</h3>
 <p>The <code>@media</code> statement below means that the rules inside it
