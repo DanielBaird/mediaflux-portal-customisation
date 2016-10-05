@@ -305,8 +305,28 @@ $thumbnail-border-width: 0.5rem;
 $thumbnail-fit: vertical;
 
 
-// #### Footer
+// ###### Download button
+//
+// This styling allows three positions for the download button.
+//
+// If downloading assets is a significant aspect of the portal 
+// you're designing, use `wide` and the download button will
+// stretch the width of the result item box.
+// 
+// If you don't want the download button to appear, set this to 
+// `hidden` (note that this is not a security measure -- assets 
+// are still accessible).
+//
+// The other two settings are `left` and `right` for aligning the
+// download button to one side or the other.  For significantly
+// visual assets use `right` to put the download button under
+// the thumbnail; for less visual assets, use `left` to align the
+// button under the asset's metadata.
+//
+$download-button-position: wide;
 
+// #### Footer
+//
 // The size and colour of the page footer.
 //
 $footer-height: 3rem;
@@ -1242,9 +1262,18 @@ form {
 	display: block;
 	padding-left: 1em;
 	padding-right: 1em;
-	width: 100%;
-	margin-top: 0.66rem;
-	// margin: 0 auto;
+	margin: 0.66rem auto 0;
+
+	@if ($download-button-position == hidden) {
+		display: none;
+	} @else if ($download-button-position == left) {
+		margin-left: 0;
+	} @else if ($download-button-position == right) {
+		margin-right: 0;
+	} @else {
+		width: 100%;
+	}
+
 }
 .mf-download-button:before {
 	/* 21e9: ⇩ downwards white arrow */

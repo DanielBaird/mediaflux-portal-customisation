@@ -398,6 +398,21 @@ be clipped (if it's a wide thumbnail)</p>
 <p>$thumbnail-fit: vertical;</p>
 </li>
 </ul>
+<h6>Download button</h6>
+<p>This styling allows three positions for the download button.</p>
+<p>If downloading assets is a significant aspect of the portal
+you're designing, use <code>wide</code> and the download button will
+stretch the width of the result item box.</p>
+<p>If you don't want the download button to appear, set this to
+<code>hidden</code> (note that this is not a security measure -- assets
+are still accessible).</p>
+<p>The other two settings are <code>left</code> and <code>right</code> for aligning the
+download button to one side or the other.  For significantly
+visual assets use <code>right</code> to put the download button under
+the thumbnail; for less visual assets, use <code>left</code> to align the
+button under the asset's metadata.</p>
+<pre><code>$download-button-position: wide;
+</code></pre>
 <h4>Footer</h4>
 <p>The size and colour of the page footer.</p>
 <pre><code>$footer-height: 3rem;
@@ -1215,20 +1230,29 @@ result item's <code>li</code>.
 display: block;
 padding-left: 1em;
 padding-right: 1em;
-width: 100%;
-margin-top: 0.66rem;
-// margin: 0 auto;
+margin: 0.66rem auto 0;</p>
+<pre><code>	@if ($download-button-position == hidden) {
+		display: none;
+	} @else if ($download-button-position == left) {
+		margin-left: 0;
+	} @else if ($download-button-position == right) {
+		margin-right: 0;
+	} @else {
+		width: 100%;
+	}
+
 }
 .mf-download-button:before {
-/* 21e9: ⇩ downwards white arrow <em>/
-/</em> 2b07: ⬇ downwards black arrow <em>/
-/</em> 21a7: ↧ downwards arrow from bar <em>/
-/</em> 2193: ↓ downwards arrow <em>/
-/</em> 2913: ⤓ downwards arrow to bar <em>/
-/</em> 21d3: ⇓ downwards double arrow <em>/
-content: '\2b07'; /</em> 2b07: ⬇ downwards black arrow */
-margin-right: 0.5em;
-}</p>
+	/* 21e9: ⇩ downwards white arrow */
+	/* 2b07: ⬇ downwards black arrow */
+	/* 21a7: ↧ downwards arrow from bar */
+	/* 2193: ↓ downwards arrow */
+	/* 2913: ⤓ downwards arrow to bar */
+	/* 21d3: ⇓ downwards double arrow */
+	content: '\2b07'; /* 2b07: ⬇ downwards black arrow */
+	margin-right: 0.5em;
+}
+</code></pre>
 <h3>Listing results, on a wide screen</h3>
 <p>The <code>@media</code> statement below means that the rules inside it
 will only apply when the page is at least the specified width.</p>
