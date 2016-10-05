@@ -819,6 +819,7 @@ form {
   /* 2913: ⤓ downwards arrow to bar */
   /* 21d3: ⇓ downwards double arrow */
   content: '\2b07';
+  /* 2b07: ⬇ downwards black arrow */
   margin-right: 0.5em; }
 
 @media (min-width: 49rem) {
