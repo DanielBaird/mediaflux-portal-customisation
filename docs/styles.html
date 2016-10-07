@@ -1190,7 +1190,7 @@ section of styling.</p>
 a <code>&lt;ul class=&quot;.mf-result-metadata-list&quot;&gt;</code> list, one <code>li</code> tag
 per field.  Inside the <code>li</code> is a
 <code>&lt;h3 class=&quot;.mf-metadata-field&quot;&gt;</code> with the name of the field,
-and a `<div class=".mf-metadata-value"> containing the value.</p>
+and a <code>&lt;div class=&quot;.mf-metadata-value&quot;&gt;</code> containing the value.</p>
 <p>The styling applied here uses a tabular display, with the
 field names in a left column, and the values in the right
 column.</p>
@@ -1225,13 +1225,14 @@ rule from the <code>.mf-metadata-field</code> styling block.</p>
 }
 </code></pre>
 <p>The Download button, if present, is the final tag in the
-result item's <code>li</code>.
-.mf-download-button {
-display: block;
-padding-left: 1em;
-padding-right: 1em;
-margin: 0.66rem auto 0;</p>
-<pre><code>	@if ($download-button-position == hidden) {
+result item's <code>li</code>.</p>
+<pre><code>.mf-download-button {
+	display: block;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin: 0.66rem auto 0;
+
+	@if ($download-button-position == hidden) {
 		display: none;
 	} @else if ($download-button-position == left) {
 		margin-left: 0;

@@ -1,0 +1,42 @@
+<html>
+<head></head>
+
+<body>
+
+<style>
+    #source { display: none }
+    svg {
+        height: 470px;
+        width: 380px;
+        stroke: black;
+        fill: transparent;
+
+    }
+    #bg { stroke-width: 0; fill: #eee; }
+    #page { fill: #fff; }
+    #d1 use.footer { fill: blue; }
+
+</style>
+
+<svg id="source" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate">
+    <defs>
+        <symbol id="diag">
+            <rect id="bg" width="380" height="470" />
+
+            <rect id="page"   x="20" y=" 20" width="340" height="430" />
+            <rect id="header" x="20" y=" 20" width="340" height=" 40" />
+            <rect id="footer" x="20" y="430" width="340" height=" 20" />
+        </symbol>
+    </defs>
+</svg>
+
+<h3>d1</h3>
+
+<svg id="d1"><use xlink:href="#diag"></use><use class="footer" xlink:href="#footer"></use></svg>
+
+<h3>d2</h3>
+
+<svg id="d2"><use xlink:href="#diag"></use><use style="fill: blue;" xlink:href="#footer"></use></svg>
+
+</body>
+</html>

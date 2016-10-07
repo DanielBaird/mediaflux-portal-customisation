@@ -1,7 +1,6 @@
 
 // # Styling a MediaFlux portal
 
-
 // ## About this document #######################################
 //
 // #### Purpose
@@ -1219,7 +1218,7 @@ form {
 // a `<ul class=".mf-result-metadata-list">` list, one `li` tag
 // per field.  Inside the `li` is a 
 // `<h3 class=".mf-metadata-field">` with the name of the field, 
-// and a `<div class=".mf-metadata-value"> containing the value.
+// and a `<div class=".mf-metadata-value">` containing the value.
 //
 // The styling applied here uses a tabular display, with the
 // field names in a left column, and the values in the right
@@ -1258,6 +1257,7 @@ form {
 
 // The Download button, if present, is the final tag in the
 // result item's `li`.
+//
 .mf-download-button {
 	display: block;
 	padding-left: 1em;
