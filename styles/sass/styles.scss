@@ -68,7 +68,9 @@ for more information.
 // Much simple customisation of portal sites can be achieved by
 // editing variables in this section.
 
+// <svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg>
 // #### Overall page level variables
+
 
 // Default the general page colours to to white background and
 // dark text (not quite black, to avoid harsh contrast).
@@ -162,6 +164,7 @@ $control-border: 1px solid #aaa;
 $control-corner-radius: 0.125rem;
 
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-head"></use></svg>
 // #### Header related variables
 
 // The height of the page header and the size of the heading
@@ -191,7 +194,8 @@ $logo-height: 65px;
 $logo-width: 65px;
 
 
-// #### Navbar (the bit across the top, under the header)
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-nav"></use></svg>
+// #### Navbar
 //
 // The height of the main navigation bar is set here using `rem`
 // units, which are proportional to the standard text size.
@@ -212,13 +216,15 @@ $navbar-highlight-content-color: $navbar-background;
 $navbar-current-background: $content-background;
 $navbar-current-content-color: $content-color;
 
-// #### Collection bar (between the content and the navbar)
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-collbar"></use></svg>
+// #### Collection bar
 // The collection bar has background and text colours.
 //
 $collection-bar-background: #ccc;
 $collection-bar-content-color: $page-color;
 
-// #### Sidebar (facet filters, on the left of the content)
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-side"></use></svg>
+// #### Sidebar
 //
 // The sidebar includes facet filters; if you set a
 // background for the sidebar, you probably don't want
@@ -230,6 +236,7 @@ $sidebar-facet-background: #f8f8f8;
 
 // #### Content related items
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-res"></use></svg>
 // ##### Result cards
 //
 // The details of each result in a result list are shown within
@@ -324,6 +331,7 @@ $thumbnail-fit: vertical;
 //
 $download-button-position: wide;
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-foot"></use></svg>
 // #### Footer
 //
 // The size and colour of the page footer.
@@ -516,6 +524,7 @@ form {
 // 	border-color: rgb(100,149,237);
 // }
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-head"></use></svg>
 // ## Page header ###############################################
 
 // All Mediaflux portal pages start with a `header` tag like
@@ -568,6 +577,7 @@ form {
 }
 
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-nav"></use></svg>
 // ## Page navigation ###########################################
 
 // The main page navigation – between static pages, or
@@ -624,6 +634,7 @@ form {
 }
 
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-content"></use></svg>
 // ## Page content ##############################################
 
 // All portal pages use a wrapper div around the main content
@@ -642,6 +653,7 @@ form {
 	padding: 0 1rem 3rem;
 }
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-foot"></use></svg>
 // ## Footer ####################################################
 
 // All Mediaflux portal pages end with a `footer` tag like this:
@@ -671,6 +683,7 @@ form {
     }
 }
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-content"></use></svg>
 // ## Static page content #######################################
 //
 // Static pages are laid out as a heading, rendered as a `h1` tag
@@ -705,7 +718,7 @@ form {
 
 .mf-static-page-content {
 
-// ##### Lext sizing and spacing
+// ##### Text sizing and spacing
 //
 // Set a default line height, and give headings and paragraphs
 // some padding.  Headings get tighter line spacing.
@@ -871,6 +884,7 @@ form {
 	padding-top: 2rem;
 }
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-collbar"></use></svg>
 // ### Collection bar
 //
 // This page section is a sort of heading area for the list of
@@ -961,6 +975,7 @@ form {
 }
 
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-side"></use></svg>
 // ## Sidebar ###################################################
 
 // The sidebar holds controls allowing the user to filter the
@@ -1045,6 +1060,7 @@ form {
 	}
 }
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-nav"></use></svg>
 // ## Page navigation ###########################################
 
 // Page navigation buttons are constructed as a `ul` tag inside
@@ -1115,6 +1131,7 @@ form {
 	}
 }
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-res"></use></svg>
 // ## Listing results ###########################################
 
 // There are two types of results; a list of assets, or a list of
