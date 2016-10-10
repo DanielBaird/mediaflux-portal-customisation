@@ -13,8 +13,8 @@ var cm = require('commonmark')
 var fs = require('fs')
 
 // (assumes running from same location as package.json)
-var HTML_HEADER='styles/doc-includes/header.html'
-var HTML_FOOTER='styles/doc-includes/footer.html'
+var HTML_HEADER='doc-source/doc-includes/header.html'
+var HTML_FOOTER='doc-source/doc-includes/footer.html'
 var SOURCE='doc-source'
 var DEST='docs'
 

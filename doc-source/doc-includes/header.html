@@ -40,13 +40,6 @@ h1, h2 {
     margin: 0 0 0 -0.1em;
     padding: 1.5em 0 0.5rem;
   }
-  h1 { font-size: 2.827rem; opacity: 1.00 }
-  /* not using 3.998rem */
-  h2 { font-size: 3.998rem; opacity: 0.85 }
-  h3 { font-size: 1.999rem; opacity: 0.90 }
-  h4 { font-size: 1.414rem; opacity: 0.95 }
-  h5 { font-size: 1.000rem; opacity: 1.00 }
-  h6 { font-size: 0.707rem; opacity: 1.00 }
 
 	h1 { font-size: 2.369rem; opacity: 1.00; font-weight: 400; }
   /* not using 3.157rem */
@@ -56,29 +49,6 @@ h1, h2 {
 	h5 { font-size: 1.000rem; opacity: 1.00; font-weight: 800; }
 	h6 { font-size: 1.000rem; opacity: 1.00; font-style: italic; }
 
-  /*h1 { 
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow:
-      01px 1.0px 2px #357,
-      02px 1.5px 2px #aab24b,
-      03px 2.0px 2px #357,
-      04px 2.5px 2px #357,
-      05px 3.0px 2px #357,
-      06px 3.5px 2px #aab24b,
-      07px 4.0px 2px #357,
-      08px 4.5px 2px #357,
-      09px 5.0px 2px #357,
-      10px 5.5px 2px #aab24b,
-      11px 6.0px 2px #357,
-      12px 6.5px 2px #357,
-      13px 7.0px 2px #357,
-      14px 7.5px 2px #aab24b,
-      15px 8.0px 2px #357,
-      16px 8.5px 2px #357,
-      17px 9.0px 2px #357,
-      18px 9.5px 2px #aab24b;
-  }*/
   h2 { 
     border-bottom: 1px solid;
     padding: 3rem 0 0;
@@ -149,6 +119,52 @@ h1, h2 {
   .open   #tocContent { height: auto; }
   .closed #tocContent { height: 0; }
 
+
+/* svg */
+svg {
+  fill: rgba(0,0,0,0);
+  stroke: #999;
+  stroke-width: 0.3;
+}
+
 </style>
 </head>
-<body><div class="wrapper language-scss">
+<body>
+
+<svg style="width: 90px; height: 118px; width: 380px; height: 470px" viewBox="0 0 38 47">
+  <!--<rect width="38" height="47" style="fill:rgb(210,225,249)" stroke-width="0" />-->
+  <!--<rect x="2" y="2" width="34" height="43" fill="rgb(255,255,255)" stroke-width="" stroke="none" />-->
+
+  <rect id="diag-header" x="2" y="2" width="34" height="4" />
+  <rect id="diag-nav" x="5" y="6" width="28" height="3" />
+
+  <rect id="diag-nav1" x="5" y="6" width="7" height="3" />
+  <rect id="diag-nav2" x="12" y="6" width="7" height="3" />
+  <rect id="diag-nav3" x="19" y="6" width="7" height="3" />
+  <rect id="diag-nav4" x="26" y="6" width="7" height="3" />
+
+  <rect id="diag-content" x="5" y="9" width="28" height="34" />
+
+  <rect id="diag-collbar" x="7" y="11" width="24" height="3" />
+  <rect id="diag-side" x="7" y="15" width="5" height="10" />
+
+  <rect id="diag-pgt1" x="20" y="16" width="2" height="2" />
+  <rect id="diag-pgt2" x="23" y="16" width="2" height="2" />
+  <rect id="diag-pgt3" x="26" y="16" width="2" height="2" />
+  <rect id="diag-pgt4" x="29" y="16" width="2" height="2" />
+
+  <rect id="diag-res1" x="14" y="20" width="17" height="5" />
+  <rect id="diag-res2" x="14" y="26" width="17" height="5" />
+  <rect id="diag-res3" x="14" y="32" width="17" height="5" />
+
+  <rect id="diag-pgb1" x="20" y="39" width="2" height="2" />
+  <rect id="diag-pgb2" x="23" y="39" width="2" height="2" />
+  <rect id="diag-pgb3" x="26" y="39" width="2" height="2" />
+  <rect id="diag-pgb4" x="29" y="39" width="2" height="2" />
+
+  <rect id="diag-footer" x="2" y="43" width="34" height="2" />
+
+</svg>
+
+
+<div class="wrapper language-scss">
