@@ -213,6 +213,12 @@ form {
   min-width: 2rem;
   text-align: center; }
 
+/*
+.mf-button:hover {
+	color: rgb(100,149,237);
+	border-color: rgb(100,149,237);
+}
+*/
 .mf-header {
   background: #555;
   color: white;

@@ -359,11 +359,13 @@ $footer-fade: true;
 // web page.
 //
 // Normalize.css is a third party project that provides a set
-// of CSS rules that provides a consistent set of styles for
-// all browsers.  The next big chunk is all of the 
-// *Normalize.css* rules.
+// of CSS rules that ensure consistent base styles for all 
+// browsers.  The following chunk of source code is all of the 
+// *Normalize.css* rules -- there's no need to modify or 
+// understand these rules.
 //
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+ /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 button,hr,input{overflow:visible}
 audio,canvas,progress,video{display:inline-block}
 progress,sub,sup{vertical-align:baseline}
@@ -402,7 +404,7 @@ textarea{overflow:auto}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 summary{display:list-item}
 [hidden],template{display:none}
-/*! end of normalize.css */
+ /*! end of normalize.css */
 
 // ##### Font family default
 //
@@ -444,6 +446,9 @@ html {
 // This tag sets the default text and background colour for
 // normal display, and when printing.  Colours are described in
 // the Variables section.
+//
+// Refer to the appendix in this document for information about
+// the `@media` command.
 //
 body {
     color: $page-color;
@@ -533,13 +538,12 @@ form {
 	min-width: $control-size;
 	text-align: center;
 }
-
-// TODO: sort this colouring out
-//
-// .mf-button:hover {
-// 	color: rgb(100,149,237);
-// 	border-color: rgb(100,149,237);
-// }
+/*
+.mf-button:hover {
+	color: rgb(100,149,237);
+	border-color: rgb(100,149,237);
+}
+*/
 
 // <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-head"></use></svg>
 // ## Page header ###############################################
@@ -564,7 +568,7 @@ form {
 //
 // The portal plugin will not automatically generate a heading
 // or logo, but those items are supplied in the sample portal
-// configuration, so styling for them are supplied here.
+// configuration, so styling for them is supplied here.
 //
 .mf-heading {
 	color: inherit;
@@ -761,7 +765,8 @@ form {
 // [type-scale.com](http://type-scale.com/?scale=1.250&font-family=BlinkMacSystemFont)
 //
 // `h5` and `h6` headings are both the same size as normal text;
-// `h5`s are bolded, and `h6`s are italicised.
+// `h5`s are rendered very bold (using `font-weight: 800`), and 
+// `h6`s are italicised.
 //
 // The `calc(...)` function is used here to make the headings
 // proportionally larger on large screens.  This means that as
@@ -811,7 +816,7 @@ form {
 // spacing.
 //
 // If you're a developer or grammarian you might feel
-// uncomfortable about the lack of closing quotes; I do to, but
+// uncomfortable about the lack of closing quotes; I do too, but
 // it's cleaner and less cluttered looking without, and there's
 // a fairly strong convention for having just an opening quote.
 //
@@ -982,7 +987,9 @@ form {
 // - `274a`: ❊ eight teardrop-spoked propeller asterisk
 // - `2600`: ☀ black sun with rays
 // - `263c`: ☼ white sun with rays
-
+//
+// ..or use an SVG image.
+ 
 .mf-new-item-button {
     width: $control-size;
     position: relative;
@@ -1353,7 +1360,9 @@ form {
 //
 // ### CSS
 //
-// ##### CSS Units: `em`s, `rem`s, `vw`...
+// todo intro
+//
+// ##### CSS Units: em, rem, vw...
 //
 // CSS lets the sizes of things be defined in a variety of units.
 // Some of these are defined here.  Refer to 
@@ -1366,8 +1375,9 @@ form {
 //   footer that has smaller text.
 // - **`rem`**: "Root `em`", the size of `1em` in the page's 
 //   default font size.
-// - **`vw`**: one percent of the width of the browser. So `1vw`
-//   is smaller when your screen is narrower.
+// - **`vw`**: one percent of the width of the browser. So a `vw`
+//   is smaller when your screen is narrower, and `50vw` is half 
+//   the width of your window.
 //
 // ##### CSS colours
 //
@@ -1383,27 +1393,47 @@ form {
 //   some degree of transparency. An alpha of 0.0 is not at all 
 //   transarent; an alpha of 1.0 is completely transparent. E.g.
 //   `rgba(255,165,0, 0.5)` is a semitransparent orange.
-// - **`rrggbb`**: where each `r`, `g`, and `b` is a hexadecimal
+// - **`#rrggbb`**: where each `r`, `g`, and `b` is a hexadecimal
 //   digit (one of `1 2 3 4 5 6 7 8 9 a b c d e f`).  This is
 //   another way to say the red, green and blue components of a
 //   colour, with `rr` the hexadecimal amount of red from `00` to
-//   `ff`, etc.  Eg. `ffa500` is `ff` red, `a5` green, and `00` 
+//   `ff`, etc.  Eg. `#ffa500` is `ff` red, `a5` green, and `00` 
 //   blue -- the same orange as before.
-// - **`rgb`**: same as `rrggbb` but with only three digits.  
-//   This is a shortcut version of `rrggbb`; each digit gets
-//   doubled to find the real result.  Eg. `fa0` is `ff` red,
-//   `aa` green, and `00` blue, which is close to our orange.
+// - **`#rgb`**: same as `#rrggbb` but with only three digits.  
+//   This is a shortcut version of `#rrggbb`; each digit gets
+//   doubled to find the real result.  Eg. `#fa0` is `ff` red,
+//   `aa` green, and `00` blue, which is close to our example 
+//   orange.
 //
-// ### CSS
+// ##### Using `@media` to target CSS
 //
-// * calc(...)
-// * transition
-// * linear-gradient(...)
+// The CSS language allows designers to write CSS that will apply
+// only in certain situations, such as when the page is being
+// printed, or if the screen the page is displayed on is a 
+// particular width.  The `@media` command provides this ability.
 //
+// This is often used to display pages with multiple columns on
+// wider screens, and a single column when the screen is narrow.
+//
+// The 
+// [Mozilla developer documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+// has more.
+//
+// ##### calc(...)
+//
+// todo
+//
+// ##### linear-gradient(...)
+//
+// todo
 //
 // ### SCSS
 //
-// * functions: transparentize(),
+// todo intro
+//
+// ##### transparentize()
+//
+// todo
 //
 //
 

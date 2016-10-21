@@ -144,6 +144,7 @@ svg.diag {
 svg use.highlight {
   fill: #ff9;
   stroke: #333;
+  stroke-width: 0.6;
 }
 </style>
 </head>
@@ -487,10 +488,11 @@ you will get a CSS file you can apply to a Mediaflux portal.</p>
 <p>Web browsers don't agree in how to format many elements of a
 web page.</p>
 <p>Normalize.css is a third party project that provides a set
-of CSS rules that provides a consistent set of styles for
-all browsers.  The next big chunk is all of the
-<em>Normalize.css</em> rules.</p>
-<p>/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css <em>/
+of CSS rules that ensure consistent base styles for all
+browsers.  The following chunk of source code is all of the
+<em>Normalize.css</em> rules -- there's no need to modify or
+understand these rules.</p>
+<pre><code> /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 button,hr,input{overflow:visible}
 audio,canvas,progress,video{display:inline-block}
 progress,sub,sup{vertical-align:baseline}
@@ -529,7 +531,8 @@ textarea{overflow:auto}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 summary{display:list-item}
 [hidden],template{display:none}
-/</em>! end of normalize.css */</p>
+ /*! end of normalize.css */
+</code></pre>
 <h5>Font family default</h5>
 <p>Use the OS's default font if we can.  As of 2016, OS default
 fonts are generally quite similar (humanist sans serifs with
@@ -565,6 +568,8 @@ browsers on small screen phones do.</p>
 <p>This tag sets the default text and background colour for
 normal display, and when printing.  Colours are described in
 the Variables section.</p>
+<p>Refer to the appendix in this document for information about
+the <code>@media</code> command.</p>
 <pre><code>body {
     color: $page-color;
     background-color: $page-background;
@@ -644,11 +649,12 @@ even the cool ones like <code>type=&quot;number&quot;</code>.</p>
 	text-align: center;
 }
 </code></pre>
-<p>TODO: sort this colouring out</p>
-<p>.mf-button:hover {
+<p>/*
+.mf-button:hover {
 color: rgb(100,149,237);
 border-color: rgb(100,149,237);
-}</p>
+}
+*/</p>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-head"></use></svg></p>
 <h2>Page header</h2>
 <p>All Mediaflux portal pages start with a <code>header</code> tag like
@@ -667,7 +673,7 @@ institution-wide banners, navigation bars etc.</p>
 </code></pre>
 <p>The portal plugin will not automatically generate a heading
 or logo, but those items are supplied in the sample portal
-configuration, so styling for them are supplied here.</p>
+configuration, so styling for them is supplied here.</p>
 <pre><code>.mf-heading {
 	color: inherit;
 	display: inline-block;
@@ -839,7 +845,8 @@ size by 1.25 to get the next.</p>
 <p>This web tool is a convenient way to generate scaled sizes:
 <a href="http://type-scale.com/?scale=1.250&amp;font-family=BlinkMacSystemFont">type-scale.com</a></p>
 <p><code>h5</code> and <code>h6</code> headings are both the same size as normal text;
-<code>h5</code>s are bolded, and <code>h6</code>s are italicised.</p>
+<code>h5</code>s are rendered very bold (using <code>font-weight: 800</code>), and
+<code>h6</code>s are italicised.</p>
 <p>The <code>calc(...)</code> function is used here to make the headings
 proportionally larger on large screens.  This means that as
 page size increases, heading size will increase over and
@@ -881,7 +888,7 @@ tighter line spacing.</p>
 quote.  The text is slightly smaller and has tighter line
 spacing.</p>
 <p>If you're a developer or grammarian you might feel
-uncomfortable about the lack of closing quotes; I do to, but
+uncomfortable about the lack of closing quotes; I do too, but
 it's cleaner and less cluttered looking without, and there's
 a fairly strong convention for having just an opening quote.</p>
 <pre><code>	blockquote {
@@ -1028,29 +1035,25 @@ If you prefer the 'new asset' button to show the text instead
 of the symbol, remove the following section.</p>
 <p>Good options for a new button include:</p>
 <ul>
-<li>
-<p><code>274a</code>: ❊ eight teardrop-spoked propeller asterisk</p>
-</li>
-<li>
-<p><code>2600</code>: ☀ black sun with rays</p>
-</li>
-<li>
-<p><code>263c</code>: ☼ white sun with rays</p>
-<p>.mf-new-item-button {
-width: $control-size;
-position: relative;
-overflow: hidden;
-color: rgba(0,0,0, 0);
-&amp;:hover { color: rgba(0,0,0, 0); }
-&amp;:before {
-color: $control-content-color;
-content: '\274a'; /* 274a: ❊ eight teardrop-spoked propeller asterisk */
-position: absolute;
-top: 0; bottom: 0; left: 0; right: 0;
-}
-}</p>
-</li>
+<li><code>274a</code>: ❊ eight teardrop-spoked propeller asterisk</li>
+<li><code>2600</code>: ☀ black sun with rays</li>
+<li><code>263c</code>: ☼ white sun with rays</li>
 </ul>
+<p>..or use an SVG image.</p>
+<pre><code>.mf-new-item-button {
+    width: $control-size;
+    position: relative;
+    overflow: hidden;
+    color: rgba(0,0,0, 0);
+    &amp;:hover { color: rgba(0,0,0, 0); }
+    &amp;:before {
+        color: $control-content-color;
+        content: '\274a'; /* 274a: ❊ eight teardrop-spoked propeller asterisk */
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+    }
+}
+</code></pre>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-side"></use></svg></p>
 <h2>Sidebar</h2>
 <p>The sidebar holds controls allowing the user to filter the
@@ -1366,7 +1369,8 @@ to the wide-screen formatting for the page navigation.</p>
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
 <h3>CSS</h3>
-<h5>CSS Units: <code>em</code>s, <code>rem</code>s, <code>vw</code>...</h5>
+<p>todo intro</p>
+<h5>CSS Units: em, rem, vw...</h5>
 <p>CSS lets the sizes of things be defined in a variety of units.
 Some of these are defined here.  Refer to
 <a href="https://developer.mozilla.org/en/docs/Web/CSS/length">Mozilla's documentation</a>
@@ -1378,8 +1382,9 @@ for futher information.</p>
 footer that has smaller text.</li>
 <li><strong><code>rem</code></strong>: &quot;Root <code>em</code>&quot;, the size of <code>1em</code> in the page's
 default font size.</li>
-<li><strong><code>vw</code></strong>: one percent of the width of the browser. So <code>1vw</code>
-is smaller when your screen is narrower.</li>
+<li><strong><code>vw</code></strong>: one percent of the width of the browser. So a <code>vw</code>
+is smaller when your screen is narrower, and <code>50vw</code> is half
+the width of your window.</li>
 </ul>
 <h5>CSS colours</h5>
 <p>CSS can define colour in several ways.</p>
@@ -1394,27 +1399,36 @@ is a number from 0 to 1.  Like <code>rgb(...)</code> but also includes
 some degree of transparency. An alpha of 0.0 is not at all
 transarent; an alpha of 1.0 is completely transparent. E.g.
 <code>rgba(255,165,0, 0.5)</code> is a semitransparent orange.</li>
-<li><strong><code>rrggbb</code></strong>: where each <code>r</code>, <code>g</code>, and <code>b</code> is a hexadecimal
+<li><strong><code>#rrggbb</code></strong>: where each <code>r</code>, <code>g</code>, and <code>b</code> is a hexadecimal
 digit (one of <code>1 2 3 4 5 6 7 8 9 a b c d e f</code>).  This is
 another way to say the red, green and blue components of a
 colour, with <code>rr</code> the hexadecimal amount of red from <code>00</code> to
-<code>ff</code>, etc.  Eg. <code>ffa500</code> is <code>ff</code> red, <code>a5</code> green, and <code>00</code>
+<code>ff</code>, etc.  Eg. <code>#ffa500</code> is <code>ff</code> red, <code>a5</code> green, and <code>00</code>
 blue -- the same orange as before.</li>
-<li><strong><code>rgb</code></strong>: same as <code>rrggbb</code> but with only three digits.<br />
-This is a shortcut version of <code>rrggbb</code>; each digit gets
-doubled to find the real result.  Eg. <code>fa0</code> is <code>ff</code> red,
-<code>aa</code> green, and <code>00</code> blue, which is close to our orange.</li>
+<li><strong><code>#rgb</code></strong>: same as <code>#rrggbb</code> but with only three digits.<br />
+This is a shortcut version of <code>#rrggbb</code>; each digit gets
+doubled to find the real result.  Eg. <code>#fa0</code> is <code>ff</code> red,
+<code>aa</code> green, and <code>00</code> blue, which is close to our example
+orange.</li>
 </ul>
-<h3>CSS</h3>
-<ul>
-<li>calc(...)</li>
-<li>transition</li>
-<li>linear-gradient(...)</li>
-</ul>
+<h5>Using <code>@media</code> to target CSS</h5>
+<p>The CSS language allows designers to write CSS that will apply
+only in certain situations, such as when the page is being
+printed, or if the screen the page is displayed on is a
+particular width.  The <code>@media</code> command provides this ability.</p>
+<p>This is often used to display pages with multiple columns on
+wider screens, and a single column when the screen is narrow.</p>
+<p>The
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">Mozilla developer documentation</a>
+has more.</p>
+<h5>calc(...)</h5>
+<p>todo</p>
+<h5>linear-gradient(...)</h5>
+<p>todo</p>
 <h3>SCSS</h3>
-<ul>
-<li>functions: transparentize(),</li>
-</ul>
+<p>todo intro</p>
+<h5>transparentize()</h5>
+<p>todo</p>
 </div>
 <!-- source highlighting -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
