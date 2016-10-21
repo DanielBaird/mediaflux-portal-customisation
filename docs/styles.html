@@ -211,44 +211,49 @@ basics of CSS and the HTML Document Object Model.  If you
 learned HTML and CSS a while ago, an appendix at the end of
 this document will give you a quick overview of any new or
 obscure CSS techniques used in this document.</p>
-<p>TODO: add appendix; get someone to look through and highlight
-anything they aren't too sure on; document in appendix.</p>
 <h4>Source</h4>
 <p>This document is written in a &quot;literate&quot; style, where the
 source document is both live Sass/SCSS source that produces
-the CSS, and a Markdown-formatted document describing the
-code.</p>
+the CSS, and a Markdown-formatted document describing the code.</p>
 <p>Visit
 <a href="https://github.com/DanielBaird/mediaflux-portal-customisation/blob/master/styles/sass/styles.scss">styles.scss</a>
 to see the source document.</p>
 <p>The source document is already valid SCSS, so CSS is produced
-by running it through the Sass compiler.</p>
+by running it through the Sass compiler.  <strong>This source
+document and a Sass compiler are all you need to produce the
+CSS that customises your Mediaflux portal.</strong></p>
 <pre><code> /*
-The original source of the text you're reading is a SCSS formatted
-file.  SCSS is a superset of CSS; it allows all valid CSS, but in
-addition allows for a number of variables calculations that are
-resolved by the SCSS compiler and turned into valid CSS.
+The original source of the text you're reading is an SCSS 
+formatted file.  SCSS is a superset of CSS; it allows all 
+valid CSS, but in addition allows for variables to be defined 
+and used throughout the SCSS; these variables are resolved by 
+the SCSS compiler and turned into valid CSS.
 
 To alter the CSS, you should edit the SCSS source file and
-recompile.  Visit the website:
+recompile it.  Visit the website:
 https://github.com/DanielBaird/mediaflux-portal-customisation
 for more information.
  */
 </code></pre>
 <p>(The text above will be included in the output CSS to inform
 anyone browsing the CSS about the SCSS source.)</p>
-<p>The source is then transformed with a short shell script,
-which does two things:</p>
+<p>Documentation is produced by transforming the same source
+into a web page with a few simple steps:</p>
 <ul>
-<li>finds lines starting with <code>//</code>, and removes those two
+<li>find lines starting with <code>//</code>, and remove those two
 initial characters;</li>
-<li>indents all other lines by four spaces.</li>
+<li>indent all other lines by four spaces.</li>
 </ul>
-<p>These two transformations produce a Markdown document which is
-then converted into a HTML document with a Markdown processor.</p>
+<p>These steps produce a Markdown document which may be converted
+into a HTML document with a Markdown processor.</p>
+<p>Visit the site mentioned above for the conversion script and
+more.</p>
 <h2>Variables</h2>
-<p>Much simple customisation of portal sites can be achieved by
-editing variables in this section.</p>
+<p>Simple customisation of portal sites can be achieved by
+editing variables in this section.  Check the appendix for
+a description of how CSS specifies colour; corporate style
+guides usually give CSS compatible specifications for brand
+colours.</p>
 <p><svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg></p>
 <h4>Overall page level variables</h4>
 <p>Default the general page colours to to white background and
@@ -261,37 +266,28 @@ $page-color: #333;
 <pre><code>$page-print-background: $page-background;
 $page-print-color: #000;
 </code></pre>
-<p>The maximum width of the page is defined here as 57 root
-ems wide, which is roughly 120 letters.</p>
+<p>The <code>$column-max-width</code> variable below defines the maximum
+width of the page as 57 root ems wide, which is roughly
+120 letters.  (An appendix later in this document describes
+<code>em</code>s, <code>rem</code>s and other CSS units).</p>
+<p>On a wide screen, list-of-items type portal pages will show
+a sidebar column next to the content column. The preferred
+width of the sidebar is set to 14 root ems in the variable
+<code>$sidebar-width</code>.</p>
+<p>The <code>$content-spacing</code> variable defines whitespace between
+major elements of the page.  Pixels are free, so don't be
+too stingy with this.</p>
+<p>On a narrower screen, the sidebar becomes a sort of *top-*bar.
+The minimum width of the content column is added to the
+preferred width of the sidebar to work out whether to use a
+two-column or one-column layout.</p>
 <p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
 <code>$content-spacing</code> should be strictly less than the value
 you give <code>$column-max-width</code>.</p>
 <pre><code>$column-max-width: 57rem;
-</code></pre>
-<p>On a wide screen, list-of-items type portal pages will show
-a sidebar column next to the content column. The preferred
-width of the sidebar is set to 14 root ems.</p>
-<p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
-<code>$content-spacing</code> should be strictly less than the value
-you give <code>$column-max-width</code>.</p>
-<pre><code>$sidebar-width: 14rem;
-</code></pre>
-<p>On a narrower screen, the sidebar becomes a sort of *top-*bar.
-The minimum width of the content column is added to the
-preferred width of the sidebar set earlier to work out when
-to switch to two-column layout.</p>
-<p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
-<code>$content-spacing</code> should be strictly less than the value
-you give <code>$column-max-width</code>.</p>
-<pre><code>$content-min-width: $sidebar-width * 2.5;
-</code></pre>
-<p>Whitespace between major elements of the page.  Pixels are
-free, so don't be too stingy with this.</p>
-<p>The sum of <code>$sidebar-width</code>, <code>$content-min-width</code>, and
-<code>$content-spacing</code> should be strictly less than the value
-you give <code>$column-max-width</code>.</p>
-<p>TODO: Check this is being applied</p>
-<pre><code>$content-spacing: 3rem;
+$sidebar-width: 14rem;
+$content-min-width: $sidebar-width * 2.5;
+$content-spacing: 3rem;
 </code></pre>
 <p>The standard background and text colour for the main content
 column.</p>
@@ -299,8 +295,9 @@ column.</p>
 $content-color: $page-color;
 </code></pre>
 <p>Choose a shading colour for doing subtle shading within the
-content area (this is used for source code, blockquotes, etc)
-$content-shading: transparentize($content-color, 0.95);</p>
+content area (this is used for source code, blockquotes, etc)</p>
+<pre><code>$content-shading: transparentize($content-color, 0.95);
+</code></pre>
 <h4>Form controls</h4>
 <p>How big should controls like buttons be?  This will be used
 for the height of text inputs, the minimum width of buttons,
@@ -482,30 +479,57 @@ half opacity.</p>
 <p>Disable fade by setting this variable to <code>false</code>.</p>
 <pre><code>$footer-fade: true;
 </code></pre>
-<h2>Sass utilities</h2>
-<p>These general purpose elements are used in several places,
-and so are grouped here.</p>
-<p>clearfix: this solves the spilling-out problem.</p>
-<pre><code>@mixin clearfix {
-	&amp;::after {
-		content: &quot;&quot;;
-		display: block;
-		clear: both;
-	}
-}
-</code></pre>
+<h2>End of variables</h2>
+<p>For most customisations, this is as far as you need to go.
+You can now run this document through a Sass compiler, and
+you will get a CSS file you can apply to a Mediaflux portal.</p>
 <h2>Setting sane defaults</h2>
 <p>Web browsers don't agree in how to format many elements of a
 web page.</p>
 <p>Normalize.css is a third party project that provides a set
 of CSS rules that provides a consistent set of styles for
-all browsers.</p>
-<p><a href="http://necolas.github.io/normalize.css/">necolas.github.io/normalize.css/</a></p>
-<p>In this case, to get Sass to import the Normalize.css source
-as inline css, <code>normalize.css</code> should already be renamed to
-<code>normalize.scss</code> by an earlier step in the build process.</p>
-<pre><code>@import &quot;normalize.scss&quot;;
-</code></pre>
+all browsers.  The next big chunk is all of the
+<em>Normalize.css</em> rules.</p>
+<p>/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css <em>/
+button,hr,input{overflow:visible}
+audio,canvas,progress,video{display:inline-block}
+progress,sub,sup{vertical-align:baseline}
+[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}
+html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}
+h1{font-size:2em;margin:.67em 0}
+figure{margin:1em 40px}
+hr{box-sizing:content-box;height:0}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
+a{background-color:transparent;-webkit-text-decoration-skip:objects}
+a:active,a:hover{outline-width:0}
+abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
+b,strong{font-weight:bolder}
+dfn{font-style:italic}
+mark{background-color:#ff0;color:#000}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative}
+sub{bottom:-.25em}
+sup{top:-.5em}
+audio:not([controls]){display:none;height:0}
+img{border-style:none}
+svg:not(:root){overflow:hidden}
+button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}
+button,select{text-transform:none}
+[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}
+[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}
+[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{color:inherit;display:table;max-width:100%;white-space:normal}
+textarea{overflow:auto}
+[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}
+[type=search]{-webkit-appearance:textfield;outline-offset:-2px}
+[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
+summary{display:list-item}
+[hidden],template{display:none}
+/</em>! end of normalize.css */</p>
 <h5>Font family default</h5>
 <p>Use the OS's default font if we can.  As of 2016, OS default
 fonts are generally quite similar (humanist sans serifs with
@@ -939,10 +963,16 @@ and the collection bar.</p>
 <p>This page section is a sort of heading area for the list of
 items being displayed.</p>
 <pre><code>.mf-collection-bar {
-	@include clearfix;
 	background: $collection-bar-background;
 	color: $collection-bar-content-color;
 	padding: 1rem;
+
+	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+	&amp;::after {
+		content: &quot; &quot;;
+		display: block;
+		clear: both;
+	}
 }
 </code></pre>
 <p>The collection bar has two parts, a title for the current
@@ -1177,7 +1207,6 @@ default spacing.</p>
 <h3>A single result</h3>
 <p>This addresses the content of the single result in the list.</p>
 <pre><code>.mf-listed-result {
-@include clearfix;
 	display: block;
     background: $result-background;
     margin: 1rem 0;
@@ -1189,6 +1218,13 @@ default spacing.</p>
 
 	@if ($result-dropshadow != none) {
 		box-shadow: 0 0.33rem 1rem -0.25rem $result-dropshadow;
+	}
+
+	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+	&amp;::after {
+		content: &quot; &quot;;
+		display: block;
+		clear: both;
 	}
 }
 .mf-listed-result:first-child {
@@ -1329,19 +1365,55 @@ to the wide-screen formatting for the page navigation.</p>
 }
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
-<p>TODO</p>
-<h3>SCSS</h3>
+<h3>CSS</h3>
+<h5>CSS Units: <code>em</code>s, <code>rem</code>s, <code>vw</code>...</h5>
+<p>CSS lets the sizes of things be defined in a variety of units.
+Some of these are defined here.  Refer to
+<a href="https://developer.mozilla.org/en/docs/Web/CSS/length">Mozilla's documentation</a>
+for futher information.</p>
 <ul>
-<li>functions: transparentize(),</li>
+<li><strong><code>px</code></strong>: Pixels.  <code>1px</code> is a single pixel.</li>
+<li><strong><code>em</code></strong>: Approximately the height of the current font.  So
+<code>1em</code> in a heading with big text is larger than <code>1em</code> in a
+footer that has smaller text.</li>
+<li><strong><code>rem</code></strong>: &quot;Root <code>em</code>&quot;, the size of <code>1em</code> in the page's
+default font size.</li>
+<li><strong><code>vw</code></strong>: one percent of the width of the browser. So <code>1vw</code>
+is smaller when your screen is narrower.</li>
+</ul>
+<h5>CSS colours</h5>
+<p>CSS can define colour in several ways.</p>
+<ul>
+<li><strong><code>rgb([red], [green], [blue])</code></strong>: Where <code>[red]</code>, <code>[green]</code>,
+and <code>[blue]</code> are numbers from 0 to 255. The colour is the
+result of combining red, green and blue in the given
+amounts. For example <code>rgb(255,165,0)</code> is orange (a lot of
+red, some green, and no blue).</li>
+<li><strong><code>rgba([red], [green], [blue], [alpha])</code></strong>: Where <code>[alpha]</code>
+is a number from 0 to 1.  Like <code>rgb(...)</code> but also includes
+some degree of transparency. An alpha of 0.0 is not at all
+transarent; an alpha of 1.0 is completely transparent. E.g.
+<code>rgba(255,165,0, 0.5)</code> is a semitransparent orange.</li>
+<li><strong><code>rrggbb</code></strong>: where each <code>r</code>, <code>g</code>, and <code>b</code> is a hexadecimal
+digit (one of <code>1 2 3 4 5 6 7 8 9 a b c d e f</code>).  This is
+another way to say the red, green and blue components of a
+colour, with <code>rr</code> the hexadecimal amount of red from <code>00</code> to
+<code>ff</code>, etc.  Eg. <code>ffa500</code> is <code>ff</code> red, <code>a5</code> green, and <code>00</code>
+blue -- the same orange as before.</li>
+<li><strong><code>rgb</code></strong>: same as <code>rrggbb</code> but with only three digits.<br />
+This is a shortcut version of <code>rrggbb</code>; each digit gets
+doubled to find the real result.  Eg. <code>fa0</code> is <code>ff</code> red,
+<code>aa</code> green, and <code>00</code> blue, which is close to our orange.</li>
 </ul>
 <h3>CSS</h3>
 <ul>
-<li>six-char colours and three-char colour shorthand</li>
-<li>rem units</li>
-<li>vw and vh units</li>
 <li>calc(...)</li>
 <li>transition</li>
 <li>linear-gradient(...)</li>
+</ul>
+<h3>SCSS</h3>
+<ul>
+<li>functions: transparentize(),</li>
 </ul>
 </div>
 <!-- source highlighting -->

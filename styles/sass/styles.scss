@@ -21,31 +21,30 @@
 // this document will give you a quick overview of any new or
 // obscure CSS techniques used in this document.
 //
-// TODO: add appendix; get someone to look through and highlight
-// anything they aren't too sure on; document in appendix.
-//
 // #### Source
 //
 // This document is written in a "literate" style, where the
 // source document is both live Sass/SCSS source that produces
-// the CSS, and a Markdown-formatted document describing the
-// code.
+// the CSS, and a Markdown-formatted document describing the code.
 //
 // Visit
 // [styles.scss](https://github.com/DanielBaird/mediaflux-portal-customisation/blob/master/styles/sass/styles.scss)
 // to see the source document.
 //
 // The source document is already valid SCSS, so CSS is produced
-// by running it through the Sass compiler.
+// by running it through the Sass compiler.  **This source 
+// document and a Sass compiler are all you need to produce the
+// CSS that customises your Mediaflux portal.**
 
  /*
-The original source of the text you're reading is a SCSS formatted
-file.  SCSS is a superset of CSS; it allows all valid CSS, but in
-addition allows for a number of variables calculations that are
-resolved by the SCSS compiler and turned into valid CSS.
+The original source of the text you're reading is an SCSS 
+formatted file.  SCSS is a superset of CSS; it allows all 
+valid CSS, but in addition allows for variables to be defined 
+and used throughout the SCSS; these variables are resolved by 
+the SCSS compiler and turned into valid CSS.
 
 To alter the CSS, you should edit the SCSS source file and
-recompile.  Visit the website:
+recompile it.  Visit the website:
 https://github.com/DanielBaird/mediaflux-portal-customisation
 for more information.
  */
@@ -53,24 +52,29 @@ for more information.
 // (The text above will be included in the output CSS to inform
 // anyone browsing the CSS about the SCSS source.)
 //
-// The source is then transformed with a short shell script,
-// which does two things:
+// Documentation is produced by transforming the same source 
+// into a web page with a few simple steps:
 //
-// * finds lines starting with `//`, and removes those two
+// * find lines starting with `//`, and remove those two
 //   initial characters;
-// * indents all other lines by four spaces.
+// * indent all other lines by four spaces.
 //
-// These two transformations produce a Markdown document which is
-// then converted into a HTML document with a Markdown processor.
+// These steps produce a Markdown document which may be converted 
+// into a HTML document with a Markdown processor.
+//
+// Visit the site mentioned above for the conversion script and 
+// more.
 
 // ## Variables #################################################
 
-// Much simple customisation of portal sites can be achieved by
-// editing variables in this section.
+// Simple customisation of portal sites can be achieved by
+// editing variables in this section.  Check the appendix for
+// a description of how CSS specifies colour; corporate style 
+// guides usually give CSS compatible specifications for brand 
+// colours.
 
 // <svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg>
 // #### Overall page level variables
-
 
 // Default the general page colours to to white background and
 // dark text (not quite black, to avoid harsh contrast).
@@ -84,45 +88,32 @@ $page-color: #333;
 $page-print-background: $page-background;
 $page-print-color: #000;
 
-// The maximum width of the page is defined here as 57 root
-// ems wide, which is roughly 120 letters.
+// The `$column-max-width` variable below defines the maximum 
+// width of the page as 57 root ems wide, which is roughly 
+// 120 letters.  (An appendix later in this document describes 
+// `em`s, `rem`s and other CSS units).
+//
+// On a wide screen, list-of-items type portal pages will show
+// a sidebar column next to the content column. The preferred
+// width of the sidebar is set to 14 root ems in the variable 
+// `$sidebar-width`.
+//
+// The `$content-spacing` variable defines whitespace between 
+// major elements of the page.  Pixels are free, so don't be 
+// too stingy with this.
+//
+// On a narrower screen, the sidebar becomes a sort of *top-*bar.
+// The minimum width of the content column is added to the
+// preferred width of the sidebar to work out whether to use a 
+// two-column or one-column layout.
 //
 // The sum of `$sidebar-width`, `$content-min-width`, and
 // `$content-spacing` should be strictly less than the value
 // you give `$column-max-width`.
 //
 $column-max-width: 57rem;
-
-// On a wide screen, list-of-items type portal pages will show
-// a sidebar column next to the content column. The preferred
-// width of the sidebar is set to 14 root ems.
-//
-// The sum of `$sidebar-width`, `$content-min-width`, and
-// `$content-spacing` should be strictly less than the value
-// you give `$column-max-width`.
-//
 $sidebar-width: 14rem;
-
-// On a narrower screen, the sidebar becomes a sort of *top-*bar.
-// The minimum width of the content column is added to the
-// preferred width of the sidebar set earlier to work out when
-// to switch to two-column layout.
-//
-// The sum of `$sidebar-width`, `$content-min-width`, and
-// `$content-spacing` should be strictly less than the value
-// you give `$column-max-width`.
-//
 $content-min-width: $sidebar-width * 2.5;
-
-// Whitespace between major elements of the page.  Pixels are
-// free, so don't be too stingy with this.
-//
-// The sum of `$sidebar-width`, `$content-min-width`, and
-// `$content-spacing` should be strictly less than the value
-// you give `$column-max-width`.
-//
-// TODO: Check this is being applied
-//
 $content-spacing: 3rem;
 
 // The standard background and text colour for the main content
@@ -133,6 +124,7 @@ $content-color: $page-color;
 
 // Choose a shading colour for doing subtle shading within the
 // content area (this is used for source code, blockquotes, etc)
+//
 $content-shading: transparentize($content-color, 0.95);
 
 // #### Form controls
@@ -218,6 +210,7 @@ $navbar-current-content-color: $content-color;
 
 // <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-collbar"></use></svg>
 // #### Collection bar
+//
 // The collection bar has background and text colours.
 //
 $collection-bar-background: #ccc;
@@ -353,21 +346,11 @@ $footer-content-color: $page-color;
 //
 $footer-fade: true;
 
-
-// ## Sass utilities ############################################
+// ## End of variables ##########################################
 //
-// These general purpose elements are used in several places,
-// and so are grouped here.
-
-// clearfix: this solves the spilling-out problem.
-//
-@mixin clearfix {
-	&::after {
-		content: "";
-		display: block;
-		clear: both;
-	}
-}
+// For most customisations, this is as far as you need to go.
+// You can now run this document through a Sass compiler, and
+// you will get a CSS file you can apply to a Mediaflux portal.
 
 
 // ## Setting sane defaults #####################################
@@ -377,15 +360,49 @@ $footer-fade: true;
 //
 // Normalize.css is a third party project that provides a set
 // of CSS rules that provides a consistent set of styles for
-// all browsers.
+// all browsers.  The next big chunk is all of the 
+// *Normalize.css* rules.
 //
-// [necolas.github.io/normalize.css/](http://necolas.github.io/normalize.css/)
-//
-// In this case, to get Sass to import the Normalize.css source
-// as inline css, `normalize.css` should already be renamed to
-// `normalize.scss` by an earlier step in the build process.
-//
-@import "normalize.scss";
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+button,hr,input{overflow:visible}
+audio,canvas,progress,video{display:inline-block}
+progress,sub,sup{vertical-align:baseline}
+[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}
+html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}
+h1{font-size:2em;margin:.67em 0}
+figure{margin:1em 40px}
+hr{box-sizing:content-box;height:0}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
+a{background-color:transparent;-webkit-text-decoration-skip:objects}
+a:active,a:hover{outline-width:0}
+abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
+b,strong{font-weight:bolder}
+dfn{font-style:italic}
+mark{background-color:#ff0;color:#000}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative}
+sub{bottom:-.25em}
+sup{top:-.5em}
+audio:not([controls]){display:none;height:0}
+img{border-style:none}
+svg:not(:root){overflow:hidden}
+button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}
+button,select{text-transform:none}
+[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}
+[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}
+[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{color:inherit;display:table;max-width:100%;white-space:normal}
+textarea{overflow:auto}
+[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}
+[type=search]{-webkit-appearance:textfield;outline-offset:-2px}
+[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
+summary{display:list-item}
+[hidden],template{display:none}
+/*! end of normalize.css */
 
 // ##### Font family default
 //
@@ -891,10 +908,16 @@ form {
 // items being displayed.
 //
 .mf-collection-bar {
-	@include clearfix;
 	background: $collection-bar-background;
 	color: $collection-bar-content-color;
 	padding: 1rem;
+
+	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+	&::after {
+		content: " ";
+		display: block;
+		clear: both;
+	}
 }
 
 // The collection bar has two parts, a title for the current
@@ -1157,7 +1180,6 @@ form {
 // This addresses the content of the single result in the list.
 //
 .mf-listed-result {
-//	@include clearfix;
 	display: block;
     background: $result-background;
     margin: 1rem 0;
@@ -1169,6 +1191,13 @@ form {
 
 	@if ($result-dropshadow != none) {
 		box-shadow: 0 0.33rem 1rem -0.25rem $result-dropshadow;
+	}
+
+	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+	&::after {
+		content: " ";
+		display: block;
+		clear: both;
 	}
 }
 .mf-listed-result:first-child {
@@ -1322,19 +1351,59 @@ form {
 
 // ## Appendix: Sass and CSS refresher ##########################
 //
-// TODO
+// ### CSS
+//
+// ##### CSS Units: `em`s, `rem`s, `vw`...
+//
+// CSS lets the sizes of things be defined in a variety of units.
+// Some of these are defined here.  Refer to 
+// [Mozilla's documentation](https://developer.mozilla.org/en/docs/Web/CSS/length)
+// for futher information.
+// 
+// - **`px`**: Pixels.  `1px` is a single pixel.
+// - **`em`**: Approximately the height of the current font.  So
+//   `1em` in a heading with big text is larger than `1em` in a
+//   footer that has smaller text.
+// - **`rem`**: "Root `em`", the size of `1em` in the page's 
+//   default font size.
+// - **`vw`**: one percent of the width of the browser. So `1vw`
+//   is smaller when your screen is narrower.
+//
+// ##### CSS colours
+//
+// CSS can define colour in several ways.
+//
+// - **`rgb([red], [green], [blue])`**: Where `[red]`, `[green]`,
+//   and `[blue]` are numbers from 0 to 255. The colour is the
+//   result of combining red, green and blue in the given 
+//   amounts. For example `rgb(255,165,0)` is orange (a lot of 
+//   red, some green, and no blue). 
+// - **`rgba([red], [green], [blue], [alpha])`**: Where `[alpha]`
+//   is a number from 0 to 1.  Like `rgb(...)` but also includes 
+//   some degree of transparency. An alpha of 0.0 is not at all 
+//   transarent; an alpha of 1.0 is completely transparent. E.g.
+//   `rgba(255,165,0, 0.5)` is a semitransparent orange.
+// - **`rrggbb`**: where each `r`, `g`, and `b` is a hexadecimal
+//   digit (one of `1 2 3 4 5 6 7 8 9 a b c d e f`).  This is
+//   another way to say the red, green and blue components of a
+//   colour, with `rr` the hexadecimal amount of red from `00` to
+//   `ff`, etc.  Eg. `ffa500` is `ff` red, `a5` green, and `00` 
+//   blue -- the same orange as before.
+// - **`rgb`**: same as `rrggbb` but with only three digits.  
+//   This is a shortcut version of `rrggbb`; each digit gets
+//   doubled to find the real result.  Eg. `fa0` is `ff` red,
+//   `aa` green, and `00` blue, which is close to our orange.
+//
+// ### CSS
+//
+// * calc(...)
+// * transition
+// * linear-gradient(...)
+//
 //
 // ### SCSS
 //
 // * functions: transparentize(),
 //
-// ### CSS
-//
-// * six-char colours and three-char colour shorthand
-// * rem units
-// * vw and vh units
-// * calc(...)
-// * transition
-// * linear-gradient(...)
 //
 
