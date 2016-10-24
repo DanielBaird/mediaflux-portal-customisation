@@ -1,13 +1,14 @@
 @charset "UTF-8";
-/*
-The original source of the text you're reading is an SCSS 
-formatted file.  SCSS is a superset of CSS; it allows all 
-valid CSS, but in addition allows for variables to be defined 
-and used throughout the SCSS; these variables are resolved by 
-the SCSS compiler and turned into valid CSS.
+/*!
+The original source of the text you're
+reading is an SCSS formatted file. SCSS 
+is a superset of CSS with additional 
+features that are resolved into valid 
+CSS by an SCSS compiler.
 
-To alter the CSS, you should edit the SCSS source file and
-recompile it.  Visit the website:
+To alter this CSS, you should obtain 
+the SCSS source file and recompile it.
+Visit the website:
 https://github.com/DanielBaird/mediaflux-portal-customisation
 for more information.
  */
@@ -415,14 +416,16 @@ form {
   margin-left: 1rem; }
 
 .mf-action-search input[type="search"] {
-  text-shadow: 0 0 2px #fff, 0 0 4px #fff;
-  background-size: 1.5rem, 1rem;
-  background-position: right 0.5rem;
+  width: 22em;
+  max-width: 60vw;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11" stroke="#333"><circle fill="none" cx="4" cy="4" r="3"/><line x1="6" y1="6" x2="9.5" y2="9.5"/></svg>');
+  background-size: 1rem, 1rem;
+  background-position: right 0.5rem top 0.5rem;
   background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>'); }
+  text-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff; }
 
 .mf-new-item-button {
-  width: 2rem;
+  min-width: 2rem;
   position: relative;
   overflow: hidden;
   color: transparent; }

@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.4.1/themes/prism.css">
 <style>
   html {
@@ -30,10 +31,10 @@
     box-shadow: -39.9rem 0 #357, 39.9rem 0 #357;
   }
 
-h1, h2 {
-  font-weight: 100;
-  letter-spacing: -0.025em;
-}
+  h1, h2 {
+    font-weight: 100;
+    letter-spacing: -0.025em;
+  }
 
   h2, h3, h4, h5, h6 {
     color: #357;
@@ -64,9 +65,14 @@ h1, h2 {
     border-bottom: 2px solid;
   }
 
-  p {
+  p, li {
     margin: 0;
     padding: 0.33em 0;
+  }
+
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
   }
 
   code {
@@ -93,7 +99,7 @@ h1, h2 {
   /* override some Prism sourcecode highlight styles */
   pre[class*="language-"] {
     line-height: 1.2;
-    overflow: visible;
+    overflow-x: auto;
     background: #f3f9ff;
   }
   :not(pre) > code[class*="language-"] {

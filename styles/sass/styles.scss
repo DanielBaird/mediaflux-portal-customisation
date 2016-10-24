@@ -35,23 +35,30 @@
 // by running it through the Sass compiler.  **This source 
 // document and a Sass compiler are all you need to produce the
 // CSS that customises your Mediaflux portal.**
+//
+// There are several online sites that will compile Sass into
+// CSS for you.  These sites worked well:
+// * [sassmeister.com](http://www.sassmeister.com/)
+// * [beautifytools.com](http://beautifytools.com/scss-compiler.php)
+// * [sass.js.org](http://sass.js.org/)
+//
+// (The text below will be included in the output CSS.)
+//
 
- /*
-The original source of the text you're reading is an SCSS 
-formatted file.  SCSS is a superset of CSS; it allows all 
-valid CSS, but in addition allows for variables to be defined 
-and used throughout the SCSS; these variables are resolved by 
-the SCSS compiler and turned into valid CSS.
+ /*!
+The original source of the text you're
+reading is an SCSS formatted file. SCSS 
+is a superset of CSS with additional 
+features that are resolved into valid 
+CSS by an SCSS compiler.
 
-To alter the CSS, you should edit the SCSS source file and
-recompile it.  Visit the website:
+To alter this CSS, you should obtain 
+the SCSS source file and recompile it.
+Visit the website:
 https://github.com/DanielBaird/mediaflux-portal-customisation
 for more information.
  */
 
-// (The text above will be included in the output CSS to inform
-// anyone browsing the CSS about the SCSS source.)
-//
 // Documentation is produced by transforming the same source 
 // into a web page with a few simple steps:
 //
@@ -956,26 +963,32 @@ form {
 	margin-left: 1rem;
 }
 
-// The search box includes an SVG icon of a magnifying glass.
-// It's included inline here, giving you that giant block of
-// numbers.
-//
-// The `text-shadow` gives the searched-for text a nice clean
-// edge even when it overlaps the background icon.
+// The width of the search box can be up to `22em`s, but the
+// `max-width` line will make it shorter so it's never wider
+// then 60% of the width of the page.
 //
 // If you prefer a search box with rounded ends -- a common
 // convention a few years ago, particularly in Mac software --
 // un-comment the line about `border-radius`.
 //
+// The search box includes an SVG icon of a magnifying glass.
+// The SVG image is included inline here.
+//
+// The `text-shadow` gives the searched-for text a nice clean
+// edge even when it overlaps the background icon.
+//
 .mf-action-search input[type="search"] {
+	width: 22em;
+	max-width: 60vw;
 	// border-radius: $control-size / 2;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11" stroke="#{$control-content-color}"><circle fill="none" cx="4" cy="4" r="3"/><line x1="6" y1="6" x2="9.5" y2="9.5"/></svg>');
+    background-size: $control-size * 0.5, $control-size * 0.5;
+    background-position: right $control-size/4 top $control-size/4;
+    background-repeat: no-repeat;
 	text-shadow:
 		0 0 2px $control-background,
+		0 0 3px $control-background,
 		0 0 4px $control-background;
-    background-size: $control-size * 0.75, $control-size * 0.5;
-    background-position: right $control-size / 4;
-    background-repeat: no-repeat;
-	background-image: url('data:image/svg+xml;utf8,<svg height="10" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 251" enable-background="new 0 0 251 251"><path d="M244.186 214.604l-54.379-54.378c-.289-.289-.628-.491-.93-.76 10.7-16.231 16.945-35.66 16.945-56.554 0-56.837-46.075-102.912-102.911-102.912s-102.911 46.075-102.911 102.911c0 56.835 46.074 102.911 102.91 102.911 20.895 0 40.323-6.245 56.554-16.945.269.301.47.64.759.929l54.38 54.38c8.169 8.168 21.413 8.168 29.583 0 8.168-8.169 8.168-21.413 0-29.582zm-141.275-44.458c-37.134 0-67.236-30.102-67.236-67.235 0-37.134 30.103-67.236 67.236-67.236 37.132 0 67.235 30.103 67.235 67.236s-30.103 67.235-67.235 67.235z" fill="#999" fill-rule="evenodd" clip-rule="evenodd"/></svg>');
 }
 
 // The 'new asset' button by default simply shows the word "new".
@@ -991,7 +1004,7 @@ form {
 // ..or use an SVG image.
  
 .mf-new-item-button {
-    width: $control-size;
+    min-width: $control-size;
     position: relative;
     overflow: hidden;
     color: rgba(0,0,0, 0);
