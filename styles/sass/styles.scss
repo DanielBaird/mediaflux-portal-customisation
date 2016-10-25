@@ -83,6 +83,18 @@ for more information.
 // <svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg>
 // #### Overall page level variables
 
+// Text size
+//
+// Most of the page layout is adjusted to suit the size of
+// text on the page.  Set this to `small`, `medium`, or `large`.
+// 
+// Remember that although smaller text usually looks "nicer",
+// the users of your portal are there to get information by 
+// reading text. They may not have perfect vision, and may not
+// have a screen as nice as yours.
+//
+$text-size: medium;
+
 // Default the general page colours to to white background and
 // dark text (not quite black, to avoid harsh contrast).
 //
@@ -423,6 +435,7 @@ summary{display:list-item}
 //
 html {
 	font-family:
+		'.SFNSDisplay-Regular', /* "display" version of macOS font */
         -apple-system,       /* default macOS font for Safari/webkit */
         BlinkMacSystemFont,  /* default macOS font for Chrome/blink */
         "Segoe UI",          /* default Windows font */
@@ -445,9 +458,18 @@ html {
 // browsers on small screen phones do.
 //
 html {
-	font-size: 16px; /* for browsers that don't support calc() */
-	font-size: calc(14px + 0.35vw); /* grow font size on wider screen */
 	overflow-x: hidden; /* avoid odd widths on narrow screens */
+
+	@if ($text-size == small) {
+		font-size: 13px; /* for browsers that don't support calc() */
+		font-size: calc(11px + 0.35vw); /* grow font size on wider screen */
+	} @else if ($text-size == large) {
+		font-size: 19px; /* for browsers that don't support calc() */
+		font-size: calc(17px + 0.35vw); /* grow font size on wider screen */
+	} @else {
+		font-size: 16px; /* for browsers that don't support calc() */
+		font-size: calc(14px + 0.35vw); /* grow font size on wider screen */
+	}
 }
 
 // This tag sets the default text and background colour for
@@ -987,8 +1009,8 @@ form {
     background-repeat: no-repeat;
 	text-shadow:
 		0 0 2px $control-background,
-		0 0 3px $control-background,
-		0 0 4px $control-background;
+		0 0 4px $control-background,
+		0 0 6px $control-background;
 }
 
 // The 'new asset' button by default simply shows the word "new".
@@ -1310,7 +1332,7 @@ form {
     font-weight: 600;
 	// font-size: 90%;
 	// opacity: 0.8;
-	// font-variant: small-caps;
+	// text-transform: uppercase;
     // font-weight: 800;
     max-width: 30%;
     padding: 0.25rem;
@@ -1368,6 +1390,64 @@ form {
 		padding-left: 1rem;
 	}
 }
+
+//
+//
+//
+// # work in progress.......
+// # work in progress.......
+// # work in progress.......
+//
+//
+//
+
+// ## Pop-up Dialogues
+//
+// A Mediaflux portal can allow the user to add a new asset. This
+// is handled with a form that pops up over the portal web page.
+//
+// The form is contained in a wrapper 
+// `<div class="mf-modal-wrapper">` that itself contains a
+// `<div class="mf-modal-container">` which contains the form.
+//
+// This styling uses the `.mf-modal-wrapper` to obscure the 
+// normal web page in the background, and the 
+// `.mf-modal-container` to define the form.
+
+.mf-modal-wrapper {
+	display: block;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: repeating-linear-gradient(315deg,
+		rgba(190,190,190,0.75),
+		rgba(190,190,190,0.75) 5px,
+		rgba(255,255,255,0.75) 5px,
+		rgba(255,255,255,0.75) 10px
+	);
+	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 10000000;
+}
+
+.mf-modal-container {
+	box-sizing: border-box;
+	background: #ddf6ff;
+	width: min-content;
+	min-width: 30em;
+	max-width: 80vw;
+	/* max-height: 90vh; */
+	/* overflow: scroll; */
+	margin: 5vh auto;
+	padding: 1em;
+	border: 1px solid #999;
+	border-radius: 0.5em;
+	box-shadow: 0 1em 3em -0.5em #000;
+}
+
 
 // ## Appendix: Sass and CSS refresher ##########################
 //

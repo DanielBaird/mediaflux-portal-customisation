@@ -270,6 +270,15 @@ guides usually give CSS compatible specifications for brand
 colours.</p>
 <p><svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg></p>
 <h4>Overall page level variables</h4>
+<p>Text size</p>
+<p>Most of the page layout is adjusted to suit the size of
+text on the page.  Set this to <code>small</code>, <code>medium</code>, or <code>large</code>.</p>
+<p>Remember that although smaller text usually looks &quot;nicer&quot;,
+the users of your portal are there to get information by
+reading text. They may not have perfect vision, and may not
+have a screen as nice as yours.</p>
+<pre><code>$text-size: medium;
+</code></pre>
 <p>Default the general page colours to to white background and
 dark text (not quite black, to avoid harsh contrast).</p>
 <pre><code>$page-background: #fff;
@@ -554,6 +563,7 @@ run into any significant size differences, but will look
 familiar and modern to users.</p>
 <pre><code>html {
 	font-family:
+		'.SFNSDisplay-Regular', /* &quot;display&quot; version of macOS font */
         -apple-system,       /* default macOS font for Safari/webkit */
         BlinkMacSystemFont,  /* default macOS font for Chrome/blink */
         &quot;Segoe UI&quot;,          /* default Windows font */
@@ -573,9 +583,18 @@ the portal to display nicely on phone screens.</p>
 in the <code>head</code> of the page to stop a bit of &quot;helpful&quot; zooming
 browsers on small screen phones do.</p>
 <pre><code>html {
-	font-size: 16px; /* for browsers that don't support calc() */
-	font-size: calc(14px + 0.35vw); /* grow font size on wider screen */
 	overflow-x: hidden; /* avoid odd widths on narrow screens */
+
+	@if ($text-size == small) {
+		font-size: 13px; /* for browsers that don't support calc() */
+		font-size: calc(11px + 0.35vw); /* grow font size on wider screen */
+	} @else if ($text-size == large) {
+		font-size: 19px; /* for browsers that don't support calc() */
+		font-size: calc(17px + 0.35vw); /* grow font size on wider screen */
+	} @else {
+		font-size: 16px; /* for browsers that don't support calc() */
+		font-size: calc(14px + 0.35vw); /* grow font size on wider screen */
+	}
 }
 </code></pre>
 <p>This tag sets the default text and background colour for
@@ -1043,8 +1062,8 @@ edge even when it overlaps the background icon.</p>
     background-repeat: no-repeat;
 	text-shadow:
 		0 0 2px $control-background,
-		0 0 3px $control-background,
-		0 0 4px $control-background;
+		0 0 4px $control-background,
+		0 0 6px $control-background;
 }
 </code></pre>
 <p>The 'new asset' button by default simply shows the word &quot;new&quot;.
@@ -1331,7 +1350,7 @@ rule from the <code>.mf-metadata-field</code> styling block.</p>
     font-weight: 600;
 	// font-size: 90%;
 	// opacity: 0.8;
-	// font-variant: small-caps;
+	// text-transform: uppercase;
     // font-weight: 800;
     max-width: 30%;
     padding: 0.25rem;
@@ -1383,6 +1402,52 @@ to the wide-screen formatting for the page navigation.</p>
 		margin-left: $sidebar-width;
 		padding-left: 1rem;
 	}
+}
+</code></pre>
+<h1>work in progress.......</h1>
+<h1>work in progress.......</h1>
+<h1>work in progress.......</h1>
+<h2>Pop-up Dialogues</h2>
+<p>A Mediaflux portal can allow the user to add a new asset. This
+is handled with a form that pops up over the portal web page.</p>
+<p>The form is contained in a wrapper
+<code>&lt;div class=&quot;mf-modal-wrapper&quot;&gt;</code> that itself contains a
+<code>&lt;div class=&quot;mf-modal-container&quot;&gt;</code> which contains the form.</p>
+<p>This styling uses the <code>.mf-modal-wrapper</code> to obscure the
+normal web page in the background, and the
+<code>.mf-modal-container</code> to define the form.</p>
+<pre><code>.mf-modal-wrapper {
+	display: block;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: repeating-linear-gradient(315deg,
+		rgba(190,190,190,0.75),
+		rgba(190,190,190,0.75) 5px,
+		rgba(255,255,255,0.75) 5px,
+		rgba(255,255,255,0.75) 10px
+	);
+	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 10000000;
+}
+
+.mf-modal-container {
+	box-sizing: border-box;
+	background: #ddf6ff;
+	width: min-content;
+	min-width: 30em;
+	max-width: 80vw;
+	/* max-height: 90vh; */
+	/* overflow: scroll; */
+	margin: 5vh auto;
+	padding: 1em;
+	border: 1px solid #999;
+	border-radius: 0.5em;
+	box-shadow: 0 1em 3em -0.5em #000;
 }
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>

@@ -155,16 +155,16 @@ summary {
 
 /*! end of normalize.css */
 html {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: ".SFNSDisplay-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   /* Blackberry users, lol */ }
 
 html {
+  overflow-x: hidden;
+  /* avoid odd widths on narrow screens */
   font-size: 16px;
   /* for browsers that don't support calc() */
   font-size: calc(14px + 0.35vw);
-  /* grow font size on wider screen */
-  overflow-x: hidden;
-  /* avoid odd widths on narrow screens */ }
+  /* grow font size on wider screen */ }
 
 body {
   color: #333;
@@ -422,7 +422,7 @@ form {
   background-size: 1rem, 1rem;
   background-position: right 0.5rem top 0.5rem;
   background-repeat: no-repeat;
-  text-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff; }
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff; }
 
 .mf-new-item-button {
   min-width: 2rem;
@@ -613,3 +613,30 @@ form {
   .mf-result-list {
     margin-left: 14rem;
     padding-left: 1rem; } }
+
+.mf-modal-wrapper {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: repeating-linear-gradient(315deg, rgba(190, 190, 190, 0.75), rgba(190, 190, 190, 0.75) 5px, rgba(255, 255, 255, 0.75) 5px, rgba(255, 255, 255, 0.75) 10px);
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 10000000; }
+
+.mf-modal-container {
+  box-sizing: border-box;
+  background: #ddf6ff;
+  width: min-content;
+  min-width: 30em;
+  max-width: 80vw;
+  /* max-height: 90vh; */
+  /* overflow: scroll; */
+  margin: 5vh auto;
+  padding: 1em;
+  border: 1px solid #999;
+  border-radius: 0.5em;
+  box-shadow: 0 1em 3em -0.5em #000; }
