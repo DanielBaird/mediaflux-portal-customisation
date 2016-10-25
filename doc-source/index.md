@@ -8,5 +8,6 @@
 
 ### Project documentation
 
-- [Specification for Mediaflux portal improvements](MFPortalsComponentsSpec.pdf)
+- [Mediaflux portal functional improvements (D25)](MediafluxFunctionalImprovements-D25.pdf)
+  - [Technical specification](MFPortalsComponentsSpec.pdf)
 
