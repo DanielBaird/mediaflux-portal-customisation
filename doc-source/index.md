@@ -1,8 +1,12 @@
 
 # Customising a MediaFlux portal
 
-(Work in progress)
+### Technical documentation
 
 - [Customising styling of a Mediaflux portal](styles.html)
 
+
+### Project documentation
+
+- [Specification for Mediaflux portal improvements](MFPortalsComponentsSpec.pdf)
 
