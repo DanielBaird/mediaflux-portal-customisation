@@ -34,7 +34,6 @@ var parsedInput = ''
 var output = ''
 var outFile = ''
 mdDocs.forEach(function(mdFile) {
-    console.log(mdFile)
     outFile = mdFile.replace(MD_SOURCE + '/', DEST + '/')
     outFile = outFile.replace('.md','.html')
     // read in the md
@@ -46,6 +45,7 @@ mdDocs.forEach(function(mdFile) {
     cp(HTML_HEADER, outFile)
     ShellString(output).toEnd(outFile)
     cat(HTML_FOOTER).toEnd(outFile)
+    console.log(mdFile)
 })
 
 // also copy any static doc stuff into the doc dir

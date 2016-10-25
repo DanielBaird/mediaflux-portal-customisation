@@ -1,3 +1,4 @@
+.DS_Store
 
 # html compilation uses tmp files
 *.html.tmp

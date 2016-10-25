@@ -18,4 +18,5 @@ of research data.
 
 - [Mediaflux portal functional improvements (D25)](MediafluxFunctionalImprovements-D25.pdf)
   - [Technical specification](MFPortalsComponentsSpec.pdf)
-- [Mapping of Mediaflux portal metadata to existing collection metadata](MediafluxProvisioningMetadata-D26.pdf)
+- [Mapping Mediaflux portal metadata to existing collection metadata (D26)](MediafluxProvisioningMetadata-D26.pdf)
+- [Mediaflux Portal provisioning plan (D27)](MediafluxPortalProvisioningPlan-D27.pdf)
