@@ -8,6 +8,10 @@ functionality of the
 digital asset management system, to better encourage sharing 
 of research data.
 
+Documentation provided here describes how to use the new
+functionality in Mediaflux portals to deliver engaging, useful,
+practical, and properly branded access to research datasets.
+
 
 ### Who is this for
 
@@ -27,24 +31,25 @@ portal, you need to make two things:
 * a portal configuration file, in XML format
 * a portal CSS file, unsurprisingly in CSS format
 
-This work will help you with both of those.
-
 
 #### Producing custom CSS
 
 We recommend going through the CSS customisation process 
 carefully to produce a default layout and styling for your 
-institution.  Each portal you produce after that can use your
+institution. Each portal you produce after that can use your
 default CSS with no additioonal effort, or spend time on
 additional customisation.
 
 - [Customising styling of a Mediaflux portal](styles.html)
 
 
-### Project documentation
+### Project and provisioning documentation
 
 - [Mediaflux portal functional improvements (D25)](MediafluxFunctionalImprovements-D25.pdf)
   - [Technical specification](MFPortalsComponentsSpec.pdf)
 - [Mapping Mediaflux portal metadata to existing collection metadata (D26)](MediafluxProvisioningMetadata-D26.pdf)
 - [Mediaflux portal provisioning plan (D27)](MediafluxPortalProvisioningPlan-D27.pdf)
 - [Mediaflux portals and RDS provisioning (D29)](MediafluxPortalsAndRDSProvisioning-D29.pdf)
+
+
+
