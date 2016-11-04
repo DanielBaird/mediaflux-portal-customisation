@@ -8,26 +8,30 @@
 // uses shellJS to replace all the shell commands.
 require('shelljs/global')
 
-// ..except for node-sass and commonmark
+// ..except for node-sass and commonmark which are a bit harder
+// to find paths for, so for the sass and markdown stuff this
+// script uses the JS libraries directly.
 var sass = require('node-sass')
 var cm = require('commonmark')
 
 var fs = require('fs')
 
-// (assumes running from same location as package.json)
+// assume this script is running from same place as package.json
 var HTML_HEADER='doc-source/doc-includes/header.html'
 var HTML_FOOTER='doc-source/doc-includes/footer.html'
 var SOURCE='styles/sass/styles.scss'
 var CSSDEST='styles/css/styles.css'
 var DOCDEST='docs/styles.html'
 
-// copy normalize.css into place
-//
-//  unfortunately sass can't inline a plain css file, so as a
-//  preliminary step we have to copy the normalize.css file to 
-//  normalize.scss, so it gets inlined properly.
-//  The -n means don't overwrite an existing file.
-cp('-n', 'node_modules/normalize.css/normalize.css', 'styles/sass/normalize.scss')
+// Copying normalize.css is no longer needed, as normalize has
+// been directly included in the Sass source file.
+// // copy normalize.css into place
+// //
+// //  unfortunately sass can't inline a plain css file, so as a
+// //  preliminary step we have to copy the normalize.css file to 
+// //  normalize.scss, so it gets inlined properly.
+// //  The -n means don't overwrite an existing file.
+// cp('-n', 'node_modules/normalize.css/normalize.css', 'styles/sass/normalize.scss')
 
 //
 // Sass SCSS compilation
@@ -46,7 +50,11 @@ ShellString(css).to(CSSDEST)
 //   - remove any initial double slashes from the start of lines  
 cp(SOURCE, SOURCE + '.md')
 var markdown = find(SOURCE + '.md')[0]
+// find lines starting with a character that isn't a forward
+// slash, and insert four spaces at the start of the line.
 sed('-i', '^([^\/])', '    $1', markdown) // in js replace(), $1 is a backreference 
+// find lines starting with two forward slashes, and remove 
+// the slashes.
 sed('-i', '^\/\/', '', markdown)
 
 // make some markdown tools
