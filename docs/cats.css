@@ -625,6 +625,7 @@ form {
 .mf-modal-container {
   box-sizing: border-box;
   background: #ddf6ff;
+
   width: min-content;
   min-width: 30em;
   max-width: 80vw;
