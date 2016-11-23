@@ -640,3 +640,7 @@ form {
   border: 1px solid #999;
   border-radius: 0.5em;
   box-shadow: 0 1em 3em -0.5em #000; }
+
+.mf-modal-container video,
+.mf-modal-container audio {
+  max-width: 100%; }

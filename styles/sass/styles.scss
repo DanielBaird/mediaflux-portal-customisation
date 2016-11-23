@@ -1391,16 +1391,6 @@ form {
 	}
 }
 
-//
-//
-//
-// # work in progress.......
-// # work in progress.......
-// # work in progress.......
-//
-//
-//
-
 // ## Pop-up Dialogues
 //
 // A Mediaflux portal can allow the user to add a new asset. This
@@ -1448,6 +1438,10 @@ form {
 	box-shadow: 0 1em 3em -0.5em #000;
 }
 
+.mf-modal-container video,
+.mf-modal-container audio {
+	max-width: 100%;
+}
 
 // ## Appendix: Sass and CSS refresher ##########################
 //
