@@ -640,6 +640,10 @@ form {
   color: #333;
   text-shadow: 0 0 3px #fff; }
 
+.mf-play-button:before:hover {
+  color: #ffa;
+  text-shadow: 0 0 3px #333; }
+
 @media (min-width: 49rem) {
   .mf-result-list {
     margin-left: 14rem;

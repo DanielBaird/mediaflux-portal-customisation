@@ -1416,7 +1416,10 @@ form {
 	color: $control-content-color;
 	text-shadow: 0 0 3px $control-background;
 }
-
+.mf-play-button:before:hover {
+	color: $control-active-background;
+	text-shadow: 0 0 3px $control-active-content-color;
+}
 // ### Listing results, on a wide screen
 //
 // The `@media` statement below means that the rules inside it
