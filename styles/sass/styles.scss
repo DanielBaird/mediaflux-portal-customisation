@@ -1416,7 +1416,7 @@ form {
 	color: $control-content-color;
 	text-shadow: 0 0 3px $control-background;
 }
-.mf-play-button:before:hover {
+.mf-play-button:hover:before {
 	color: $control-active-background;
 	text-shadow: 0 0 3px $control-active-content-color;
 }

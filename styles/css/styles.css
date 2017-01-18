@@ -640,7 +640,7 @@ form {
   color: #333;
   text-shadow: 0 0 3px #fff; }
 
-.mf-play-button:before:hover {
+.mf-play-button:hover:before {
   color: #ffa;
   text-shadow: 0 0 3px #333; }
 
