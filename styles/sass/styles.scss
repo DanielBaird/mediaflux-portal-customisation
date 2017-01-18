@@ -1222,6 +1222,7 @@ form {
 // This addresses the content of the single result in the list.
 //
 .mf-listed-result {
+	position: relative; /* for play button positoning */
 	display: block;
     background: $result-background;
     margin: 1rem 0;
