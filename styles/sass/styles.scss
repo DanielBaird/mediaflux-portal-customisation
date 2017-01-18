@@ -1401,6 +1401,9 @@ form {
 	width: $thumbnail-size;
 	height: $thumbnail-size;
 }
+.mf-play-button:hover {
+	background: transparent;
+}
 .mf-play-button::before {
 	position: absolute;
 	top: 0;
@@ -1418,7 +1421,6 @@ form {
 }
 .mf-play-button:hover::before {
 	color: $control-active-background;
-	background: transparent;
 	text-shadow: 0 0 3px $control-active-content-color;
 }
 // ### Listing results, on a wide screen

@@ -624,6 +624,9 @@ form {
   width: 150px;
   height: 150px; }
 
+.mf-play-button:hover {
+  background: transparent; }
+
 .mf-play-button::before {
   position: absolute;
   top: 0;
@@ -642,7 +645,6 @@ form {
 
 .mf-play-button:hover::before {
   color: #ffa;
-  background: transparent;
   text-shadow: 0 0 3px #333; }
 
 @media (min-width: 49rem) {
