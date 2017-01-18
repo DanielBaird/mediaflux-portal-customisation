@@ -1410,6 +1410,7 @@ asset thumbnail.</p>
 	padding: 0;
 	border: solid $thumbnail-border-width transparent;
 	background: transparent;
+	color: transparent;
 	width: $thumbnail-size;
 	height: $thumbnail-size;
 	line-height: $thumbnail-size;
@@ -1418,6 +1419,8 @@ asset thumbnail.</p>
 	/* 25b6: ▶ black right-pointing triangle */
 	/* 25ba: ► black right-pointing pointer */
 	content: '\25b6'; /* 2b06: ▶ black right-pointing triangle */
+	color: $control-content-color;
+	text-shadow: 0 0 3px $control-background;
 }
 </code></pre>
 <h3>Listing results, on a wide screen</h3>
