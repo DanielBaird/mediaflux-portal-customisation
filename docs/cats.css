@@ -630,6 +630,7 @@ form {
   right: 0;
   bottom: 0;
   left: 0;
+  font-size: 75px;
   line-height: 150px;
   text-align: center;
   /* 25b6: ▶ black right-pointing triangle */
