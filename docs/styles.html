@@ -1361,8 +1361,12 @@ rule from the <code>.mf-metadata-field</code> styling block.</p>
     padding-left: 0.5rem;
 }
 </code></pre>
-<p>The Download button, if present, is the final tag in the
-result item's <code>li</code>.</p>
+<p>The Download and Play buttons, if present, are the last tags
+in the result item's <code>li</code>.</p>
+<p>This styling shows the download button at the bottom of
+the result item.  Depending on the <code>download-button-position</code>
+variable set earlier, it can be left aligned, right aligned,
+hidden, or stretch the whole width of the result item.</p>
 <pre><code>.mf-download-button {
 	display: block;
 	padding-left: 1em;
@@ -1378,7 +1382,6 @@ result item's <code>li</code>.</p>
 	} @else {
 		width: 100%;
 	}
-
 }
 .mf-download-button:before {
 	/* 21e9: ⇩ downwards white arrow */
@@ -1389,6 +1392,23 @@ result item's <code>li</code>.</p>
 	/* 21d3: ⇓ downwards double arrow */
 	content: '\2b07'; /* 2b07: ⬇ downwards black arrow */
 	margin-right: 0.5em;
+}
+</code></pre>
+<p>The Play button appears when the asset is a playable media
+type, like a movie or audio recording. When present, it is
+after the Download button.</p>
+<p>This styling relocates the play button to hover over the
+asset thumbnail.</p>
+<pre><code>.mf-play-button {
+	position: absolute;
+	size: $thumbnail-size;
+	right: 1rem;
+	top: 1rem;
+}
+.mf-play-button:before {
+	/* 25b6: ▶ black right-pointing triangle */
+	/* 25ba: ► black right-pointing pointer */
+	content: '\25b6'; /* 2b06: ▶ black right-pointing triangle */
 }
 </code></pre>
 <h3>Listing results, on a wide screen</h3>
@@ -1436,7 +1456,7 @@ normal web page in the background, and the
 .mf-modal-container {
 	box-sizing: border-box;
 	background: #ddf6ff;
-	// width: min-content;
+	width: min-content;
 	min-width: 30rem;
 	max-width: 80vw;
 	max-height: 90vh;

@@ -1343,8 +1343,13 @@ form {
     padding-left: 0.5rem;
 }
 
-// The Download button, if present, is the final tag in the
-// result item's `li`.
+// The Download and Play buttons, if present, are the last tags 
+// in the result item's `li`.
+//
+// This styling shows the download button at the bottom of
+// the result item.  Depending on the `download-button-position`
+// variable set earlier, it can be left aligned, right aligned,
+// hidden, or stretch the whole width of the result item. 
 //
 .mf-download-button {
 	display: block;
@@ -1361,7 +1366,6 @@ form {
 	} @else {
 		width: 100%;
 	}
-
 }
 .mf-download-button:before {
 	/* 21e9: ⇩ downwards white arrow */
@@ -1374,6 +1378,26 @@ form {
 	margin-right: 0.5em;
 }
 
+// The Play button appears when the asset is a playable media
+// type, like a movie or audio recording. When present, it is
+// after the Download button.
+//
+// This styling relocates the play button to hover over the
+// asset thumbnail.
+//
+// (work in progress!)
+//
+.mf-play-button {
+	position: absolute;
+	size: $thumbnail-size;
+	right: 1rem;
+	top: 1rem;
+}
+.mf-play-button:before {
+	/* 25b6: ▶ black right-pointing triangle */
+	/* 25ba: ► black right-pointing pointer */
+	content: '\25b6'; /* 2b06: ▶ black right-pointing triangle */
+}
 
 // ### Listing results, on a wide screen
 //
@@ -1427,7 +1451,7 @@ form {
 .mf-modal-container {
 	box-sizing: border-box;
 	background: #ddf6ff;
-	// width: min-content;
+	width: min-content;
 	min-width: 30rem;
 	max-width: 80vw;
 	max-height: 90vh;

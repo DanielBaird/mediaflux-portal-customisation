@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! 
+/*!
 The original source of the text you're
 reading is an SCSS formatted file. SCSS 
 is a superset of CSS with additional 
@@ -609,6 +609,18 @@ form {
   /* 2b07: ⬇ downwards black arrow */
   margin-right: 0.5em; }
 
+.mf-play-button {
+  position: absolute;
+  size: 150px;
+  right: 1rem;
+  top: 1rem; }
+
+.mf-play-button:before {
+  /* 25b6: ▶ black right-pointing triangle */
+  /* 25ba: ► black right-pointing pointer */
+  content: '\25b6';
+  /* 2b06: ▶ black right-pointing triangle */ }
+
 @media (min-width: 49rem) {
   .mf-result-list {
     margin-left: 14rem;
@@ -631,6 +643,7 @@ form {
 .mf-modal-container {
   box-sizing: border-box;
   background: #ddf6ff;
+  width: min-content;
   min-width: 30rem;
   max-width: 80vw;
   max-height: 90vh;
