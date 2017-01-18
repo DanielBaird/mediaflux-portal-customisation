@@ -529,6 +529,8 @@ form {
   margin: 0; }
 
 .mf-listed-result {
+  position: relative;
+  /* for play button positoning */
   display: block;
   background: #eee;
   margin: 1rem 0;
