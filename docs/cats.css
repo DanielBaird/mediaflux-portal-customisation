@@ -616,7 +616,7 @@ form {
   size: 150px;
   right: 1rem;
   top: 1rem;
-  border: solid 0.5rem rgba(0, 0, 0, 0.01);
+  border: solid 0.5rem transparent;
   width: 150px;
   height: 150px;
   line-height: 150px; }
