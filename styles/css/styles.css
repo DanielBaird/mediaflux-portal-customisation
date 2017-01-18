@@ -624,7 +624,7 @@ form {
   width: 150px;
   height: 150px; }
 
-.mf-play-button:before {
+.mf-play-button::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -640,8 +640,9 @@ form {
   color: #333;
   text-shadow: 0 0 3px #fff; }
 
-.mf-play-button:hover:before {
+.mf-play-button:hover::before {
   color: #ffa;
+  background: transparent;
   text-shadow: 0 0 3px #333; }
 
 @media (min-width: 49rem) {

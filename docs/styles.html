@@ -1414,7 +1414,7 @@ asset thumbnail.</p>
 	width: $thumbnail-size;
 	height: $thumbnail-size;
 }
-.mf-play-button:before {
+.mf-play-button::before {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -1429,8 +1429,9 @@ asset thumbnail.</p>
 	color: $control-content-color;
 	text-shadow: 0 0 3px $control-background;
 }
-.mf-play-button:hover:before {
+.mf-play-button:hover::before {
 	color: $control-active-background;
+	background: transparent;
 	text-shadow: 0 0 3px $control-active-content-color;
 }
 </code></pre>
