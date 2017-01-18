@@ -622,10 +622,16 @@ form {
   background: transparent;
   color: transparent;
   width: 150px;
-  height: 150px;
-  line-height: 150px; }
+  height: 150px; }
 
 .mf-play-button:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  line-height: 150px;
+  text-align: center;
   /* 25b6: ▶ black right-pointing triangle */
   /* 25ba: ► black right-pointing pointer */
   content: '\25b6';

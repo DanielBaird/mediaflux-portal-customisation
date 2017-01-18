@@ -1400,9 +1400,15 @@ form {
 	color: transparent;
 	width: $thumbnail-size;
 	height: $thumbnail-size;
-	line-height: $thumbnail-size;
 }
 .mf-play-button:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	line-height: $thumbnail-size;
+	text-align: center;
 	/* 25b6: ▶ black right-pointing triangle */
 	/* 25ba: ► black right-pointing pointer */
 	content: '\25b6'; /* 2b06: ▶ black right-pointing triangle */
