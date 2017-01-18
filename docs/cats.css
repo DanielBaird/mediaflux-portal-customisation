@@ -615,7 +615,10 @@ form {
   position: absolute;
   size: 150px;
   right: 1rem;
-  top: 1rem; }
+  top: 1rem;
+  width: 150px;
+  height: 150px;
+  line-height: 150px; }
 
 .mf-play-button:before {
   /* 25b6: ▶ black right-pointing triangle */
