@@ -1406,7 +1406,10 @@ asset thumbnail.</p>
 	size: $thumbnail-size;
 	right: 1rem;
 	top: 1rem;
-	border: solid $thumbnail-border-width rgba(0,0,0, 0);
+	box-sizing: content-box;
+	padding: 0;
+	border: solid $thumbnail-border-width transparent;
+	background: transparent;
 	width: $thumbnail-size;
 	height: $thumbnail-size;
 	line-height: $thumbnail-size;

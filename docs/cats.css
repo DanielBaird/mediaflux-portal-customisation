@@ -616,7 +616,10 @@ form {
   size: 150px;
   right: 1rem;
   top: 1rem;
+  box-sizing: content-box;
+  padding: 0;
   border: solid 0.5rem transparent;
+  background: transparent;
   width: 150px;
   height: 150px;
   line-height: 150px; }
