@@ -570,7 +570,7 @@ form {
   font-size: 1.250rem;
   font-size: calc(1.250rem + 0.200vw);
   font-weight: 600;
-  margin: 0.333rem 0 0.666rem; }
+  margin: 0.33333rem 0 0.66667rem; }
 
 .mf-result-metadata-list {
   display: table;
@@ -595,8 +595,8 @@ form {
 
 .mf-download-button {
   display: block;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin: 0.66rem auto 0;
   width: 100%; }
 
@@ -609,7 +609,7 @@ form {
   /* 21d3: ⇓ downwards double arrow */
   content: '\2b07';
   /* 2b07: ⬇ downwards black arrow */
-  margin-right: 0.5em; }
+  margin-right: 0.5rem; }
 
 .mf-play-button {
   position: absolute;
@@ -645,8 +645,7 @@ form {
 
 .mf-play-button:hover::before {
   color: #333;
-  background-color: rgba(255, 255, 170, 0.5);
-  text-shadow: 0 0 3px #ffa; }
+  background-color: rgba(255, 255, 170, 0.5); }
 
 @media (min-width: 49rem) {
   .mf-result-list {

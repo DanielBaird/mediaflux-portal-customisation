@@ -261,10 +261,13 @@ $result-background: #eee;
 // `1px` for a thin edge.  Set `$result-corner-radius` if your
 // result cards should have rounded corners (try `3px` for a 
 // subtle rounding, or `0.5rem` for a playing card type corner).
+// Change `$result-padding` to change the space between each 
+// result item's border and its content.
 
 $result-border-color: #ccc;
 $result-border-width: 0;
 $result-corner-radius: 0;
+$result-padding: 1rem;
 
 // To produce a physical "card" effect for result items, you can
 // choose to have a
@@ -1225,8 +1228,8 @@ form {
 	position: relative; /* for play button positoning */
 	display: block;
     background: $result-background;
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: $result-padding 0;
+    padding: $result-padding;
 	border: 1px solid rgba(0,0,0, 0);
 	border-width: $result-border-width;
 	border-color: $result-border-color;
@@ -1258,7 +1261,7 @@ form {
 //
 .mf-result-thumbnail-wrapper {
     float: right;
-    margin: 0 0 1rem 0.5rem;
+    margin: 0 0 $result-padding 0.5rem;
     position: relative;
     width: $thumbnail-size;
     height: $thumbnail-size;
@@ -1300,7 +1303,7 @@ form {
 	font-size: calc(1.250rem + 0.200vw);
 	font-weight: 600;
 
-	margin: 0.333rem 0 0.666rem;
+	margin: ($result-padding/3) 0 ($result-padding/1.5);
 }
 
 // The metadata fields applicable to a result are included in
@@ -1354,8 +1357,8 @@ form {
 //
 .mf-download-button {
 	display: block;
-	padding-left: 1em;
-	padding-right: 1em;
+	padding-left: $result-padding;
+	padding-right: $result-padding;
 	margin: 0.66rem auto 0;
 
 	@if ($download-button-position == hidden) {
@@ -1376,7 +1379,7 @@ form {
 	/* 2913: ⤓ downwards arrow to bar */
 	/* 21d3: ⇓ downwards double arrow */
 	content: '\2b07'; /* 2b07: ⬇ downwards black arrow */
-	margin-right: 0.5em;
+	margin-right: $result-padding/2;
 }
 
 // The Play button appears when the asset is a playable media
@@ -1386,13 +1389,11 @@ form {
 // This styling relocates the play button to hover over the
 // asset thumbnail.
 //
-// (work in progress!)
-//
 .mf-play-button {
 	position: absolute;
 	size: $thumbnail-size;
-	right: 1rem;
-	top: 1rem;
+	right: $result-padding;
+	top: $result-padding;
 	box-sizing: content-box;
 	padding: 0;
 	border: solid $thumbnail-border-width transparent;
@@ -1422,7 +1423,6 @@ form {
 .mf-play-button:hover::before {
 	color: $control-active-content-color;
 	background-color: transparentize($control-active-background, 0.5);
-	text-shadow: 0 0 3px $control-active-background;
 }
 // ### Listing results, on a wide screen
 //
@@ -1436,7 +1436,7 @@ form {
 @media (min-width: $sidebar-width + $content-min-width) {
 	.mf-result-list {
 		margin-left: $sidebar-width;
-		padding-left: 1rem;
+		padding-left: $result-padding;
 	}
 }
 
