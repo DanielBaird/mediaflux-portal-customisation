@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.4.1/themes/prism.css">
+<style>
+
+body { padding: 3em; }
+
+.square {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    background-color: #f00;
+}
+
+.square:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	font-size: 5rem;
+	line-height: 10rem;
+	text-align: center;
+	content: '\25b6'; /* 2b06: ▶ black right-pointing triangle */
+}
+
+.square:before:hover {
+    color: blue;
+}
+.square:hover:before {
+    color: blue;
+}
+
+</style>
+</head>
+<body>
+
+<p class="square"> content here </p>
+
+</body>
+</html>

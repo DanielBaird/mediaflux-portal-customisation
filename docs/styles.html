@@ -1434,8 +1434,9 @@ asset thumbnail.</p>
 	text-shadow: 0 0 3px $control-background;
 }
 .mf-play-button:hover::before {
-	color: $control-active-background;
-	text-shadow: 0 0 3px $control-active-content-color;
+	color: $control-active-content-color;
+	background-color: transparentize($control-active-background, 0.5);
+	text-shadow: 0 0 3px $control-active-background;
 }
 </code></pre>
 <h3>Listing results, on a wide screen</h3>
