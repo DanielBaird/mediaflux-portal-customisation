@@ -533,8 +533,8 @@ form {
   /* for play button positoning */
   display: block;
   background: #eee;
-  margin: 1rem 0;
-  padding: 1rem;
+  margin: 1px 0;
+  padding: 1px;
   border: 1px solid transparent;
   border-width: 0;
   border-color: #ccc;
@@ -550,7 +550,7 @@ form {
 
 .mf-result-thumbnail-wrapper {
   float: right;
-  margin: 0 0 1rem 0.5rem;
+  margin: 0 0 1px 0.5rem;
   position: relative;
   width: 150px;
   height: 150px;
@@ -570,7 +570,7 @@ form {
   font-size: 1.250rem;
   font-size: calc(1.250rem + 0.200vw);
   font-weight: 600;
-  margin: 0.33333rem 0 0.66667rem; }
+  margin: 0.33333px 0 0.66667px; }
 
 .mf-result-metadata-list {
   display: table;
@@ -595,8 +595,8 @@ form {
 
 .mf-download-button {
   display: block;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1px;
+  padding-right: 1px;
   margin: 0.66rem auto 0;
   width: 100%; }
 
@@ -609,13 +609,13 @@ form {
   /* 21d3: ⇓ downwards double arrow */
   content: '\2b07';
   /* 2b07: ⬇ downwards black arrow */
-  margin-right: 0.5rem; }
+  margin-right: 0.5px; }
 
 .mf-play-button {
   position: absolute;
   size: 150px;
-  right: 1rem;
-  top: 1rem;
+  right: 1px;
+  top: 1px;
   box-sizing: content-box;
   padding: 0;
   border: solid 0.5rem transparent;
@@ -650,7 +650,7 @@ form {
 @media (min-width: 49rem) {
   .mf-result-list {
     margin-left: 14rem;
-    padding-left: 1rem; } }
+    padding-left: 1px; } }
 
 .mf-modal-wrapper {
   display: block;
