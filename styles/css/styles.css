@@ -680,7 +680,7 @@ form {
   border-radius: 0.5rem;
   box-shadow: 0 1rem 3rem -0.5rem #000; }
 
-body.mf-modal-show {
+body.mf-modal-show .mf-body-wrapper {
   overflow: hidden; }
 
 .mf-modal-container video,
