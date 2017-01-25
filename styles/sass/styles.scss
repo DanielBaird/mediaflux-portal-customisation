@@ -1493,7 +1493,8 @@ form {
 // make sure the content in the background doesn't scroll when 
 // you're trying to scroll a long dialog.
 // 
-body.mf-modal-show .mf-body-wrapper {
+body.mf-modal-show {
+	max-height: 100%;
 	overflow: hidden;
 }
 

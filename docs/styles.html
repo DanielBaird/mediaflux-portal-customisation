@@ -1501,7 +1501,8 @@ normal web page in the background, and the
 there's a modal dialog showing. This rule uses that class to
 make sure the content in the background doesn't scroll when
 you're trying to scroll a long dialog.</p>
-<pre><code>body.mf-modal-show .mf-body-wrapper {
+<pre><code>body.mf-modal-show {
+	max-height: 100%;
 	overflow: hidden;
 }
 
