@@ -1,0 +1,43 @@
+<html>
+<head></head>
+
+<body>
+
+<style>
+
+html {
+  font-family: monospace;
+  font-size: 20px;
+  padding: 2em 0.5em;
+}
+p {
+  text-align: right;
+  margin: 0 2em;
+  padding: 0.66em;
+}
+
+.yes {
+  background: #eee;
+  color: #eee;
+  padding: 0.3em;
+}
+
+@supports (display: flex)
+                          { .flexbox .yes { background: #cfc; color: green; }}
+@supports (position: fixed)
+                          { .posfixed .yes { background: #cfc; color: green; }}
+@supports (background-attachment: fixed)
+                          { .bgfixed .yes { background: #cfc; color: green; }}
+@supports (background-size: cover)
+                          { .bgcover .yes { background: #cfc; color: green; }}
+
+
+</style>
+
+<p class="flexbox">Supports flexbox <span class="yes">yes</span></p>
+<p class="posfixed">Supports position: fixed <span class="yes">yes</span></p>
+<p class="bgfixed">Supports bg attachment: fixed <span class="yes">yes</span></p>
+<p class="bgcover">Supports bg size: cover <span class="yes">yes</span></p>
+
+</body>
+</html>
