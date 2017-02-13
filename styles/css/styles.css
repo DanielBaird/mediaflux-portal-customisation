@@ -720,3 +720,12 @@ body.mf-modal-show {
   border: none;
   margin: 1rem 0;
   padding: 1rem; }
+
+.mf-modal-container fieldset > div[style] {
+  margin: 0 auto; }
+  .mf-modal-container fieldset > div[style] > table > tbody > tr > td {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  .mf-modal-container fieldset > div[style] .gwt-Label {
+    position: relative;
+    top: 0.3em; }

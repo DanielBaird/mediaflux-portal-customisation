@@ -1549,6 +1549,16 @@ creating the asset, or cancelling the dialogue.</p>
 	padding: 1rem;
 }
 </code></pre>
+<p>This next section attempts to neaten up the metadata field
+section. This is one of the few areas of Mediaflux Portals
+that was not cleaned up in the portal revision in late 2016;
+the stylings applied here are presented without commentary.</p>
+<pre><code>.mf-modal-container fieldset &gt; div[style] {
+	margin: 0 auto;
+	&amp; &gt; table &gt; tbody &gt; tr &gt; td { padding-top: 10px; padding-bottom: 10px } 
+	&amp; .gwt-Label { position: relative; top: 0.3em; }
+}
+</code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
 <h3>CSS</h3>
 <p>todo intro</p>

@@ -1548,6 +1548,17 @@ body.mf-modal-show {
 	padding: 1rem;
 }
 
+// This next section attempts to neaten up the metadata field
+// section. This is one of the few areas of Mediaflux Portals
+// that was not cleaned up in the portal revision in late 2016;
+// the stylings applied here are presented without commentary.
+//
+.mf-modal-container fieldset > div[style] {
+	margin: 0 auto;
+	& > table > tbody > tr > td { padding-top: 10px; padding-bottom: 10px } 
+	& .gwt-Label { position: relative; top: 0.3em; }
+}
+
 // ## Appendix: Sass and CSS refresher ##########################
 //
 // ### CSS
