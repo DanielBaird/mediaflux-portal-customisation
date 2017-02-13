@@ -684,6 +684,14 @@ body.mf-modal-show {
   max-height: 100%;
   overflow: hidden; }
 
+.mf-modal-controls {
+  margin-bottom: 0.5rem;
+  /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
+  .mf-modal-controls::after {
+    content: " ";
+    display: block;
+    clear: both; }
+
 .mf-modal-controls .mf-close-button {
   min-width: 2rem;
   float: right;

@@ -1011,11 +1011,7 @@ items being displayed.</p>
 	padding: 1rem;
 
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
-	&amp;::after {
-		content: &quot; &quot;;
-		display: block;
-		clear: both;
-	}
+	&amp;::after { content: &quot; &quot;; display: block; clear: both; }
 }
 </code></pre>
 <p>The collection bar has two parts, a title for the current
@@ -1266,11 +1262,8 @@ default spacing.</p>
 	}
 
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
-	&amp;::after {
-		content: &quot; &quot;;
-		display: block;
-		clear: both;
-	}
+	&amp;::after { content: &quot; &quot;; display: block; clear: both; }
+
 }
 .mf-listed-result:first-child {
 	// removes the top margin for the first result
@@ -1512,7 +1505,12 @@ quirk of the way Mediaflux produces Portal sites.</p>
 <p>The media player dialogue includes a close button above the
 actual media. We move that to the right side, and change its
 text to be an X.</p>
-<pre><code>.mf-modal-controls .mf-close-button {
+<pre><code>.mf-modal-controls {
+	margin-bottom: 0.5rem;
+	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+	&amp;::after { content: &quot; &quot;; display: block; clear: both; }
+}
+.mf-modal-controls .mf-close-button {
     min-width: $control-size;
 	float: right;
 	position: relative;

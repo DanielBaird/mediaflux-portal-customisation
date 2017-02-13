@@ -950,11 +950,7 @@ form {
 	padding: 1rem;
 
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
-	&::after {
-		content: " ";
-		display: block;
-		clear: both;
-	}
+	&::after { content: " "; display: block; clear: both; }
 }
 
 // The collection bar has two parts, a title for the current
@@ -1240,11 +1236,8 @@ form {
 	}
 
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
-	&::after {
-		content: " ";
-		display: block;
-		clear: both;
-	}
+	&::after { content: " "; display: block; clear: both; }
+
 }
 .mf-listed-result:first-child {
 	// removes the top margin for the first result
@@ -1506,6 +1499,11 @@ body.mf-modal-show {
 // actual media. We move that to the right side, and change its 
 // text to be an X.
 //
+.mf-modal-controls {
+	margin-bottom: 0.5rem;
+	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+	&::after { content: " "; display: block; clear: both; }
+}
 .mf-modal-controls .mf-close-button {
     min-width: $control-size;
 	float: right;
