@@ -693,7 +693,7 @@ body.mf-modal-show {
     clear: both; }
 
 .mf-modal-controls .mf-close-button {
-  min-width: 2rem;
+  width: 2rem;
   float: right;
   position: relative;
   overflow: hidden;
