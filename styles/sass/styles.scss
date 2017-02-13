@@ -1500,7 +1500,7 @@ body.mf-modal-show {
 // text to be an X.
 //
 .mf-modal-controls {
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
 	&::after { content: " "; display: block; clear: both; }
 }
