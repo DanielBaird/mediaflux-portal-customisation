@@ -1488,7 +1488,8 @@ form {
 //
 // This doesn't always work (often, the page behind the modal
 // dialogue will scroll insteaod of staying fixed) thanks to a 
-// quirk of the way Mediaflux produces Portal sites.
+// quirk of the GWT system that Mediaflux uses to produce Portal 
+// sites.
 // 
 body.mf-modal-show {
 	max-height: 100%;
@@ -1521,10 +1522,30 @@ body.mf-modal-show {
     }
 }
 
-
+// Ensure the size of the browser's playback area doesn't exceed
+// the size of the window.
+//
 .mf-modal-container video,
 .mf-modal-container audio {
-	max-width: 100%;
+	max-width: 90%;
+}
+
+// The 'new asset' pop-up dialogue has three main sections. The
+// top section includes a dense set of metadata edit fields that
+// are unfortunately very difficult to style pleasantly.
+//
+// The middle section is where the user can drag and drop files
+// to be uploaded to become the asset being created.
+//
+// The final section are the two control buttons for either 
+// creating the asset, or cancelling the dialogue.
+//
+// Here, each section is given some padding.
+//
+.mf-modal-container .mf-form fieldset {
+	border: none;
+	margin: 1rem 0;
+	padding: 1rem 0;
 }
 
 // ## Appendix: Sass and CSS refresher ##########################

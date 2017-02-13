@@ -1496,7 +1496,8 @@ make sure the content in the background doesn't scroll when
 you're trying to scroll a long dialogue.</p>
 <p>This doesn't always work (often, the page behind the modal
 dialogue will scroll insteaod of staying fixed) thanks to a
-quirk of the way Mediaflux produces Portal sites.</p>
+quirk of the GWT system that Mediaflux uses to produce Portal
+sites.</p>
 <pre><code>body.mf-modal-show {
 	max-height: 100%;
 	overflow: hidden;
@@ -1526,11 +1527,26 @@ text to be an X.</p>
         top: 0; bottom: 0; left: 0; right: 0;
     }
 }
-
-
-.mf-modal-container video,
+</code></pre>
+<p>Ensure the size of the browser's playback area doesn't exceed
+the size of the window.</p>
+<pre><code>.mf-modal-container video,
 .mf-modal-container audio {
-	max-width: 100%;
+	max-width: 90%;
+}
+</code></pre>
+<p>The 'new asset' pop-up dialogue has three main sections. The
+top section includes a dense set of metadata edit fields that
+are unfortunately very difficult to style pleasantly.</p>
+<p>The middle section is where the user can drag and drop files
+to be uploaded to become the asset being created.</p>
+<p>The final section are the two control buttons for either
+creating the asset, or cancelling the dialogue.</p>
+<p>Here, each section is given some padding.</p>
+<pre><code>.mf-modal-container .mf-form fieldset {
+	border: none;
+	margin: 1rem 0;
+	padding: 1rem 0;
 }
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
