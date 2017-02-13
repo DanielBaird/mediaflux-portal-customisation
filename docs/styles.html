@@ -1498,13 +1498,37 @@ normal web page in the background, and the
 }
 </code></pre>
 <p>The portal adds the <code>mf-modal-show</code> class to the body tag when
-there's a modal dialog showing. This rule uses that class to
+there's a modal dialogue showing. This rule uses that class to
 make sure the content in the background doesn't scroll when
-you're trying to scroll a long dialog.</p>
+you're trying to scroll a long dialogue.</p>
+<p>This doesn't always work (often, the page behind the modal
+dialogue will scroll insteaod of staying fixed) thanks to a
+quirk of the way Mediaflux produces Portal sites.</p>
 <pre><code>body.mf-modal-show {
 	max-height: 100%;
 	overflow: hidden;
 }
+</code></pre>
+<p>The media player dialogue includes a close button above the
+actual media. We move that to the right side, and change its
+text to be an X.</p>
+<pre><code>.mf-modal-controls .mf-new-item-button {
+    min-width: $control-size;
+	float: right;
+	position: relative;
+    overflow: hidden;
+    color: rgba(0,0,0, 0);
+    &amp;:hover { color: rgba(0,0,0, 0); }
+    &amp;:before {
+        color: $control-content-color;
+		/* 2715: ✕ multiplication sign */
+		/* 2716: ✖ heavy multiplication sign */
+        content: '\2716'; /* 2716: ✖ heavy multiplication sign */
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+    }
+}
+
 
 .mf-modal-container video,
 .mf-modal-container audio {

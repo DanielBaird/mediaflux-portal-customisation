@@ -684,6 +684,26 @@ body.mf-modal-show {
   max-height: 100%;
   overflow: hidden; }
 
+.mf-modal-controls .mf-new-item-button {
+  min-width: 2rem;
+  float: right;
+  position: relative;
+  overflow: hidden;
+  color: transparent; }
+  .mf-modal-controls .mf-new-item-button:hover {
+    color: transparent; }
+  .mf-modal-controls .mf-new-item-button:before {
+    color: #333;
+    /* 2715: ✕ multiplication sign */
+    /* 2716: ✖ heavy multiplication sign */
+    content: '\2716';
+    /* 2716: ✖ heavy multiplication sign */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+
 .mf-modal-container video,
 .mf-modal-container audio {
   max-width: 100%; }
