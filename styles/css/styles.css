@@ -726,7 +726,7 @@ body.mf-modal-show {
   border-top: 1px solid #aaa; }
 
 .mf-modal-container fieldset:last-of-type {
-  padding-bottom: 0; }
+  padding-bottom: 1rem; }
 
 .mf-modal-container fieldset:first-of-type {
   /* shading the un-stylable area makes it easier to deal with problem reports */
