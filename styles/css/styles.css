@@ -723,9 +723,9 @@ body.mf-modal-show {
 
 .mf-modal-container fieldset > div[style] {
   margin: 0 auto; }
-  .mf-modal-container fieldset > div[style] > table > tbody > tr > td {
-    padding-top: 10px;
-    padding-bottom: 10px; }
   .mf-modal-container fieldset > div[style] .gwt-Label {
     position: relative;
-    top: 0.3em; }
+    top: 0.75em; }
+  .mf-modal-container fieldset > div[style] table table table img {
+    position: relative;
+    top: 0.75em; }
