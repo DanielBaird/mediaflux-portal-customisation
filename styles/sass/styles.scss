@@ -1606,13 +1606,14 @@ body.mf-modal-show {
 	display: block;
 	color: $control-border-color;
 	text-transform: lowercase;
-	padding: 0.33rem 0 0.66rem;
+	padding: 0.33rem 0 1rem;
 	&:before { content: '\276f\0020' }
 	&:after  { content: '\0020\276e' }
 }
 
-// Files ready to be uploaded are listed in a table.  This styles
-// that table.
+// Files ready to be uploaded are listed in a table.  This gives
+// that table shaded headings and a little padding around the
+// content.
 //
 .mf-file-upload-table {
 	font-size: 80%;
@@ -1623,7 +1624,7 @@ body.mf-modal-show {
 	background-color: $content-shading;
 	text-align: left;
 	border-bottom: $control-border;
-	padding: 0 0.33rem;
+	padding: 0.1rem 0.33rem;
 }
 .mf-file-upload-table td {
 	text-align: left;
