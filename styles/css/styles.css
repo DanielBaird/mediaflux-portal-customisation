@@ -727,7 +727,8 @@ body.mf-modal-show {
 
 .mf-modal-container fieldset:first-of-type {
   /* shading the un-stylable area makes it easier to deal with problem reports */
-  background-color: rgba(0, 0, 0, 0.1); }
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 1rem; }
 
 .mf-modal-container fieldset > div[style] {
   margin: 0 auto;
