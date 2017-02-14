@@ -789,4 +789,5 @@ fieldset.mf-form-actions-item {
 
 .mf-form-actions-item .mf-button {
   padding-left: 1rem;
-  padding-right: 1rem; }
+  padding-right: 1rem;
+  margin-left: 1rem; }
