@@ -738,3 +738,9 @@ body.mf-modal-show {
   .mf-modal-container fieldset > div[style] table table table img {
     position: relative;
     top: 4px; }
+
+.mf-file-upload-info {
+  background: #fff;
+  color: #333;
+  height: 4rem;
+  border: 1px solid red; }

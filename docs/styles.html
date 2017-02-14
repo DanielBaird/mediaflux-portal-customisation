@@ -1503,6 +1503,7 @@ sites.</p>
 	overflow: hidden;
 }
 </code></pre>
+<h4>Media playback dialogue</h4>
 <p>The media player dialogue includes a close button above the
 actual media. We move that to the right side, and change its
 text to be an X.</p>
@@ -1535,6 +1536,7 @@ the size of the window.</p>
 	max-width: 90%;
 }
 </code></pre>
+<h4>New asset dialogue</h4>
 <p>The 'new asset' pop-up dialogue has three main sections. The
 top section includes a dense set of metadata edit fields that
 are unfortunately very difficult to style pleasantly.</p>
@@ -1552,6 +1554,7 @@ creating the asset, or cancelling the dialogue.</p>
 	border-top: $control-border;
 }
 </code></pre>
+<h5>Metadata entry</h5>
 <p>This next section attempts to neaten up the metadata field
 section. This is one of the few areas of Mediaflux Portals
 that was not cleaned up in the revision pf Portals in late
@@ -1566,6 +1569,15 @@ commentary.</p>
 	/* try to position labels and dropdown arrows in line */
 	&amp; .gwt-Label { position: relative; top: 8px; }
 	&amp; table table table img { position: relative; top: 4px; }
+}
+</code></pre>
+<h5>Files to upload</h5>
+<p>The middle section is where the asset's file can be dragged.</p>
+<pre><code>.mf-file-upload-info {
+	background: $content-background;
+	color: $content-color;
+	height: 4rem;
+	border: 1px solid red;
 }
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
