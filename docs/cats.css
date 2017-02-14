@@ -718,11 +718,11 @@ body.mf-modal-show {
 
 .mf-modal-container .mf-form fieldset {
   border: none;
-  margin: 1rem 0;
-  padding: 1rem; }
+  padding: 1rem;
+  margin: 0; }
 
 .mf-modal-container .mf-form fieldset + fieldset {
-  margin-top: 0; }
+  margin-top: 1rem; }
 
 .mf-modal-container fieldset:first-of-type {
   /* shading the un-stylable area makes it easier to deal with problem reports */
