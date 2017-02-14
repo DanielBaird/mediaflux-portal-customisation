@@ -1508,7 +1508,11 @@ sites.</p>
 <p>The media player dialogue includes a close button above the
 actual media. We move that to the right side, and change its
 text to be an X.</p>
-<pre><code>.mf-modal-controls {
+<pre><code>.mf-media-player-wrapper {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.mf-modal-controls {
 	margin-bottom: 1rem;
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
 	&amp;::after { content: &quot; &quot;; display: block; clear: both; }

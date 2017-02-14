@@ -684,6 +684,10 @@ body.mf-modal-show {
   max-height: 100%;
   overflow: hidden; }
 
+.mf-media-player-wrapper {
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+
 .mf-modal-controls {
   margin-bottom: 1rem;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
