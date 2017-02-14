@@ -756,7 +756,7 @@ body.mf-modal-show {
   display: block;
   color: #aaa;
   text-transform: lowercase;
-  padding: 0.33rem 0; }
+  padding: 0.33rem 0 0.66rem; }
   .mf-file-upload-info .mf-form-item-prompt:before {
     content: '\276f\0020'; }
   .mf-file-upload-info .mf-form-item-prompt:after {

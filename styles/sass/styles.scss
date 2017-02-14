@@ -1605,7 +1605,7 @@ body.mf-modal-show {
 	display: block;
 	color: $control-border-color;
 	text-transform: lowercase;
-	padding: 0.33rem 0;
+	padding: 0.33rem 0 0.66rem;
 	&:before { content: '\276f\0020' }
 	&:after  { content: '\0020\276e' }
 }
