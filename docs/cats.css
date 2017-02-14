@@ -721,11 +721,17 @@ body.mf-modal-show {
   margin: 1rem 0;
   padding: 1rem; }
 
+.mf-modal-container fieldset:first-of-type {
+  /* shading the un-stylable area makes it easier to deal with problem reports */
+  background-color: rgba(0, 0, 0, 0.1); }
+
 .mf-modal-container fieldset > div[style] {
-  margin: 0 auto; }
+  margin: 0 auto;
+  /* centre the unstyleable block */
+  /* try to position labels and dropdown arrows in line */ }
   .mf-modal-container fieldset > div[style] .gwt-Label {
     position: relative;
-    top: 0.75em; }
+    top: 8px; }
   .mf-modal-container fieldset > div[style] table table table img {
     position: relative;
-    top: 0.75em; }
+    top: 4px; }

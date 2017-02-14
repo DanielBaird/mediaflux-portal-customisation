@@ -1554,10 +1554,15 @@ section. This is one of the few areas of Mediaflux Portals
 that was not cleaned up in the revision pf Portals in late
 2016; the stylings applied here are presented without
 commentary.</p>
-<pre><code>.mf-modal-container fieldset &gt; div[style] {
-	margin: 0 auto;
-	&amp; .gwt-Label { position: relative; top: 0.75em; }
-	&amp; table table table img { position: relative; top: 0.75em; }
+<pre><code>.mf-modal-container fieldset:first-of-type {
+	/* shading the un-stylable area makes it easier to deal with problem reports */
+	background-color: rgba(0,0,0, 0.1);
+}
+.mf-modal-container fieldset &gt; div[style] {
+	margin: 0 auto; /* centre the unstyleable block */
+	/* try to position labels and dropdown arrows in line */
+	&amp; .gwt-Label { position: relative; top: 8px; }
+	&amp; table table table img { position: relative; top: 4px; }
 }
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
