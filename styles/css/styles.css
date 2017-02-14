@@ -722,7 +722,7 @@ body.mf-modal-show {
   margin: 0; }
 
 .mf-modal-container .mf-form fieldset + fieldset {
-  margin-top: 1rem; }
+  border-top: 1px solid #aaa; }
 
 .mf-modal-container fieldset:first-of-type {
   /* shading the un-stylable area makes it easier to deal with problem reports */

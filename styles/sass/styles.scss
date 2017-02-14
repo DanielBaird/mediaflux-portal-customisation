@@ -1548,7 +1548,7 @@ body.mf-modal-show {
 	margin: 0;
 }
 .mf-modal-container .mf-form fieldset + fieldset {
-	margin-top: 1rem;
+	border-top: $control-border;
 }
 
 // This next section attempts to neaten up the metadata field
