@@ -719,7 +719,8 @@ body.mf-modal-show {
 .mf-modal-container .mf-form fieldset {
   border: none;
   padding: 1rem 0;
-  margin: 0; }
+  margin: 0;
+  text-align: center; }
 
 .mf-modal-container .mf-form fieldset + fieldset {
   border-top: 1px solid #aaa; }
