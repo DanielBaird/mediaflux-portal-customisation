@@ -1632,7 +1632,7 @@ body.mf-modal-show {
 }
 
 // The button that clears the file list is displayed full width.
-
+//
 .mf-clear-files-button {
 	display: block;
 	padding-left: $result-padding;
@@ -1641,6 +1641,20 @@ body.mf-modal-show {
 	width: 100%;
 }
 
+// ##### Form controls
+//
+// The third section of the form holds the cancel and create 
+// buttons. In keeping with dialogue conventions, these buttons
+// are right-aligned.
+//
+.mf-form-actions-item {
+	text-align: right;
+}
+.mf-form-actions-item .mf-button {
+	padding-left: $result-padding;
+	padding-right: $result-padding;
+}
+ 
 // ## Appendix: Sass and CSS refresher ##########################
 //
 // ### CSS

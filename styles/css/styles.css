@@ -783,3 +783,10 @@ body.mf-modal-show {
   padding-right: 1rem;
   margin: 0.66rem auto 0;
   width: 100%; }
+
+.mf-form-actions-item {
+  text-align: right; }
+
+.mf-form-actions-item .mf-button {
+  padding-left: 1rem;
+  padding-right: 1rem; }
