@@ -718,28 +718,31 @@ body.mf-modal-show {
 
 .mf-modal-container fieldset {
   border: none;
-  padding: 1rem 0;
+  padding: 0;
   margin: 0;
   text-align: center; }
-
-.mf-modal-container fieldset + fieldset {
-  margin-top: 3rem; }
 
 .mf-modal-container fieldset:first-of-type {
   /* shading the un-stylable area makes it easier to deal with problem reports */
   background-color: rgba(0, 0, 0, 0.1);
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  padding: 1rem 0; }
 
 .mf-modal-container fieldset > div[style] {
   margin: 0 auto;
-  /* centre the unstyleable block */
-  /* try to position labels and dropdown arrows in line */ }
+  /* centre the unstyleable block */ }
   .mf-modal-container fieldset > div[style] .gwt-Label {
+    /* try to position labels in line */
     position: relative;
     top: 8px; }
   .mf-modal-container fieldset > div[style] table table table img {
+    /* try to position the dropdown images in line */
     position: relative;
     top: 4px; }
+
+.mf-file-upload-item {
+  padding: 1rem 0;
+  margin-top: 2rem; }
 
 .mf-file-upload-info {
   background: #fff;
@@ -783,6 +786,8 @@ body.mf-modal-show {
   width: 100%; }
 
 fieldset.mf-form-actions-item {
+  padding: 1rem 0;
+  margin-top: 1rem;
   text-align: right; }
 
 .mf-form-actions-item .mf-button {

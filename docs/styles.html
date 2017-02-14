@@ -1545,15 +1545,11 @@ are unfortunately very difficult to style pleasantly.</p>
 to be uploaded to become the asset being created.</p>
 <p>The final section are the two control buttons for either
 creating the asset, or cancelling the dialogue.</p>
-<p>Here, each section is given some padding.</p>
 <pre><code>.mf-modal-container fieldset {
 	border: none;
-	padding: 1rem 0;
+	padding: 0;
 	margin: 0;
 	text-align: center;
-}
-.mf-modal-container fieldset + fieldset {
-	margin-top: 3rem;
 }
 </code></pre>
 <h5>Metadata entry</h5>
@@ -1567,18 +1563,28 @@ applied here.</p>
 	/* shading the un-stylable area makes it easier to deal with problem reports */
 	background-color: rgba(0,0,0, 0.1);
 	margin-top: 1rem;
+	padding: 1rem 0;
 }
 .mf-modal-container fieldset &gt; div[style] {
 	margin: 0 auto; /* centre the unstyleable block */
-	/* try to position labels and dropdown arrows in line */
-	&amp; .gwt-Label { position: relative; top: 8px; }
-	&amp; table table table img { position: relative; top: 4px; }
+	&amp; .gwt-Label {
+		/* try to position labels in line */
+		position: relative; top: 8px;
+	}
+	&amp; table table table img { 
+		/* try to position the dropdown images in line */
+		position: relative; top: 4px; 
+	}
 }
 </code></pre>
 <h5>Files to upload</h5>
 <p>The middle section is where the asset's file can be dragged;
 a <code>&lt;div class=&quot;mf-file-upload-info&quot;&gt;</code> receives dragged files.</p>
-<pre><code>.mf-file-upload-info {
+<pre><code>.mf-file-upload-item {
+	padding: 1rem 0;
+	margin-top: 2rem;
+}
+.mf-file-upload-info {
 	background: $content-background;
 	color: $content-color;
 	min-height: 4rem;
@@ -1640,6 +1646,8 @@ content.</p>
 buttons. In keeping with dialogue conventions, these buttons
 are right-aligned.</p>
 <pre><code>fieldset.mf-form-actions-item {
+	padding: 1rem 0;
+	margin-top: 1rem;
 	text-align: right;
 }
 .mf-form-actions-item .mf-button {
