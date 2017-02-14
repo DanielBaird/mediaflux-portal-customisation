@@ -342,7 +342,8 @@ usually go without a border.</p>
 little rounding helps to identify the button or textbox as
 something you can interact with.  Set this to your preferred
 corner radius.</p>
-<pre><code>$control-border: 1px solid #aaa;
+<pre><code>$control-border-color: #aaa;
+$control-border: 1px solid $control-border-color;
 $control-corner-radius: 0.125rem;
 </code></pre>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-head"></use></svg></p>
@@ -1547,7 +1548,7 @@ creating the asset, or cancelling the dialogue.</p>
 <p>Here, each section is given some padding.</p>
 <pre><code>.mf-modal-container .mf-form fieldset {
 	border: none;
-	padding: 1rem;
+	padding: 1rem 0;
 	margin: 0;
 }
 .mf-modal-container .mf-form fieldset + fieldset {
@@ -1572,12 +1573,14 @@ commentary.</p>
 }
 </code></pre>
 <h5>Files to upload</h5>
-<p>The middle section is where the asset's file can be dragged.</p>
+<p>The middle section is where the asset's file can be dragged;
+a <code>&lt;div class=&quot;mf-file-upload-info&quot;&gt;</code> receives dragged files.</p>
 <pre><code>.mf-file-upload-info {
 	background: $content-background;
 	color: $content-color;
 	height: 4rem;
-	border: 1px solid red;
+	border: 0.33rem dotted $control-border-color;
+	margin-bottom: 0.5rem;
 }
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>
