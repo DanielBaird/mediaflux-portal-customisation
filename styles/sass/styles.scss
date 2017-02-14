@@ -1584,7 +1584,7 @@ body.mf-modal-show {
 // The middle section is where the asset's file can be dragged;
 // a `<div class="mf-file-upload-info">` receives dragged files. 
 //
-.mf-file-upload-item {
+fieldset.mf-file-upload-item {
 	padding: 1rem 0;
 	margin-top: 2rem;
 }
