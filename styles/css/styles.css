@@ -750,7 +750,6 @@ body.mf-modal-show {
   padding: 0.5rem;
   border: 0.33rem dotted #aaa;
   border-radius: 0.66rem;
-  margin-bottom: 0.5rem;
   text-align: center; }
 
 .mf-file-upload-info .mf-form-item-prompt {
@@ -777,3 +776,10 @@ body.mf-modal-show {
 .mf-file-upload-table td {
   text-align: left;
   padding: 0.33rem; }
+
+.mf-clear-files-button {
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0.66rem auto 0;
+  width: 100%; }

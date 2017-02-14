@@ -1563,8 +1563,9 @@ creating the asset, or cancelling the dialogue.</p>
 <p>This next section attempts to neaten up the metadata field
 section. This is one of the few areas of Mediaflux Portals
 that was not cleaned up in the revision pf Portals in late
-2016; the stylings applied here are presented without
-commentary.</p>
+2016, and this section stops the New Asset form from adapting
+appropriately to narrower screens. Some modest formatting is
+applied here.</p>
 <pre><code>.mf-modal-container fieldset:first-of-type {
 	/* shading the un-stylable area makes it easier to deal with problem reports */
 	background-color: rgba(0,0,0, 0.1);
@@ -1586,7 +1587,6 @@ a <code>&lt;div class=&quot;mf-file-upload-info&quot;&gt;</code> receives dragge
 	padding: 0.5rem;
 	border: 0.33rem dotted $control-border-color;
 	border-radius: 0.66rem;
-	margin-bottom: 0.5rem;
 	text-align: center;
 }
 </code></pre>
@@ -1626,6 +1626,15 @@ content.</p>
 .mf-file-upload-table td {
 	text-align: left;
 	padding: 0.33rem;
+}
+</code></pre>
+<p>The button that clears the file list is displayed full width.</p>
+<pre><code>.mf-clear-files-button {
+	display: block;
+	padding-left: $result-padding;
+	padding-right: $result-padding;
+	margin: 0.66rem auto 0;
+	width: 100%;
 }
 </code></pre>
 <h2>Appendix: Sass and CSS refresher</h2>

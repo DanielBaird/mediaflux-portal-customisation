@@ -1565,8 +1565,9 @@ body.mf-modal-show {
 // This next section attempts to neaten up the metadata field
 // section. This is one of the few areas of Mediaflux Portals
 // that was not cleaned up in the revision pf Portals in late 
-// 2016; the stylings applied here are presented without 
-// commentary.
+// 2016, and this section stops the New Asset form from adapting
+// appropriately to narrower screens. Some modest formatting is
+// applied here.
 //
 .mf-modal-container fieldset:first-of-type {
 	/* shading the un-stylable area makes it easier to deal with problem reports */
@@ -1591,7 +1592,6 @@ body.mf-modal-show {
 	padding: 0.5rem;
 	border: 0.33rem dotted $control-border-color;
 	border-radius: 0.66rem;
-	margin-bottom: 0.5rem;
 	text-align: center;
 }
 
@@ -1629,6 +1629,16 @@ body.mf-modal-show {
 .mf-file-upload-table td {
 	text-align: left;
 	padding: 0.33rem;
+}
+
+// The button that clears the file list is displayed full width.
+
+.mf-clear-files-button {
+	display: block;
+	padding-left: $result-padding;
+	padding-right: $result-padding;
+	margin: 0.66rem auto 0;
+	width: 100%;
 }
 
 // ## Appendix: Sass and CSS refresher ##########################
