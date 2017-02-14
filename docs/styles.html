@@ -1546,16 +1546,16 @@ to be uploaded to become the asset being created.</p>
 <p>The final section are the two control buttons for either
 creating the asset, or cancelling the dialogue.</p>
 <p>Here, each section is given some padding.</p>
-<pre><code>.mf-modal-container .mf-form fieldset {
+<pre><code>.mf-modal-container fieldset {
 	border: none;
 	padding: 1rem 0;
 	margin: 0;
 	text-align: center;
 }
-.mf-modal-container .mf-form fieldset + fieldset {
+.mf-modal-container fieldset + fieldset {
 	border-top: $control-border;
 }
-.mf-modal-container .mf-form fieldset:last-of-type {
+.mf-modal-container fieldset:last-of-type {
 	padding-bottom: 0;
 }
 </code></pre>
@@ -1641,7 +1641,7 @@ content.</p>
 <p>The third section of the form holds the cancel and create
 buttons. In keeping with dialogue conventions, these buttons
 are right-aligned.</p>
-<pre><code>.mf-form-actions-item {
+<pre><code>fieldset.mf-form-actions-item {
 	text-align: right;
 }
 .mf-form-actions-item .mf-button {
