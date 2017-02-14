@@ -743,6 +743,11 @@ body.mf-modal-show {
   background: #fff;
   color: #333;
   height: 4rem;
+  padding: 0.5rem;
   border: 0.33rem dotted #aaa;
   border-radius: 0.66rem;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+  text-align: center; }
+
+.mf-file-upload-info .mf-form-item-prompt {
+  color: #333; }

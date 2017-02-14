@@ -1584,9 +1584,14 @@ body.mf-modal-show {
 	background: $content-background;
 	color: $content-color;
 	height: 4rem;
+	padding: 0.5rem;
 	border: 0.33rem dotted $control-border-color;
 	border-radius: 0.66rem;
 	margin-bottom: 0.5rem;
+	text-align: center;
+}
+.mf-file-upload-info .mf-form-item-prompt {
+	color: $control-content-color;
 }
 
 // ## Appendix: Sass and CSS refresher ##########################
