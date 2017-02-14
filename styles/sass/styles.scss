@@ -1583,7 +1583,7 @@ body.mf-modal-show {
 .mf-file-upload-info {
 	background: $content-background;
 	color: $content-color;
-	height: 4rem;
+	min-height: 4rem;
 	padding: 0.5rem;
 	border: 0.33rem dotted $control-border-color;
 	border-radius: 0.66rem;
@@ -1592,6 +1592,19 @@ body.mf-modal-show {
 }
 .mf-file-upload-info .mf-form-item-prompt {
 	color: $control-content-color;
+}
+
+// Files ready to be uploaded are listed in a table.  This styles
+// that table.
+//
+.mf-file-upload-table th {
+	font-size: 80%;
+	background-color: $content-shading;
+	text-align: left;
+	border-bottom: $control-border;
+}
+.mf-file-upload-table td {
+	text-align: left;
 }
 
 // ## Appendix: Sass and CSS refresher ##########################

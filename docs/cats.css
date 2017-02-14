@@ -742,7 +742,7 @@ body.mf-modal-show {
 .mf-file-upload-info {
   background: #fff;
   color: #333;
-  height: 4rem;
+  min-height: 4rem;
   padding: 0.5rem;
   border: 0.33rem dotted #aaa;
   border-radius: 0.66rem;
@@ -751,3 +751,12 @@ body.mf-modal-show {
 
 .mf-file-upload-info .mf-form-item-prompt {
   color: #333; }
+
+.mf-file-upload-table th {
+  font-size: 80%;
+  background-color: rgba(51, 51, 51, 0.05);
+  text-align: left;
+  border-bottom: 1px solid #aaa; }
+
+.mf-file-upload-table td {
+  text-align: left; }
