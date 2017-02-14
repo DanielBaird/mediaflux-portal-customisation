@@ -724,6 +724,9 @@ body.mf-modal-show {
 .mf-modal-container .mf-form fieldset + fieldset {
   border-top: 1px solid #aaa; }
 
+.mf-modal-container .mf-form fieldset:last-of-type {
+  padding-bottom: 0; }
+
 .mf-modal-container fieldset:first-of-type {
   /* shading the un-stylable area makes it easier to deal with problem reports */
   background-color: rgba(0, 0, 0, 0.1); }
@@ -750,13 +753,23 @@ body.mf-modal-show {
   text-align: center; }
 
 .mf-file-upload-info .mf-form-item-prompt {
-  color: #333; }
+  color: #aaa;
+  text-transform: lowercase;
+  padding: 0.33rem 0; }
+  .mf-file-upload-info .mf-form-item-prompt:before {
+    content: '\276f\276f\0020'; }
+  .mf-file-upload-info .mf-form-item-prompt:after {
+    content: '\0020\276e\276e'; }
+
+.mf-file-upload-table {
+  font-size: 80%; }
 
 .mf-file-upload-table th {
   font-size: 80%;
   background-color: rgba(51, 51, 51, 0.05);
   text-align: left;
-  border-bottom: 1px solid #aaa; }
+  border-bottom: 1px solid #aaa;
+  padding: 0 0.2em; }
 
 .mf-file-upload-table td {
   text-align: left; }

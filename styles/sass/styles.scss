@@ -1555,6 +1555,9 @@ body.mf-modal-show {
 .mf-modal-container .mf-form fieldset + fieldset {
 	border-top: $control-border;
 }
+.mf-modal-container .mf-form fieldset:last-of-type {
+	padding-bottom: 0;
+}
 
 // ##### Metadata entry
 //
@@ -1591,17 +1594,25 @@ body.mf-modal-show {
 	text-align: center;
 }
 .mf-file-upload-info .mf-form-item-prompt {
-	color: $control-content-color;
+	color: $control-border-color;
+	text-transform: lowercase;
+	padding: 0.33rem 0;
+	&:before { content: '\276f\276f\0020' }
+	&:after  { content: '\0020\276e\276e' }
 }
 
 // Files ready to be uploaded are listed in a table.  This styles
 // that table.
 //
+.mf-file-upload-table {
+	font-size: 80%;
+}
 .mf-file-upload-table th {
 	font-size: 80%;
 	background-color: $content-shading;
 	text-align: left;
 	border-bottom: $control-border;
+	padding: 0 0.2em;
 }
 .mf-file-upload-table td {
 	text-align: left;

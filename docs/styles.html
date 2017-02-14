@@ -1554,6 +1554,9 @@ creating the asset, or cancelling the dialogue.</p>
 .mf-modal-container .mf-form fieldset + fieldset {
 	border-top: $control-border;
 }
+.mf-modal-container .mf-form fieldset:last-of-type {
+	padding-bottom: 0;
+}
 </code></pre>
 <h5>Metadata entry</h5>
 <p>This next section attempts to neaten up the metadata field
@@ -1586,16 +1589,24 @@ a <code>&lt;div class=&quot;mf-file-upload-info&quot;&gt;</code> receives dragge
 	text-align: center;
 }
 .mf-file-upload-info .mf-form-item-prompt {
-	color: $control-content-color;
+	color: $control-border-color;
+	text-transform: lowercase;
+	padding: 0.33rem 0;
+	&amp;:before { content: '\276f\276f\0020' }
+	&amp;:after  { content: '\0020\276e\276e' }
 }
 </code></pre>
 <p>Files ready to be uploaded are listed in a table.  This styles
 that table.</p>
-<pre><code>.mf-file-upload-table th {
+<pre><code>.mf-file-upload-table {
+	font-size: 80%;
+}
+.mf-file-upload-table th {
 	font-size: 80%;
 	background-color: $content-shading;
 	text-align: left;
 	border-bottom: $control-border;
+	padding: 0 0.2em;
 }
 .mf-file-upload-table td {
 	text-align: left;
