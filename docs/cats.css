@@ -675,7 +675,7 @@ form {
   max-height: 90vh;
   overflow: scroll;
   margin: 5vh auto;
-  padding: 1rem;
+  padding: 0 1rem;
   border: 1px solid #999;
   border-radius: 0.5rem;
   box-shadow: 0 1rem 3rem -0.5rem #000; }
