@@ -747,7 +747,7 @@ fieldset.mf-file-upload-item {
 .mf-file-upload-info {
   background: #fff;
   color: #333;
-  min-height: 4rem;
+  min-height: 3rem;
   padding: 0.5rem;
   border: 0.33rem dotted #aaa;
   border-radius: 0.66rem;
