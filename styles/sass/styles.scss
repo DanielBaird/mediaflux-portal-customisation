@@ -1593,12 +1593,21 @@ body.mf-modal-show {
 	margin-bottom: 0.5rem;
 	text-align: center;
 }
+
+// The style displays heavy angled brackets before and after
+// the "drag files here" message, but you could use other 
+// typographic decorations for a more ornamental look.
+//
+// - `276d` and `276c`: ❭ ❬ light angle quotes/brackets
+// - `276f` and `276e`: ❯ ❮ heavy angle quotes/brackets
+//
 .mf-file-upload-info .mf-form-item-prompt {
+	display: block;
 	color: $control-border-color;
 	text-transform: lowercase;
 	padding: 0.33rem 0;
-	&:before { content: '\276f\276f\0020' }
-	&:after  { content: '\0020\276e\276e' }
+	&:before { content: '\276f\0020' }
+	&:after  { content: '\0020\276e' }
 }
 
 // Files ready to be uploaded are listed in a table.  This styles
