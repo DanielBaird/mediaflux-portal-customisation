@@ -721,6 +721,9 @@ body.mf-modal-show {
   margin: 1rem 0;
   padding: 1rem; }
 
+.mf-modal-container .mf-form fieldset + fieldset {
+  margin-top: 0; }
+
 .mf-modal-container fieldset:first-of-type {
   /* shading the un-stylable area makes it easier to deal with problem reports */
   background-color: rgba(0, 0, 0, 0.1); }

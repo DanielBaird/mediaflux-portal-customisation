@@ -1547,6 +1547,9 @@ body.mf-modal-show {
 	margin: 1rem 0;
 	padding: 1rem;
 }
+.mf-modal-container .mf-form fieldset + fieldset {
+	margin-top: 0;
+}
 
 // This next section attempts to neaten up the metadata field
 // section. This is one of the few areas of Mediaflux Portals
