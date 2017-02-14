@@ -719,8 +719,11 @@ body.mf-modal-show {
 .mf-modal-container fieldset {
   border: none;
   padding: 1rem 0;
-  margin: 1rem 0;
+  margin: 0;
   text-align: center; }
+
+.mf-modal-container fieldset + fieldset {
+  margin-top: 3rem; }
 
 .mf-modal-container fieldset:first-of-type {
   /* shading the un-stylable area makes it easier to deal with problem reports */
