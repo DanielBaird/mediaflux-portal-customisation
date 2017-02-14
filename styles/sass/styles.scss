@@ -1499,14 +1499,18 @@ body.mf-modal-show {
 
 // #### Media playback dialogue
 //
-// The media player dialogue includes a close button above the 
-// actual media. We move that to the right side, and change its 
-// text to be an X.
+// Mediaflux uses this dialogue to display "playable" media in
+// a player format.
 //
 .mf-media-player-wrapper {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
+
+// The media player dialogue includes a close button above the 
+// actual media. We move that to the right side, and change its 
+// text to be an X.
+//
 .mf-modal-controls {
 	margin-bottom: 1rem;
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */

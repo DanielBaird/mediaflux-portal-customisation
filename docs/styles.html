@@ -1505,14 +1505,17 @@ sites.</p>
 }
 </code></pre>
 <h4>Media playback dialogue</h4>
-<p>The media player dialogue includes a close button above the
-actual media. We move that to the right side, and change its
-text to be an X.</p>
+<p>Mediaflux uses this dialogue to display &quot;playable&quot; media in
+a player format.</p>
 <pre><code>.mf-media-player-wrapper {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
-.mf-modal-controls {
+</code></pre>
+<p>The media player dialogue includes a close button above the
+actual media. We move that to the right side, and change its
+text to be an X.</p>
+<pre><code>.mf-modal-controls {
 	margin-bottom: 1rem;
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
 	&amp;::after { content: &quot; &quot;; display: block; clear: both; }
