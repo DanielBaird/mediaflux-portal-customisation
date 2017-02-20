@@ -276,6 +276,11 @@ editing variables in this section.  Check the appendix for
 a description of how CSS specifies colour; corporate style
 guides usually give CSS compatible specifications for brand
 colours.</p>
+<h4>Colours</h4>
+<p>For a minimal customisation, set one or more of these colours.</p>
+<p>At a minimum, set your <strong>brand color</strong>.</p>
+<pre><code>$brand-color: #f39;
+</code></pre>
 <p><svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg></p>
 <h4>Overall page level variables</h4>
 <p>Text size</p>
@@ -327,7 +332,7 @@ $content-color: $page-color;
 </code></pre>
 <p>Choose a shading colour for doing subtle shading within the
 content area (this is used for source code, blockquotes, etc)</p>
-<pre><code>$content-shading: transparentize($content-color, 0.95);
+<pre><code>$content-shading: transparentize($brand-color, 0.95);
 </code></pre>
 <h4>Form controls</h4>
 <p>How big should controls like buttons be?  This will be used

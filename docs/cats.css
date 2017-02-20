@@ -340,7 +340,7 @@ form {
     font-size: calc(1.000rem + 0.000vw);
     font-style: italic; }
   .mf-static-page-content code, .mf-static-page-content pre, .mf-static-page-content kbd {
-    background: rgba(51, 51, 51, 0.05); }
+    background: rgba(255, 51, 153, 0.05); }
   .mf-static-page-content code {
     padding: 0.1em 0.33em;
     border-radius: 0.2em; }
@@ -355,7 +355,7 @@ form {
     line-height: 1.3;
     margin: 0.5em 0;
     padding: 1em 0 1em 2em;
-    border-left: 0.33em solid rgba(51, 51, 51, 0.05); }
+    border-left: 0.33em solid rgba(255, 51, 153, 0.05); }
   .mf-static-page-content blockquote > p:first-child {
     padding-top: 0; }
   .mf-static-page-content blockquote {
@@ -773,7 +773,7 @@ fieldset.mf-file-upload-item {
 
 .mf-file-upload-table th {
   font-size: 80%;
-  background-color: rgba(51, 51, 51, 0.05);
+  background-color: rgba(255, 51, 153, 0.05);
   text-align: left;
   border-bottom: 1px solid #aaa;
   padding: 0.1rem 0.33rem; }

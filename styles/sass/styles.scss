@@ -80,6 +80,17 @@ for more information.
 // guides usually give CSS compatible specifications for brand 
 // colours.
 
+// #### Colours
+
+// For a minimal customisation, set one or more of these colours.
+//
+// At a minimum, set your **brand color**.
+//
+$brand-color: #f39;
+
+
+
+
 // <svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg>
 // #### Overall page level variables
 
@@ -144,7 +155,7 @@ $content-color: $page-color;
 // Choose a shading colour for doing subtle shading within the
 // content area (this is used for source code, blockquotes, etc)
 //
-$content-shading: transparentize($content-color, 0.95);
+$content-shading: transparentize($brand-color, 0.95);
 
 // #### Form controls
 
