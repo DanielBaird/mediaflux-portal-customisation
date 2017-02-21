@@ -1,0 +1,42 @@
+
+brand-color <- USER
+dark-brand-color <- brand-color
+brand-shading <- brand-color
+
+brand-highlight-color <- brand-color
+
+page-color <- CHARCOAL
+page-background <- WHITE
+
+page-print-color <- BLACK
+page-print-background <- page-background
+
+content-background <- page-background
+content-color <- page-color
+
+content-shading <- brand-shading
+
+control-background <- content-background
+control-content-color <- content-color
+control-active-background <- brand-highlight-shading
+control-active-content-color <- dark-brand-color
+
+control-border-color <- brand-shading
+
+header-background <- brand-color
+header-content-color <- WHITE
+
+navbar-background <- dark-brand-color
+navbar-content-color <- brand-shading
+navbar-highlight-background <- navbar-content-color
+navbar-highlight-content-color <- navbar-background
+navbar-current-background <- content-background
+navbar-current-color <- content-color
+
+collection-bar-background <- brand-shading
+
+sidebar-background <- TRANSPARENT
+sidebar-content-color <- page-color
+sidebar-facet-background <- brand-shading
+
+result-background <- brand-shading

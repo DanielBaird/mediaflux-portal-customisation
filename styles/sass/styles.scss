@@ -84,12 +84,36 @@ for more information.
 
 // For a minimal customisation, set one or more of these colours.
 //
-// At a minimum, set your **brand color**.
+// At a minimum, set your `**brand-color**` to something that
+// reflects your branding, and is dark enough to support white
+// text.
 //
-$brand-color: #f39;
+$brand-color: #639;
 
+// `**dark-brand-color**` is a darker version of your branding 
+// colour, used where vivid colour is less appropriate, for
+// example the text colour for headings.
+//
+$dark-brand-color: mix(black, $brand-color, 33%);
 
+// `**brand-shading**` is a light backround colour, used behind
+// dark text.
+//
+$brand-shading: mix(white, $brand-color, 90%);
 
+// The `**brand-highlight-color**` is a bright contrast to your
+// brand colour, used to draw attention. By default it is the
+// your brand colour rotated two-thirds of the colour wheel and
+// brightened.
+// 
+// `**brand-highlight-shading**` is a lightened version of the
+// highlight colour.
+//
+$brand-highlight-color: mix(
+	white, 
+	saturate(adjust-hue($brand-color, 270deg), 100%),
+	50%);
+$brand-highlight-shading: mix(white, $brand-highlight-color, 90%);
 
 // <svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg>
 // #### Overall page level variables
@@ -155,7 +179,7 @@ $content-color: $page-color;
 // Choose a shading colour for doing subtle shading within the
 // content area (this is used for source code, blockquotes, etc)
 //
-$content-shading: transparentize($brand-color, 0.95);
+$content-shading: $brand-shading;
 
 // #### Form controls
 
@@ -170,8 +194,8 @@ $control-size: 2rem;
 //
 $control-background: $content-background;
 $control-content-color: $content-color;
-$control-active-background: #ffa;
-$control-active-content-color: $control-content-color;
+$control-active-background: $brand-highlight-shading;
+$control-active-content-color: $dark-brand-color;
 
 // The border on form controls helps to distinguish the control
 // as an interaction point.  Brightly coloured controls can
@@ -182,7 +206,7 @@ $control-active-content-color: $control-content-color;
 // something you can interact with.  Set this to your preferred
 // corner radius.
 //
-$control-border-color: #aaa;
+$control-border-color: $brand-shading;
 $control-border: 1px solid $control-border-color;
 $control-corner-radius: 0.125rem;
 
@@ -200,7 +224,7 @@ $header-text-size: calc(1rem + 1vw);
 
 // Header colors
 //
-$header-background: #555;
+$header-background: $brand-color;
 $header-content-color: white;
 
 // It's preferable to use a vector format
@@ -230,8 +254,8 @@ $navbar-text-size: 1rem;
 // that matches the current content), and highlighted (for
 // when the user's mouse is hovering over it).
 //
-$navbar-background: #000;
-$navbar-content-color: #ccc;
+$navbar-background: $dark-brand-color;
+$navbar-content-color: $brand-shading;
 
 $navbar-highlight-background: $navbar-content-color;
 $navbar-highlight-content-color: $navbar-background;
@@ -244,8 +268,8 @@ $navbar-current-content-color: $content-color;
 //
 // The collection bar has background and text colours.
 //
-$collection-bar-background: #ccc;
-$collection-bar-content-color: $page-color;
+$collection-bar-background: $brand-shading;
+$collection-bar-content-color: $dark-brand-color;
 
 // <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-side"></use></svg>
 // #### Sidebar
@@ -256,7 +280,7 @@ $collection-bar-content-color: $page-color;
 //
 $sidebar-background: transparent;
 $sidebar-content-color: $page-color;
-$sidebar-facet-background: #f8f8f8;
+$sidebar-facet-background: $brand-shading;
 
 // #### Content related items
 
@@ -267,7 +291,7 @@ $sidebar-facet-background: #f8f8f8;
 // a visual container. Here the background colour and border
 // properties of that container are set.
 //
-$result-background: #eee;
+$result-background: $brand-shading;
 
 // Set `$result-border-width` to `0` to have no border.  Try
 // `1px` for a thin edge.  Set `$result-corner-radius` if your

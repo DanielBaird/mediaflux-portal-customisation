@@ -278,8 +278,31 @@ guides usually give CSS compatible specifications for brand
 colours.</p>
 <h4>Colours</h4>
 <p>For a minimal customisation, set one or more of these colours.</p>
-<p>At a minimum, set your <strong>brand color</strong>.</p>
-<pre><code>$brand-color: #f39;
+<p>At a minimum, set your <code>**brand-color**</code> to something that
+reflects your branding, and is dark enough to support white
+text.</p>
+<pre><code>$brand-color: #639;
+</code></pre>
+<p><code>**dark-brand-color**</code> is a darker version of your branding
+colour, used where vivid colour is less appropriate, for
+example the text colour for headings.</p>
+<pre><code>$dark-brand-color: mix(black, $brand-color, 33%);
+</code></pre>
+<p><code>**brand-shading**</code> is a light backround colour, used behind
+dark text.</p>
+<pre><code>$brand-shading: mix(white, $brand-color, 90%);
+</code></pre>
+<p>The <code>**brand-highlight-color**</code> is a bright contrast to your
+brand colour, used to draw attention. By default it is the
+your brand colour rotated two-thirds of the colour wheel and
+brightened.</p>
+<p><code>**brand-highlight-shading**</code> is a lightened version of the
+highlight colour.</p>
+<pre><code>$brand-highlight-color: mix(
+	white, 
+	saturate(adjust-hue($brand-color, 270deg), 100%),
+	50%);
+$brand-highlight-shading: mix(white, $brand-highlight-color, 90%);
 </code></pre>
 <p><svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg></p>
 <h4>Overall page level variables</h4>
@@ -332,7 +355,7 @@ $content-color: $page-color;
 </code></pre>
 <p>Choose a shading colour for doing subtle shading within the
 content area (this is used for source code, blockquotes, etc)</p>
-<pre><code>$content-shading: transparentize($brand-color, 0.95);
+<pre><code>$content-shading: $brand-shading;
 </code></pre>
 <h4>Form controls</h4>
 <p>How big should controls like buttons be?  This will be used
@@ -344,8 +367,8 @@ etc.</p>
 and an &quot;active&quot; background for activated or hovered controls.</p>
 <pre><code>$control-background: $content-background;
 $control-content-color: $content-color;
-$control-active-background: #ffa;
-$control-active-content-color: $control-content-color;
+$control-active-background: $brand-highlight-shading;
+$control-active-content-color: $dark-brand-color;
 </code></pre>
 <p>The border on form controls helps to distinguish the control
 as an interaction point.  Brightly coloured controls can
@@ -354,7 +377,7 @@ usually go without a border.</p>
 little rounding helps to identify the button or textbox as
 something you can interact with.  Set this to your preferred
 corner radius.</p>
-<pre><code>$control-border-color: #aaa;
+<pre><code>$control-border-color: $brand-shading;
 $control-border: 1px solid $control-border-color;
 $control-corner-radius: 0.125rem;
 </code></pre>
@@ -368,7 +391,7 @@ sure the <code>$header-height</code> value is larger than the
 $header-text-size: calc(1rem + 1vw);
 </code></pre>
 <p>Header colors</p>
-<pre><code>$header-background: #555;
+<pre><code>$header-background: $brand-color;
 $header-content-color: white;
 </code></pre>
 <p>It's preferable to use a vector format
@@ -392,8 +415,8 @@ $navbar-text-size: 1rem;
 <p>Navbar items have three states: normal, selected (the one
 that matches the current content), and highlighted (for
 when the user's mouse is hovering over it).</p>
-<pre><code>$navbar-background: #000;
-$navbar-content-color: #ccc;
+<pre><code>$navbar-background: $dark-brand-color;
+$navbar-content-color: $brand-shading;
 
 $navbar-highlight-background: $navbar-content-color;
 $navbar-highlight-content-color: $navbar-background;
@@ -404,8 +427,8 @@ $navbar-current-content-color: $content-color;
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-collbar"></use></svg></p>
 <h4>Collection bar</h4>
 <p>The collection bar has background and text colours.</p>
-<pre><code>$collection-bar-background: #ccc;
-$collection-bar-content-color: $page-color;
+<pre><code>$collection-bar-background: $brand-shading;
+$collection-bar-content-color: $dark-brand-color;
 </code></pre>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-side"></use></svg></p>
 <h4>Sidebar</h4>
@@ -414,7 +437,7 @@ background for the sidebar, you probably don't want
 a background for the facets, and vice versa.</p>
 <pre><code>$sidebar-background: transparent;
 $sidebar-content-color: $page-color;
-$sidebar-facet-background: #f8f8f8;
+$sidebar-facet-background: $brand-shading;
 </code></pre>
 <h4>Content related items</h4>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-res"></use></svg></p>
@@ -422,7 +445,7 @@ $sidebar-facet-background: #f8f8f8;
 <p>The details of each result in a result list are shown within
 a visual container. Here the background colour and border
 properties of that container are set.</p>
-<pre><code>$result-background: #eee;
+<pre><code>$result-background: $brand-shading;
 </code></pre>
 <p>Set <code>$result-border-width</code> to <code>0</code> to have no border.  Try
 <code>1px</code> for a thin edge.  Set <code>$result-corner-radius</code> if your
