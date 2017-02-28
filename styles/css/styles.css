@@ -206,7 +206,7 @@ form {
   transition: background-color 0.25s; }
   .mf-button:focus, .mf-button:hover, input:not([type=submit]):not([type=file]):focus, input:not([type=submit]):not([type=file]):hover {
     background: #f2fdf2;
-    color: #224467;
+    color: #112334;
     outline: none; }
 
 .mf-button {
@@ -246,7 +246,7 @@ form {
 
 .mf-navbar {
   font-size: 1rem;
-  background: #224467; }
+  background: #112334; }
 
 .mf-navbar-container {
   max-width: 57rem;
@@ -268,7 +268,7 @@ form {
   transition: background-color 0.25s; }
   .mf-nav-list li:hover {
     background: #ebf0f5;
-    color: #224467; }
+    color: #112334; }
   .mf-nav-list li.mf-current-nav-item {
     background: #fff;
     color: #333; }
@@ -393,7 +393,7 @@ form {
 
 .mf-collection-bar {
   background: #ebf0f5;
-  color: #224467;
+  color: #112334;
   padding: 1rem;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
   .mf-collection-bar::after {
@@ -644,7 +644,7 @@ form {
   text-shadow: 0 0 3px #fff; }
 
 .mf-play-button:hover::before {
-  color: #224467;
+  color: #112334;
   background-color: rgba(242, 253, 242, 0.5); }
 
 @media (min-width: 49rem) {
