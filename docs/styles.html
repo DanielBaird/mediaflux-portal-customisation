@@ -287,12 +287,12 @@ text.</p>
 colour, used where vivid colour is less appropriate, for
 example the text colour for headings.</p>
 <pre><code>$dark-brand-color: mix(black, $brand-color, 33%);
-$dark-brand-color: scale-color($brand-color, $lightness: -66%);
+$dark-brand-color: scale-color($brand-color, $lightness: -50%);
 </code></pre>
 <p><code>**brand-shading**</code> is a light backround colour, used behind
 dark text.</p>
 <pre><code>$brand-shading: mix(white, $brand-color, 90%);
-$brand-shading: scale-color($brand-color, $lightness: 90%);
+$brand-shading: scale-color($brand-color, $lightness: 80%);
 </code></pre>
 <p>The <code>**brand-highlight-color**</code> is a bright contrast to your
 brand colour, used to draw attention. By default it is the
@@ -306,12 +306,12 @@ highlight colour.</p>
 	50%);
 
 $brand-highlight-color: scale-color(
-	adjust-hue($brand-color, 270deg), $saturation: 100%, $lightness: 50%
+	adjust-hue($brand-color, 270deg), $saturation: 100%, $lightness: 33%
 );
 
 
 $brand-highlight-shading: mix(white, $brand-highlight-color, 90%);
-$brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 90%);
+$brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
 </code></pre>
 <p><svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg></p>
 <h4>Overall page level variables</h4>
