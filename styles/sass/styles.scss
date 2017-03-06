@@ -301,8 +301,9 @@ $result-background: $content-background;
 // result item's border and its content.
 
 $result-border-color: $brand-shading;
-$result-border-width: 1px;
+$result-border-width: 0;
 $result-top-border-width: $result-border-width;
+$result-top-border-width: 1px;
 $result-corner-radius: 0;
 $result-padding: 1rem;
 
@@ -1272,6 +1273,7 @@ form {
     padding: $result-padding;
 	border: 1px solid rgba(0,0,0, 0);
 	border-width: $result-border-width;
+	border-top-width: $result-top-border-width; 
 	border-color: $result-border-color;
 	border-radius: $result-corner-radius;
 

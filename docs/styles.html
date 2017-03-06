@@ -454,8 +454,9 @@ subtle rounding, or <code>0.5rem</code> for a playing card type corner).
 Change <code>$result-padding</code> to change the space between each
 result item's border and its content.</p>
 <pre><code>$result-border-color: $brand-shading;
-$result-border-width: 1px;
+$result-border-width: 0;
 $result-top-border-width: $result-border-width;
+$result-top-border-width: 1px;
 $result-corner-radius: 0;
 $result-padding: 1rem;
 </code></pre>
@@ -1298,6 +1299,7 @@ default spacing.</p>
     padding: $result-padding;
 	border: 1px solid rgba(0,0,0, 0);
 	border-width: $result-border-width;
+	border-top-width: $result-top-border-width; 
 	border-color: $result-border-color;
 	border-radius: $result-corner-radius;
 
