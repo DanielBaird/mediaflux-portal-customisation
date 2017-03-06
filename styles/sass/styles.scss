@@ -110,7 +110,7 @@ $brand-shading: scale-color($brand-color, $lightness: 90%);
 // highlight colour.
 //
 $brand-highlight-color: scale-color(
-	adjust-hue($brand-color, 270deg), $saturation: 100%, $lightness: 33%
+	adjust-hue($brand-color, 200deg), $saturation: 100%, $lightness: 33%
 );
 $brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
 
