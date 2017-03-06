@@ -571,6 +571,7 @@ form {
   height: 150px; }
 
 .mf-result-title {
+  color: #672222;
   font-size: 1.250rem;
   font-size: calc(1.250rem + 0.200vw);
   font-weight: 600;
