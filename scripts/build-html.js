@@ -46,7 +46,7 @@ sourceFiles.forEach(function(srcFile) {
 
     // by now the newTempResult is the resolved content,
     // so write it out.
-    fs.writeFile(srcFile + '.html', newTempResult);
+    fs.writeFileSync(srcFile + '.html', newTempResult);
 
 })
 
