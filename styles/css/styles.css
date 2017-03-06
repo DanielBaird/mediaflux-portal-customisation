@@ -191,7 +191,7 @@ form {
   padding: 0; }
 
 .mf-button, input:not([type=submit]):not([type=file]) {
-  border: 1px solid #ebf0f5;
+  border: 1px solid #e8f0f7;
   background: #fff;
   color: #333;
   height: 2rem;
@@ -205,7 +205,7 @@ form {
   border-radius: 0.125rem;
   transition: background-color 0.25s; }
   .mf-button:focus, .mf-button:hover, input:not([type=submit]):not([type=file]):focus, input:not([type=submit]):not([type=file]):hover {
-    background: #f2fdf2;
+    background: honeydew;
     color: #112334;
     outline: none; }
 
@@ -256,18 +256,18 @@ form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 1px solid rgba(235, 240, 245, 0.34);
+  border: 1px solid rgba(232, 240, 247, 0.34);
   border-width: 0 1px; }
 
 .mf-nav-list li {
-  color: #ebf0f5;
+  color: #e8f0f7;
   padding: 0 0.25em;
   text-align: center;
   flex-grow: 1;
   line-height: 3rem;
   transition: background-color 0.25s; }
   .mf-nav-list li:hover {
-    background: #ebf0f5;
+    background: #e8f0f7;
     color: #112334; }
   .mf-nav-list li.mf-current-nav-item {
     background: #fff;
@@ -340,7 +340,7 @@ form {
     font-size: calc(1.000rem + 0.000vw);
     font-style: italic; }
   .mf-static-page-content code, .mf-static-page-content pre, .mf-static-page-content kbd {
-    background: #ebf0f5; }
+    background: #e8f0f7; }
   .mf-static-page-content code {
     padding: 0.1em 0.33em;
     border-radius: 0.2em; }
@@ -355,7 +355,7 @@ form {
     line-height: 1.3;
     margin: 0.5em 0;
     padding: 1em 0 1em 2em;
-    border-left: 0.33em solid #ebf0f5; }
+    border-left: 0.33em solid #e8f0f7; }
   .mf-static-page-content blockquote > p:first-child {
     padding-top: 0; }
   .mf-static-page-content blockquote {
@@ -392,7 +392,7 @@ form {
   padding-top: 2rem; }
 
 .mf-collection-bar {
-  background: #ebf0f5;
+  background: #e8f0f7;
   color: #112334;
   padding: 1rem;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
@@ -446,9 +446,9 @@ form {
   color: #333; }
 
 .mf-facet-selector {
-  background: #ebf0f5;
+  background: #e8f0f7;
   border: none;
-  border-top: 1px solid #ebf0f5;
+  border-top: 1px solid #e8f0f7;
   margin: 2rem 0; }
 
 .mf-facet-title {
@@ -460,7 +460,7 @@ form {
   padding-left: 1em;
   transition: background-color 0.25s; }
   .mf-facet:hover {
-    background: #f2fdf2;
+    background: honeydew;
     transition: background-color 0s; }
 
 .mf-facet span {
@@ -532,7 +532,7 @@ form {
   position: relative;
   /* for play button positoning */
   display: block;
-  background: #ebf0f5;
+  background: #e8f0f7;
   margin: 1rem 0;
   padding: 1rem;
   border: 1px solid transparent;
@@ -556,7 +556,7 @@ form {
   height: 150px;
   overflow: hidden;
   border: solid 0.5rem #fff;
-  background-color: #ebf0f5;
+  background-color: #e8f0f7;
   background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8)); }
 
 .mf-result-thumbnail-wrapper img {
@@ -645,7 +645,7 @@ form {
 
 .mf-play-button:hover::before {
   color: #112334;
-  background-color: rgba(242, 253, 242, 0.5); }
+  background-color: rgba(240, 255, 240, 0.5); }
 
 @media (min-width: 49rem) {
   .mf-result-list {
@@ -753,13 +753,13 @@ fieldset.mf-file-upload-item {
   color: #333;
   min-height: 3rem;
   padding: 0.5rem;
-  border: 0.33rem dotted #ebf0f5;
+  border: 0.33rem dotted #e8f0f7;
   border-radius: 0.66rem;
   text-align: center; }
 
 .mf-file-upload-info .mf-form-item-prompt {
   display: block;
-  color: #ebf0f5;
+  color: #e8f0f7;
   text-transform: lowercase;
   padding: 0.33rem 0 1rem; }
   .mf-file-upload-info .mf-form-item-prompt:before {
@@ -773,9 +773,9 @@ fieldset.mf-file-upload-item {
 
 .mf-file-upload-table th {
   font-size: 80%;
-  background-color: #ebf0f5;
+  background-color: #e8f0f7;
   text-align: left;
-  border-bottom: 1px solid #ebf0f5;
+  border-bottom: 1px solid #e8f0f7;
   padding: 0.1rem 0.33rem; }
 
 .mf-file-upload-table td {

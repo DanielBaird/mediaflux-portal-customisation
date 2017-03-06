@@ -101,6 +101,7 @@ $dark-brand-color: scale-color($brand-color, $lightness: -66%);
 // dark text.
 //
 $brand-shading: mix(white, $brand-color, 90%);
+$brand-shading: scale-color($brand-color, $lightness: 90%);
 
 // The `**brand-highlight-color**` is a bright contrast to your
 // brand colour, used to draw attention. By default it is the
@@ -114,7 +115,14 @@ $brand-highlight-color: mix(
 	white, 
 	saturate(adjust-hue($brand-color, 270deg), 100%),
 	50%);
+
+$brand-highlight-color: scale-color(
+	adjust-hue($brand-color, 270deg), $saturation: 100%, $lightness: 50%
+);
+
+
 $brand-highlight-shading: mix(white, $brand-highlight-color, 90%);
+$brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 90%);
 
 // <svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg>
 // #### Overall page level variables
