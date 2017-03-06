@@ -535,7 +535,7 @@ form {
   position: relative;
   /* for play button positoning */
   display: block;
-  background: transparent;
+  background: #fff;
   margin: 1rem 0;
   padding: 1rem;
   border: 1px solid transparent;
@@ -559,7 +559,7 @@ form {
   height: 150px;
   overflow: hidden;
   border: solid 0.5rem #fff;
-  background-color: transparent;
+  background-color: #fff;
   background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8)); }
 
 .mf-result-thumbnail-wrapper img {

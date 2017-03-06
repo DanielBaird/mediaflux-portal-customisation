@@ -445,7 +445,7 @@ $sidebar-facet-background: $brand-shading;
 a visual container. Here the background colour and border
 properties of that container are set.</p>
 <pre><code>$result-background: $brand-shading;
-$result-background: transparent;
+$result-background: $content-background;
 </code></pre>
 <p>Set <code>$result-border-width</code> to <code>0</code> to have no border.  Try
 <code>1px</code> for a thin edge.  Set <code>$result-corner-radius</code> if your
@@ -455,6 +455,7 @@ Change <code>$result-padding</code> to change the space between each
 result item's border and its content.</p>
 <pre><code>$result-border-color: $brand-shading;
 $result-border-width: 1px;
+$result-top-border-width: $result-border-width;
 $result-corner-radius: 0;
 $result-padding: 1rem;
 </code></pre>

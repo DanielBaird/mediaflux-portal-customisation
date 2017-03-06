@@ -291,7 +291,7 @@ $sidebar-facet-background: $brand-shading;
 // properties of that container are set.
 //
 $result-background: $brand-shading;
-$result-background: transparent;
+$result-background: $content-background;
 
 // Set `$result-border-width` to `0` to have no border.  Try
 // `1px` for a thin edge.  Set `$result-corner-radius` if your
@@ -302,6 +302,7 @@ $result-background: transparent;
 
 $result-border-color: $brand-shading;
 $result-border-width: 1px;
+$result-top-border-width: $result-border-width;
 $result-corner-radius: 0;
 $result-padding: 1rem;
 
