@@ -206,7 +206,7 @@ form {
   transition: background-color 0.25s; }
   .mf-button:focus, .mf-button:hover, input:not([type=submit]):not([type=file]):focus, input:not([type=submit]):not([type=file]):hover {
     background: #d6ffd6;
-    color: #1a334d;
+    color: #224467;
     outline: none; }
 
 .mf-button {
@@ -246,7 +246,7 @@ form {
 
 .mf-navbar {
   font-size: 1rem;
-  background: #1a334d; }
+  background: #224467; }
 
 .mf-navbar-container {
   max-width: 57rem;
@@ -268,7 +268,7 @@ form {
   transition: background-color 0.25s; }
   .mf-nav-list li:hover {
     background: #e8f0f7;
-    color: #1a334d; }
+    color: #224467; }
   .mf-nav-list li.mf-current-nav-item {
     background: #fff;
     color: #333; }
@@ -312,7 +312,7 @@ form {
     padding: 0.5em 0;
     margin: 0; }
   .mf-static-page-content h1, .mf-static-page-content h2, .mf-static-page-content h3, .mf-static-page-content h4 {
-    color: #1a334d; }
+    color: #224467; }
   .mf-static-page-content h1, .mf-static-page-content h2, .mf-static-page-content h3, .mf-static-page-content h4, .mf-static-page-content h5, .mf-static-page-content h6 {
     line-height: 1.15;
     padding: 1em 0 0.5rem;
@@ -395,7 +395,7 @@ form {
 
 .mf-collection-bar {
   background: #e8f0f7;
-  color: #1a334d;
+  color: #224467;
   padding: 1rem;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
   .mf-collection-bar::after {
@@ -646,7 +646,7 @@ form {
   text-shadow: 0 0 3px #fff; }
 
 .mf-play-button:hover::before {
-  color: #1a334d;
+  color: #224467;
   background-color: rgba(214, 255, 214, 0.5); }
 
 @media (min-width: 49rem) {

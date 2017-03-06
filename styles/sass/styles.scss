@@ -94,7 +94,7 @@ $brand-color: #369;
 // colour, used where vivid colour is less appropriate, for
 // example the text colour for headings.
 //
-$dark-brand-color: scale-color($brand-color, $lightness: -50%);
+$dark-brand-color: scale-color($brand-color, $lightness: -33%);
 
 // `**brand-shading**` is a light backround colour, used behind
 // dark text.
