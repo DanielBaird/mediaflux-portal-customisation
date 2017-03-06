@@ -896,12 +896,18 @@ appropriate styles to standard HTML content.</p>
 </code></pre>
 <h5>Text sizing and spacing</h5>
 <p>Set a default line height, and give headings and paragraphs
-some padding.  Headings get tighter line spacing.</p>
+some padding.  Headings get tighter line spacing, and heading
+levels that are drawn larger than normal text get coloured with
+the page's branding colour.</p>
 <pre><code>	line-height: 1.5;
 
 	p {
 		padding: 0.5em 0;
 		margin: 0;
+	}
+
+	h1, h2, h3, h4 {
+		color: $dark-brand-color;
 	}
 
 	h1, h2, h3, h4, h5, h6 {

@@ -311,6 +311,8 @@ form {
   .mf-static-page-content p {
     padding: 0.5em 0;
     margin: 0; }
+  .mf-static-page-content h1, .mf-static-page-content h2, .mf-static-page-content h3, .mf-static-page-content h4 {
+    color: #1a334d; }
   .mf-static-page-content h1, .mf-static-page-content h2, .mf-static-page-content h3, .mf-static-page-content h4, .mf-static-page-content h5, .mf-static-page-content h6 {
     line-height: 1.15;
     padding: 1em 0 0.5rem;
