@@ -48,26 +48,22 @@ mdDocs.forEach(function(mdFile) {
     console.log(mdFile)
 })
 
+//
+// Make the graphviz diagram of colour dependencies
+//
+
+// TODO
+// compile the .dot file in doc-source into an SVG, and work out where to link it
+// e.g once you have GraphViz installed:
+//     dot -O -Tpng colourlinks.dot
+// ..will produce colourlinks.dot.png, and
+//     dot -O -Tsvg colourlinks.dot
+// ..will produce colourlinks.dot.svg
+console.log('Remember to come back to this and add GraphViz diagram compilation!')
+
+
 // also copy any static doc stuff into the doc dir
 cp('-R', STATIC_SOURCE + '/*', DEST)
 
 exit()
 
-
-// // read in the md
-// var textInput = fs.readFileSync(markdown, 'utf8')
-// // process it to html
-// var parsedInput = reader.parse(textInput)
-// var html = writer.render(parsedInput)
-
-// // we're done with the temp markdown file now
-// rm(markdown)
-
-// // now build our doc..
-// cp(HTML_HEADER, DOCDEST)
-// ShellString(html).toEnd(DOCDEST)
-// cat(HTML_FOOTER).toEnd(DOCDEST)
-
-
-// // TODO: no need to keep this hack, remove it
-// cp(CSSDEST, DOCDEST.replace('styles.html','cats.css'))

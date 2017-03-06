@@ -1,42 +1,168 @@
 
-brand-color <- USER
-dark-brand-color <- brand-color
-brand-shading <- brand-color
+digraph {
 
-brand-highlight-color <- brand-color
+#######################################
+# make the layout not suck
 
-page-color <- CHARCOAL
-page-background <- WHITE
+rankdir=LR
+ranksep=1
+node [style="rounded,filled",fillcolor="#ffffff",
+	shape="box",fontname="sans",width="3"]
 
-page-print-color <- BLACK
-page-print-background <- page-background
+{	# sources of decisions
+	rank=same
+	DOCUMENT
+	USER
+}
 
-content-background <- page-background
-content-color <- page-color
+{	# "user supplied" node fill
+	node [fillcolor="#66aaff"]
+	brandColor
+}
 
-content-shading <- brand-shading
+{	rank=same
+	# "derived" node fill
+	node [fillcolor="#aaccff"]
+	brandShading
+	darkBrandColor
+	brandHighlightColor
+	brandHighlightShading
+	# "explicit" node fill
+	node [fillcolor="#cccccc"]
+	BLACK, CHARCOAL, WHITE, TRANSPARENT
+}
 
-control-background <- content-background
-control-content-color <- content-color
-control-active-background <- brand-highlight-shading
-control-active-content-color <- dark-brand-color
+#######################################
+# origin colours
 
-control-border-color <- brand-shading
+USER -> brandColor
+brandColor -> darkBrandColor
+brandColor -> brandShading
 
-header-background <- brand-color
-header-content-color <- WHITE
+brandColor -> brandHighlightColor
+brandHighlightColor -> brandHighlightShading
 
-navbar-background <- dark-brand-color
-navbar-content-color <- brand-shading
-navbar-highlight-background <- navbar-content-color
-navbar-highlight-content-color <- navbar-background
-navbar-current-background <- content-background
-navbar-current-color <- content-color
+DOCUMENT -> CHARCOAL
+DOCUMENT -> WHITE
+DOCUMENT -> BLACK
+DOCUMENT -> TRANSPARENT
 
-collection-bar-background <- brand-shading
+#######################################
+# default page colours
 
-sidebar-background <- TRANSPARENT
-sidebar-content-color <- page-color
-sidebar-facet-background <- brand-shading
+CHARCOAL -> pageColor
+WHITE -> pageBackground
+BLACK -> pagePrintColor
+pageBackground -> pagePrintBackground
 
-result-background <- brand-shading
+pageBackground -> contentBackground
+pageColor -> contentColor
+
+brandShading -> contentShading
+
+subgraph cluster_1 { style=filled;color="#dddddd"
+	pageColor
+	pageBackground
+}
+subgraph cluster_2 { style=filled;color="#dddddd"
+	pagePrintColor
+	pagePrintBackground
+}
+subgraph cluster_3 { style=filled;color="#dddddd"
+	contentColor
+	contentBackground
+}
+
+#######################################
+# colours of controls (buttons etc)
+
+contentBackground -> controlBackground
+contentColor -> controlContentColor
+brandHighlightShading -> controlActiveBackground
+darkBrandColor -> controlActiveContentColor
+
+brandShading -> controlBorderColor
+
+subgraph cluster_4 {
+	subgraph cluster_4a {
+		style=filled;color="#dddddd"
+		controlContentColor
+		controlBorderColor
+		controlBackground
+	}
+	subgraph cluster_4b {
+		style=filled;color="#dddddd"
+		controlActiveContentColor
+		controlActiveBackground
+	}
+}
+
+#######################################
+# header colours
+
+brandColor -> headerBackground
+WHITE -> headerContentColor
+
+subgraph cluster_6 { style=filled;color="#dddddd"
+	headerContentColor
+	headerBackground
+}
+
+#######################################
+# navbar colours
+
+darkBrandColor -> navbarBackground
+brandShading -> navbarContentColor
+navbarContentColor -> navbarHighlightBackground
+navbarBackground -> navbarHighlightContentColor
+contentBackground -> navbarCurrentBackground
+contentColor -> navbarCurrentColor
+
+subgraph cluster_7 {
+	subgraph cluster_7a { style=filled;color="#dddddd"
+		navbarContentColor
+		navbarBackground
+	}
+	subgraph cluster_7b { style=filled;color="#dddddd"
+		navbarHighlightContentColor
+		navbarHighlightBackground
+	}
+	subgraph cluster_7c { style=filled;color="#dddddd"
+		navbarCurrentColor
+		navbarCurrentBackground
+	}
+}
+
+#######################################
+# collection bar/sidebar/results colours
+
+brandShading -> collectionbarBackground
+
+TRANSPARENT -> sidebarBackground
+pageColor -> sidebarContentColor
+brandShading -> sidebarfacetBackground
+
+brandShading -> resultBackground
+
+subgraph cluster_10 { style=filled;color="#dddddd"
+	sidebarContentColor
+	sidebarBackground
+	sidebarfacetBackground
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
