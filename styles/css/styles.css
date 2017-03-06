@@ -301,6 +301,7 @@ form {
   padding-top: 2rem; }
 
 .mf-static-page-title {
+  color: #224467;
   font-size: 1.333rem;
   font-size: calc(1.333rem + 0.666vw);
   font-weight: 600;
