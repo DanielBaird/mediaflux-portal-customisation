@@ -535,12 +535,12 @@ form {
   position: relative;
   /* for play button positoning */
   display: block;
-  background: #f7e8e8;
+  background: transparent;
   margin: 1rem 0;
   padding: 1rem;
   border: 1px solid transparent;
-  border-width: 0;
-  border-color: #ccc;
+  border-width: 1px;
+  border-color: #f7e8e8;
   border-radius: 0;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
   .mf-listed-result::after {
@@ -559,7 +559,7 @@ form {
   height: 150px;
   overflow: hidden;
   border: solid 0.5rem #fff;
-  background-color: #f7e8e8;
+  background-color: transparent;
   background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8)); }
 
 .mf-result-thumbnail-wrapper img {

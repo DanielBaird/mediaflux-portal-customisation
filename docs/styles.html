@@ -445,6 +445,7 @@ $sidebar-facet-background: $brand-shading;
 a visual container. Here the background colour and border
 properties of that container are set.</p>
 <pre><code>$result-background: $brand-shading;
+$result-background: transparent;
 </code></pre>
 <p>Set <code>$result-border-width</code> to <code>0</code> to have no border.  Try
 <code>1px</code> for a thin edge.  Set <code>$result-corner-radius</code> if your
@@ -452,8 +453,8 @@ result cards should have rounded corners (try <code>3px</code> for a
 subtle rounding, or <code>0.5rem</code> for a playing card type corner).
 Change <code>$result-padding</code> to change the space between each
 result item's border and its content.</p>
-<pre><code>$result-border-color: #ccc;
-$result-border-width: 0;
+<pre><code>$result-border-color: $brand-shading;
+$result-border-width: 1px;
 $result-corner-radius: 0;
 $result-padding: 1rem;
 </code></pre>
