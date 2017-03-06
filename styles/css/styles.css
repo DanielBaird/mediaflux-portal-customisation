@@ -540,7 +540,7 @@ form {
   padding: 1rem;
   border: 1px solid transparent;
   border-width: 0;
-  border-top-width: 1px;
+  border-top-width: 2px;
   border-color: #f7e8e8;
   border-radius: 0;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
