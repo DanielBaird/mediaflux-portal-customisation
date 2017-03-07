@@ -191,7 +191,7 @@ form {
   padding: 0; }
 
 .mf-button, input:not([type=submit]):not([type=file]) {
-  border: 1px solid #e8f0f7;
+  border: 1px solid #f7e8e8;
   background: #fff;
   color: #333;
   height: 2rem;
@@ -205,8 +205,8 @@ form {
   border-radius: 0.125rem;
   transition: background-color 0.25s; }
   .mf-button:focus, .mf-button:hover, input:not([type=submit]):not([type=file]):focus, input:not([type=submit]):not([type=file]):hover {
-    background: #ffead6;
-    color: #224467;
+    background: #d6ffff;
+    color: #672222;
     outline: none; }
 
 .mf-button {
@@ -221,7 +221,7 @@ form {
 }
 */
 .mf-header {
-  background: #369;
+  background: #933;
   color: white;
   white-space: nowrap;
   text-align: center; }
@@ -246,7 +246,7 @@ form {
 
 .mf-navbar {
   font-size: 1rem;
-  background: #224467; }
+  background: #672222; }
 
 .mf-navbar-container {
   max-width: 57rem;
@@ -256,19 +256,19 @@ form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 1px solid rgba(232, 240, 247, 0.34);
+  border: 1px solid rgba(247, 232, 232, 0.34);
   border-width: 0 1px; }
 
 .mf-nav-list li {
-  color: #e8f0f7;
+  color: #f7e8e8;
   padding: 0 0.25em;
   text-align: center;
   flex-grow: 1;
   line-height: 3rem;
   transition: background-color 0.25s; }
   .mf-nav-list li:hover {
-    background: #e8f0f7;
-    color: #224467; }
+    background: #f7e8e8;
+    color: #672222; }
   .mf-nav-list li.mf-current-nav-item {
     background: #fff;
     color: #333; }
@@ -301,7 +301,7 @@ form {
   padding-top: 2rem; }
 
 .mf-static-page-title {
-  color: #224467;
+  color: #672222;
   font-size: 1.333rem;
   font-size: calc(1.333rem + 0.666vw);
   font-weight: 600;
@@ -313,7 +313,7 @@ form {
     padding: 0.5em 0;
     margin: 0; }
   .mf-static-page-content h1, .mf-static-page-content h2, .mf-static-page-content h3, .mf-static-page-content h4 {
-    color: #224467; }
+    color: #672222; }
   .mf-static-page-content h1, .mf-static-page-content h2, .mf-static-page-content h3, .mf-static-page-content h4, .mf-static-page-content h5, .mf-static-page-content h6 {
     line-height: 1.15;
     padding: 1em 0 0.5rem;
@@ -343,7 +343,7 @@ form {
     font-size: calc(1.000rem + 0.000vw);
     font-style: italic; }
   .mf-static-page-content code, .mf-static-page-content pre, .mf-static-page-content kbd {
-    background: #e8f0f7; }
+    background: #f7e8e8; }
   .mf-static-page-content code {
     padding: 0.1em 0.33em;
     border-radius: 0.2em; }
@@ -358,7 +358,7 @@ form {
     line-height: 1.3;
     margin: 0.5em 0;
     padding: 1em 0 1em 2em;
-    border-left: 0.33em solid #e8f0f7; }
+    border-left: 0.33em solid #f7e8e8; }
   .mf-static-page-content blockquote > p:first-child {
     padding-top: 0; }
   .mf-static-page-content blockquote {
@@ -396,9 +396,9 @@ form {
 
 .mf-collection-bar {
   background: #fff;
-  color: #224467;
+  color: #672222;
   padding: 1rem;
-  border-bottom: solid #224467;
+  border-bottom: solid #672222;
   border-bottom-width: 0.25rem;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
   .mf-collection-bar::after {
@@ -451,9 +451,9 @@ form {
   color: #333; }
 
 .mf-facet-selector {
-  background: #e8f0f7;
+  background: #f7e8e8;
   border: none;
-  border-top: 1px solid #e8f0f7;
+  border-top: 1px solid #f7e8e8;
   margin: 2rem 0; }
 
 .mf-facet-title {
@@ -465,7 +465,7 @@ form {
   padding-left: 1em;
   transition: background-color 0.25s; }
   .mf-facet:hover {
-    background: #ffead6;
+    background: #d6ffff;
     transition: background-color 0s; }
 
 .mf-facet span {
@@ -543,7 +543,7 @@ form {
   border: 1px solid transparent;
   border-width: 0;
   border-top-width: 2px;
-  border-color: #e8f0f7;
+  border-color: #f7e8e8;
   border-radius: 0;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
   .mf-listed-result::after {
@@ -573,7 +573,7 @@ form {
   height: 150px; }
 
 .mf-result-title {
-  color: #224467;
+  color: #672222;
   font-size: 1.250rem;
   font-size: calc(1.250rem + 0.200vw);
   font-weight: 600;
@@ -651,8 +651,8 @@ form {
   text-shadow: 0 0 3px #fff; }
 
 .mf-play-button:hover::before {
-  color: #224467;
-  background-color: rgba(255, 234, 214, 0.5); }
+  color: #672222;
+  background-color: rgba(214, 255, 255, 0.5); }
 
 @media (min-width: 49rem) {
   .mf-result-list {
@@ -760,13 +760,13 @@ fieldset.mf-file-upload-item {
   color: #333;
   min-height: 3rem;
   padding: 0.5rem;
-  border: 0.33rem dotted #e8f0f7;
+  border: 0.33rem dotted #f7e8e8;
   border-radius: 0.66rem;
   text-align: center; }
 
 .mf-file-upload-info .mf-form-item-prompt {
   display: block;
-  color: #e8f0f7;
+  color: #f7e8e8;
   text-transform: lowercase;
   padding: 0.33rem 0 1rem; }
   .mf-file-upload-info .mf-form-item-prompt:before {
@@ -780,9 +780,9 @@ fieldset.mf-file-upload-item {
 
 .mf-file-upload-table th {
   font-size: 80%;
-  background-color: #e8f0f7;
+  background-color: #f7e8e8;
   text-align: left;
-  border-bottom: 1px solid #e8f0f7;
+  border-bottom: 1px solid #f7e8e8;
   padding: 0.1rem 0.33rem; }
 
 .mf-file-upload-table td {
