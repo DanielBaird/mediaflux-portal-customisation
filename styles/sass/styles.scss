@@ -89,6 +89,7 @@ for more information.
 // text.
 //
 $brand-color: #933;
+$brand-color: #036;
 
 // `**dark-brand-color**` is a darker version of your branding 
 // colour, used where vivid colour is less appropriate, for
@@ -271,7 +272,7 @@ $navbar-current-content-color: $content-color;
 //
 $collection-bar-background: $content-background;
 $collection-bar-content-color: $dark-brand-color;
-$collection-bar-border-width: 0.1rem;
+$collection-bar-border-width: 0.25rem;
 
 // <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-side"></use></svg>
 // #### Sidebar
