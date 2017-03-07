@@ -425,9 +425,12 @@ $navbar-current-content-color: $content-color;
 </code></pre>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-collbar"></use></svg></p>
 <h4>Collection bar</h4>
-<p>The collection bar has background and text colours.</p>
-<pre><code>$collection-bar-background: $brand-shading;
+<p>The collection bar has background and text colours, and a
+bottom border. I recommend you choose either background
+shading <em>or</em> a border; this styling opts for a border.</p>
+<pre><code>$collection-bar-background: $content-background;
 $collection-bar-content-color: $dark-brand-color;
+$collection-bar-border-width: 0.1rem;
 </code></pre>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-side"></use></svg></p>
 <h4>Sidebar</h4>
@@ -1054,6 +1057,8 @@ items being displayed.</p>
 	background: $collection-bar-background;
 	color: $collection-bar-content-color;
 	padding: 1rem;
+	border-bottom: solid $collection-bar-content-color;
+	border-bottom-width: $collection-bar-border-width;
 
 	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
 	&amp;::after { content: &quot; &quot;; display: block; clear: both; }

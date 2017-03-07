@@ -395,9 +395,11 @@ form {
   padding-top: 2rem; }
 
 .mf-collection-bar {
-  background: #f7e8e8;
+  background: #fff;
   color: #672222;
   padding: 1rem;
+  border-bottom: solid #672222;
+  border-bottom-width: 0.1rem;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
   .mf-collection-bar::after {
     content: " ";
