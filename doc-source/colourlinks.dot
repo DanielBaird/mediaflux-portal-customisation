@@ -11,16 +11,19 @@ node [style="rounded,filled",fillcolor="#ffffff",
 
 {	# sources of decisions
 	rank=same
+	node [width=2]
 	DOCUMENT
 	USER
 }
 
 {	# "user supplied" node fill
 	node [fillcolor="#66aaff"]
+	node [width=2]
 	brandColor
 }
 
 {	rank=same
+	node [width=2]
 	# "derived" node fill
 	node [fillcolor="#aaccff"]
 	brandShading
@@ -136,18 +139,27 @@ subgraph cluster_7 {
 #######################################
 # collection bar/sidebar/results colours
 
-brandShading -> collectionbarBackground
+# brandShading -> collectionbarBackground
+contentBackground -> collectionbarBackground
 
 TRANSPARENT -> sidebarBackground
 pageColor -> sidebarContentColor
 brandShading -> sidebarfacetBackground
 
 brandShading -> resultBackground
+contentBackground -> resultBackground
+
+brandShading -> resultBorderColor
 
 subgraph cluster_10 { style=filled;color="#dddddd"
 	sidebarContentColor
 	sidebarBackground
 	sidebarfacetBackground
+}
+
+subgraph cluster_11 { style=filled;color="#dddddd"
+	resultBackground
+	resultBorderColor
 }
 
 
