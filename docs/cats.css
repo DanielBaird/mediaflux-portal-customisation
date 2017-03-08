@@ -542,7 +542,7 @@ form {
   padding: 1rem;
   border: 1px solid transparent;
   border-width: 0;
-  border-top-width: 2px;
+  border-top-width: 0.25rem;
   border-color: #d6ebff;
   border-radius: 0;
   /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
@@ -675,7 +675,7 @@ form {
 
 .mf-modal-container {
   box-sizing: border-box;
-  background: #ddf6ff;
+  background: #d6ebff;
   width: min-content;
   min-width: 30rem;
   max-width: 80vw;
@@ -683,7 +683,7 @@ form {
   overflow: scroll;
   margin: 5vh auto;
   padding: 0 1rem;
-  border: 1px solid #999;
+  border: 1px solid #036;
   border-radius: 0.5rem;
   box-shadow: 0 1rem 3rem -0.5rem #000; }
 

@@ -462,7 +462,7 @@ result item's border and its content.</p>
 <pre><code>$result-border-color: $brand-shading;
 $result-border-width: 0;
 $result-top-border-width: $result-border-width;
-$result-top-border-width: 2px;
+$result-top-border-width: 0.25rem;
 $result-corner-radius: 0;
 $result-padding: 1rem;
 </code></pre>
@@ -1535,7 +1535,7 @@ $modal-bg-bar-color-B: transparentize($content-background, 0.1);
 
 .mf-modal-container {
 	box-sizing: border-box;
-	background: #ddf6ff;
+	background: $brand-shading;
 	width: min-content;
 	min-width: 30rem;
 	max-width: 80vw;
@@ -1543,7 +1543,7 @@ $modal-bg-bar-color-B: transparentize($content-background, 0.1);
 	overflow: scroll;
 	margin: 5vh auto;
 	padding: 0 1rem;
-	border: 1px solid #999;
+	border: 1px solid $brand-color;
 	border-radius: 0.5rem;
 	box-shadow: 0 1rem 3rem -0.5rem #000;
 }
