@@ -1503,8 +1503,8 @@ form {
 // normal web page in the background, and the 
 // `.mf-modal-container` to define the form.
 
-$modal-bg-bar-color-A: transparentize($brand-highlight-shading, 0.2);
-$modal-bg-bar-color-B: transparentize($content-background, 0.2);
+$modal-bg-bar-color-A: transparentize($brand-highlight-shading, 0.1);
+$modal-bg-bar-color-B: transparentize($content-background, 0.1);
 .mf-modal-wrapper {
 	display: block;
 	position: fixed;
