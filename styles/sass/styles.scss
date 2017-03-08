@@ -88,10 +88,10 @@ for more information.
 // reflects your branding, and is dark enough to support white
 // text.
 //
-$brand-color: #036; // dark blue
 $brand-color: #393; // green
 $brand-color: #369; // light blue
 $brand-color: #933; // red
+$brand-color: #036; // dark blue
 
 // `**dark-brand-color**` is a darker version of your branding 
 // colour, used where vivid colour is less appropriate, for
@@ -1472,6 +1472,7 @@ form {
 	color: $control-active-content-color;
 	background-color: transparentize($control-active-background, 0.5);
 }
+
 // ### Listing results, on a wide screen
 //
 // The `@media` statement below means that the rules inside it
@@ -1502,6 +1503,8 @@ form {
 // normal web page in the background, and the 
 // `.mf-modal-container` to define the form.
 
+$modal-bg-bar-color-A: transparentize($brand-highlight-shading, 0.2);
+$modal-bg-bar-color-B: transparentize($content-background, 0.2);
 .mf-modal-wrapper {
 	display: block;
 	position: fixed;
@@ -1509,12 +1512,12 @@ form {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(255,255,255,0.8);
+	background: $modal-bg-bar-color-A;
 	background: repeating-linear-gradient(315deg,
-		rgba(210,210,210,0.8),
-		rgba(210,210,210,0.8) 15px,
-		rgba(255,255,255,0.8) 15px,
-		rgba(255,255,255,0.8) 30px
+		$modal-bg-bar-color-A,
+		$modal-bg-bar-color-A 15px,
+		$modal-bg-bar-color-B 15px,
+		$modal-bg-bar-color-B 30px
 	);
 	overflow: scroll;
 	overflow-x: hidden;
