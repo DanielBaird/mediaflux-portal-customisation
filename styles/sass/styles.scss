@@ -82,16 +82,20 @@ for more information.
 
 // #### Colours
 
-// For a minimal customisation, set one or more of these colours.
+// For a minimal customisation, set this one colour.
 //
-// At a minimum, set your `**brand-color**` to something that
-// reflects your branding, and is dark enough to support white
-// text.
+// If you have a marketing / identify plan it probably specifies
+// a `**brand-color**`; or you can select one of the colours 
+// specified below. Choose something that is dark enough to 
+// support white text.
 //
-$brand-color: #369; // light blue
-$brand-color: #933; // red
-$brand-color: #036; // dark blue
-$brand-color: #393; // green
+$brand-color: rgb(51, 102, 153); // denim blue
+$brand-color: rgb(170, 34, 34); // red
+$brand-color: rgb(139, 69, 19); // brown
+$brand-color: rgb(0, 0, 128); // navy
+$brand-color: rgb(0, 0, 0); // black
+$brand-color: rgb(0, 102, 11); // green
+$brand-color: rgb(128, 0, 128); // purple
 
 // `**dark-brand-color**` is a darker version of your branding 
 // colour, used where vivid colour is less appropriate, for
