@@ -279,7 +279,7 @@ colours.</p>
 <h4>Colours</h4>
 <p>For a minimal customisation, set this one colour.</p>
 <p>If you have a marketing / identify plan it probably specifies
-a <code>**brand-color**</code>; or you can select one of the colours
+a <strong><code>brand-color</code></strong>; or you can select one of the colours
 specified below. Choose something that is dark enough to
 support white text.</p>
 <pre><code>$brand-color: rgb(170, 34, 34); // red
@@ -290,23 +290,23 @@ $brand-color: rgb(128, 0, 128); // purple
 $brand-color: rgb(139, 69, 19); // brown
 $brand-color: rgb(51, 102, 153); // denim blue
 </code></pre>
-<p>The <code>**brand-highlight-color**</code> is a bright contrast to your
+<p>The <strong><code>brand-highlight-color</code></strong> is a bright contrast to your
 brand colour, used to draw attention. Here it is created as
 the complement of your brand colour, lightened up a bit.</p>
 <pre><code>$brand-highlight-color: scale-color(
 	adjust-hue($brand-color, 180deg), $saturation: 100%, $lightness: 33%
 );
 </code></pre>
-<p><code>**dark-brand-color**</code> is a darker version of your branding
+<p><strong><code>dark-brand-color</code></strong> is a darker version of your branding
 colour, used where vivid colour is less appropriate, for
 example the text colour for headings.</p>
 <pre><code>$dark-brand-color: scale-color($brand-color, $lightness: -33%);
 </code></pre>
-<p><code>**brand-shading**</code> is a light background colour, used behind
+<p><strong><code>brand-shading</code></strong> is a light background colour, used behind
 dark text.</p>
 <pre><code>$brand-shading: scale-color($brand-color, $lightness: 90%);
 </code></pre>
-<p><code>**brand-highlight-shading**</code> is a lightened version of the
+<p><strong><code>brand-highlight-shading</code></strong> is a lightened version of the
 highlight colour.</p>
 <pre><code>$brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
 </code></pre>

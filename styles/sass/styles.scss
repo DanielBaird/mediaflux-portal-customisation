@@ -85,7 +85,7 @@ for more information.
 // For a minimal customisation, set this one colour.
 //
 // If you have a marketing / identify plan it probably specifies
-// a `**brand-color**`; or you can select one of the colours 
+// a **`brand-color`**; or you can select one of the colours 
 // specified below. Choose something that is dark enough to 
 // support white text.
 //
@@ -97,7 +97,7 @@ $brand-color: rgb(128, 0, 128); // purple
 $brand-color: rgb(139, 69, 19); // brown
 $brand-color: rgb(51, 102, 153); // denim blue
 
-// The `**brand-highlight-color**` is a bright contrast to your
+// The **`brand-highlight-color`** is a bright contrast to your
 // brand colour, used to draw attention. Here it is created as 
 // the complement of your brand colour, lightened up a bit.
 //
@@ -105,18 +105,18 @@ $brand-highlight-color: scale-color(
 	adjust-hue($brand-color, 180deg), $saturation: 100%, $lightness: 33%
 );
 
-// `**dark-brand-color**` is a darker version of your branding 
+// **`dark-brand-color`** is a darker version of your branding 
 // colour, used where vivid colour is less appropriate, for
 // example the text colour for headings.
 //
 $dark-brand-color: scale-color($brand-color, $lightness: -33%);
 
-// `**brand-shading**` is a light background colour, used behind
+// **`brand-shading`** is a light background colour, used behind
 // dark text.
 //
 $brand-shading: scale-color($brand-color, $lightness: 90%);
 
-// `**brand-highlight-shading**` is a lightened version of the
+// **`brand-highlight-shading`** is a lightened version of the
 // highlight colour.
 //
 $brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
