@@ -290,25 +290,25 @@ $brand-color: rgb(128, 0, 128); // purple
 $brand-color: rgb(139, 69, 19); // brown
 $brand-color: rgb(51, 102, 153); // denim blue
 </code></pre>
+<p>The <code>**brand-highlight-color**</code> is a bright contrast to your
+brand colour, used to draw attention. Here it is created as
+the complement of your brand colour, lightened up a bit.</p>
+<pre><code>$brand-highlight-color: scale-color(
+	adjust-hue($brand-color, 180deg), $saturation: 100%, $lightness: 33%
+);
+</code></pre>
 <p><code>**dark-brand-color**</code> is a darker version of your branding
 colour, used where vivid colour is less appropriate, for
 example the text colour for headings.</p>
 <pre><code>$dark-brand-color: scale-color($brand-color, $lightness: -33%);
 </code></pre>
-<p><code>**brand-shading**</code> is a light backround colour, used behind
+<p><code>**brand-shading**</code> is a light background colour, used behind
 dark text.</p>
 <pre><code>$brand-shading: scale-color($brand-color, $lightness: 90%);
 </code></pre>
-<p>The <code>**brand-highlight-color**</code> is a bright contrast to your
-brand colour, used to draw attention. By default it is the
-your brand colour rotated two-thirds of the colour wheel and
-brightened.</p>
 <p><code>**brand-highlight-shading**</code> is a lightened version of the
 highlight colour.</p>
-<pre><code>$brand-highlight-color: scale-color(
-	adjust-hue($brand-color, 180deg), $saturation: 100%, $lightness: 33%
-);
-$brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
+<pre><code>$brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
 </code></pre>
 <p><svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg></p>
 <h4>Overall page level variables</h4>

@@ -5,7 +5,7 @@ digraph {
 # make the layout not suck
 
 rankdir=LR
-ranksep=1
+ranksep=2
 node [style="rounded,filled",fillcolor="#ffffff",
 	shape="box",fontname="sans",width="3"]
 

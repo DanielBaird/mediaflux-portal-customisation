@@ -97,28 +97,28 @@ $brand-color: rgb(128, 0, 128); // purple
 $brand-color: rgb(139, 69, 19); // brown
 $brand-color: rgb(51, 102, 153); // denim blue
 
+// The `**brand-highlight-color**` is a bright contrast to your
+// brand colour, used to draw attention. Here it is created as 
+// the complement of your brand colour, lightened up a bit.
+//
+$brand-highlight-color: scale-color(
+	adjust-hue($brand-color, 180deg), $saturation: 100%, $lightness: 33%
+);
+
 // `**dark-brand-color**` is a darker version of your branding 
 // colour, used where vivid colour is less appropriate, for
 // example the text colour for headings.
 //
 $dark-brand-color: scale-color($brand-color, $lightness: -33%);
 
-// `**brand-shading**` is a light backround colour, used behind
+// `**brand-shading**` is a light background colour, used behind
 // dark text.
 //
 $brand-shading: scale-color($brand-color, $lightness: 90%);
 
-// The `**brand-highlight-color**` is a bright contrast to your
-// brand colour, used to draw attention. By default it is the
-// your brand colour rotated two-thirds of the colour wheel and
-// brightened.
-// 
 // `**brand-highlight-shading**` is a lightened version of the
 // highlight colour.
 //
-$brand-highlight-color: scale-color(
-	adjust-hue($brand-color, 180deg), $saturation: 100%, $lightness: 33%
-);
 $brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
 
 // <svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg>
