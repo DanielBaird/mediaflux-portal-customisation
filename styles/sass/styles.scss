@@ -1672,9 +1672,9 @@ fieldset.mf-file-upload-item {
 // - `276d` and `276c`: ❭ ❬ light angle quotes/brackets
 // - `276f` and `276e`: ❯ ❮ heavy angle quotes/brackets
 //
+// Alternatively remove the `&:before` and `&:after` lines
+// below for no ornaments.
 //
-
-
 .mf-file-upload-info .mf-form-item-prompt {
 	display: block;
 	color: $control-border-color;

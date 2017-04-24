@@ -312,7 +312,6 @@ highlight colour.</p>
 </code></pre>
 <p><svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg></p>
 <h4>Overall page level variables</h4>
-<p>Text size</p>
 <p>Most of the page layout is adjusted to suit the size of
 text on the page.  Set this to <code>small</code>, <code>medium</code>, or <code>large</code>.</p>
 <p>Remember that although smaller text usually looks &quot;nicer&quot;,
@@ -491,8 +490,9 @@ by default, <code>150px</code>).  To support high-resolution &quot;retina&quot;
 displays, set your XML to double this number (e.g. use <code>300</code>
 as the size in your portal XML, and <code>150px</code> as the size here).</p>
 <p>TODO: confirm default pixel size</p>
-<p>/* $thumbnail-size: 7rem; */
-$thumbnail-size: 150px;</p>
+<pre><code> /* $thumbnail-size: 7rem; */
+$thumbnail-size: 150px;
+</code></pre>
 <p>Thumbnails also receive a border.</p>
 <pre><code>$thumbnail-border-color: $content-background;
 $thumbnail-border-width: 0.5rem;
@@ -508,16 +508,14 @@ necessary so the entire thumbnail image fits into the box
 (possibly leaving some empty space in the thumbnail box)</p>
 </li>
 <li>
-<p><code>horizontal</code>: zoom the thumbnail to exactly fit the
-width, leaving the top and bottom of the thumbnail to have
-some blank space (if it's a wide thumbnail) or spill over the
-edges and be clipped (if it's a tall thumbnail)</p>
+<p><code>horizontal</code>: make the thumbnail exactly fit the width,
+and either clip off the top and bottom (if it's too tall)
+or add space at the top and bottom (if it's too short).</p>
 </li>
 <li>
-<p><code>vertical</code>: zoom the thumbnail to exactly fit the
-height, leaving the sides of the thumbnail to have some blank
-space (if it's a tall thumbnail) or spill over the edges and
-be clipped (if it's a wide thumbnail)</p>
+<p><code>vertical</code>: make the thumbnail exactly fit the height,
+and either clip the sides (if it's too wide) or add space
+at the sides (if it's too narrow).</p>
 <p>$thumbnail-fit: vertical;</p>
 </li>
 </ul>
@@ -1304,7 +1302,7 @@ default spacing.</p>
 <h3>A single result</h3>
 <p>This addresses the content of the single result in the list.</p>
 <pre><code>.mf-listed-result {
-	position: relative; /* for play button positoning */
+	position: relative; /* for play button positioning */
 	display: block;
     background: $result-background;
     margin: $result-padding 0;
@@ -1666,21 +1664,20 @@ a <code>&lt;div class=&quot;mf-file-upload-info&quot;&gt;</code> receives dragge
 the &quot;drag files here&quot; message, but you could use other
 typographic decorations for a more ornamental look.</p>
 <ul>
-<li>
-<p><code>276d</code> and <code>276c</code>: ❭ ❬ light angle quotes/brackets</p>
-</li>
-<li>
-<p><code>276f</code> and <code>276e</code>: ❯ ❮ heavy angle quotes/brackets</p>
-<p>.mf-file-upload-info .mf-form-item-prompt {
-display: block;
-color: $control-border-color;
-text-transform: lowercase;
-padding: 0.33rem 0 1rem;
-&amp;:before { content: '\276f\0020' }
-&amp;:after  { content: '\0020\276e' }
-}</p>
-</li>
+<li><code>276d</code> and <code>276c</code>: ❭ ❬ light angle quotes/brackets</li>
+<li><code>276f</code> and <code>276e</code>: ❯ ❮ heavy angle quotes/brackets</li>
 </ul>
+<p>Alternatively remove the <code>&amp;:before</code> and <code>&amp;:after</code> lines
+below for no ornaments.</p>
+<pre><code>.mf-file-upload-info .mf-form-item-prompt {
+	display: block;
+	color: $control-border-color;
+	text-transform: lowercase;
+	padding: 0.33rem 0 1rem;
+	&amp;:before { content: '\276f\0020' }
+	&amp;:after  { content: '\0020\276e' }
+}
+</code></pre>
 <p>Files ready to be uploaded are listed in a table.  This gives
 that table shaded headings and a little padding around the
 content.</p>
