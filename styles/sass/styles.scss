@@ -124,8 +124,6 @@ $brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
 // <svg class="diag"><use class="highlight" xlink:href="#diag"></use></svg>
 // #### Overall page level variables
 
-// Text size
-//
 // Most of the page layout is adjusted to suit the size of
 // text on the page.  Set this to `small`, `medium`, or `large`.
 // 
@@ -345,6 +343,7 @@ $result-dropshadow: none;
 //
 // TODO: confirm default pixel size
 //
+
 /* $thumbnail-size: 7rem; */
 $thumbnail-size: 150px;
 
@@ -362,14 +361,12 @@ $thumbnail-border-width: 0.5rem;
 // * `none`: don't trim any of the thumbnail, shrinking it as
 // necessary so the entire thumbnail image fits into the box
 // (possibly leaving some empty space in the thumbnail box)
-// * `horizontal`: zoom the thumbnail to exactly fit the
-// width, leaving the top and bottom of the thumbnail to have
-// some blank space (if it's a wide thumbnail) or spill over the
-// edges and be clipped (if it's a tall thumbnail)
-// * `vertical`: zoom the thumbnail to exactly fit the
-// height, leaving the sides of the thumbnail to have some blank
-// space (if it's a tall thumbnail) or spill over the edges and
-// be clipped (if it's a wide thumbnail)
+// * `horizontal`: make the thumbnail exactly fit the width,
+// and either clip off the top and bottom (if it's too tall) 
+// or add space at the top and bottom (if it's too short).
+// * `vertical`: make the thumbnail exactly fit the height,
+// and either clip the sides (if it's too wide) or add space
+// at the sides (if it's too narrow).
 //
 $thumbnail-fit: vertical;
 
