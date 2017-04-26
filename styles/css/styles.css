@@ -744,17 +744,20 @@ body.mf-modal-show {
   margin-top: 1rem;
   padding: 1rem 0; }
 
-.mf-modal-container fieldset > div[style] {
+.mf-modal-container .mf-asset-metadata-fieldset > div {
+  max-width: max-content;
   margin: 0 auto;
-  /* centre the unstyleable block */ }
-  .mf-modal-container fieldset > div[style] .gwt-Label {
+  /* centre the unstyle-able block */ }
+  .mf-modal-container .mf-asset-metadata-fieldset > div .gwt-Label {
     /* try to position labels in line */
     position: relative;
-    top: 8px; }
-  .mf-modal-container fieldset > div[style] table table table img {
+    top: 8px;
+    min-width: 6em;
+    padding-right: 0.33em; }
+  .mf-modal-container .mf-asset-metadata-fieldset > div table table table img {
     /* try to position the dropdown images in line */
     position: relative;
-    top: 4px; }
+    top: 3px; }
 
 fieldset.mf-file-upload-item {
   padding: 1rem 0;

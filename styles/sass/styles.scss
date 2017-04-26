@@ -1550,7 +1550,7 @@ $modal-bg-bar-color-B: transparentize($content-background, 0.1);
 // you're trying to scroll a long dialogue.
 //
 // This doesn't always work (often, the page behind the modal
-// dialogue will scroll insteaod of staying fixed) thanks to a 
+// dialogue will scroll instead of staying fixed) thanks to a 
 // quirk of the GWT system that Mediaflux uses to produce Portal 
 // sites.
 // 
@@ -1637,15 +1637,18 @@ body.mf-modal-show {
 	margin-top: 1rem;
 	padding: 1rem 0;
 }
-.mf-modal-container fieldset > div[style] {
-	margin: 0 auto; /* centre the unstyleable block */
+.mf-modal-container .mf-asset-metadata-fieldset > div {
+	max-width: max-content;
+	margin: 0 auto; /* centre the unstyle-able block */
 	& .gwt-Label {
 		/* try to position labels in line */
 		position: relative; top: 8px;
+		min-width: 6em;
+		padding-right: 0.33em;
 	}
-	& table table table img { 
+	& table table table img {
 		/* try to position the dropdown images in line */
-		position: relative; top: 4px; 
+		position: relative; top: 3px; 
 	}
 }
 

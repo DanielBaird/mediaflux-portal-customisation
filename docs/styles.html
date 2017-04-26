@@ -1558,7 +1558,7 @@ there's a modal dialogue showing. This rule uses that class to
 make sure the content in the background doesn't scroll when
 you're trying to scroll a long dialogue.</p>
 <p>This doesn't always work (often, the page behind the modal
-dialogue will scroll insteaod of staying fixed) thanks to a
+dialogue will scroll instead of staying fixed) thanks to a
 quirk of the GWT system that Mediaflux uses to produce Portal
 sites.</p>
 <pre><code>body.mf-modal-show {
@@ -1634,15 +1634,18 @@ applied here.</p>
 	margin-top: 1rem;
 	padding: 1rem 0;
 }
-.mf-modal-container fieldset &gt; div[style] {
-	margin: 0 auto; /* centre the unstyleable block */
+.mf-modal-container .mf-asset-metadata-fieldset &gt; div {
+	max-width: max-content;
+	margin: 0 auto; /* centre the unstyle-able block */
 	&amp; .gwt-Label {
 		/* try to position labels in line */
 		position: relative; top: 8px;
+		min-width: 6em;
+		padding-right: 0.33em;
 	}
-	&amp; table table table img { 
+	&amp; table table table img {
 		/* try to position the dropdown images in line */
-		position: relative; top: 4px; 
+		position: relative; top: 3px; 
 	}
 }
 </code></pre>
