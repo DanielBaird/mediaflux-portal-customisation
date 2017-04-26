@@ -847,6 +847,9 @@ content from touching the edges of the screen.</p>
 	max-width: $column-max-width;
 	margin: 0 auto;
 	padding: 0 1rem 3rem;
+
+	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+	&amp;::after { content: &quot; &quot;; display: block; clear: both; }
 }
 </code></pre>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-foot"></use></svg></p>

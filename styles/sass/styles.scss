@@ -749,6 +749,9 @@ form {
 	max-width: $column-max-width;
 	margin: 0 auto;
 	padding: 0 1rem 3rem;
+
+	/* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+	&::after { content: " "; display: block; clear: both; }
 }
 
 // <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-foot"></use></svg>

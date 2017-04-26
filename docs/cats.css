@@ -282,7 +282,12 @@ form {
   color: #333;
   max-width: 57rem;
   margin: 0 auto;
-  padding: 0 1rem 3rem; }
+  padding: 0 1rem 3rem;
+  /* clearfix: http://cssmojo.com/the-very-latest-clearfix-reloaded/ */ }
+  .mf-page::after {
+    content: " ";
+    display: block;
+    clear: both; }
 
 .mf-footer {
   background: #fff;
