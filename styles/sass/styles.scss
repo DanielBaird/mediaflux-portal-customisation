@@ -132,7 +132,7 @@ $brand-highlight-shading: scale-color($brand-highlight-color, $lightness: 80%);
 // reading text. They may not have perfect vision, and may not
 // have a screen as nice as yours.
 //
-$text-size: medium;
+$text-size: small;
 
 // Default the general page colours to to white background and
 // dark text (not quite black, to avoid harsh contrast).
@@ -368,7 +368,7 @@ $thumbnail-border-width: 0.5rem;
 // and either clip the sides (if it's too wide) or add space
 // at the sides (if it's too narrow).
 //
-$thumbnail-fit: vertical;
+$thumbnail-fit: none;
 
 
 // ###### Download button

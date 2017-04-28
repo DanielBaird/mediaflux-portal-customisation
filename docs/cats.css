@@ -161,9 +161,9 @@ html {
 html {
   overflow-x: hidden;
   /* avoid odd widths on narrow screens */
-  font-size: 16px;
+  font-size: 13px;
   /* for browsers that don't support calc() */
-  font-size: calc(14px + 0.35vw);
+  font-size: calc(11px + 0.35vw);
   /* grow font size on wider screen */ }
 
 body {
@@ -575,7 +575,8 @@ form {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 150px; }
+  max-width: 150px;
+  max-height: 150px; }
 
 .mf-result-title {
   color: #224467;
