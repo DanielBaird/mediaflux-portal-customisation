@@ -161,9 +161,9 @@ html {
 html {
   overflow-x: hidden;
   /* avoid odd widths on narrow screens */
-  font-size: 13px;
+  font-size: 16px;
   /* for browsers that don't support calc() */
-  font-size: calc(11px + 0.35vw);
+  font-size: calc(14px + 0.35vw);
   /* grow font size on wider screen */ }
 
 body {
