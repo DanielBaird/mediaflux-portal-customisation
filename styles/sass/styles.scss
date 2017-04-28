@@ -1311,6 +1311,7 @@ form {
 // the space.
 //
 .mf-result-thumbnail-wrapper {
+	box-sizing: content-box;
     float: right;
     margin: 0 0 $result-padding 0.5rem;
     position: relative;

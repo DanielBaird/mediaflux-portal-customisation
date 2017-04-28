@@ -560,6 +560,7 @@ form {
   margin-top: 0; }
 
 .mf-result-thumbnail-wrapper {
+  box-sizing: content-box;
   float: right;
   margin: 0 0 1rem 0.5rem;
   position: relative;
