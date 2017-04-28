@@ -784,6 +784,25 @@ form {
     }
 }
 
+// <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-head"></use><use class="highlight" xlink:href="#diag-foot"></use></svg>
+// ## Header and footer tools ###################################
+//
+// Content for your portal header and footer is copied more-or-less
+// directly into the portal's web page. The `.mf-page-block` class
+// defined below will give an element the same width and alignment
+// as the rest of the portal page.
+//
+// For example, if you wanted a header with an image background that 
+// spans the full browser window, and within that, a text heading 
+// with left and right edges that line up with the rest of the page
+// column, you can apply this class to your text heading.
+//
+.mf-page-block {
+	max-width: $column-max-width;
+	margin: 0 auto;
+}
+
+
 // <svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-content"></use></svg>
 // ## Static page content #######################################
 //

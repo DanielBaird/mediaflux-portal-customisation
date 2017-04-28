@@ -879,6 +879,21 @@ to mouse hover, if the <code>$footer-fade</code> variable is set to
     }
 }
 </code></pre>
+<p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-head"></use><use class="highlight" xlink:href="#diag-foot"></use></svg></p>
+<h2>Header and footer tools</h2>
+<p>Content for your portal header and footer is copied more-or-less
+directly into the portal's web page. The <code>.mf-page-block</code> class
+defined below will give an element the same width and alignment
+as the rest of the portal page.</p>
+<p>For example, if you wanted a header with an image background that
+spans the full browser window, and within that, a text heading
+with left and right edges that line up with the rest of the page
+column, you can apply this class to your text heading.</p>
+<pre><code>.mf-page-block {
+	max-width: $column-max-width;
+	margin: 0 auto;
+}
+</code></pre>
 <p><svg class="diag"><use xlink:href="#diag"></use><use class="highlight" xlink:href="#diag-content"></use></svg></p>
 <h2>Static page content</h2>
 <p>Static pages are laid out as a heading, rendered as a <code>h1</code> tag

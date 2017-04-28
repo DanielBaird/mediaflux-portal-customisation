@@ -302,6 +302,10 @@ form {
   .mf-footer:hover {
     opacity: 1; }
 
+.mf-page-block {
+  max-width: 57rem;
+  margin: 0 auto; }
+
 .mf-static-page {
   padding-top: 2rem; }
 
