@@ -526,7 +526,7 @@ form {
   content: "→"; }
 
 @media (min-width: 49rem) {
-  .mf-collection-paging {
+  .mf-collection-sidebar ~ .mf-collection-paging {
     margin-left: 14rem;
     padding-left: 1rem; } }
 .mf-result-list {
@@ -660,7 +660,7 @@ form {
   background-color: rgba(222, 255, 253, 0.5); }
 
 @media (min-width: 49rem) {
-  .mf-result-list {
+  .mf-collection-sidebar ~ .mf-result-list {
     margin-left: 14rem;
     padding-left: 1rem; } }
 .mf-modal-wrapper {

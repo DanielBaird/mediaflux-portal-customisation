@@ -1260,7 +1260,7 @@ form {
 // (to allow the sidebar to fit into that space).
 //
 @media (min-width: $sidebar-width + $content-min-width) {
-	.mf-collection-paging {
+	.mf-collection-sidebar ~ .mf-collection-paging {
 		margin-left: $sidebar-width;
 		padding-left: 1rem;
 	}
@@ -1502,7 +1502,7 @@ form {
 // to the wide-screen formatting for the page navigation.
 //
 @media (min-width: $sidebar-width + $content-min-width) {
-	.mf-result-list {
+	.mf-collection-sidebar ~ .mf-result-list {
 		margin-left: $sidebar-width;
 		padding-left: $result-padding;
 	}
